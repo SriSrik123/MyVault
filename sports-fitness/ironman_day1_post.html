@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where I Started — Ironman Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d0d0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .post {
+    width: 1080px;
+    height: 1080px;
+    background: #0d0d0d;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 90px;
+  }
+
+  /* Subtle background texture */
+  .post::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 80% 10%, rgba(255,90,0,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 90%, rgba(255,90,0,0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Corner accent lines */
+  .corner-tl, .corner-br {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+  }
+  .corner-tl {
+    top: 50px;
+    left: 50px;
+    border-top: 1px solid rgba(255,90,0,0.5);
+    border-left: 1px solid rgba(255,90,0,0.5);
+  }
+  .corner-br {
+    bottom: 50px;
+    right: 50px;
+    border-bottom: 1px solid rgba(255,90,0,0.5);
+    border-right: 1px solid rgba(255,90,0,0.5);
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 60px;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    color: rgba(255,90,0,0.9);
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  .title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 92px;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
+  .date-block {
+    text-align: right;
+    padding-top: 6px;
+  }
+
+  .date-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .date-val {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.05em;
+  }
+
+  /* Stat rows */
+  .stats {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+    padding: 44px 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    position: relative;
+  }
+
+  .stat-row:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .sport-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sport-icon {
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .sport-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .sport-date {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: rgba(255,90,0,0.7);
+    text-transform: uppercase;
+  }
+
+  .stat-numbers {
+    display: flex;
+    gap: 60px;
+    align-items: flex-end;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 64px;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+    line-height: 1;
+  }
+
+  .stat-unit {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .stat-note {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+  }
+
+  /* Highlight accent on first number of each row */
+  .stat-row:hover .stat-val { color: #FF5A00; }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 40px;
+  }
+
+  .caption {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    max-width: 500px;
+    line-height: 1.7;
+  }
+
+  .hashtag {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: rgba(255,90,0,0.45);
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 2;
+  }
+
+  /* Thin vertical accent line */
+  .accent-line {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 0;
+    background: rgba(255,90,0,0.25);
+    animation: grow 1.2s ease forwards;
+    animation-delay: 0.3s;
+  }
+
+  @keyframes grow {
+    to { height: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="corner-tl"></div>
+  <div class="corner-br"></div>
+
+  <div class="header">
+    <div>
+      <div class="tag">Ironman Training — Day 1</div>
+      <div class="title">Where I<br>Started</div>
+    </div>
+    <div class="date-block">
+      <div class="date-label">Training start</div>
+      <div class="date-val">APR 2026</div>
+    </div>
+  </div>
+
+  <div class="stats">
+
+    <!-- SWIM -->
+    <div class="stat-row">
+      <div class="sport-label">
+        <div class="sport-icon">🏊</div>
+        <div class="sport-name">Swim</div>
+        <div class="sport-date">Apr 26</div>
+      </div>
+      <div class="stat-numbers">
+        <div class="stat-item">
+          <div class="stat-val">1,839</div>
+          <div class="stat-unit">yards</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">24:15</div>
+          <div class="stat-unit">Time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val" style="font-size:42px; color: rgba(255,255,255,0.45)">1:19</div>
+          <div class="stat-unit">/ 100yd pace</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RUN -->
+    <div class="stat-row">
+      <div class="sport-label">
+        <div class="sport-icon">🏃</div>
+        <div class="sport-name">Run</div>
+        <div class="sport-date">Apr 22</div>
+      </div>
+      <div class="stat-numbers">
+        <div class="stat-item">
+          <div class="stat-val">3.32</div>
+          <div class="stat-unit">miles</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">33:54</div>
+          <div class="stat-unit">Time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val" style="font-size:42px; color: rgba(255,255,255,0.45)">10:13</div>
+          <div class="stat-unit">/ mi pace</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BIKE -->
+    <div class="stat-row">
+      <div class="sport-label">
+        <div class="sport-icon">🚴</div>
+        <div class="sport-name">Bike</div>
+        <div class="sport-date">May 1</div>
+      </div>
+      <div class="stat-numbers">
+        <div class="stat-item">
+          <div class="stat-val">30.0</div>
+          <div class="stat-unit">miles</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">1:57</div>
+          <div class="stat-unit">Time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val" style="font-size:42px; color: rgba(255,255,255,0.45)">15.3</div>
+          <div class="stat-unit">mph avg</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="caption">These are the numbers.<br>Nowhere to go but forward.</div>
+    <div class="hashtag">
+      #ironmantraining<br>
+      #triathlon<br>
+      #day1
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

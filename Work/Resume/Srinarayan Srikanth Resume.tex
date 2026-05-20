@@ -1,0 +1,183 @@
+\documentclass[letterpaper,10.8pt]{article} % slightly smaller font
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Tighter margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.25in}
+\addtolength{\topmargin}{-.8in}
+\addtolength{\textheight}{1.6in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+\pdfgentounicode=1
+
+% Custom commands with tighter spacing
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+% Tighter lists
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}, itemsep=1pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \scshape Srinarayan Srikanth} \\ \vspace{1pt}
+    Princeton, NJ | Philadelphia, PA \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ 609-721-4494 ~ 
+    \href{mailto:Srinarayan.Srikanth@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{Srinarayan.Srikanth@gmail.com}} ~ 
+    \href{https://www.linkedin.com/in/srinarayan-srikanth-bb2750259/}{\raisebox{-0.2\height}\faLinkedin\ \underline{LinkedIn}} ~
+    \href{https://srisrikanth.com/}{\raisebox{-0.2\height}\faGlobe\ \underline{Portfolio}} ~
+    \href{https://github.com/SriSrik123}{\raisebox{-0.2\height}\faGithub\ \underline{GitHub}} ~
+    \href{https://www.hackerrank.com/profile/hellosri2006}{\raisebox{-0.2\height}\faCode\ \underline{HackerRank}}
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------SUMMARY-----------
+\section{Summary}
+Passionate Computer Science student with hands-on experience building AI agents to optimize workflows. Skilled in applying real-world solutions through internships at companies like Comcast and Neural Metrics. Brings a diverse perspective from academic and professional experiences in both the U.S. and India.
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Drexel University}{Class of 2029}
+      {B.S. Computer Science}{Philadelphia, PA}
+      \resumeItemListStart
+        \resumeItem{A.J. Drexel Scholarship Recipient}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+  {Comcast Corporation}{Sept. 2025 -- Present}
+  {AI Strategy, Development \& Transformation Co-op}{Philadelphia, PA}
+  \resumeItemListStart
+  \resumeItem{Engineered a multi-agent AI simulation platform to accelerate strategic decision-making, presenting capabilities directly to C-suite executives to drive enterprise-wide innovation and explore new ideas.}
+  \resumeItem{Collaborated with diverse business units to integrate the simulation tool, tailoring high-impact AI use cases to streamline departmental preparation and optimize operational workflows.}
+  \resumeItem{Spearheaded research into agentic commerce and emerging enterprise AI trends, representing the AI Strategy Development and Implementation team at industry conferences to benchmark external innovations.}
+  \resumeItem{Evaluated AI startups and partnerships to support go-to-market strategies, prototyping and demoing new technologies for potential deployment within the company's broader ecosystem.}
+\resumeItemListEnd
+
+
+    \resumeSubheading
+      {NeuralMetrics}{July 2025 -- Aug. 2025}
+      {AI Product Intern}{Chennai, India}
+      \resumeItemListStart
+        \resumeItem{Developed AI-driven intelligent code verification system integrated with Bitbucket \& Jira, reducing manual review effort by 50\%.}
+        \resumeItem{Built scalable FastAPI backend and AI-powered PDF extraction tool using OpenCV, Tesseract, Regex, PyMuPDF, LayoutParser.}
+        \resumeItem{Streamlined CI/CD with Jenkins, Docker, and AWS (Bedrock, ECS, Lambda, EC2).}
+        \resumeItem{Implemented AI Ops logging framework for monitoring model performance and anomaly detection.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {Coached – AI Fitness Tracking App}{2025 Passion Project}
+      {Tech Stack: React Native, TypeScript, Supabase, Google Gemini}{}
+      \resumeItemListStart
+        \resumeItem{Full-stack AI app delivering sport-specific workout plans, analytics, and social features.}
+        \resumeItem{Implemented Gemini-powered personalized coaching; native builds with Capacitor for iOS/Android.}
+        \resumeItem{Interactive UI with Radix UI and shadcn/ui; backend/authentication via Supabase.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {ASlearn – AI Sign Language Platform}{2025 Philly CodeFest}
+      {Tech Stack: React.js, Flask, PyTorch, AWS}{}
+      \resumeItemListStart
+        \resumeItem{Built real-time sign recognition app with YOLOv5 and PyTorch for gesture detection.}
+        \resumeItem{Flask backend deployed on AWS for scalable low-latency access.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \small{\item{
+     \textbf{Microsoft} – Azure AI Essentials Professional Certificate \\
+     \textbf{IIT (Mar 2024–Mar 2025)} – Full Stack Web Development \\
+     \textbf{LinkedIn Learning} – Prompt Engineering, JIRA, Agile Software Development, Foundations in AI \\
+     \textbf{DeepLearning.AI} – AI with Python \\
+     \textbf{HackerRank} – Java, Python, React.js, CSS, Frontend Developer, Software Engineer, Problem Solving
+    }}
+ \end{itemize}
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \small{\item{
+     \textbf{Languages}{: Python, Java, C++, Swift, SQL, JavaScript, TypeScript, HTML/CSS} \\
+     \textbf{Frontend}{: React, Angular, Tailwind CSS, React Query, React Hook Form, Recharts, Next-Themes, Lucide React} \\
+     \textbf{Backend/DB}{: Flask, FastAPI, Supabase, Firebase, REST API} \\
+     \textbf{Cloud}{: Azure (CosmosDB, AI Foundry), AWS (Bedrock, Lambda, Secrets Manager, ECS, EC2, Dynamo DB) Render, Vercel} \\
+     \textbf{AI/ML}{: PyTorch, YOLOvX, OpenCV, NLP, Tesseract, Regex, Gemini, Mistral, OpenAI, Qwen, Llama, PyMuPDF, LayoutParser} \\
+     \textbf{Tools}{: VS Code, Jenkins, Docker, PostCSS, Date-fns, Capacitor} \\
+     \textbf{Version Control}{: GitHub, GitLab, Bitbucket} \\
+     \textbf{Other}{: Final Cut Pro X, FAA-Certified Drone Pilot}
+    }}
+ \end{itemize}
+
+%-----------EXTRACURRICULAR-----------
+%-----------EXTRACURRICULAR-----------
+\section{American National Team Swimmer}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \small{\item{
+     Captain - PTAC Swim Club; won 20+ gold medals at state and regional meets. (2016–2024)
+    }}
+ \end{itemize}
+
+\end{document}

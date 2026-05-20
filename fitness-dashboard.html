@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri · Fitness Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #07090e;
+    --bg2: #0c0f18;
+    --bg3: #111520;
+    --border: rgba(255,255,255,0.06);
+    --border-bright: rgba(255,255,255,0.12);
+    --text: #e8ecf5;
+    --text-dim: #6b7280;
+    --text-mid: #9ca3af;
+    --accent: #00e5c8;
+    --accent2: #3b82f6;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --green: #22c55e;
+    --green-dim: rgba(34,197,94,0.15);
+    --yellow-dim: rgba(245,158,11,0.15);
+    --red-dim: rgba(239,68,68,0.15);
+    --swim: #06b6d4;
+    --run: #f97316;
+    --lift: #8b5cf6;
+    --cycle: #10b981;
+    --glow: 0 0 40px rgba(0,229,200,0.08);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Ambient bg */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px; left: -200px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(0,229,200,0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -150px; right: -150px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(59,130,246,0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: relative;
+    z-index: 10;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(7,9,14,0.8);
+    backdrop-filter: blur(12px);
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo-mark {
+    width: 36px; height: 36px;
+    background: var(--accent);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .header-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .header-sub {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    margin-top: 1px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .live-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+
+  .live-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  .date-stamp {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── MAIN GRID ── */
+  main {
+    position: relative;
+    z-index: 1;
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: var(--border-bright); }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .card:hover::before { opacity: 0.4; }
+
+  .card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+  }
+
+  /* ── RECOVERY HERO ── */
+  .recovery-hero {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 20px;
+  }
+
+  .recovery-score-wrap {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 8px 0 20px;
+  }
+
+  .recovery-score-wrap canvas {
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  .recovery-score-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .recovery-num {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--red);
+  }
+  .recovery-num.yellow { color: var(--yellow); }
+  .recovery-num.green { color: var(--green); }
+
+  .recovery-pct {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-dim);
+    display: block;
+    margin-top: -2px;
+  }
+
+  .recovery-status {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    background: var(--red-dim);
+    color: var(--red);
+    border: 1px solid rgba(239,68,68,0.2);
+    margin-bottom: 20px;
+  }
+  .recovery-status.yellow { background: var(--yellow-dim); color: var(--yellow); border-color: rgba(245,158,11,0.2); }
+  .recovery-status.green { background: var(--green-dim); color: var(--green); border-color: rgba(34,197,94,0.2); }
+
+  .vitals-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .vital-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .vital-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .vital-unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-left: 2px;
+  }
+
+  .vital-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── RECOVERY TREND ── */
+  .recovery-trend {
+    grid-column: 2 / 4;
+    grid-row: 1;
+  }
+
+  .chart-wrap {
+    height: 160px;
+    position: relative;
+  }
+
+  /* ── SLEEP ── */
+  .sleep-card {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .sleep-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .sleep-stage {
+    text-align: center;
+    padding: 10px 6px;
+    border-radius: 8px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+  }
+
+  .stage-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .stage-name {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .sleep-bar-wrap {
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--bg3);
+    display: flex;
+    gap: 1px;
+    margin-bottom: 10px;
+  }
+
+  .sleep-bar-seg { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
+
+  .sleep-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  .sleep-meta span { color: var(--text); }
+
+  /* ── WORKOUTS ── */
+  .workouts-card {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .workout-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .workout-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    border-radius: 8px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .workout-row:hover { border-color: var(--border-bright); }
+
+  .sport-icon {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+
+  .sport-swim { background: rgba(6,182,212,0.15); color: var(--swim); border: 1px solid rgba(6,182,212,0.2); }
+  .sport-run { background: rgba(249,115,22,0.15); color: var(--run); border: 1px solid rgba(249,115,22,0.2); }
+  .sport-lift { background: rgba(139,92,246,0.15); color: var(--lift); border: 1px solid rgba(139,92,246,0.2); }
+  .sport-cycle { background: rgba(16,185,129,0.15); color: var(--cycle); border: 1px solid rgba(16,185,129,0.2); }
+
+  .workout-info { flex: 1; min-width: 0; }
+
+  .workout-sport {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .workout-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 1px;
+  }
+
+  .workout-strain {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .workout-hr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    text-align: right;
+    margin-top: 1px;
+  }
+
+  .strain-badge {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  /* ── TRAINING PLAN ── */
+  .training-card {
+    grid-column: 1 / 4;
+    grid-row: 3;
+  }
+
+  .week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+
+  .day-cell {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .day-cell.today {
+    border-color: var(--accent);
+    background: rgba(0,229,200,0.05);
+    box-shadow: 0 0 20px rgba(0,229,200,0.08);
+  }
+
+  .day-cell.today::before {
+    content: 'TODAY';
+    position: absolute;
+    top: 6px; right: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .day-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+
+  .day-cell.today .day-name { color: var(--accent); }
+
+  .day-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1;
+  }
+
+  .session-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .session-tag {
+    font-size: 11px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    padding: 3px 0;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .tag-swim { color: var(--swim); background: rgba(6,182,212,0.1); }
+  .tag-run { color: var(--run); background: rgba(249,115,22,0.1); }
+  .tag-lift { color: var(--lift); background: rgba(139,92,246,0.1); }
+  .tag-bike { color: var(--cycle); background: rgba(16,185,129,0.1); }
+
+  /* ── STRAIN / HRV chart section ── */
+  .strain-section {
+    grid-column: 1 / 4;
+    grid-row: 4;
+  }
+
+  /* ── PRs ── */
+  .prs-card {
+    grid-column: 1 / 2;
+    grid-row: 4;
+  }
+
+  .pr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .pr-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+
+  .pr-event {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.05em;
+  }
+
+  .pr-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .pr-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Charts section ── */
+  .charts-row {
+    grid-column: 1 / 4;
+    grid-row: 4;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 16px;
+  }
+
+  .hrv-section {
+    grid-column: 2 / 4;
+    grid-row: 1;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card { animation: fadeUp 0.4s ease forwards; opacity: 0; }
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.1s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+  .card:nth-child(4) { animation-delay: 0.2s; }
+  .card:nth-child(5) { animation-delay: 0.25s; }
+  .card:nth-child(6) { animation-delay: 0.3s; }
+  .card:nth-child(7) { animation-delay: 0.35s; }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--bg3); border-radius: 3px; }
+
+  /* Strain color helpers */
+  .strain-low { color: #60a5fa; }
+  .strain-med { color: var(--yellow); }
+  .strain-high { color: var(--run); }
+  .strain-max { color: var(--red); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="logo-mark"></div>
+    <div>
+      <div class="header-title">Sri Srikanth · Performance</div>
+      <div class="header-sub">WHOOP · Live Data · May 4, 2026</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="live-badge">
+      <div class="live-dot"></div>
+      LIVE
+    </div>
+    <div class="date-stamp">WEEK 19 · SPRING SEMESTER</div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── RECOVERY HERO ── -->
+  <div class="card recovery-hero">
+    <div class="card-label">Today's Recovery</div>
+
+    <div class="recovery-score-wrap">
+      <canvas id="gaugeChart" width="180" height="180"></canvas>
+      <div class="recovery-score-center">
+        <div class="recovery-num" id="recNum">32</div>
+        <span class="recovery-pct">%</span>
+      </div>
+    </div>
+
+    <div class="recovery-status" id="recStatus">LOW RECOVERY</div>
+
+    <div class="vitals-grid">
+      <div class="vital-item">
+        <div class="vital-value">92<span class="vital-unit">ms</span></div>
+        <div class="vital-label">HRV (RMSSD)</div>
+      </div>
+      <div class="vital-item">
+        <div class="vital-value">46<span class="vital-unit">bpm</span></div>
+        <div class="vital-label">Resting HR</div>
+      </div>
+      <div class="vital-item">
+        <div class="vital-value">96.9<span class="vital-unit">%</span></div>
+        <div class="vital-label">SpO₂</div>
+      </div>
+      <div class="vital-item">
+        <div class="vital-value">34.5<span class="vital-unit">°C</span></div>
+        <div class="vital-label">Skin Temp</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RECOVERY + STRAIN TREND ── -->
+  <div class="card recovery-trend">
+    <div class="section-header">
+      <div class="card-label" style="margin-bottom:0">7-Day Recovery & Strain</div>
+      <div class="section-line"></div>
+      <div style="display:flex;gap:12px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--accent)">● Recovery</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--run)">● Strain</span>
+      </div>
+    </div>
+    <div class="chart-wrap">
+      <canvas id="trendChart"></canvas>
+    </div>
+  </div>
+
+  <!-- ── SLEEP ── -->
+  <div class="card sleep-card">
+    <div class="card-label">Last Night's Sleep</div>
+
+    <div class="sleep-stats">
+      <div class="sleep-stage">
+        <div class="stage-time" style="color:#818cf8">2h 13m</div>
+        <div class="stage-name">DEEP (SWS)</div>
+      </div>
+      <div class="sleep-stage">
+        <div class="stage-time" style="color:#38bdf8">2h 18m</div>
+        <div class="stage-name">REM</div>
+      </div>
+      <div class="sleep-stage">
+        <div class="stage-time" style="color:#64748b">3h 03m</div>
+        <div class="stage-name">LIGHT</div>
+      </div>
+      <div class="sleep-stage">
+        <div class="stage-time" style="color:var(--text)">7h 53m</div>
+        <div class="stage-name">TOTAL</div>
+      </div>
+    </div>
+
+    <!-- Sleep stage bar -->
+    <div class="sleep-bar-wrap">
+      <div class="sleep-bar-seg" style="width:4%; background:#475569"></div>
+      <div class="sleep-bar-seg" style="width:38%; background:#64748b"></div>
+      <div class="sleep-bar-seg" style="width:28%; background:#818cf8"></div>
+      <div class="sleep-bar-seg" style="width:30%; background:#38bdf8"></div>
+    </div>
+
+    <div class="sleep-meta">
+      <div>Performance <span>84%</span></div>
+      <div>Efficiency <span>96.2%</span></div>
+      <div>Resp Rate <span>17.9 rpm</span></div>
+      <div>Cycles <span>6</span></div>
+    </div>
+  </div>
+
+  <!-- ── RECENT WORKOUTS ── -->
+  <div class="card workouts-card">
+    <div class="card-label">Recent Workouts</div>
+    <div class="workout-list">
+
+      <div class="workout-row">
+        <div class="sport-icon sport-run">🏃</div>
+        <div class="workout-info">
+          <div class="workout-sport">Running</div>
+          <div class="workout-date">May 2 · 1h 55m</div>
+        </div>
+        <div>
+          <div class="workout-strain strain-max">16.3</div>
+          <div class="workout-hr">143 avg · 180 max</div>
+        </div>
+      </div>
+
+      <div class="workout-row">
+        <div class="sport-icon sport-cycle">🚴</div>
+        <div class="workout-info">
+          <div class="workout-sport">Cycling</div>
+          <div class="workout-date">May 1 · 2h 30m</div>
+        </div>
+        <div>
+          <div class="workout-strain strain-med">11.9</div>
+          <div class="workout-hr">114 avg · 166 max</div>
+        </div>
+      </div>
+
+      <div class="workout-row">
+        <div class="sport-icon sport-swim">🏊</div>
+        <div class="workout-info">
+          <div class="workout-sport">Swimming</div>
+          <div class="workout-date">Apr 29 night · 1h 15m</div>
+        </div>
+        <div>
+          <div class="workout-strain strain-high">15.1</div>
+          <div class="workout-hr">148 avg · 189 max</div>
+        </div>
+      </div>
+
+      <div class="workout-row">
+        <div class="sport-icon sport-run">🏃</div>
+        <div class="workout-info">
+          <div class="workout-sport">Running</div>
+          <div class="workout-date">Apr 29 · 50m</div>
+        </div>
+        <div>
+          <div class="workout-strain strain-high">14.8</div>
+          <div class="workout-hr">157 avg · 183 max</div>
+        </div>
+      </div>
+
+      <div class="workout-row">
+        <div class="sport-icon sport-lift">🏋️</div>
+        <div class="workout-info">
+          <div class="workout-sport">Weightlifting</div>
+          <div class="workout-date">Apr 28 · 43m</div>
+        </div>
+        <div>
+          <div class="workout-strain strain-med">9.2</div>
+          <div class="workout-hr">99 avg · 135 max</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── TRAINING PLAN ── -->
+  <div class="card training-card">
+    <div class="section-header">
+      <div class="card-label" style="margin-bottom:0">This Week · Training Plan</div>
+      <div class="section-line"></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim)">HOME WEEKEND FRI–SUN</div>
+    </div>
+
+    <div class="week-grid">
+      <div class="day-cell today">
+        <div class="day-name">Mon</div>
+        <div class="day-date">4</div>
+        <div class="session-tags">
+          <div class="session-tag tag-swim">SWIM</div>
+          <div class="session-tag tag-run">RUN</div>
+        </div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">Tue</div>
+        <div class="day-date">5</div>
+        <div class="session-tags">
+          <div class="session-tag tag-swim">SWIM</div>
+          <div class="session-tag tag-lift">LIFT</div>
+        </div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">Wed</div>
+        <div class="day-date">6</div>
+        <div class="session-tags">
+          <div class="session-tag tag-swim">SWIM</div>
+          <div class="session-tag tag-run">RUN</div>
+        </div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">Thu</div>
+        <div class="day-date">7</div>
+        <div class="session-tags">
+          <div class="session-tag tag-swim">SWIM</div>
+          <div class="session-tag tag-lift">LIFT</div>
+        </div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">Fri</div>
+        <div class="day-date">8</div>
+        <div class="session-tags">
+          <div class="session-tag tag-run">RUN</div>
+          <div class="session-tag tag-bike">BIKE</div>
+        </div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">Sat</div>
+        <div class="day-date">9</div>
+        <div class="session-tags">
+          <div class="session-tag tag-lift">LIFT</div>
+          <div class="session-tag tag-bike">BRICK 🧱</div>
+        </div>
+      </div>
+      <div class="day-cell">
+        <div class="day-name">Sun</div>
+        <div class="day-date">10</div>
+        <div class="session-tags">
+          <div class="session-tag tag-lift">LIFT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BOTTOM ROW: PRs + HRV Chart ── -->
+  <div class="charts-row">
+    <!-- Personal Bests -->
+    <div class="card prs-card" style="animation-delay:0.4s">
+      <div class="card-label">Sprint PRs 🏊</div>
+      <div class="pr-list">
+        <div class="pr-item">
+          <div>
+            <div class="pr-event">50 Free</div>
+            <div class="pr-badge">SPRINT</div>
+          </div>
+          <div class="pr-time">23.5</div>
+        </div>
+        <div class="pr-item">
+          <div>
+            <div class="pr-event">100 Free</div>
+            <div class="pr-badge">NATIONALS ★</div>
+          </div>
+          <div class="pr-time">51.61</div>
+        </div>
+        <div class="pr-item">
+          <div>
+            <div class="pr-event">50 Back</div>
+            <div class="pr-badge">SPRINT</div>
+          </div>
+          <div class="pr-time">26.38</div>
+        </div>
+        <div class="pr-item">
+          <div>
+            <div class="pr-event">200 Free</div>
+            <div class="pr-badge">SUITED / TAPER</div>
+          </div>
+          <div class="pr-time">1:56</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HRV 7-day chart -->
+    <div class="card" style="animation-delay:0.45s;flex:1">
+      <div class="section-header">
+        <div class="card-label" style="margin-bottom:0">7-Day HRV Trend</div>
+        <div class="section-line"></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-dim)">RMSSD (ms)</div>
+      </div>
+      <div style="height:180px;position:relative">
+        <canvas id="hrvChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
+const days   = ['Apr 28','Apr 29','Apr 30','May 1','May 2','May 3','May 4'];
+const recovery = [58, 45, 76, 43, 51, 62, 32];
+const strain   = [15.1, 19.3, 7.0, 12.5, 16.8, 5.1, 4.2];
+const hrv      = [124.1, 106.5, 137.7, 106.8, 113.4, 117.8, 92.5];
+
+// ── GAUGE CHART ───────────────────────────────────────────────────────────
+const gaugeCtx = document.getElementById('gaugeChart').getContext('2d');
+const score = 32;
+const gaugeColor = score >= 67 ? '#22c55e' : score >= 34 ? '#f59e0b' : '#ef4444';
+const recNum = document.getElementById('recNum');
+recNum.style.color = gaugeColor;
+
+new Chart(gaugeCtx, {
+  type: 'doughnut',
+  data: {
+    datasets: [{
+      data: [score, 100 - score],
+      backgroundColor: [gaugeColor, 'rgba(255,255,255,0.05)'],
+      borderWidth: 0,
+      circumference: 270,
+      rotation: 225,
+    }]
+  },
+  options: {
+    responsive: false,
+    cutout: '75%',
+    plugins: { legend: { display: false }, tooltip: { enabled: false } },
+    animation: { duration: 1200, easing: 'easeOutQuart' }
+  }
+});
+
+// ── TREND CHART ──────────────────────────────────────────────────────────
+const trendCtx = document.getElementById('trendChart').getContext('2d');
+new Chart(trendCtx, {
+  type: 'line',
+  data: {
+    labels: days,
+    datasets: [
+      {
+        label: 'Recovery %',
+        data: recovery,
+        borderColor: '#00e5c8',
+        backgroundColor: 'rgba(0,229,200,0.08)',
+        fill: true,
+        tension: 0.45,
+        pointRadius: 4,
+        pointBackgroundColor: recovery.map(v => v >= 67 ? '#22c55e' : v >= 34 ? '#f59e0b' : '#ef4444'),
+        pointBorderColor: 'transparent',
+        borderWidth: 2.5,
+        yAxisID: 'y',
+      },
+      {
+        label: 'Strain',
+        data: strain,
+        borderColor: '#f97316',
+        backgroundColor: 'rgba(249,115,22,0.05)',
+        fill: false,
+        tension: 0.45,
+        pointRadius: 4,
+        pointBackgroundColor: '#f97316',
+        pointBorderColor: 'transparent',
+        borderWidth: 2,
+        borderDash: [4, 3],
+        yAxisID: 'y2',
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#111520',
+        borderColor: 'rgba(255,255,255,0.1)',
+        borderWidth: 1,
+        titleColor: '#9ca3af',
+        bodyColor: '#e8ecf5',
+        padding: 10,
+        titleFont: { family: "'JetBrains Mono', monospace", size: 10 },
+        bodyFont: { family: "'JetBrains Mono', monospace", size: 12 },
+      }
+    },
+    scales: {
+      x: {
+        grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+        ticks: { color: '#6b7280', font: { family: "'JetBrains Mono', monospace", size: 10 } }
+      },
+      y: {
+        position: 'left',
+        min: 0, max: 100,
+        grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
+        ticks: {
+          color: '#6b7280',
+          font: { family: "'JetBrains Mono', monospace", size: 10 },
+          callback: v => v + '%'
+        }
+      },
+      y2: {
+        position: 'right',
+        min: 0, max: 21,
+        grid: { display: false },
+        ticks: {
+          color: '#f97316',
+          font: { family: "'JetBrains Mono', monospace", size: 10 },
+          callback: v => v.toFixed(0)
+        }
+      }
+    }
+  }
+});
+
+// ── HRV CHART ────────────────────────────────────────────────────────────
+const hrvCtx = document.getElementById('hrvChart').getContext('2d');
+new Chart(hrvCtx, {
+  type: 'bar',
+  data: {
+    labels: days,
+    datasets: [{
+      label: 'HRV (ms)',
+      data: hrv,
+      backgroundColor: hrv.map(v => v >= 130 ? 'rgba(34,197,94,0.5)' : v >= 110 ? 'rgba(245,158,11,0.5)' : 'rgba(239,68,68,0.5)'),
+      borderColor: hrv.map(v => v >= 130 ? '#22c55e' : v >= 110 ? '#f59e0b' : '#ef4444'),
+      borderWidth: 1.5,
+      borderRadius: 4,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#111520',
+        borderColor: 'rgba(255,255,255,0.1)',
+        borderWidth: 1,
+        titleColor: '#9ca3af',
+        bodyColor: '#e8ecf5',
+        padding: 10,
+        titleFont: { family: "'JetBrains Mono', monospace", size: 10 },
+        bodyFont: { family: "'JetBrains Mono', monospace", size: 12 },
+        callbacks: { label: ctx => ctx.parsed.y.toFixed(1) + ' ms' }
+      }
+    },
+    scales: {
+      x: {
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        ticks: { color: '#6b7280', font: { family: "'JetBrains Mono', monospace", size: 10 } }
+      },
+      y: {
+        min: 60, max: 165,
+        grid: { color: 'rgba(255,255,255,0.04)' },
+        ticks: {
+          color: '#6b7280',
+          font: { family: "'JetBrains Mono', monospace", size: 10 },
+          callback: v => v + ' ms'
+        }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

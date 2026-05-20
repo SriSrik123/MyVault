@@ -1,0 +1,8 @@
+(define (rem a b)
+   (if (< a b)
+      a
+   
+
+(rem (- a b) b)))
+
+rem (2 4)

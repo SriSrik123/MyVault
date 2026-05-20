@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Sri · Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" crossorigin="anonymous"></script>
+<style>
+:root {
+  --bg:        #F0F4F8;
+  --card:      #FFFFFF;
+  --border:    #E8ECF1;
+  --teal:      #00BCD4;
+  --teal2:     #26C6DA;
+  --teal-bg:   rgba(0,188,212,.08);
+  --teal-mid:  rgba(0,188,212,.18);
+  --text:      #1A202C;
+  --sub:       #4A5568;
+  --muted:     #718096;
+  --dim:       #A0AEC0;
+  --green:     #38A169;
+  --green-bg:  rgba(56,161,105,.1);
+  --red:       #E53E3E;
+  --red-bg:    rgba(229,62,62,.1);
+  --yellow:    #D69E2E;
+  --yellow-bg: rgba(214,158,46,.1);
+  --orange:    #DD6B20;
+  --purple:    #805AD5;
+  --strava:    #FC4C02;
+  --blue:      #3182CE;
+  --shadow:    0 2px 8px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: 'Manrope', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+.header {
+  background: var(--card);
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-left { display: flex; align-items: center; gap: 10px; }
+.header-logo { font-size: 22px; font-weight: 800; color: var(--teal); letter-spacing: -1px; }
+.header-date { font-size: 11px; color: var(--muted); }
+.header-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--teal-bg); border: 2px solid var(--teal);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+
+/* ── Pages ──────────────────────────────────────────────────────────────── */
+.pages { flex: 1; overflow: hidden; position: relative; }
+.page {
+  display: none; height: 100%; overflow-y: auto;
+  padding: 12px 14px 80px;
+  -webkit-overflow-scrolling: touch;
+}
+.page.active { display: block; }
+
+/* ── Bottom Tab Bar ──────────────────────────────────────────────────────── */
+.tabs {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--card); border-top: 1px solid var(--border);
+  display: flex; z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.tab {
+  flex: 1; padding: 8px 4px 10px; text-align: center;
+  cursor: pointer; font-size: 9px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--dim); transition: color .15s;
+  user-select: none; -webkit-tap-highlight-color: transparent;
+}
+.tab.active { color: var(--teal); }
+.tab-icon { font-size: 18px; display: block; margin-bottom: 2px; }
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--card); border-radius: 16px;
+  padding: 14px 16px; margin-bottom: 10px;
+  box-shadow: var(--shadow);
+}
+.card-flush { padding: 0; overflow: hidden; }
+.card:last-child { margin-bottom: 0; }
+
+/* ── Section label ───────────────────────────────────────────────────────── */
+.sec-lbl {
+  font-size: 10px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 10px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sec-lbl-link {
+  color: var(--teal); font-size: 10px; font-weight: 600;
+  letter-spacing: .02em; cursor: pointer; text-transform: none;
+}
+
+/* ── Recovery Ring (Fitbit-style) ────────────────────────────────────────── */
+.rec-head { padding: 14px 16px 0; }
+.rec-center {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 8px 0 14px;
+}
+.ring-wrap { position: relative; width: 148px; height: 148px; }
+.ring-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring-track { fill: none; stroke: var(--border); stroke-width: 12; }
+.ring-fill  { fill: none; stroke-width: 12; stroke-linecap: round; transition: stroke-dashoffset .7s cubic-bezier(.4,0,.2,1); }
+.ring-inside {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.ring-score { font-size: 38px; font-weight: 800; line-height: 1; letter-spacing: -.03em; }
+.ring-unit  { font-size: 9px; color: var(--muted); margin-top: 2px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.ring-label { font-size: 12px; font-weight: 700; color: var(--sub); margin-top: 6px; }
+
+/* 3-stat strip */
+.stat-strip {
+  display: flex; border-top: 1px solid var(--border);
+}
+.stat-pill {
+  flex: 1; display: flex; flex-direction: column; align-items: center;
+  padding: 11px 6px 12px; border-right: 1px solid var(--border);
+}
+.stat-pill:last-child { border-right: none; }
+.stat-pill-icon { font-size: 17px; margin-bottom: 4px; }
+.stat-pill-val { font-size: 16px; font-weight: 800; color: var(--text); line-height: 1; }
+.stat-pill-lbl { font-size: 9px; color: var(--muted); margin-top: 3px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+
+/* ── Metric rows (Fitbit-style list cards) ───────────────────────────────── */
+.metric-row {
+  display: flex; align-items: center; gap: 13px;
+  padding: 11px 0; border-bottom: 1px solid var(--border);
+}
+.metric-row:last-child  { border-bottom: none; padding-bottom: 0; }
+.metric-row:first-child { padding-top: 0; }
+.mr-icon {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 19px; flex-shrink: 0;
+}
+.mr-body { flex: 1; min-width: 0; }
+.mr-val  { font-size: 18px; font-weight: 800; color: var(--text); line-height: 1; }
+.mr-lbl  { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.mr-badge {
+  font-size: 10px; font-weight: 700; padding: 3px 9px;
+  border-radius: 20px; letter-spacing: .03em; white-space: nowrap;
+}
+
+/* ── Task Progress Card ──────────────────────────────────────────────────── */
+.task-prog-row {
+  display: flex; align-items: center; gap: 16px;
+}
+.task-ring-wrap {
+  position: relative; width: 82px; height: 82px; flex-shrink: 0;
+}
+.task-ring-inside {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+.task-ring-pct { font-size: 20px; font-weight: 800; color: var(--teal); line-height: 1; }
+.task-ring-lbl { font-size: 8px; color: var(--muted); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-top: 1px; }
+.task-prog-info { flex: 1; min-width: 0; }
+.task-prog-title { font-size: 18px; font-weight: 800; color: var(--text); }
+.task-prog-sub   { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.urgent-pill {
+  display: inline-block; background: var(--red-bg); color: var(--red);
+  font-size: 10px; font-weight: 700; padding: 3px 9px;
+  border-radius: 20px; margin-top: 7px;
+}
+.good-pill {
+  display: inline-block; background: var(--green-bg); color: var(--green);
+  font-size: 10px; font-weight: 700; padding: 3px 9px;
+  border-radius: 20px; margin-top: 7px;
+}
+
+/* ── Today events ────────────────────────────────────────────────────────── */
+.ev-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 0; border-bottom: 1px solid var(--border);
+}
+.ev-row:last-child  { border-bottom: none; padding-bottom: 0; }
+.ev-row:first-child { padding-top: 0; }
+.ev-dot  { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.ev-time { font-size: 11px; color: var(--muted); white-space: nowrap; min-width: 48px; font-family: 'DM Mono', monospace; }
+.ev-name { font-size: 12px; font-weight: 600; color: var(--text); flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dot-class    { background: var(--blue); }
+.dot-train    { background: var(--green); }
+.dot-deadline { background: var(--red); }
+.dot-other    { background: var(--purple); }
+
+/* ── Ironman card ────────────────────────────────────────────────────────── */
+.im-card {
+  background: linear-gradient(135deg, #0D1B2A 0%, #1B2F4A 100%);
+  border-radius: 16px; padding: 14px 16px;
+  margin-bottom: 10px; box-shadow: var(--shadow-lg);
+  position: relative; overflow: hidden;
+}
+.im-card::before {
+  content: '🏁'; position: absolute; right: 14px; top: 10px;
+  font-size: 36px; opacity: .12;
+}
+.im-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--teal); margin-bottom: 2px; }
+.im-name { font-size: 16px; font-weight: 800; color: #fff; }
+.im-loc  { font-size: 10px; color: rgba(255,255,255,.38); margin-top: 1px; }
+.im-countdown { display: flex; align-items: flex-end; gap: 4px; margin-top: 12px; }
+.im-unit { text-align: center; }
+.im-num  { font-family: 'DM Mono', monospace; font-size: 28px; color: #fff; line-height: 1; display: block; }
+.im-lbl  { font-size: 8px; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.3); margin-top: 2px; }
+.im-sep  { font-size: 20px; color: rgba(255,255,255,.18); padding-bottom: 4px; }
+.im-bar  { margin-top: 10px; background: rgba(255,255,255,.08); border-radius: 3px; height: 3px; }
+.im-bar-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--teal2)); border-radius: 3px; }
+.im-bar-lbl  { font-size: 9px; color: rgba(255,255,255,.3); margin-top: 4px; font-family: 'DM Mono', monospace; }
+
+/* ── Recovery chart ──────────────────────────────────────────────────────── */
+.chart-wrap { height: 110px; position: relative; }
+
+/* ── Schedule ────────────────────────────────────────────────────────────── */
+.day-lbl {
+  font-size: 10px; font-weight: 700; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--teal);
+  padding: 14px 0 6px;
+}
+.day-lbl:first-child { padding-top: 2px; }
+.sched-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 9px 12px; background: var(--card);
+  border-radius: 10px; margin-bottom: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+}
+.sched-time { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); white-space: nowrap; min-width: 46px; padding-top: 1px; }
+.sched-dot  { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+.sched-info { flex: 1; min-width: 0; }
+.sched-name { font-size: 12px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sched-loc  { font-size: 10px; color: var(--muted); margin-top: 1px; }
+
+/* ── Flip Cards (light theme) ────────────────────────────────────────────── */
+.act-day-header { margin: 14px 0 5px; }
+.act-day-header:first-child { margin-top: 0; }
+.act-day-lbl { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--teal); }
+.act-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 7px; }
+.flip-card { perspective: 900px; height: 215px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.flip-card-inner {
+  position: relative; width: 100%; height: 100%;
+  transition: transform .42s cubic-bezier(.4,0,.2,1);
+  transform-style: preserve-3d;
+}
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-face {
+  position: absolute; inset: 0; border-radius: 12px;
+  padding: 11px 10px 9px;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+.flip-front { background: var(--card); box-shadow: var(--shadow); display: flex; flex-direction: column; }
+.flip-back  { background: #F7FAFC; box-shadow: var(--shadow); border: 1px solid var(--border); transform: rotateY(180deg); display: flex; flex-direction: column; }
+.fc-run  .flip-face { border-top: 3px solid var(--green); }
+.fc-swim .flip-face { border-top: 3px solid var(--teal); }
+.fc-bike .flip-face { border-top: 3px solid var(--orange); }
+.fc-lift .flip-face { border-top: 3px solid var(--purple); }
+.fc-other .flip-face { border-top: 3px solid var(--dim); }
+
+.fc-icon { font-size: 24px; line-height: 1; margin-bottom: 7px; display: block; }
+.fc-name { font-size: 11px; font-weight: 700; color: var(--text); line-height: 1.3; flex: 1; margin-bottom: 3px; }
+.fc-badges { display: flex; flex-direction: column; gap: 4px; }
+.fc-badge { display: inline-flex; align-items: baseline; gap: 3px; font-size: 10px; font-weight: 700; font-family: 'DM Mono', monospace; padding: 3px 7px; border-radius: 6px; line-height: 1; }
+.fc-badge small { font-size: 7px; font-weight: 500; opacity: .6; }
+.fc-bw { background: var(--yellow-bg); color: var(--yellow); }
+.fc-bs { background: rgba(221,107,32,.1); color: var(--orange); }
+.linked-pill {
+  display: inline-flex; align-items: center; gap: 2px;
+  font-size: 7px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--teal); background: var(--teal-bg);
+  border: 1px solid var(--teal-mid); padding: 1px 4px;
+  border-radius: 3px; margin-left: 3px; vertical-align: middle;
+}
+.fc-flip-hint { font-size: 7px; color: var(--dim); text-align: right; margin-top: auto; padding-top: 4px; }
+.fc-back-head { font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fc-back-rows { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.fc-stat { display: flex; justify-content: space-between; align-items: center; padding: 3px 0; border-bottom: 1px solid var(--border); }
+.fc-stat:last-child { border-bottom: none; }
+.fc-stat-lbl { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+.fc-stat-val { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text); }
+.fc-strava-btn {
+  display: block; text-align: center; font-size: 9px; font-weight: 700;
+  letter-spacing: .03em; color: var(--strava);
+  background: rgba(252,76,2,.07); border: 1px solid rgba(252,76,2,.2);
+  border-radius: 6px; padding: 5px 6px; margin-top: 7px; text-decoration: none;
+}
+.fc-back-hint { font-size: 7px; color: var(--dim); text-align: right; margin-top: 5px; }
+
+/* ── Tasks page ──────────────────────────────────────────────────────────── */
+.task-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 12px; background: var(--card);
+  border-radius: 10px; margin-bottom: 4px;
+  border-left: 3px solid transparent;
+  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+}
+.task-row.is-urgent { border-left-color: var(--red); }
+.task-row.is-done   { opacity: .45; }
+.task-chk {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 2px solid var(--border); flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+}
+.task-chk.done { background: var(--green); border-color: var(--green); color: #fff; font-size: 9px; font-weight: 700; }
+.task-chk.urgent { border-color: var(--red); }
+.task-body { flex: 1; min-width: 0; }
+.task-name { font-size: 12px; font-weight: 600; color: var(--text); }
+.task-due  { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.task-course {
+  display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .06em;
+  padding: 2px 7px; border-radius: 20px;
+  background: var(--teal-bg); color: var(--teal); margin-top: 4px;
+}
+.task-sec-hd { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 14px 0 6px 2px; }
+.task-sec-hd:first-child { margin-top: 0; }
+.task-done-count { font-size: 12px; color: var(--muted); text-align: center; padding: 10px 0 2px; }
+
+/* ── Training grid ───────────────────────────────────────────────────────── */
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.grid2 .card { margin-bottom: 0; }
+.w-stat { text-align: center; padding: 4px 0; }
+.w-stat-val { font-size: 24px; font-weight: 800; color: var(--text); line-height: 1; }
+.w-stat-lbl { font-size: 9px; color: var(--muted); margin-top: 4px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+
+/* ── Misc ────────────────────────────────────────────────────────────────── */
+.loading { color: var(--dim); font-size: 11px; padding: 14px; text-align: center; }
+a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-left">
+    <div>
+      <div class="header-logo">Sri</div>
+      <div class="header-date" id="hdr-date"></div>
+    </div>
+  </div>
+  <div class="header-avatar">🏊</div>
+</div>
+
+<!-- Pages -->
+<div class="pages">
+
+<!-- ─── HOME ────────────────────────────────────────────────────────────── -->
+<div class="page active" id="page-home">
+
+  <!-- Recovery Ring -->
+  <div class="card card-flush">
+    <div class="rec-head">
+      <div class="sec-lbl">Recovery
+        <span class="sec-lbl-link" onclick="switchTab('training')">See details →</span>
+      </div>
+    </div>
+    <div class="rec-center">
+      <div class="ring-wrap">
+        <svg class="ring-svg" viewBox="0 0 148 148">
+          <circle class="ring-track" cx="74" cy="74" r="60"/>
+          <circle class="ring-fill" id="ring-fill" cx="74" cy="74" r="60"
+            stroke-dasharray="377" stroke-dashoffset="377"/>
+        </svg>
+        <div class="ring-inside">
+          <div class="ring-score" id="ring-score">—</div>
+          <div class="ring-unit">Recovery</div>
+        </div>
+      </div>
+      <div class="ring-label" id="ring-label"></div>
+    </div>
+    <div class="stat-strip">
+      <div class="stat-pill">
+        <div class="stat-pill-icon">💓</div>
+        <div class="stat-pill-val" id="sp-hrv">—</div>
+        <div class="stat-pill-lbl">HRV ms</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-icon">❤️</div>
+        <div class="stat-pill-val" id="sp-rhr">—</div>
+        <div class="stat-pill-lbl">RHR bpm</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-pill-icon">🫁</div>
+        <div class="stat-pill-val" id="sp-spo2">—</div>
+        <div class="stat-pill-lbl">SpO₂ %</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fitbit-style metric rows -->
+  <div class="card">
+    <div class="metric-row">
+      <div class="mr-icon" style="background:var(--teal-bg)">⚡</div>
+      <div class="mr-body">
+        <div class="mr-val" id="mr-strain">—</div>
+        <div class="mr-lbl">Today's strain</div>
+      </div>
+    </div>
+    <div class="metric-row">
+      <div class="mr-icon" style="background:var(--green-bg)">🏃</div>
+      <div class="mr-body">
+        <div class="mr-val" id="mr-workouts">—</div>
+        <div class="mr-lbl">Workouts this week</div>
+      </div>
+    </div>
+    <div class="metric-row">
+      <div class="mr-icon" style="background:var(--yellow-bg)">⏱</div>
+      <div class="mr-body">
+        <div class="mr-val" id="mr-active">—</div>
+        <div class="mr-lbl">Active minutes this week</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Task Progress -->
+  <div class="card" onclick="switchTab('tasks')" style="cursor:pointer">
+    <div class="sec-lbl">Academics
+      <span class="sec-lbl-link">View all →</span>
+    </div>
+    <div class="task-prog-row">
+      <div class="task-ring-wrap">
+        <svg viewBox="0 0 82 82" style="width:100%;height:100%;transform:rotate(-90deg)">
+          <circle cx="41" cy="41" r="33" fill="none" stroke="var(--border)" stroke-width="8"/>
+          <circle cx="41" cy="41" r="33" fill="none" stroke="var(--teal)" stroke-width="8"
+            stroke-linecap="round" id="task-arc"
+            stroke-dasharray="207" stroke-dashoffset="207"/>
+        </svg>
+        <div class="task-ring-inside">
+          <div class="task-ring-pct" id="task-ring-pct">—%</div>
+          <div class="task-ring-lbl">done</div>
+        </div>
+      </div>
+      <div class="task-prog-info">
+        <div class="task-prog-title" id="task-prog-title">— / — Tasks</div>
+        <div class="task-prog-sub" id="task-prog-sub"></div>
+        <div id="task-pill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Today's Schedule -->
+  <div class="card">
+    <div class="sec-lbl">Today
+      <span class="sec-lbl-link" onclick="switchTab('schedule')">Full schedule →</span>
+    </div>
+    <div id="home-today"><div class="loading">—</div></div>
+  </div>
+
+  <!-- Ironman Countdown -->
+  <div class="im-card">
+    <div class="im-eyebrow">NYC Triathlon · 2026</div>
+    <div class="im-name">New York City Triathlon</div>
+    <div class="im-loc">September 26, 2026 · 7:00 AM EDT</div>
+    <div class="im-countdown">
+      <div class="im-unit"><span class="im-num" id="im-d">---</span><div class="im-lbl">days</div></div>
+      <div class="im-sep">:</div>
+      <div class="im-unit"><span class="im-num" id="im-h">--</span><div class="im-lbl">hrs</div></div>
+      <div class="im-sep">:</div>
+      <div class="im-unit"><span class="im-num" id="im-m">--</span><div class="im-lbl">min</div></div>
+      <div class="im-sep">:</div>
+      <div class="im-unit"><span class="im-num" id="im-s">--</span><div class="im-lbl">sec</div></div>
+    </div>
+    <div class="im-bar"><div class="im-bar-fill" id="im-bar" style="width:0%"></div></div>
+    <div class="im-bar-lbl" id="im-prog-lbl"></div>
+  </div>
+
+</div><!-- /page-home -->
+
+<!-- ─── TRAINING ──────────────────────────────────────────────────────────── -->
+<div class="page" id="page-training">
+  <div class="grid2">
+    <div class="card">
+      <div class="sec-lbl">7-Day Recovery</div>
+      <div class="chart-wrap"><canvas id="rchart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="sec-lbl">Week Stats</div>
+      <div id="training-avg"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="sec-lbl">Activities</div>
+    <div id="act-list"></div>
+  </div>
+</div>
+
+<!-- ─── SCHEDULE ──────────────────────────────────────────────────────────── -->
+<div class="page" id="page-schedule">
+  <div id="schedule-list"></div>
+</div>
+
+<!-- ─── TASKS ────────────────────────────────────────────────────────────── -->
+<div class="page" id="page-tasks">
+  <div id="tasks-page"></div>
+</div>
+
+</div><!-- /pages -->
+
+<!-- Bottom Tab Bar -->
+<nav class="tabs">
+  <div class="tab active" onclick="switchTab('home')"><span class="tab-icon">🏠</span>Today</div>
+  <div class="tab" onclick="switchTab('training')"><span class="tab-icon">💪</span>Training</div>
+  <div class="tab" onclick="switchTab('schedule')"><span class="tab-icon">📅</span>Schedule</div>
+  <div class="tab" onclick="switchTab('tasks')"><span class="tab-icon">✅</span>Tasks</div>
+</nav>
+
+<script>
+// ── Data ─────────────────────────────────────────────────────────────────────
+
+const DATA_RECOVERY = {date:"2026-05-17", recovery_score:57, hrv_rmssd:119.3, resting_hr:51, spo2:97.2};
+const DATA_RECOVERIES = [
+  {date:"2026-05-17", recovery_score:57,  hrv_rmssd:119.3, resting_hr:51, spo2:97.2},
+  {date:"2026-05-16", recovery_score:49,  hrv_rmssd:110.1, resting_hr:49, spo2:96.7},
+  {date:"2026-05-15", recovery_score:56,  hrv_rmssd:115.5, resting_hr:48, spo2:97.9},
+  {date:"2026-05-14", recovery_score:75,  hrv_rmssd:140.7, resting_hr:49, spo2:98.1},
+  {date:"2026-05-13", recovery_score:54,  hrv_rmssd:110.0, resting_hr:46, spo2:98.2},
+  {date:"2026-05-12", recovery_score:90,  hrv_rmssd:163.5, resting_hr:50, spo2:97.6},
+  {date:"2026-05-11", recovery_score:43,  hrv_rmssd:94.7,  resting_hr:46, spo2:94.9},
+];
+const DATA_WORKOUTS = [
+  {date:"2026-05-15", sport:"activity",      duration:12,  strain:4.8,  avg_hr:113, max_hr:145},
+  {date:"2026-05-14", sport:"swimming",      duration:99,  strain:15.0, avg_hr:140, max_hr:180},
+  {date:"2026-05-14", sport:"weightlifting", duration:31,  strain:8.0,  avg_hr:88,  max_hr:147},
+  {date:"2026-05-14", sport:"swimming",      duration:109, strain:14.2, avg_hr:133, max_hr:174},
+  {date:"2026-05-13", sport:"running",       duration:39,  strain:16.4, avg_hr:174, max_hr:204},
+  {date:"2026-05-12", sport:"swimming",      duration:103, strain:14.2, avg_hr:131, max_hr:179},
+  {date:"2026-05-12", sport:"weightlifting", duration:37,  strain:8.7,  avg_hr:75,  max_hr:167},
+  {date:"2026-05-12", sport:"swimming",      duration:73,  strain:14.1, avg_hr:141, max_hr:179},
+  {date:"2026-05-11", sport:"running",       duration:30,  strain:11.8, avg_hr:153, max_hr:182},
+  {date:"2026-05-09", sport:"activity",      duration:25,  strain:6.4,  avg_hr:123, max_hr:161},
+  {date:"2026-05-09", sport:"activity",      duration:16,  strain:5.1,  avg_hr:113, max_hr:150},
+  {date:"2026-05-09", sport:"running",       duration:72,  strain:18.1, avg_hr:166, max_hr:184},
+  {date:"2026-05-07", sport:"swimming",      duration:115, strain:15.0, avg_hr:132, max_hr:180},
+  {date:"2026-05-07", sport:"swimming",      duration:75,  strain:13.1, avg_hr:138, max_hr:178},
+  {date:"2026-05-06", sport:"spin",          duration:84,  strain:13.8, avg_hr:139, max_hr:176},
+  {date:"2026-05-06", sport:"running",       duration:26,  strain:10.8, avg_hr:149, max_hr:183},
+  {date:"2026-05-06", sport:"activity",      duration:19,  strain:5.5,  avg_hr:118, max_hr:152},
+  {date:"2026-05-06", sport:"activity",      duration:62,  strain:11.1, avg_hr:129, max_hr:169},
+  {date:"2026-05-05", sport:"swimming",      duration:89,  strain:14.6, avg_hr:142, max_hr:176},
+  {date:"2026-05-05", sport:"squash",        duration:80,  strain:13.0, avg_hr:130, max_hr:173},
+];
+const DATA_STRAVA = [
+  {id:"18549814162", name:"Evening Pickleball",              sport:"other", dist_m:0,       date:"2026-05-17"},
+  {id:"18533080561", name:"Lunch Swim",                      sport:"swim",  dist_m:0,       date:"2026-05-16"},
+  {id:"18518461620", name:"Second long run",                 sport:"run",   dist_m:16236.1, date:"2026-05-15"},
+  {id:"18510490092", name:"Afternoon Swim",                  sport:"swim",  dist_m:0,       date:"2026-05-14"},
+  {id:"18505853980", name:"Lunch Weight Training",           sport:"lift",  dist_m:0,       date:"2026-05-14"},
+  {id:"18498721550", name:"Evening Swim",                    sport:"swim",  dist_m:0,       date:"2026-05-13"},
+  {id:"18491960736", name:"Fast mile 3!",                    sport:"run",   dist_m:6640.0,  date:"2026-05-13"},
+  {id:"18485889713", name:"Afternoon Swim",                  sport:"swim",  dist_m:0,       date:"2026-05-12"},
+  {id:"18478319011", name:"Morning Weight Training",         sport:"lift",  dist_m:0,       date:"2026-05-12"},
+  {id:"18471790987", name:"Night Swim",                      sport:"swim",  dist_m:0,       date:"2026-05-11"},
+  {id:"18466615201", name:"Easy run to break in new shoes",  sport:"run",   dist_m:4998.1,  date:"2026-05-11"},
+  {id:"18466792338", name:"Lunch Run",                       sport:"run",   dist_m:0,       date:"2026-05-11"},
+  {id:"18440430821", name:"Morning Run",                     sport:"run",   dist_m:10789.0, date:"2026-05-09"},
+  {id:"18418839225", name:"Afternoon Swim",                  sport:"swim",  dist_m:0,       date:"2026-05-07"},
+  {id:"18496902626", name:"Night Swim",                      sport:"swim",  dist_m:0,       date:"2026-05-06"},
+  {id:"18401154825", name:"First indoor bike w ty and dave", sport:"bike",  dist_m:32186.9, date:"2026-05-06"},
+  {id:"18401086603", name:"Morning Ride",                    sport:"bike",  dist_m:0,       date:"2026-05-06"},
+  {id:"18399921247", name:"Morning Run",                     sport:"run",   dist_m:0,       date:"2026-05-06"},
+  {id:"18399708898", name:"Morning Run",                     sport:"run",   dist_m:3604.3,  date:"2026-05-06"},
+  {id:"18392689797", name:"Afternoon Workout",               sport:"other", dist_m:0,       date:"2026-05-05"},
+];
+const DATA_EVENTS = [
+  {summary:"SE-201 — A6 + Lab W7 Due",                start:{date:"2026-05-16"},                    location:""},
+  {summary:"Gym",                                      start:{dateTime:"2026-05-16T11:00:00-04:00"}, location:""},
+  {summary:"NEW BEACH DAY!!",                          start:{dateTime:"2026-05-17T10:00:00-04:00"}, location:""},
+  {summary:"PHYS-102 — Make-Up Midterm",               start:{date:"2026-05-18"},                    location:"Main Auditorium"},
+  {summary:"MATH-201 — Midterm Exam II",               start:{date:"2026-05-18"},                    location:""},
+  {summary:"Fundamentals of Physics II",               start:{dateTime:"2026-05-18T09:00:00-04:00"}, location:"103 DISQUE"},
+  {summary:"Run",                                      start:{dateTime:"2026-05-18T10:00:00-04:00"}, location:""},
+  {summary:"Co-op A Round Recruiting",                 start:{dateTime:"2026-05-18T14:00:00-04:00"}, location:""},
+  {summary:"Advanced Prog. Tools & Techniq",           start:{dateTime:"2026-05-18T15:00:00-04:00"}, location:"1103 3675MK"},
+  {summary:"Swim Practice",                            start:{dateTime:"2026-05-18T20:30:00-04:00"}, location:""},
+  {summary:"Gym",                                      start:{dateTime:"2026-05-19T11:00:00-04:00"}, location:""},
+  {summary:"Intro to Software Eng & Dev",              start:{dateTime:"2026-05-19T12:00:00-04:00"}, location:"1104 3675MK"},
+  {summary:"Math Foundations of Comp Sci",             start:{dateTime:"2026-05-19T15:00:00-04:00"}, location:"1103 3675MK"},
+  {summary:"Swim",                                     start:{dateTime:"2026-05-19T16:30:00-04:00"}, location:""},
+  {summary:"Fundamentals of Physics II",               start:{dateTime:"2026-05-20T09:00:00-04:00"}, location:"103 DISQUE"},
+  {summary:"Run",                                      start:{dateTime:"2026-05-20T10:00:00-04:00"}, location:""},
+  {summary:"Advanced Prog. Tools & Techniq",           start:{dateTime:"2026-05-20T15:00:00-04:00"}, location:"1103 3675MK"},
+  {summary:"Swim Practice",                            start:{dateTime:"2026-05-20T20:30:00-04:00"}, location:""},
+  {summary:"Fundamentals of Physics II",               start:{dateTime:"2026-05-21T09:30:00-04:00"}, location:"334 CURTIS"},
+  {summary:"Gym",                                      start:{dateTime:"2026-05-21T11:00:00-04:00"}, location:""},
+  {summary:"Intro to Software Eng & Dev",              start:{dateTime:"2026-05-21T12:00:00-04:00"}, location:"1104 3675MK"},
+  {summary:"Math Foundations of Comp Sci",             start:{dateTime:"2026-05-21T15:00:00-04:00"}, location:"1103 3675MK"},
+  {summary:"CS-270 — HW7 Due",                        start:{date:"2026-05-22"},                    location:""},
+  {summary:"Run",                                      start:{dateTime:"2026-05-22T10:00:00-04:00"}, location:""},
+  {summary:"SE-201 — A7 + Lab W8 Due",                start:{date:"2026-05-23"},                    location:""},
+  {summary:"Gym",                                      start:{dateTime:"2026-05-23T11:00:00-04:00"}, location:""},
+  {summary:"Fundamentals of Physics II",               start:{dateTime:"2026-05-25T09:00:00-04:00"}, location:"103 DISQUE"},
+  {summary:"Run",                                      start:{dateTime:"2026-05-25T10:00:00-04:00"}, location:""},
+  {summary:"Advanced Prog. Tools & Techniq",           start:{dateTime:"2026-05-25T15:00:00-04:00"}, location:"1103 3675MK"},
+  {summary:"Swim Practice",                            start:{dateTime:"2026-05-25T20:30:00-04:00"}, location:""},
+  {summary:"Fundamentals of Physics II",               start:{dateTime:"2026-05-26T09:00:00-04:00"}, location:"820B DISQUE"},
+  {summary:"Gym",                                      start:{dateTime:"2026-05-26T11:00:00-04:00"}, location:""},
+  {summary:"Intro to Software Eng & Dev",              start:{dateTime:"2026-05-26T12:00:00-04:00"}, location:"1104 3675MK"},
+  {summary:"Math Foundations of Comp Sci",             start:{dateTime:"2026-05-26T15:00:00-04:00"}, location:"1103 3675MK"},
+  {summary:"Swim",                                     start:{dateTime:"2026-05-26T16:30:00-04:00"}, location:""},
+  {summary:"Fundamentals of Physics II",               start:{dateTime:"2026-05-27T09:00:00-04:00"}, location:"103 DISQUE"},
+  {summary:"Run",                                      start:{dateTime:"2026-05-27T10:00:00-04:00"}, location:""},
+  {summary:"Advanced Prog. Tools & Techniq",           start:{dateTime:"2026-05-27T15:00:00-04:00"}, location:"1103 3675MK"},
+  {summary:"Swim Practice",                            start:{dateTime:"2026-05-27T20:30:00-04:00"}, location:""},
+  {summary:"Fundamentals of Physics II",               start:{dateTime:"2026-05-28T09:30:00-04:00"}, location:"334 CURTIS"},
+  {summary:"Gym",                                      start:{dateTime:"2026-05-28T11:00:00-04:00"}, location:""},
+  {summary:"Intro to Software Eng & Dev",              start:{dateTime:"2026-05-28T12:00:00-04:00"}, location:"1104 3675MK"},
+  {summary:"Math Foundations of Comp Sci",             start:{dateTime:"2026-05-28T15:00:00-04:00"}, location:"1103 3675MK"},
+  {summary:"CS-270 — HW8 Due",                        start:{date:"2026-05-29"},                    location:""},
+  {summary:"Run",                                      start:{dateTime:"2026-05-29T10:00:00-04:00"}, location:""},
+  {summary:"Gym",                                      start:{dateTime:"2026-05-30T11:00:00-04:00"}, location:""},
+];
+
+// Tasks — synced from Obsidian · May 18, 2026
+const TASKS_PENDING = [
+  {name:"SE-201 A6 — Command Processor + Storing",     detail:"due Sat May 16, 5:00 AM",  course:"SE-201",   urgent:true},
+  {name:"MATH-201 Midterm Exam II",                    detail:"90 min async, May 18–22",   course:"MATH-201", urgent:true},
+  {name:"COM-270 Presentation",                        detail:"due Fri May 16",            course:"COM-270",  urgent:true},
+  {name:"CS-270 HW 6 — Induction",                    detail:"due Fri May 15",            course:"CS-270",   urgent:true},
+  {name:"MATH-201 Mock Quiz",                          detail:"Thu May 14",                course:"MATH-201", urgent:true},
+  {name:"CS-270 Lab 07 — Mathematical Induction",      detail:"in-class, week of May 11", course:"CS-270",   urgent:true},
+  {name:"SE-201 Lab W7 — UML",                         detail:"due Sat May 16, 5:00 AM",  course:"SE-201",   urgent:true},
+];
+const TASKS_DONE = [
+  {name:"CS-265 Activity 7",                           course:"CS-265"},
+  {name:"CS-265 Lab 7",                                course:"CS-265"},
+];
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+
+function rcClass(s){ return s>=67?'rc-green':s>=34?'rc-yellow':'rc-red'; }
+function rcColor(s){ return s>=67?'var(--green)':s>=34?'var(--yellow)':'var(--red)'; }
+function rcLabel(s){ return s>=67?'Green · Good to go 💪':s>=34?'Yellow · Moderate recovery':'Red · Take it easy 🛑'; }
+
+function whoopSport(s){
+  s=(s||'').toLowerCase();
+  if(/swim/.test(s))                               return 'swim';
+  if(/run|jog|sprint/.test(s))                     return 'run';
+  if(/cycl|bike|ride/.test(s))                     return 'bike';
+  if(/weight|strength|lift|gym/.test(s))           return 'lift';
+  if(/squash|tennis|racquet|sport|court/.test(s))  return 'racket';
+  return 'other';
+}
+const ICONS  = {swim:'🏊',run:'🏃',bike:'🚴',lift:'🏋️',racket:'🎾',other:'⚡'};
+const SPORTS = {swim:'fc-swim',run:'fc-run',bike:'fc-bike',lift:'fc-lift',racket:'fc-other',other:'fc-other'};
+const SPORT_LABELS = {run:'Run',bike:'Bike',swim:'Swim',lift:'Lift',racket:'Racket',other:'Workout'};
+
+function fmtDist(m){ return m&&m>0?(m/1609.34).toFixed(2)+' mi':null; }
+function fmtDur(min){ if(!min||min<=0)return null; const h=Math.floor(min/60),m=min%60; return h>0?`${h}h ${m}m`:`${m}m`; }
+function fmtTime(dt){ return new Date(dt).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true}).toLowerCase().replace(':00 ',' ').replace(':00',''); }
+
+const KW_TRAIN    = /swim|run|bike|gym|workout|lift|pool|practice/i;
+const KW_DEADLINE = /midterm|exam|due|deadline|assignment/i;
+const KW_CLASS    = /physics|software eng|math found|advanced prog|foundations/i;
+function dotCls(s){ if(KW_TRAIN.test(s))return'dot-train'; if(KW_DEADLINE.test(s))return'dot-deadline'; if(KW_CLASS.test(s))return'dot-class'; return'dot-other'; }
+
+// ── Recovery ring ─────────────────────────────────────────────────────────────
+
+function renderRecovery(r){
+  if(!r) return;
+  const s = r.recovery_score;
+  const circ = 377;
+  const offset = ((1 - s/100) * circ).toFixed(1);
+  const fill = document.getElementById('ring-fill');
+  fill.style.stroke = rcColor(s);
+  fill.setAttribute('stroke-dashoffset', offset);
+  document.getElementById('ring-score').textContent  = s;
+  document.getElementById('ring-score').style.color  = rcColor(s);
+  document.getElementById('ring-label').textContent  = rcLabel(s);
+  document.getElementById('sp-hrv').textContent  = (+r.hrv_rmssd).toFixed(0);
+  document.getElementById('sp-rhr').textContent  = r.resting_hr;
+  document.getElementById('sp-spo2').textContent = (+r.spo2).toFixed(1);
+}
+
+// ── Home metrics ──────────────────────────────────────────────────────────────
+
+function renderHomeMetrics(workouts){
+  const weekStart = new Date();
+  weekStart.setDate(weekStart.getDate() - weekStart.getDay() + 1); // Mon
+  const weekStr = weekStart.toISOString().slice(0,10);
+  const todayStr = new Date().toISOString().slice(0,10);
+
+  const thisWeek = workouts.filter(w => w.date >= weekStr && w.date <= todayStr);
+  const total    = thisWeek.length;
+  const mins     = thisWeek.reduce((a,b) => a + (b.duration||0), 0);
+
+  // Today's max strain
+  const todayWorkouts = workouts.filter(w => w.date === todayStr);
+  const todayStrain   = todayWorkouts.length
+    ? Math.max(...todayWorkouts.map(w => w.strain||0)).toFixed(1)
+    : '—';
+
+  document.getElementById('mr-strain').textContent   = todayStrain !== '—' ? todayStrain : '—';
+  document.getElementById('mr-workouts').textContent = total + ' workout' + (total!==1?'s':'');
+  document.getElementById('mr-active').textContent   = mins + ' min';
+}
+
+// ── Task progress ─────────────────────────────────────────────────────────────
+
+function renderTaskProgress(){
+  const done    = TASKS_DONE.length;
+  const total   = TASKS_PENDING.length + done;
+  const pct     = Math.round(done / total * 100);
+  const circ    = 207;
+  const offset  = ((1 - done/total) * circ).toFixed(1);
+  const urgent  = TASKS_PENDING.filter(t => t.urgent).length;
+
+  document.getElementById('task-arc').setAttribute('stroke-dashoffset', offset);
+  document.getElementById('task-ring-pct').textContent   = pct + '%';
+  document.getElementById('task-prog-title').textContent = `${done} / ${total} Tasks`;
+  document.getElementById('task-prog-sub').textContent   = `${TASKS_PENDING.length} remaining · ${urgent} urgent`;
+
+  const pill = document.getElementById('task-pill');
+  if(TASKS_PENDING.length === 0){
+    pill.innerHTML = '<div class="good-pill">All done! 🎉</div>';
+  } else if(urgent > 0){
+    pill.innerHTML = `<div class="urgent-pill">⚠️ ${urgent} due soon</div>`;
+  }
+}
+
+// ── Recovery chart ────────────────────────────────────────────────────────────
+
+let rChart = null;
+function renderChart(arr){
+  if(!arr||!arr.length) return;
+  const sorted = [...arr].sort((a,b) => a.date.localeCompare(b.date));
+  const labels = sorted.map(d => new Date(d.date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'}));
+  const scores = sorted.map(d => d.recovery_score);
+  const colors = scores.map(s => s>=67?'rgba(56,161,105,.75)':s>=34?'rgba(214,158,46,.75)':'rgba(229,62,62,.75)');
+  const ctx = document.getElementById('rchart').getContext('2d');
+  if(rChart) rChart.destroy();
+  rChart = new Chart(ctx, {
+    type:'bar',
+    data:{labels, datasets:[{data:scores, backgroundColor:colors, borderRadius:4, borderSkipped:false}]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>`${c.parsed.y}%`}}},
+      scales:{
+        y:{min:0, max:100, grid:{color:'rgba(0,0,0,.04)'}, ticks:{font:{size:8,family:'DM Mono'},color:'#A0AEC0',stepSize:50}},
+        x:{grid:{display:false}, ticks:{font:{size:8,family:'DM Mono'},color:'#A0AEC0'}}
+      }
+    }
+  });
+  const avg = Math.round(scores.reduce((a,b)=>a+b,0)/scores.length);
+  const mx = Math.max(...scores), mn = Math.min(...scores);
+  document.getElementById('training-avg').innerHTML = `
+    <div class="w-stat" style="margin-bottom:8px">
+      <div class="w-stat-val" style="color:${rcColor(avg)}">${avg}%</div>
+      <div class="w-stat-lbl">7-day avg</div>
+    </div>
+    <div style="display:flex;gap:6px">
+      <div class="w-stat" style="flex:1"><div class="w-stat-val" style="color:var(--green);font-size:18px">${mx}%</div><div class="w-stat-lbl">Best</div></div>
+      <div class="w-stat" style="flex:1"><div class="w-stat-val" style="color:var(--red);font-size:18px">${mn}%</div><div class="w-stat-lbl">Worst</div></div>
+    </div>`;
+}
+
+// ── Schedule ──────────────────────────────────────────────────────────────────
+
+function renderSchedule(events){
+  const todayStr = new Date().toLocaleDateString('en-CA');
+
+  // Home today strip
+  const todayEvts = events.filter(ev => (ev.start?.dateTime||ev.start?.date||'').slice(0,10) === todayStr).slice(0,6);
+  document.getElementById('home-today').innerHTML = todayEvts.length
+    ? todayEvts.map(ev => `
+        <div class="ev-row">
+          <div class="ev-dot ${dotCls(ev.summary||'')}"></div>
+          <div class="ev-time">${ev.start?.dateTime ? fmtTime(ev.start.dateTime) : 'all day'}</div>
+          <div class="ev-name">${ev.summary||'Event'}</div>
+        </div>`).join('')
+    : '<div class="loading">Nothing scheduled today</div>';
+
+  // Full schedule
+  const groups = {};
+  events.forEach(ev => {
+    const key = (ev.start?.dateTime||ev.start?.date||'').slice(0,10);
+    if(!key || key < todayStr) return;
+    if(!groups[key]) groups[key] = [];
+    groups[key].push(ev);
+  });
+  const html = [];
+  Object.keys(groups).sort().slice(0,7).forEach(day => {
+    const diff = Math.round((new Date(day+'T12:00:00') - new Date(todayStr+'T12:00:00')) / 86400000);
+    const lbl = diff===0?'Today':diff===1?'Tomorrow':new Date(day+'T12:00:00').toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'});
+    html.push(`<div class="day-lbl">${lbl}</div>`);
+    groups[day].forEach(ev => {
+      const t   = ev.start?.dateTime ? fmtTime(ev.start.dateTime) : 'all day';
+      const loc = ev.location ? ev.location.split(' ').slice(0,4).join(' ') : '';
+      html.push(`<div class="sched-row">
+        <div class="sched-time">${t}</div>
+        <div class="sched-dot ${dotCls(ev.summary||'')}"></div>
+        <div class="sched-info">
+          <div class="sched-name">${ev.summary||'Event'}</div>
+          ${loc ? `<div class="sched-loc">${loc}</div>` : ''}
+        </div>
+      </div>`);
+    });
+  });
+  document.getElementById('schedule-list').innerHTML = html.join('') || '<div class="loading">No events this week</div>';
+}
+
+// ── Activities ────────────────────────────────────────────────────────────────
+
+function mergeActivities(sActs, wWorkouts){
+  const usedW=new Set(), usedS=new Set(), merged=[];
+  // Pass 1: exact sport match
+  sActs.forEach((s,si)=>{
+    if(s.sport==='other') return;
+    wWorkouts.forEach((w,wi)=>{
+      if(usedW.has(wi)||usedS.has(si)) return;
+      if(w.date===s.date && whoopSport(w.sport)===s.sport){
+        merged.push({strava:s,whoop:w,linked:true,date:s.date,sport:s.sport});
+        usedW.add(wi); usedS.add(si);
+      }
+    });
+  });
+  // Pass 2: Strava "other" → any unmatched WHOOP on same date
+  sActs.forEach((s,si)=>{
+    if(usedS.has(si)||s.sport!=='other') return;
+    wWorkouts.forEach((w,wi)=>{
+      if(usedW.has(wi)||usedS.has(si)) return;
+      if(w.date===s.date){
+        merged.push({strava:s,whoop:w,linked:true,date:s.date,sport:whoopSport(w.sport)});
+        usedW.add(wi); usedS.add(si);
+      }
+    });
+  });
+  sActs.forEach((s,si)=>{ if(!usedS.has(si)) merged.push({strava:s,whoop:null,linked:false,date:s.date,sport:s.sport}); });
+  wWorkouts.forEach((w,wi)=>{ if(!usedW.has(wi)) merged.push({strava:null,whoop:w,linked:false,date:w.date,sport:whoopSport(w.sport)}); });
+  return merged.sort((a,b) => b.date.localeCompare(a.date));
+}
+
+function makeFlipCard({strava,whoop,linked,sport}){
+  const type   = sport||'other';
+  const name   = SPORT_LABELS[type]||'Workout';
+  const dist   = strava ? fmtDist(strava.dist_m) : null;
+  const strain = whoop?.strain>0 ? whoop.strain : null;
+  const badges=[];
+  if(strain!=null) badges.push(`<span class="fc-badge fc-bw">${strain}<small> str</small></span>`);
+  if(dist)         badges.push(`<span class="fc-badge fc-bs">${dist}</span>`);
+  const front=`<div class="flip-face flip-front">
+    <span class="fc-icon">${ICONS[type]||'⚡'}</span>
+    <div class="fc-name">${name}${linked?'<span class="linked-pill">⚡</span>':''}</div>
+    <div class="fc-badges">${badges.join('')}</div>
+    <div class="fc-flip-hint">tap for details →</div>
+  </div>`;
+  const stats=[];
+  if(whoop?.avg_hr)   stats.push(['Avg HR',  whoop.avg_hr+' bpm']);
+  if(whoop?.max_hr)   stats.push(['Max HR',  whoop.max_hr+' bpm']);
+  if(whoop?.duration) stats.push(['Time',    fmtDur(whoop.duration)]);
+  if(strain!=null)    stats.push(['Strain',  strain]);
+  if(dist)            stats.push(['Dist',    dist]);
+  const stravaBtn = strava?.id
+    ? `<a class="fc-strava-btn" href="https://www.strava.com/activities/${strava.id}" target="_blank" onclick="event.stopPropagation()">🗺 View on Strava →</a>` : '';
+  const fullName = strava?.name || (whoop?.sport) || name;
+  const back=`<div class="flip-face flip-back">
+    <div class="fc-back-head">${fullName}</div>
+    <div class="fc-back-rows">
+      ${stats.map(([l,v])=>`<div class="fc-stat"><span class="fc-stat-lbl">${l}</span><span class="fc-stat-val">${v}</span></div>`).join('')}
+    </div>
+    ${stravaBtn}
+    <div class="fc-back-hint">← tap to flip back</div>
+  </div>`;
+  return `<div class="flip-card ${SPORTS[type]||'fc-other'}" onclick="this.classList.toggle('flipped')">
+    <div class="flip-card-inner">${front}${back}</div>
+  </div>`;
+}
+
+function renderActivities(sActs, wWorkouts){
+  const el = document.getElementById('act-list');
+  if(!sActs.length&&!wWorkouts.length){ el.innerHTML='<div class="loading">No activities</div>'; return; }
+  const today     = new Date().toISOString().slice(0,10);
+  const yesterday = new Date(Date.now()-864e5).toISOString().slice(0,10);
+  const items = mergeActivities(sActs, wWorkouts).slice(0,24);
+  const groups = {};
+  items.forEach(item => {
+    const d = item.date||'unknown';
+    if(!groups[d]) groups[d]=[];
+    groups[d].push(item);
+  });
+  el.innerHTML = Object.keys(groups).sort((a,b)=>b.localeCompare(a)).map(day => {
+    let label = day===today?'Today':day===yesterday?'Yesterday':new Date(day+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+    return `<div class="act-day-header"><div class="act-day-lbl">${label}</div></div>
+<div class="act-grid">${groups[day].map(makeFlipCard).join('')}</div>`;
+  }).join('');
+}
+
+// ── Tasks page ────────────────────────────────────────────────────────────────
+
+function renderTasksPage(){
+  const urgent = TASKS_PENDING.filter(t => t.urgent);
+  const normal = TASKS_PENDING.filter(t => !t.urgent);
+  let html = '';
+
+  if(TASKS_PENDING.length){
+    if(urgent.length){
+      html += `<div class="task-sec-hd">🔴 Due Soon</div>`;
+      html += urgent.map(t => `
+        <div class="task-row is-urgent">
+          <div class="task-chk urgent"></div>
+          <div class="task-body">
+            <div class="task-name">${t.name}</div>
+            <div class="task-due">${t.detail}</div>
+            ${t.course?`<span class="task-course">${t.course}</span>`:''}
+          </div>
+        </div>`).join('');
+    }
+    if(normal.length){
+      html += `<div class="task-sec-hd">📋 Upcoming</div>`;
+      html += normal.map(t => `
+        <div class="task-row">
+          <div class="task-chk"></div>
+          <div class="task-body">
+            <div class="task-name">${t.name}</div>
+            <div class="task-due">${t.detail}</div>
+            ${t.course?`<span class="task-course">${t.course}</span>`:''}
+          </div>
+        </div>`).join('');
+    }
+  } else {
+    html += `<div class="task-sec-hd">📋 Pending</div><div class="loading">All done! 🎉</div>`;
+  }
+
+  html += `<div class="task-sec-hd">✅ Completed · ${TASKS_DONE.length} tasks</div>`;
+  html += TASKS_DONE.slice(0,8).map(t => `
+    <div class="task-row is-done">
+      <div class="task-chk done">✓</div>
+      <div class="task-body">
+        <div class="task-name">${t.name}</div>
+        ${t.course?`<span class="task-course">${t.course}</span>`:''}
+      </div>
+    </div>`).join('');
+  if(TASKS_DONE.length > 8){
+    html += `<div class="task-done-count">+ ${TASKS_DONE.length - 8} more completed</div>`;
+  }
+
+  document.getElementById('tasks-page').innerHTML = html;
+}
+
+// ── Tabs ──────────────────────────────────────────────────────────────────────
+
+function switchTab(name){
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    t.classList.toggle('active', ['home','training','schedule','tasks'][i]===name);
+  });
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.toggle('active', p.id==='page-'+name);
+  });
+  try{ localStorage.setItem('dash-tab',name); }catch(e){}
+}
+try{ const _t=localStorage.getItem('dash-tab'); if(_t) switchTab(_t); }catch(e){}
+
+// ── Header date ───────────────────────────────────────────────────────────────
+
+const now = new Date();
+document.getElementById('hdr-date').textContent = now.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+
+// ── Countdown ─────────────────────────────────────────────────────────────────
+
+const RACE  = new Date('2026-09-26T07:00:00-04:00').getTime();
+const START = new Date('2026-01-01').getTime();
+function tick(){
+  const diff = RACE - Date.now();
+  if(diff <= 0){ ['im-d','im-h','im-m','im-s'].forEach(id=>document.getElementById(id).textContent='00'); return; }
+  const d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000),
+        m=Math.floor(diff%3600000/60000),   s=Math.floor(diff%60000/1000);
+  document.getElementById('im-d').textContent = String(d).padStart(3,'0');
+  document.getElementById('im-h').textContent = String(h).padStart(2,'0');
+  document.getElementById('im-m').textContent = String(m).padStart(2,'0');
+  document.getElementById('im-s').textContent = String(s).padStart(2,'0');
+  const pct = Math.min(100, Math.max(0, (Date.now()-START)/(RACE-START)*100));
+  document.getElementById('im-bar').style.width = pct.toFixed(1)+'%';
+  document.getElementById('im-prog-lbl').textContent = `${pct.toFixed(0)}% through training block · ${Math.ceil(d/7)} weeks to go`;
+}
+setInterval(tick, 1000); tick();
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+
+renderRecovery(DATA_RECOVERY);
+renderHomeMetrics(DATA_WORKOUTS);
+renderTaskProgress();
+renderChart(DATA_RECOVERIES);
+renderActivities(DATA_STRAVA, DATA_WORKOUTS);
+renderSchedule(DATA_EVENTS);
+renderTasksPage();
+
+</script>
+</body>
+</html>

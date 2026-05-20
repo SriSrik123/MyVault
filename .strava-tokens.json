@@ -1,0 +1,29 @@
+{
+  "token_type": "Bearer",
+  "expires_at": 1778054255,
+  "expires_in": 21600,
+  "refresh_token": "3ec4de8ed391f3db9c76867aaac4eebdd9d149ea",
+  "access_token": "8964b431edc267ba8620725f40c28fcd640173e9",
+  "scope": "activity:read_all read",
+  "athlete": {
+    "id": 1540024252,
+    "username": null,
+    "resource_state": 2,
+    "firstname": "Sri",
+    "lastname": "S",
+    "bio": null,
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "country": "United States",
+    "sex": "M",
+    "premium": true,
+    "summit": true,
+    "created_at": "2026-04-20T14:26:46Z",
+    "updated_at": "2026-05-01T17:07:45Z",
+    "badge_type_id": 1,
+    "profile_medium": "https://lh3.googleusercontent.com/a/ACg8ocKsd1B-eG_sbcBCrV0_-foez2eL7Huv4jOW_WX5xMI3hwbKlA=s96-c",
+    "profile": "https://lh3.googleusercontent.com/a/ACg8ocKsd1B-eG_sbcBCrV0_-foez2eL7Huv4jOW_WX5xMI3hwbKlA=s96-c",
+    "friend": null,
+    "follower": null
+  }
+}
