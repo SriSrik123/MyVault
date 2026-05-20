@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "mcp__e9cfcf73-4d07-429c-b8c1-b65ff7dfaa1f__list_events"
+      "mcp__e9cfcf73-4d07-429c-b8c1-b65ff7dfaa1f__list_events",
+      "Bash(date:*)",
+      "Bash(ls /home/user/MyVault/sports-fitness/Health/WHOOP/2026/*)",
+      "Bash(mkdir -p /home/user/MyVault/second-brain/morning-briefing*)",
+      "Bash(python3 -c *quotes*)",
+      "Bash(python3 /home/user/MyVault/scripts/notebooklm_upload.py*)"
     ]
   }
 }
