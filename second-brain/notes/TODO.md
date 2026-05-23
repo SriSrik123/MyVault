@@ -7,26 +7,26 @@ kanban-plugin: board
 ## 📚 Academics
 
 - [ ] **MATH-201 Mock Quiz** · **Thu May 14** · [[second-brain/notes/math-201-linear-algebra/assignments|assignments]]
-- [ ] **CS-270 HW 6** — Induction · due **Fri May 15** · [[second-brain/notes/math-foundations-cs/assignments|assignments]]
-- [ ] **COM-270 Presentation** · due **Fri May 16** · [[second-brain/notes/com-270-business-communication/assignments|assignments]]
-- [ ] **CS-270 Lab 08** — Induction on Lists / Trees · in-class · week of **May 18** · [[second-brain/notes/math-foundations-cs/assignments|assignments]]
 - [ ] **MATH-201 Midterm Exam II** — 90 min async · window **May 18–22** · [[second-brain/notes/math-201-linear-algebra/assignments|assignments]]
 - [ ] **CS-270 HW 7** — Induction on Lists · due **Fri May 22** · [[second-brain/notes/math-foundations-cs/assignments|assignments]]
-- [ ] **SE-201 A7** — Mutation Testing · due **Sat May 23, 5:00 AM** · [[second-brain/notes/intro-software-eng/assignments|assignments]]
-- [ ] **SE-201 Lab W8** — Kanban Finale · due **Sat May 23, 5:00 AM** · [[second-brain/notes/intro-software-eng/assignments|assignments]]
 
 
 ## Done not submitted
 
-- [ ] **CS-265 Lab 8** · due **Mon May 25** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]]
-- [ ] **CS-265 Activity 8** · due ~**Thu May 21** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]]
 
 
 ## ✅ Done
 
+- [ ] **COM-270 Presentation** · due **Fri May 16** · [[second-brain/notes/com-270-business-communication/assignments|assignments]]
+- [ ] **CS-270 HW 6** — Induction · due **Fri May 15** · [[second-brain/notes/math-foundations-cs/assignments|assignments]]
+- [ ] **CS-270 Lab 08** — Induction on Lists / Trees · in-class · week of **May 18** · [[second-brain/notes/math-foundations-cs/assignments|assignments]]
+- [ ] **SE-201 A7** — Mutation Testing · due **Sat May 23, 5:00 AM** · [[second-brain/notes/intro-software-eng/assignments|assignments]]
+- [ ] **SE-201 Lab W8** — Kanban Finale · due **Sat May 23, 5:00 AM** · [[second-brain/notes/intro-software-eng/assignments|assignments]]
 - [ ] **SE-201 Lab W7** — UML · due **Sat May 16, 5:00 AM** · [[second-brain/notes/intro-software-eng/assignments|assignments]]
 - [ ] **CS-270 Lab 07** — Mathematical Induction · in-class · week of **May 11** · [[second-brain/notes/math-foundations-cs/assignments|assignments]]
 - [ ] **SE-201 A6** — Command Processor + Storing · due **Sat May 23, 5:00 AM** · [[second-brain/notes/intro-software-eng/assignments|assignments]]
+- [ ] **CS-265 Activity 8** · due ~**Thu May 21** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]]
+- [ ] **CS-265 Lab 8** · due **Mon May 25** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]]
 
 
 ***

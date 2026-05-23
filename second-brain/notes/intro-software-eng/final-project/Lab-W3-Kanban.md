@@ -6,7 +6,6 @@ kanban-plugin: board
 
 ## 🎯 To Do
 
-- [ ] [BANK-003] Create a CD account with a valid ID, APR, and initial amount #create
 - [ ] [BANK-006] Reject create with APR outside the range of 0–10 #create
 - [ ] [BANK-007] Reject CD creation with an amount outside $1,000–$10,000 #create
 - [ ] [BANK-009] Deposit into a checking account up to the $1,000 max #deposit
@@ -19,7 +18,6 @@ kanban-plugin: board
 - [ ] [BANK-017] Enforce a maximum of 1 savings withdrawal per month #withdrawal
 - [ ] [BANK-018] Reject any CD withdrawal before 12 months have passed #withdrawal
 - [ ] [BANK-019] Allow only a full-balance withdrawal from a CD after 12 months #withdrawal
-- [ ] [BANK-020] Handle overdraft — balance caps at $0, does not go negative #withdrawal
 - [ ] [BANK-021] Allow a withdrawal of exactly zero #withdrawal
 - [ ] [BANK-022] Reject a negative withdrawal amount #withdrawal
 - [ ] [BANK-023] Transfer between two checking accounts #transfer
@@ -43,7 +41,6 @@ kanban-plugin: board
 - [ ] [BANK-041] Floor-truncate APR to 2 decimal places with trailing zeros (e.g. 3.00) #output
 - [ ] [BANK-042] Capitalize account type correctly (e.g. Savings, Checking, Cd) #output
 - [ ] [BANK-043] Append all invalid commands at the end of output in order received #output
-- [ ] [BANK-045] Reject any command that has extra arguments #validation
 - [ ] [BANK-046] Reject commands with leading or mid-string extra spaces #validation
 - [ ] [BANK-047] Reject scientific or exponential notation in any numeric field #validation
 
@@ -64,6 +61,10 @@ kanban-plugin: board
 - [x] [BANK-048] Accept a `List<String>` as the sole input to the public method #master-control
 - [x] [BANK-049] Return a `List<String>` as the sole output of the public method #master-control
 - [x] [BANK-050] No Scanner or System.out anywhere in the codebase #master-control
+- [x] [BANK-003] Create a CD account with a valid ID, APR, and initial amount #create
+- [x] [BANK-020] Handle overdraft — balance caps at $0, does not go negative #withdrawal
+- [x] [BANK-045] Reject any command that has extra arguments #validation
+
 
 
 

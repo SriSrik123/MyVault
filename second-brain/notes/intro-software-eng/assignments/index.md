@@ -9,24 +9,24 @@
 |-----|-------|-----|--------|
 | Lab W1 | Object Oriented Programming | ~~Sat Apr 4~~ | ✅ Done |
 | Lab W2 | Student/University | ~~Sat Apr 11~~ | ✅ Done |
-| Lab W3 | Kanban | Sat Apr 18, 5 AM | [ ] |
-| Lab W4 | GitLab Setup | Sat Apr 25, 5 AM | [ ] |
-| Lab W5 | Debugging Demo (Potter Kata) | Sat May 2, 5 AM | [ ] |
+| Lab W3 | Kanban | Sat Apr 18, 5 AM | ✅ Done |
+| Lab W4 | GitLab Setup | Sat Apr 25, 5 AM | ✅ Done |
+| Lab W5 | Debugging Demo (Potter Kata) | Sat May 2, 5 AM | ✅ Done |
 | *(No Lab W6 — Midterm Presentations week)* | — | — | — |
-| Lab W7 | UML | Sat May 16, 5 AM | [ ] |
-| Lab W8 | Kanban Finale | Sat May 23, 5 AM | [ ] |
+| Lab W7 | UML | Sat May 16, 5 AM | ✅ Done |
+| Lab W8 | Kanban Finale | Sat May 23, 5 AM | ✅ Done |
 
 ## Assignments
 
 | Assignment | Topic | Due | Status |
 |------------|-------|-----|--------|
 | A1 | Test Driven Development (TDD) | ~~Sat Apr 11~~ | ✅ Done |
-| A2 | Bank System | Sat Apr 18, 5 AM | [ ] |
-| A3 | Test Cases | Sat Apr 25, 5 AM | [ ] |
-| A4 | Dependency Injection | Sat May 2, 5 AM | [ ] |
-| A5 | Command Validation | Sat May 9, 5 AM | [ ] |
-| A6 | Command Processor + Storing | Sat May 16, 5 AM | [ ] |
-| A7 | Mutation Testing | Sat May 23, 5 AM | [ ] |
+| A2 | Bank System | Sat Apr 18, 5 AM | ✅ Done |
+| A3 | Test Cases | Sat Apr 25, 5 AM | ✅ Done |
+| A4 | Dependency Injection | Sat May 2, 5 AM | ✅ Done |
+| A5 | Command Validation | Sat May 9, 5 AM | ✅ Done |
+| A6 | Command Processor + Storing | Sat May 16, 5 AM | ✅ Done |
+| A7 | Mutation Testing | Sat May 23, 5 AM | ✅ Done |
 
 ## Major Milestones
 
