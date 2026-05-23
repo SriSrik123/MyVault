@@ -148,28 +148,23 @@ Use **exactly** this format (substitute all bracketed values with real data):
 
 ---
 
-## Step 9 — Upload to NotebookLM and Generate Audio
+## Step 9 — Commit and Push the Briefing
 
-After writing the file, run:
+Commit the new briefing file so it's available on the Mac:
 ```bash
-python3 /home/user/MyVault/scripts/notebooklm_upload.py /home/user/MyVault/second-brain/morning-briefing/TODAY.md
+cd /home/user/MyVault && git add second-brain/morning-briefing/TODAY.md && git commit -m "briefing: TODAY" && git push
 ```
 
-This will:
-1. Find or create the "Sri's Daily Morning Briefing" notebook
-2. Replace yesterday's source with today's briefing
-3. Generate a new audio overview (~2–3 min)
-4. Save the audio to `second-brain/morning-briefing/audio/TODAY.mp3`
-
-**If it fails with an auth error:** run `notebooklm login` in the terminal and re-run.
+The NotebookLM audio upload runs on the Mac (not here — Google blocks cloud IPs).
+The Mac launchd job picks up the new file automatically after `git pull`.
 
 ---
 
 ## Step 10 — Confirm
 
 Tell Sri:
-- The file path of the briefing (use `computer://` link format if in Cowork)
-- Whether the NotebookLM audio was generated successfully or is still processing
+- The file path of the briefing
 - One sentence summary of what he most needs to do today
+- Remind him the audio will be ready in NotebookLM within a few minutes of his Mac syncing
 
 Do NOT narrate the steps you took. Just deliver the result.
