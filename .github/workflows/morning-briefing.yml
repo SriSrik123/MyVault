@@ -1,0 +1,52 @@
+name: Morning Briefing
+
+# Runs daily at 6:00 AM ET (11:00 UTC — adjust for summer: 10:00 UTC)
+# Also runnable manually from GitHub Actions tab → "Run workflow"
+on:
+  schedule:
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-briefing:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # needed for git push
+
+    steps:
+      - name: Checkout vault (main branch)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+          # GITHUB_TOKEN gives write access; claude-code-action will commit + push
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "morning-briefing[bot]"
+          git config user.email "morning-briefing[bot]@users.noreply.github.com"
+
+      - name: Generate morning briefing
+        uses: anthropic/claude-code-action@v1
+        with:
+          # Uses the Claude GitHub App — no ANTHROPIC_API_KEY needed.
+          # Requires: Claude GitHub App installed on this repo (already done).
+          # Requires: GitHub connected to your claude.ai account at
+          #   claude.ai → Settings → Integrations → GitHub
+          prompt: |
+            Run the morning-briefing skill (/morning-briefing).
+            You are running inside GitHub Actions on an Ubuntu runner.
+            The Google Calendar MCP tool will NOT be available — use the
+            fallback message for the schedule section as described in the skill.
+            Push the briefing to the main branch when done.
+          allowed_tools: >-
+            Bash(date:*),
+            Bash(ls /home/runner/work/MyVault/MyVault/sports-fitness/Health/WHOOP/2026/*),
+            Bash(mkdir -p /home/runner/work/MyVault/MyVault/second-brain/morning-briefing*),
+            Bash(python3 -c *quotes*),
+            Bash(git *),
+            Read,
+            Write
+          max_turns: "30"
