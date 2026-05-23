@@ -7,20 +7,27 @@
     <string>com.sri.morning-briefing</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/bin/bash</string>
-        <string>/Users/sri/Documents/MyVault/scripts/mac_morning_upload.sh</string>
+        <string>/usr/bin/python3</string>
+        <string>/Users/sri/Documents/MyVault/scripts/auto_morning_briefing.py</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
-        <integer>7</integer>
+        <integer>5</integer>
         <key>Minute</key>
-        <integer>0</integer>
+        <integer>30</integer>
     </dict>
     <key>StandardOutPath</key>
     <string>/Users/sri/Documents/MyVault/scripts/upload.log</string>
     <key>StandardErrorPath</key>
     <string>/Users/sri/Documents/MyVault/scripts/upload.log</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+        <key>HOME</key>
+        <string>/Users/sri</string>
+    </dict>
     <key>RunAtLoad</key>
     <false/>
 </dict>
