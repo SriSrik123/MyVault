@@ -42,9 +42,18 @@ Read that file. Extract: Recovery %, HRV, Resting HR, Sleep hours + performance 
 
 ## Step 4 — Get Calendar Events
 
+**First, try the MCP tool** (works in interactive Claude Code sessions):
 Use `mcp__e9cfcf73-4d07-429c-b8c1-b65ff7dfaa1f__list_events` to fetch:
 - **Today**: time range `TODAY 00:00` → `TODAY 23:59` (local, America/New_York)
 - **Tomorrow**: time range `TOMORROW 00:00` → `TOMORROW 23:59`
+
+**If the MCP tool is unavailable** (e.g., running via GitHub Actions), fall back to `icalBuddy` on Mac:
+```bash
+icalBuddy -f -b "• " -nc -npn -iep "title,datetime" eventsFrom:TODAY to:TODAY
+```
+
+**If both are unavailable**, write in the briefing:
+> *Calendar sync unavailable — check your calendar app for today's schedule.*
 
 List all events including classes, swim practice, co-op meetings, and any personal events.
 
@@ -152,8 +161,13 @@ Use **exactly** this format (substitute all bracketed values with real data):
 
 Commit the new briefing file so it's available on the Mac:
 ```bash
-cd /home/user/MyVault && git add second-brain/morning-briefing/TODAY.md && git commit -m "briefing: TODAY" && git push
+cd /home/user/MyVault
+git add second-brain/morning-briefing/TODAY.md
+git commit -m "briefing: TODAY"
+git push origin HEAD
 ```
+
+`git push origin HEAD` pushes to whichever branch is currently checked out — works in both interactive sessions (feature branch) and GitHub Actions (main).
 
 The NotebookLM audio upload runs on the Mac (not here — Google blocks cloud IPs).
 The Mac launchd job picks up the new file automatically after `git pull`.
