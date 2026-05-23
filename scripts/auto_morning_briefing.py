@@ -106,7 +106,7 @@ def whoop_get(path: str, token: str) -> dict:
 
 # ── Poll until today's recovery is ready ──────────────────────────────────────
 
-def wait_for_recovery(max_minutes: int = 120) -> dict:
+def wait_for_recovery(max_minutes: int = 180) -> dict:
     """Return the recovery record for today; poll every 5 min until available."""
     today = date.today().isoformat()
     deadline = time.time() + max_minutes * 60

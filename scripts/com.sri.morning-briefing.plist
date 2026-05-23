@@ -13,9 +13,9 @@
     <key>StartCalendarInterval</key>
     <dict>
         <key>Hour</key>
-        <integer>5</integer>
+        <integer>6</integer>
         <key>Minute</key>
-        <integer>30</integer>
+        <integer>0</integer>
     </dict>
     <key>StandardOutPath</key>
     <string>/Users/sri/Documents/MyVault/scripts/upload.log</string>
