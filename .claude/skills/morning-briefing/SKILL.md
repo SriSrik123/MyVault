@@ -31,11 +31,16 @@ Read these two files in full:
 
 ## Step 3 — Read the Latest WHOOP Data
 
-Run:
+**If `WHOOP_DATA_FILE` env var is set** (running via GitHub Actions — data was pre-fetched):
+```bash
+cat "$WHOOP_DATA_FILE"
+```
+Parse the JSON. The `recovery` key has `score.recovery_score`, `score.hrv_rmssd_milli`, `score.resting_heart_rate`. The `sleep` key has `score.sleep_performance_percentage`, `score.slow_wave_sleep_percentage`, `score.rem_sleep_percentage`, and `start`/`end` timestamps for duration. Extract all values for the briefing table.
+
+**Otherwise** (interactive session — read from vault):
 ```bash
 ls /home/user/MyVault/sports-fitness/Health/WHOOP/2026/ | sort | tail -1
 ```
-
 Read that file. Extract: Recovery %, HRV, Resting HR, Sleep hours + performance %, Deep sleep %, REM sleep %, Day Strain, and any workouts logged.
 
 ---
