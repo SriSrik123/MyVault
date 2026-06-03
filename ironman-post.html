@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRONMAN 70.3 New York — No Going Back Now</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700;900&family=Barlow:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --deep: #0d0f10;
+    --blue: #3b52ff;
+    --blue-light: #6a7cff;
+    --coral: #ff5c38;
+    --coral-light: #ff8464;
+    --white: #f0eeea;
+    --muted: rgba(240,238,234,0.45);
+    --ironman-red: #cc0000;
+    --slide-size: 1080px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  /* ─── VIEWER SHELL ───────────────────────── */
+  .viewer {
+    position: relative;
+    width: var(--slide-size);
+    height: var(--slide-size);
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.8);
+  }
+
+  .slides-track {
+    display: flex;
+    width: calc(var(--slide-size) * 5);
+    height: var(--slide-size);
+    transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  /* ─── NAV ───────────────────────────────── */
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: var(--slide-size);
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .nav-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: var(--white);
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue';
+    letter-spacing: 0;
+  }
+  .nav-btn:hover { background: var(--blue); border-color: var(--blue); }
+
+  .dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .dot.active { background: var(--white); width: 28px; border-radius: 4px; }
+
+  .slide-counter {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    color: var(--muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    min-width: 60px;
+    text-align: center;
+  }
+
+  /* ─── SHARED SLIDE BASE ─────────────────── */
+  .slide {
+    width: var(--slide-size);
+    height: var(--slide-size);
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    background: var(--black);
+  }
+
+  /* grain overlay on every slide */
+  .slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  /* ─── SLIDE 1: NO GOING BACK NOW ────────── */
+  .s1 { background: var(--black); }
+
+  .s1-bg-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(59, 82, 255, 0.025) 60px,
+        rgba(59, 82, 255, 0.025) 61px
+      );
+  }
+
+  .s1-accent-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 3px;
+  }
+  .s1-accent-line.top { top: 80px; background: var(--blue); }
+  .s1-accent-line.bottom { bottom: 80px; background: var(--coral); }
+
+  .s1-side-tag {
+    position: absolute;
+    right: 72px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 6px;
+    color: var(--muted);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .s1-content {
+    position: absolute;
+    left: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .s1-pre {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 8px;
+    color: var(--blue-light);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .s1-main {
+    font-family: 'Bebas Neue', sans-serif;
+    line-height: 0.88;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+
+  .s1-word-no    { font-size: 280px; display: block; color: var(--white); }
+  .s1-word-going { font-size: 196px; display: block; color: rgba(240,238,234,0.15); -webkit-text-stroke: 2px rgba(240,238,234,0.4); }
+  .s1-word-back  { font-size: 280px; display: block; color: var(--blue); }
+  .s1-word-now   { font-size: 196px; display: block; color: var(--coral); }
+
+  .s1-post {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 32px;
+  }
+
+  .s1-ironman-dot {
+    position: absolute;
+    right: 72px;
+    bottom: 80px;
+    width: 56px;
+    height: 56px;
+    background: var(--ironman-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .s1-ironman-dot span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: white;
+    letter-spacing: -1px;
+  }
+
+  /* ─── SLIDE 2: REGISTERED ───────────────── */
+  .s2 { background: var(--deep); }
+
+  .s2-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 900px 700px at 50% 120%, rgba(59,82,255,0.12) 0%, transparent 70%);
+  }
+
+  .s2-stripe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: linear-gradient(to bottom, var(--blue) 0%, var(--coral) 100%);
+  }
+
+  .s2-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+  }
+
+  .s2-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 10px;
+    color: var(--blue-light);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .s2-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 140px;
+    color: var(--white);
+    line-height: 0.9;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .s2-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    color: var(--coral);
+    line-height: 1;
+    text-align: center;
+  }
+
+  .s2-divider {
+    width: 120px;
+    height: 2px;
+    background: rgba(240,238,234,0.15);
+    margin: 40px auto;
+    position: relative;
+  }
+  .s2-divider::before {
+    content: '';
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%,-50%);
+    width: 8px; height: 8px;
+    background: var(--blue);
+    border-radius: 50%;
+  }
+
+  .s2-detail-row {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+
+  .s2-detail {
+    text-align: center;
+  }
+  .s2-detail-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .s2-detail-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .s2-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .s2-corner-number {
+    position: absolute;
+    right: 60px;
+    bottom: 60px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 180px;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+  }
+
+  /* ─── SLIDE 3: THE BIKE ──────────────────── */
+  .s3 { background: #060606; }
+
+  .s3-img {
+    position: absolute;
+    inset: 0;
+    background-image: var(--bike-img, none);
+    background-size: cover;
+    background-position: center;
+    /* Placeholder treatment */
+    background-color: #0d0e10;
+  }
+  /* placeholder visual when no image */
+  .s3-img-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0b0d 0%, #141618 40%, #0e1012 100%);
+  }
+  .placeholder-note {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.18);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px;
+    border: 1px dashed rgba(255,255,255,0.12);
+    border-radius: 4px;
+  }
+
+  .s3-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.95) 0%,
+      rgba(0,0,0,0.55) 40%,
+      rgba(0,0,0,0.1) 70%,
+      transparent 100%
+    );
+  }
+
+  .s3-top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 52px 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .s3-gear-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 100px;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+  }
+  .s3-gear-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 7px;
+    color: var(--blue-light);
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  .s3-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 60px 68px;
+  }
+  .s3-gear-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 7px;
+    color: var(--coral);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .s3-gear-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 108px;
+    line-height: 0.88;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .s3-gear-name span { color: var(--blue); }
+  .s3-gear-desc {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .s3-side-accent {
+    position: absolute;
+    right: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent 0%, var(--blue) 40%, var(--blue) 60%, transparent 100%);
+  }
+
+  /* ─── SLIDE 4: THE SHOES ─────────────────── */
+  .s4 { background: #060608; }
+
+  .s4-img-placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #060612 0%, #0c0d1f 50%, #100808 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .s4-bg-glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 600px 400px at 30% 60%, rgba(59,82,255,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 350px at 70% 40%, rgba(255,92,56,0.1) 0%, transparent 70%);
+  }
+
+  .s4-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.95) 0%,
+      rgba(0,0,0,0.4) 35%,
+      rgba(0,0,0,0.05) 60%,
+      transparent 100%
+    );
+  }
+
+  .s4-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 52px 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .s4-gear-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 100px;
+    color: rgba(255,255,255,0.05);
+    line-height: 1;
+  }
+  .s4-gear-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 7px;
+    color: var(--coral-light);
+    text-transform: uppercase;
+    text-align: right;
+  }
+
+  .s4-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 60px 68px;
+  }
+  .s4-gear-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 7px;
+    color: var(--blue-light);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .s4-gear-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 108px;
+    line-height: 0.88;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  .s4-gear-name span { color: var(--coral); }
+  .s4-gear-desc {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .s4-side-accent {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent 0%, var(--coral) 40%, var(--coral) 60%, transparent 100%);
+  }
+
+  /* ─── SLIDE 5: RACE DAY ──────────────────── */
+  .s5 { background: var(--black); }
+
+  .s5-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 800px 600px at 50% -10%, rgba(59,82,255,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 600px 400px at 50% 110%, rgba(255,92,56,0.12) 0%, transparent 60%);
+  }
+
+  .s5-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 108px,
+        rgba(255,255,255,0.018) 108px,
+        rgba(255,255,255,0.018) 109px
+      );
+  }
+
+  .s5-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px;
+  }
+
+  .s5-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 10px;
+    color: var(--blue-light);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .s5-distance {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 300px;
+    line-height: 0.85;
+    color: var(--white);
+    -webkit-text-stroke: 0px;
+    letter-spacing: -4px;
+  }
+
+  .s5-miles {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    color: rgba(240,238,234,0.2);
+    -webkit-text-stroke: 1px rgba(240,238,234,0.3);
+    letter-spacing: 18px;
+    margin-top: -10px;
+    margin-bottom: 40px;
+  }
+
+  .s5-hr {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to right, var(--blue), var(--coral));
+    margin: 0 auto 40px;
+  }
+
+  .s5-date {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--coral);
+    letter-spacing: 6px;
+    margin-bottom: 12px;
+  }
+
+  .s5-location {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 8px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  .s5-tags {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: rgba(240,238,234,0.3);
+    text-transform: uppercase;
+  }
+
+  .s5-corner-tl,
+  .s5-corner-br {
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 200px;
+    color: rgba(255,255,255,0.015);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .s5-corner-tl { top: -20px; left: 30px; }
+  .s5-corner-br { bottom: -20px; right: 30px; }
+
+  /* ─── IMAGE UPLOAD HINT ──────────────────── */
+  .img-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .img-hint-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.3;
+  }
+  .img-hint-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+  }
+
+  /* ─── REAL IMAGE SUPPORT ──────────────────── */
+  .slide-img {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+
+<div class="viewer" id="viewer">
+  <div class="slides-track" id="track">
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SLIDE 1: NO GOING BACK NOW                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="slide s1">
+      <div class="s1-bg-lines"></div>
+      <div class="s1-accent-line top"></div>
+      <div class="s1-accent-line bottom"></div>
+
+      <div class="s1-content">
+        <div class="s1-pre">Ironman 70.3 · New York</div>
+        <div class="s1-main">
+          <span class="s1-word-no">NO</span>
+          <span class="s1-word-going">GOING</span>
+          <span class="s1-word-back">BACK</span>
+          <span class="s1-word-now">NOW.</span>
+        </div>
+        <div class="s1-post">September 26, 2026 · New York</div>
+      </div>
+
+      <div class="s1-side-tag">Swim · Bike · Run</div>
+
+      <div class="s1-ironman-dot">
+        <span>M</span>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SLIDE 2: REGISTERED                         -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="slide s2">
+      <div class="s2-bg"></div>
+      <div class="s2-stripe"></div>
+      <div class="s2-corner-number">70.3</div>
+
+      <div class="s2-content">
+        <div class="s2-eyebrow">It's official</div>
+        <div class="s2-title">REGISTERED</div>
+        <div class="s2-subtitle">IRONMAN 70.3</div>
+
+        <div class="s2-divider"></div>
+
+        <div class="s2-detail-row">
+          <div class="s2-detail">
+            <div class="s2-detail-label">Race</div>
+            <div class="s2-detail-value">NEW YORK</div>
+          </div>
+          <div class="s2-detail">
+            <div class="s2-detail-label">Date</div>
+            <div class="s2-detail-value">SEP 26 '26</div>
+          </div>
+          <div class="s2-detail">
+            <div class="s2-detail-label">Order</div>
+            <div class="s2-detail-value">#242686</div>
+          </div>
+        </div>
+
+        <div class="s2-tagline">1.2mi swim · 56mi bike · 13.1mi run</div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SLIDE 3: THE BIKE                           -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="slide s3">
+      <!-- If you have the bike image saved, add it here: -->
+      <!-- <img class="slide-img" src="YOUR_BIKE_IMAGE.jpg" alt="Trek TT Bike"> -->
+
+      <div class="s3-img-placeholder">
+        <div class="img-hint">
+          <div class="img-hint-icon">🚴</div>
+          <div class="img-hint-text">Trek TT Bike photo here</div>
+        </div>
+      </div>
+      <div class="s3-overlay"></div>
+      <div class="s3-side-accent"></div>
+
+      <div class="s3-top-bar">
+        <div class="s3-gear-number">01</div>
+        <div class="s3-gear-tag">Gear Check<br/>The Machine</div>
+      </div>
+
+      <div class="s3-bottom">
+        <div class="s3-gear-label">The Ride</div>
+        <div class="s3-gear-name"><span>TREK</span><br/>SPEED CONCEPT</div>
+        <div class="s3-gear-desc">Time Trial · Full Carbon · Disc Wheel</div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SLIDE 4: THE SHOES                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="slide s4">
+      <!-- If you have the shoe image saved, add it here: -->
+      <!-- <img class="slide-img" src="YOUR_SHOES_IMAGE.jpg" alt="ASICS Novablast"> -->
+
+      <div class="s4-img-placeholder">
+        <div class="s4-bg-glow"></div>
+        <div class="img-hint">
+          <div class="img-hint-icon">👟</div>
+          <div class="img-hint-text">ASICS shoes photo here</div>
+        </div>
+      </div>
+      <div class="s4-overlay"></div>
+      <div class="s4-side-accent"></div>
+
+      <div class="s4-top">
+        <div class="s4-gear-number">02</div>
+        <div class="s4-gear-tag">Gear Check<br/>The Legs</div>
+      </div>
+
+      <div class="s4-bottom">
+        <div class="s4-gear-label">The Run</div>
+        <div class="s4-gear-name">ASICS<br/><span>NOVABLAST</span></div>
+        <div class="s4-gear-desc">FF Leap Foam · Carbon-Fiber Plate · Race Day Ready</div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- SLIDE 5: RACE DAY CLOSER                    -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="slide s5">
+      <div class="s5-bg"></div>
+      <div class="s5-lines"></div>
+      <div class="s5-corner-tl">70</div>
+      <div class="s5-corner-br">.3</div>
+
+      <div class="s5-content">
+        <div class="s5-eyebrow">The countdown begins</div>
+        <div class="s5-distance">70.3</div>
+        <div class="s5-miles">MILES</div>
+
+        <div class="s5-hr"></div>
+
+        <div class="s5-date">September 26, 2026</div>
+        <div class="s5-location">Northwell Health IRONMAN 70.3 New York</div>
+        <div class="s5-tags">#Ironman703 &nbsp;·&nbsp; #70dot3NY &nbsp;·&nbsp; #NoGoingBackNow</div>
+      </div>
+    </div>
+
+  </div><!-- /slides-track -->
+</div><!-- /viewer -->
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn" onclick="prev()">&#8592;</button>
+  <div class="dots">
+    <div class="dot active" onclick="goto(0)"></div>
+    <div class="dot" onclick="goto(1)"></div>
+    <div class="dot" onclick="goto(2)"></div>
+    <div class="dot" onclick="goto(3)"></div>
+    <div class="dot" onclick="goto(4)"></div>
+  </div>
+  <div class="slide-counter" id="counter">1 / 5</div>
+  <button class="nav-btn" onclick="next()">&#8594;</button>
+</div>
+
+<script>
+  let current = 0;
+  const total = 5;
+  const track = document.getElementById('track');
+  const dots = document.querySelectorAll('.dot');
+  const counter = document.getElementById('counter');
+  const slideSize = 1080;
+
+  function goto(n) {
+    current = Math.max(0, Math.min(total - 1, n));
+    track.style.transform = `translateX(-${current * slideSize}px)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    counter.textContent = `${current + 1} / ${total}`;
+  }
+
+  function next() { goto(current + 1); }
+  function prev() { goto(current - 1); }
+
+  // Keyboard nav
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+
+  // Touch/swipe
+  let startX = 0;
+  const viewer = document.getElementById('viewer');
+  viewer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+  viewer.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) dx < 0 ? next() : prev();
+  });
+
+  // Mouse drag
+  let mouseDown = false, mouseStartX = 0;
+  viewer.addEventListener('mousedown', e => { mouseDown = true; mouseStartX = e.clientX; });
+  viewer.addEventListener('mouseup', e => {
+    if (!mouseDown) return;
+    mouseDown = false;
+    const dx = e.clientX - mouseStartX;
+    if (Math.abs(dx) > 40) dx < 0 ? next() : prev();
+  });
+</script>
+</body>
+</html>

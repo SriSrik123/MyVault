@@ -6,22 +6,23 @@ kanban-plugin: board
 
 ## 📚 Academics
 
-- [ ] **CS-265 Activity 10** · due ~**Thu Jun 4** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]]
-- [ ] **CS-270 HW 9 + Course Survey** · due **Fri Jun 5** · [[second-brain/notes/math-foundations-cs/assignments|assignments]]
 - [ ] **SE-201 Final Project** · due **Sat Jun 6, 5:00 AM** · [[second-brain/notes/intro-software-eng/assignments|assignments]]
-- [ ] **CS-265 Lab 10** · due **Mon Jun 8** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]]
-- [ ] **MATH-201 Final Exam** — 2 hrs async, cumulative · Finals Week **Jun 8–13** · [[second-brain/notes/math-201-linear-algebra/assignments|assignments]]
 - [ ] **SE-201 Final Exam** — in-person · Finals Week **Jun 8–12** · [[second-brain/notes/intro-software-eng/assignments|assignments]]
+- [ ] **MATH-201 Final Exam** — 2 hrs async, cumulative · Finals Week **Jun 8–13** · [[second-brain/notes/math-201-linear-algebra/assignments|assignments]]
 - [ ] **COM-270 Final Exam / Business Proposal** · Finals Week **Jun 8–13** · [[second-brain/notes/com-270-business-communication/assignments|assignments]]
 - [ ] **CS-265 Final Exam** — Finals Week · date TBD · [[second-brain/notes/advanced-prog-tools/assignments|assignments]]
 - [ ] **CS-270 Final Exam** — Finals Week · **~Jun 8–13** · [[second-brain/notes/math-foundations-cs/assignments|assignments]]
+- [ ] **CS-265 Lab 10** · due **Mon Jun 8** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]]
+
 
 ## Done not submitted
 
+- [ ] **CS-265 Activity 10** · due ~**Thu Jun 4** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]]
 
 
 ## ✅ Done
 
+- [ ] **CS-270 HW 9 + Course Survey** · due **Fri Jun 5** · [[second-brain/notes/math-foundations-cs/assignments|assignments]]
 
 
 ***

@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 6 — Ironman Training</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'DM Mono', monospace;
+    padding: 32px 0 48px;
+  }
+
+  .carousel { position: relative; width: 1080px; height: 1080px; }
+
+  .slide {
+    display: none;
+    width: 1080px; height: 1080px;
+    background: #0d0d0d;
+    position: relative; overflow: hidden;
+    padding: 72px 92px 60px;
+    flex-direction: column;
+  }
+  .slide.active { display: flex; }
+
+  .slide::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 80% 10%, rgba(0,245,212,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 90%, rgba(0,245,212,0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .corner-tl, .corner-br { position: absolute; width: 54px; height: 54px; }
+  .corner-tl { top: 46px; left: 46px; border-top: 1px solid rgba(0,245,212,0.45); border-left: 1px solid rgba(0,245,212,0.45); }
+  .corner-br { bottom: 46px; right: 46px; border-bottom: 1px solid rgba(0,245,212,0.45); border-right: 1px solid rgba(0,245,212,0.45); }
+
+  .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 38px; flex-shrink: 0; }
+  .tag { font-size: 10px; letter-spacing: 0.28em; color: rgba(0,245,212,0.9); text-transform: uppercase; margin-bottom: 10px; }
+  .day-title { font-family: 'Bebas Neue', sans-serif; font-size: 100px; color: #fff; letter-spacing: 0.02em; line-height: 0.85; text-transform: uppercase; }
+  .date-block { text-align: right; padding-top: 4px; }
+  .date-label { font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.3); text-transform: uppercase; margin-bottom: 5px; }
+  .date-val   { font-size: 13px; color: rgba(255,255,255,0.55); letter-spacing: 0.06em; }
+  .slide-counter { font-size: 10px; letter-spacing: 0.2em; color: rgba(0,245,212,0.5); text-transform: uppercase; margin-top: 10px; }
+
+  .activities { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .act-row { display: grid; grid-template-columns: 160px 1fr; align-items: center; border-top: 1px solid rgba(255,255,255,0.07); }
+  .act-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .act-row.rows-4 { padding: 16px 0; }
+  .act-row.rows-3 { padding: 24px 0; }
+  .act-row.rows-2 { padding: 46px 0; }
+  .act-row.rows-1 { padding: 86px 0; }
+  .act-label { display: flex; flex-direction: column; gap: 5px; }
+  .act-icon  { font-size: 26px; line-height: 1; margin-bottom: 3px; }
+  .act-name  { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: rgba(255,255,255,0.92); letter-spacing: 0.04em; line-height: 1; }
+  .act-subtitle { font-size: 9px; letter-spacing: 0.2em; color: rgba(0,245,212,0.7); text-transform: uppercase; }
+  .act-stats { display: flex; gap: 44px; align-items: flex-end; }
+  .stat-item { display: flex; flex-direction: column; gap: 5px; }
+  .stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 62px; color: #fff; letter-spacing: 0.01em; line-height: 1; }
+  .stat-val.secondary { font-size: 40px; color: rgba(255,255,255,0.42); }
+  .stat-val.accent    { font-size: 56px; color: #00f5d4; }
+  .stat-val.sm        { font-size: 46px; color: #fff; }
+  .stat-unit { font-size: 10px; letter-spacing: 0.2em; color: rgba(255,255,255,0.32); text-transform: uppercase; }
+  .stat-unit.hot { color: rgba(0,245,212,0.65); }
+
+  .rest-display { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .rest-big { font-family: 'Bebas Neue', sans-serif; font-size: 148px; color: rgba(255,255,255,0.17); letter-spacing: 0.04em; line-height: 0.88; text-transform: uppercase; }
+  .rest-note { font-size: 12px; letter-spacing: 0.24em; color: rgba(0,245,212,0.55); text-transform: uppercase; margin-top: 22px; }
+
+  /* summary */
+  .summary-display { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .summary-row { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid rgba(255,255,255,0.07); padding: 28px 0; }
+  .summary-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .summary-item { display: flex; flex-direction: column; gap: 8px; }
+  .summary-val { font-family: 'Bebas Neue', sans-serif; font-size: 66px; color: #fff; line-height: 1; letter-spacing: 0.02em; }
+  .summary-val.accent { color: #00f5d4; }
+  .summary-val.dim    { color: rgba(255,255,255,0.35); }
+  .summary-unit { font-size: 10px; letter-spacing: 0.22em; color: rgba(255,255,255,0.28); text-transform: uppercase; }
+  .summary-unit.hot { color: rgba(0,245,212,0.55); }
+
+  /* countdown */
+  .countdown-strip {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .countdown-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 88px;
+    color: #00f5d4;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+  .countdown-text {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    padding-bottom: 10px;
+  }
+
+  .whoop-strip { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 26px; margin-top: 14px; flex-shrink: 0; }
+  .whoop-label { font-size: 9px; letter-spacing: 0.28em; color: rgba(0,245,212,0.55); text-transform: uppercase; margin-bottom: 16px; }
+  .whoop-metrics { display: flex; gap: 64px; }
+  .w-item { display: flex; flex-direction: column; gap: 5px; }
+  .w-val { font-family: 'Bebas Neue', sans-serif; font-size: 46px; color: #fff; line-height: 1; letter-spacing: 0.02em; }
+  .w-val.peak { color: #00f5d4; }
+  .w-unit { font-size: 9px; letter-spacing: 0.2em; color: rgba(255,255,255,0.28); text-transform: uppercase; }
+
+  .footer { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 18px; flex-shrink: 0; }
+  .caption { font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); text-transform: uppercase; line-height: 1.8; }
+  .hashtag  { font-size: 10px; letter-spacing: 0.12em; color: rgba(0,245,212,0.4); text-transform: uppercase; text-align: right; line-height: 2.1; }
+
+  .nav { display: flex; align-items: center; gap: 20px; margin-top: 28px; }
+  .nav-btn { background: rgba(0,245,212,0.08); border: 1px solid rgba(0,245,212,0.3); color: #00f5d4; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.22em; padding: 11px 30px; cursor: pointer; text-transform: uppercase; transition: background 0.15s; }
+  .nav-btn:hover { background: rgba(0,245,212,0.18); }
+  .nav-dots { display: flex; gap: 9px; align-items: center; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(0,245,212,0.2); cursor: pointer; transition: background 0.15s, transform 0.15s; }
+  .dot.active { background: #00f5d4; transform: scale(1.4); }
+  .nav-hint { font-size: 10px; letter-spacing: 0.18em; color: rgba(255,255,255,0.2); text-transform: uppercase; margin-top: 10px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="carousel" id="carousel">
+
+  <!-- ══════════════════════════════════════
+       SLIDE 1 — SUNDAY MAY 24 — BIKE (CLIP-IN DEBUT)
+       Strava: 6.58 mi, 21:41, 18.2 mph avg, HR 154/181
+       WHOOP: Strain 10.7 | HRV 89.0 | RHR 49 | Sleep 9.3h
+  ══════════════════════════════════════ -->
+  <div class="slide" id="slide-1">
+    <div class="corner-tl"></div><div class="corner-br"></div>
+    <div class="header">
+      <div>
+        <div class="tag">Ironman Training — Week 6</div>
+        <div class="day-title">Sunday</div>
+      </div>
+      <div class="date-block">
+        <div class="date-label">Week 6 · Day 1</div>
+        <div class="date-val">MAY 24, 2026</div>
+        <div class="slide-counter">01 / 08</div>
+      </div>
+    </div>
+    <div class="activities">
+      <div class="act-row rows-1">
+        <div class="act-label">
+          <div class="act-icon">🚴</div>
+          <div class="act-name">Bike</div>
+          <div class="act-subtitle">Clip-In Debut · Rain Cut</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val accent">6.6</div>
+            <div class="stat-unit hot">mi</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">18.2</div>
+            <div class="stat-unit">mph avg</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val accent">30</div>
+            <div class="stat-unit hot">max mph</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">10.7</div>
+            <div class="stat-unit">strain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="whoop-strip">
+      <div class="whoop-label">Whoop · Daily Stats</div>
+      <div class="whoop-metrics">
+        <div class="w-item"><div class="w-val">10.7</div><div class="w-unit">Strain</div></div>
+        <div class="w-item"><div class="w-val">89</div><div class="w-unit">HRV ms</div></div>
+        <div class="w-item"><div class="w-val">9.3</div><div class="w-unit">Sleep hrs</div></div>
+        <div class="w-item"><div class="w-val">49</div><div class="w-unit">RHR bpm</div></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="caption">First time clipped in. Hit 30 mph.<br>Wanted 10 mi — rain had other plans.</div>
+      <div class="hashtag">#ironmantraining<br>#week6<br>#trike</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SLIDE 2 — MONDAY MAY 25 — RUN + PICKLEBALL
+       Run: 4.2 mi, 38:09, 9:07/mi, HR 158/183
+       Pickleball: Evening
+       WHOOP: Strain 16.4 | HRV 85.4 | RHR 48 | Sleep 8.9h
+  ══════════════════════════════════════ -->
+  <div class="slide" id="slide-2">
+    <div class="corner-tl"></div><div class="corner-br"></div>
+    <div class="header">
+      <div>
+        <div class="tag">Ironman Training — Week 6</div>
+        <div class="day-title">Monday</div>
+      </div>
+      <div class="date-block">
+        <div class="date-label">Week 6 · Day 2</div>
+        <div class="date-val">MAY 25, 2026</div>
+        <div class="slide-counter">02 / 08</div>
+      </div>
+    </div>
+    <div class="activities">
+      <div class="act-row rows-2">
+        <div class="act-label">
+          <div class="act-icon">🏃</div>
+          <div class="act-name">Run</div>
+          <div class="act-subtitle">W/ Lil Bro · Easy</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val accent">4.2</div>
+            <div class="stat-unit hot">mi</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">9:07</div>
+            <div class="stat-unit">/ mi</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">38:09</div>
+            <div class="stat-unit">time</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">~9.0</div>
+            <div class="stat-unit">strain</div>
+          </div>
+        </div>
+      </div>
+      <div class="act-row rows-2">
+        <div class="act-label">
+          <div class="act-icon">🏓</div>
+          <div class="act-name">Pickleball</div>
+          <div class="act-subtitle">Evening · Cross-Train</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val secondary">183</div>
+            <div class="stat-unit">max hr</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">~7.4</div>
+            <div class="stat-unit">strain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="whoop-strip">
+      <div class="whoop-label">Whoop · Daily Stats</div>
+      <div class="whoop-metrics">
+        <div class="w-item"><div class="w-val">16.4</div><div class="w-unit">Strain</div></div>
+        <div class="w-item"><div class="w-val">85</div><div class="w-unit">HRV ms</div></div>
+        <div class="w-item"><div class="w-val">8.9</div><div class="w-unit">Sleep hrs</div></div>
+        <div class="w-item"><div class="w-val">48</div><div class="w-unit">RHR bpm</div></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="caption">Run with the brother, then pickleball after.<br>Double session Monday.</div>
+      <div class="hashtag">#ironmantraining<br>#week6<br>#run</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SLIDE 3 — TUESDAY MAY 26 — SWIM + WEIGHTS + WORKOUT
+       Swim: 2800 yd aerobic
+       Weights: Lunch session
+       Afternoon Workout: 34 min, strain 8.0, HR 132/162
+       WHOOP: Strain 16.6 | HRV 109.5 | RHR 48 | Sleep 7.9h
+  ══════════════════════════════════════ -->
+  <div class="slide" id="slide-3">
+    <div class="corner-tl"></div><div class="corner-br"></div>
+    <div class="header">
+      <div>
+        <div class="tag">Ironman Training — Week 6</div>
+        <div class="day-title">Tuesday</div>
+      </div>
+      <div class="date-block">
+        <div class="date-label">Week 6 · Day 3</div>
+        <div class="date-val">MAY 26, 2026</div>
+        <div class="slide-counter">03 / 08</div>
+      </div>
+    </div>
+    <div class="activities">
+      <div class="act-row rows-2">
+        <div class="act-label">
+          <div class="act-icon">🏊</div>
+          <div class="act-name">Swim</div>
+          <div class="act-subtitle">Aerobic Base · Pool</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val accent">2800</div>
+            <div class="stat-unit hot">yards</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">~9.0</div>
+            <div class="stat-unit">strain</div>
+          </div>
+        </div>
+      </div>
+      <div class="act-row rows-2">
+        <div class="act-label">
+          <div class="act-icon">💪</div>
+          <div class="act-name">Workout</div>
+          <div class="act-subtitle">Afternoon · Light</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val secondary">34:00</div>
+            <div class="stat-unit">time</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">8.0</div>
+            <div class="stat-unit">strain</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">162</div>
+            <div class="stat-unit">max hr</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="whoop-strip">
+      <div class="whoop-label">Whoop · Daily Stats</div>
+      <div class="whoop-metrics">
+        <div class="w-item"><div class="w-val">16.6</div><div class="w-unit">Strain</div></div>
+        <div class="w-item"><div class="w-val peak">109</div><div class="w-unit">HRV ms</div></div>
+        <div class="w-item"><div class="w-val">7.9</div><div class="w-unit">Sleep hrs</div></div>
+        <div class="w-item"><div class="w-val">48</div><div class="w-unit">RHR bpm</div></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="caption">Triple session. Peak HRV week at 109 ms —<br>body was ready.</div>
+      <div class="hashtag">#ironmantraining<br>#week6<br>#swim</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SLIDE 4 — WEDNESDAY MAY 27 — SWIM SPEED WORK
+       Swim: 1800 yd, 1 hr speed set
+       WHOOP: Strain 11.3 | HRV 95.4 | RHR 46 | Sleep 11.5h
+  ══════════════════════════════════════ -->
+  <div class="slide" id="slide-4">
+    <div class="corner-tl"></div><div class="corner-br"></div>
+    <div class="header">
+      <div>
+        <div class="tag">Ironman Training — Week 6</div>
+        <div class="day-title">Wednesday</div>
+      </div>
+      <div class="date-block">
+        <div class="date-label">Week 6 · Day 4</div>
+        <div class="date-val">MAY 27, 2026</div>
+        <div class="slide-counter">04 / 08</div>
+      </div>
+    </div>
+    <div class="activities">
+      <div class="act-row rows-1">
+        <div class="act-label">
+          <div class="act-icon">🏊</div>
+          <div class="act-name">Swim</div>
+          <div class="act-subtitle">Speed Work · 1 hr</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val accent">1800</div>
+            <div class="stat-unit hot">yards</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">1:00</div>
+            <div class="stat-unit">hr session</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">11.3</div>
+            <div class="stat-unit">strain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="whoop-strip">
+      <div class="whoop-label">Whoop · Daily Stats</div>
+      <div class="whoop-metrics">
+        <div class="w-item"><div class="w-val">11.3</div><div class="w-unit">Strain</div></div>
+        <div class="w-item"><div class="w-val">95</div><div class="w-unit">HRV ms</div></div>
+        <div class="w-item"><div class="w-val">11.5</div><div class="w-unit">Sleep hrs</div></div>
+        <div class="w-item"><div class="w-val">46</div><div class="w-unit">RHR bpm</div></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="caption">Swim speed set. 11.5 hrs of sleep —<br>body demanded recovery.</div>
+      <div class="hashtag">#ironmantraining<br>#week6<br>#swim</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SLIDE 5 — THURSDAY MAY 28 — Z2 RUN + RECOVERY SWIM
+       Run: 4.5 mi, 42:26, 9:32/mi, HR 171/197 (went faster)
+       Swim: ~2200 yd recovery
+       WHOOP: Strain 18.3 | HRV 89.0 | RHR 48 | Sleep 8.1h
+  ══════════════════════════════════════ -->
+  <div class="slide" id="slide-5">
+    <div class="corner-tl"></div><div class="corner-br"></div>
+    <div class="header">
+      <div>
+        <div class="tag">Ironman Training — Week 6</div>
+        <div class="day-title">Thursday</div>
+      </div>
+      <div class="date-block">
+        <div class="date-label">Week 6 · Day 5</div>
+        <div class="date-val">MAY 28, 2026</div>
+        <div class="slide-counter">05 / 08</div>
+      </div>
+    </div>
+    <div class="activities">
+      <div class="act-row rows-2">
+        <div class="act-label">
+          <div class="act-icon">🏃</div>
+          <div class="act-name">Z2 Run</div>
+          <div class="act-subtitle">Chill — Went Too Fast 😭</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val accent">4.5</div>
+            <div class="stat-unit hot">mi</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">9:32</div>
+            <div class="stat-unit">/ mi</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">197</div>
+            <div class="stat-unit">max hr</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">~11</div>
+            <div class="stat-unit">strain</div>
+          </div>
+        </div>
+      </div>
+      <div class="act-row rows-2">
+        <div class="act-label">
+          <div class="act-icon">🏊</div>
+          <div class="act-name">Swim</div>
+          <div class="act-subtitle">Recovery · 2k</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val secondary">~2200</div>
+            <div class="stat-unit">yards</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">~7</div>
+            <div class="stat-unit">strain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="whoop-strip">
+      <div class="whoop-label">Whoop · Daily Stats</div>
+      <div class="whoop-metrics">
+        <div class="w-item"><div class="w-val peak">18.3</div><div class="w-unit">Strain</div></div>
+        <div class="w-item"><div class="w-val">89</div><div class="w-unit">HRV ms</div></div>
+        <div class="w-item"><div class="w-val">8.1</div><div class="w-unit">Sleep hrs</div></div>
+        <div class="w-item"><div class="w-val">48</div><div class="w-unit">RHR bpm</div></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="caption">Peak strain day at 18.3. Z2 turned Z4 —<br>washed it out with a recovery swim.</div>
+      <div class="hashtag">#ironmantraining<br>#week6<br>#run</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SLIDE 6 — FRIDAY MAY 29 — BIKE + PICKLEBALL
+       Bike: 18.0 mi, 1:15:00 — 10 easy / 7 fast, hit 30 mph
+       Pickleball: Evening
+       WHOOP: Strain 17.1 | HRV 104.8 | RHR 49 | Sleep 7.7h
+  ══════════════════════════════════════ -->
+  <div class="slide" id="slide-6">
+    <div class="corner-tl"></div><div class="corner-br"></div>
+    <div class="header">
+      <div>
+        <div class="tag">Ironman Training — Week 6</div>
+        <div class="day-title">Friday</div>
+      </div>
+      <div class="date-block">
+        <div class="date-label">Week 6 · Day 6</div>
+        <div class="date-val">MAY 29, 2026</div>
+        <div class="slide-counter">06 / 08</div>
+      </div>
+    </div>
+    <div class="activities">
+      <div class="act-row rows-2">
+        <div class="act-label">
+          <div class="act-icon">🚴</div>
+          <div class="act-name">Bike</div>
+          <div class="act-subtitle">10 Ez / 7 Fast · 30.7 mph Max</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val accent">18.0</div>
+            <div class="stat-unit hot">mi</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val accent">30.7</div>
+            <div class="stat-unit hot">max mph</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">~11</div>
+            <div class="stat-unit">strain</div>
+          </div>
+        </div>
+      </div>
+      <div class="act-row rows-2">
+        <div class="act-label">
+          <div class="act-icon">🏓</div>
+          <div class="act-name">Pickleball</div>
+          <div class="act-subtitle">Evening · Cross-Train</div>
+        </div>
+        <div class="act-stats">
+          <div class="stat-item">
+            <div class="stat-val secondary">183</div>
+            <div class="stat-unit">max hr</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val secondary">~6</div>
+            <div class="stat-unit">strain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="whoop-strip">
+      <div class="whoop-label">Whoop · Daily Stats</div>
+      <div class="whoop-metrics">
+        <div class="w-item"><div class="w-val">17.1</div><div class="w-unit">Strain</div></div>
+        <div class="w-item"><div class="w-val">105</div><div class="w-unit">HRV ms</div></div>
+        <div class="w-item"><div class="w-val">7.7</div><div class="w-unit">Sleep hrs</div></div>
+        <div class="w-item"><div class="w-val">49</div><div class="w-unit">RHR bpm</div></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="caption">18 miles — 10 easy with Prabhav, 7 fast solo.<br>Hit 30 mph again. Then pickleball.</div>
+      <div class="hashtag">#ironmantraining<br>#week6<br>#bike</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SLIDE 7 — SATURDAY MAY 30 — REST DAY
+       User-specified: rest day, preparing for long run Sunday
+       WHOOP: Strain 10.2 | HRV 97.2 | RHR 53 | Sleep 7.1h
+  ══════════════════════════════════════ -->
+  <div class="slide" id="slide-7">
+    <div class="corner-tl"></div><div class="corner-br"></div>
+    <div class="header">
+      <div>
+        <div class="tag">Ironman Training — Week 6</div>
+        <div class="day-title">Saturday</div>
+      </div>
+      <div class="date-block">
+        <div class="date-label">Week 6 · Day 7</div>
+        <div class="date-val">MAY 30, 2026</div>
+        <div class="slide-counter">07 / 08</div>
+      </div>
+    </div>
+    <div class="rest-display">
+      <div class="rest-big">Rest<br>Day</div>
+      <div class="rest-note">Legs up · Preparing for long run Sunday · HRV 97 ms</div>
+    </div>
+    <div class="whoop-strip">
+      <div class="whoop-label">Whoop · Daily Stats</div>
+      <div class="whoop-metrics">
+        <div class="w-item"><div class="w-val">10.2</div><div class="w-unit">Strain</div></div>
+        <div class="w-item"><div class="w-val">97</div><div class="w-unit">HRV ms</div></div>
+        <div class="w-item"><div class="w-val">7.1</div><div class="w-unit">Sleep hrs</div></div>
+        <div class="w-item"><div class="w-val">53</div><div class="w-unit">RHR bpm</div></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="caption">Intentional rest. Long run loading for Sunday.</div>
+      <div class="hashtag">#ironmantraining<br>#week6<br>#recovery</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SLIDE 8 — SUMMARY (shown first)
+       Miles Run: 8.7 | Miles Biked: 24.6 | Yards Swum: 6800
+       Peak Strain: 18.3 | Total Strain: 100.6 | Peak HRV: 109 ms
+       Avg Strain: 14.4 | VO2 Max: 62 | Avg Sleep: 8.6h | Avg RHR: 49
+  ══════════════════════════════════════ -->
+  <div class="slide active" id="slide-8">
+    <div class="corner-tl"></div><div class="corner-br"></div>
+    <div class="header">
+      <div>
+        <div class="tag">Ironman Training — Week 6</div>
+        <div class="day-title">Summary</div>
+      </div>
+      <div class="date-block">
+        <div class="date-label">Week 6</div>
+        <div class="date-val">MAY 24–30, 2026</div>
+        <div class="slide-counter">08 / 08</div>
+      </div>
+    </div>
+    <div class="summary-display">
+      <div class="countdown-strip">
+        <span class="countdown-num" id="weeks-left">--</span>
+        <span class="countdown-text">Weeks to Ironman 70.3 NY · Sept 26</span>
+      </div>
+      <div class="summary-row">
+        <div class="summary-item">
+          <div class="summary-val">8.7</div>
+          <div class="summary-unit">Miles Run</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-val accent">24.6</div>
+          <div class="summary-unit hot">Miles Biked</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-val dim">6800</div>
+          <div class="summary-unit">Yards Swum</div>
+        </div>
+      </div>
+      <div class="summary-row">
+        <div class="summary-item">
+          <div class="summary-val accent">18.3</div>
+          <div class="summary-unit hot">Peak Strain</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-val">100.6</div>
+          <div class="summary-unit">Total Strain</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-val dim">109</div>
+          <div class="summary-unit">Peak HRV ms</div>
+        </div>
+      </div>
+    </div>
+    <div class="whoop-strip">
+      <div class="whoop-label">Whoop · Weekly Averages</div>
+      <div class="whoop-metrics">
+        <div class="w-item"><div class="w-val">14.4</div><div class="w-unit">Avg Strain</div></div>
+        <div class="w-item"><div class="w-val peak">62</div><div class="w-unit">VO₂ Max</div></div>
+        <div class="w-item"><div class="w-val">8.6</div><div class="w-unit">Avg Sleep hrs</div></div>
+        <div class="w-item"><div class="w-val">49</div><div class="w-unit">Avg RHR bpm</div></div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="caption">Week 6 done. Clip-ins, double sessions,<br>and a long run on deck. 🔒</div>
+      <div class="hashtag">#ironman703<br>#ironmantraining<br>#triathlon</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button class="nav-btn" onclick="go(-1)">← Prev</button>
+  <div class="nav-dots" id="dots"></div>
+  <button class="nav-btn" onclick="go(1)">Next →</button>
+</div>
+<div class="nav-hint">Week 6 · May 24–30, 2026 · Ironman 70.3 NY</div>
+
+<script>
+  const TOTAL = 8;
+  let current = 8;
+
+  // Build dots
+  const dotsEl = document.getElementById('dots');
+  for (let i = 1; i <= TOTAL; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i === 8 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  }
+
+  function goTo(n) {
+    document.getElementById('slide-' + current).classList.remove('active');
+    dotsEl.children[current - 1].classList.remove('active');
+    current = n;
+    document.getElementById('slide-' + current).classList.add('active');
+    dotsEl.children[current - 1].classList.add('active');
+  }
+
+  function go(dir) {
+    let next = current + dir;
+    if (next < 1) next = TOTAL;
+    if (next > TOTAL) next = 1;
+    goTo(next);
+  }
+
+  // Countdown
+  const raceDate = new Date('2026-09-26');
+  const weeksLeft = Math.ceil((raceDate - new Date()) / (7 * 24 * 60 * 60 * 1000));
+  document.getElementById('weeks-left').textContent = weeksLeft;
+</script>
+</body>
+</html>

@@ -1,19 +1,15 @@
 <claude-mem-context>
 # Memory Context
 
-# [MyVault] recent context, 2026-05-19 10:33pm EDT
+# [MyVault] recent context, 2026-05-20 12:05am EDT
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (16,033t read) | 642,921t work | 98% savings
+Stats: 50 obs (16,135t read) | 650,062t work | 98% savings
 
-### May 4, 2026
-47 12:00a ✅ Weekly TODO Refresh — Automated Sunday Run (2026-05-04)
-48 5:52p 🔵 Unsorted Notes Folder Contains Two Voice Transcript Files
 ### May 5, 2026
-49 8:01a 🟣 Morning Briefing Auto-Generated for May 5, 2026
 50 8:02a 🟣 Morning Briefing Auto-Generated for May 5, 2026
 51 " 🟣 Morning Briefing Auto-Generated for May 5, 2026
 52 10:02a 🔵 Unsorted Notes Contain Unreadable UTF-16 Voice Transcription Files
@@ -84,6 +80,9 @@ S114 Nightly Notes Sorter — Automated scheduled task run for 2026-05-19 (May 1
 164 8:08a 🟣 Morning Briefing Auto-Generated for May 19, 2026
 165 8:09a 🟣 Morning Briefing Auto-Generated for May 19, 2026
 S115 Morning Briefing Auto-Generated for May 19, 2026 (May 19 at 8:09 AM)
+204 10:33p 🔵 Git Submodule Error — whoop-mcp-server Not Checked Out
+205 10:52p 🟣 Git Sync Automation — Nightly Vault Push to GitHub
+206 " 🟣 Nightly Vault Git Sync Automation Requested
 
-Access 643k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 650k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>

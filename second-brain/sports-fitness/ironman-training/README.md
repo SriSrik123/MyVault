@@ -1,4 +1,4 @@
-# Ironman 70.3 NYC — Training Posts
+# Ironman 70.3 NYC — Training Hub
 
 **Race:** Ironman 70.3 New York · Jones Beach  
 **Date:** September 26, 2026  
@@ -6,31 +6,48 @@
 
 ---
 
-## Instagram Carousel Template
+## Files in This Folder
 
-`weekly-post-template.html` — 8-slide carousel built from live Whoop + Strava data.
-
-**Slide structure (always opens on the cover):**
-1. **Cover** — Week X · "X weeks to go" countdown to race day
-2–8. **Daily slides** — One per day, Sun–Sat, each showing:
-   - Activities (run/swim/bike/weights/stretch) with time, distance, pace
-   - Per-activity WHOOP strain (where available from Strava sync)
-   - WHOOP daily strip: Strain · HRV · Sleep · RHR
-
-**To make a new week's post:**
-- Open Cowork and ask: *"Make me an insta post for week X, pull data from Whoop and Strava"*
-- The template and color scheme (black `#0d0d0d` + orange `#FF5A00`, Bebas Neue + DM Mono) will be reused automatically
-
-**Color scheme:**
-- Background: `#0d0d0d`
-- Accent: `#FF5A00`
-- Fonts: Bebas Neue (display) · DM Mono (body)
-- Recovery dot colors: green `#4ade80` (≥67%) · yellow `#facc15` (34–66%) · red `#f87171` (<34%)
+| File | Contents |
+|------|----------|
+| `gear.md` | Bike specs, shoes, pedals + full shopping list (checkboxes) |
+| `triathlon.md` | Race history, results, and upcoming race schedule |
+| `race-day-nutrition.md` | Full race day nutrition plan — pre-race, bike, run, totals, shopping list |
+| `posts/` | Instagram carousels — template + all published posts |
 
 ---
 
-## Weekly Posts
+## Gear & Shopping
 
-| Week | File | Date Range |
-|------|------|------------|
-| Week 4 | `week4_training_post.html` (in MyVault root) | May 10–16, 2026 |
+`gear.md` — everything owned + the full Ironman shopping list with priority flags.  
+Ask Claude: *"what do I still need for ironman?"* or *"I bought the wetsuit"* to update it.
+
+---
+
+## Instagram Posts
+
+All posts live in `posts/`:
+
+| File | Description |
+|------|-------------|
+| `weekly-post-template.html` | 8-slide carousel template (Whoop + Strava data) |
+| `day1-where-i-started.html` | "Where I Started" — Day 1 training post |
+| `week4-training.html` | Week 4 training post (May 10–16, 2026) |
+
+**To make a new week's post:**
+- Ask: *"Make me an insta post for week X, pull data from Whoop and Strava"*
+- Template reuses the color scheme automatically
+
+**Color scheme:**
+- Background: `#0d0d0d` · Accent: `#FF5A00`
+- Fonts: Bebas Neue (display) · DM Mono (body)
+- Recovery dots: green `#4ade80` (≥67%) · yellow `#facc15` (34–66%) · red `#f87171` (<34%)
+
+---
+
+## Weekly Posts Log
+
+| Week | File | Date Range | Status |
+|------|------|------------|--------|
+| Day 1 | `posts/day1-where-i-started.html` | April 2026 | ✅ Posted |
+| Week 4 | `posts/week4-training.html` | May 10–16, 2026 | ✅ Posted |

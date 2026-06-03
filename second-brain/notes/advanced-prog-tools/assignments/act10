@@ -1,0 +1,37 @@
+Srinarayan Srikanth | ss5827
+
+Activity 10 - Asymptotic Behavior
+
+Q1 Data Analysis Table:
+
+   n         Q(n)    Q(n)/n    Q(n)/n^2    Q(n)/n^3    Q(n)/n^2.7
+-----------------------------------------------------------------
+ 100       769.16     7.692     0.07692    0.000769      0.00306
+ 200      4949.47    24.747     0.12374    0.000619      0.00302
+ 300     14744.12    49.147     0.16382    0.000546      0.00301
+ 400     32007.58    80.019     0.20005    0.000500      0.00301
+ 500     58409.32   116.819     0.23364    0.000467      0.00301
+ 600     95494.98   159.158     0.26526    0.000442      0.00301
+ 700    144718.77   206.741     0.29534    0.000422      0.00301
+ 800    207463.14   259.329     0.32416    0.000405      0.00301
+ 900    285052.10   316.725     0.35192    0.000391      0.00301
+1000    378760.58   378.761     0.37876    0.000379      0.00301
+
+Observations on Columns:
+Column Q(n)/n: The values are strictly increasing as n grows. This indicates that a linear
+function function is a lower bound, meaning Q(n) grows faster than a line; Q(n) is in Omega(n).
+
+Column Q(n)/n^2: The values continue to steadily increase across the entire data range. This
+shows that a quadratic function is also a lower bound; Q(n) is in Omega(n^2).
+
+Column Q(n)/n^3: The values strictly decrease toward zero as n increases. This confirms that
+a cubic function serves as an upper bound; Q(n) is in O(n^3).
+
+Column Q(n)/n^2.7: The ratios quickly stabilize and hold constant at approximately 0.00301
+for the remaining data entries.
+
+
+Conclusion:
+The given data demonstrates that the function Q(n) is strictly bounded below by Omega(n^2) and
+bounded above by O(n^3). Based on the empirical stabilization observed when scaling by n^2.7,
+the data strongly suggests that Q(n) is Theta(n^2.7).

@@ -17,8 +17,9 @@ Sri's athletic profile, performance tracking, and training system.
 | [[workouts/history/]] | Past workout logs by date |
 | [[training]] | Schedule templates (college week vs home weekend) |
 | [[swimming]] | Swim times, background, events, equipment |
-| [[triathlon]] | Race results + upcoming races |
-| [[gear]] | Bike, shoes, pedals & upcoming gear for Ironman |
+| [[ironman-training/triathlon]] | Race results + upcoming races |
+| [[ironman-training/README]] | Ironman 70.3 hub — gear, race info, Instagram posts |
+| [[ironman-training/gear]] | Bike, shoes, pedals, shopping list for Ironman |
 | [[athletic-goals]] | Performance targets |
 | [[measurements]] | Body measurements & benchmarks |
 | [[sleep/log]] | Sleep tracking *(sources TBD)* |
@@ -41,4 +42,4 @@ Sri's athletic profile, performance tracking, and training system.
 → [[../../sports-fitness/Health/WHOOP/index|View all WHOOP data]]
 
 ---
-*Last updated: 2026-05-22*
+*Last updated: 2026-05-23*
