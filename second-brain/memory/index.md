@@ -37,6 +37,7 @@ Quick parse: `grep "^\|" index.md`
 | [[memory/conversations/2026-04-15-comcast-coop-transition]] | Sri transitioning to ML Engineering at Comcast (May 1); decided to add MCP Tools showcase to portfolio | 2026-04-15 |
 | [[memory/conversations/2026-04-15-cs270-homework-debug]] | Debugged Gradescope 403 error (file rename issue); created CS-270 midterm study plan | 2026-04-15 |
 | [[memory/conversations/2026-04-21-workout-file-move-conversation-saving]] | Moved THIS-WEEK.md to notes/; set up conversation saving and memory context loading in Claude Code | 2026-04-21 |
+| [[memory/conversations/2026-06-10-vault-city-app]] | Built Vault City — interactive city-map app of the whole vault (districts=folders, buildings=notes, roads=links) | 2026-06-10 |
 
 ## Daily Logs
 

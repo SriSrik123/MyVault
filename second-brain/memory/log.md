@@ -65,3 +65,8 @@ Quick parse: `grep "^## \[" log.md | tail -10`
 - Moved `sports-fitness/workouts/THIS-WEEK.md` → `notes/THIS-WEEK.md` (alongside TODO.md)
 - Updated `rules/obsidian.md` — added memory wiki index + recent conversations to proactive context loading list
 - Updated `memory/index.md` — added new conversation entry
+
+## [2026-06-10] conversation | Vault City Visualization App
+
+- Filed: `conversations/2026-06-10-vault-city-app.md`
+- Built vault-city.html (city map of the vault) + scripts/build-vault-city.py generator
