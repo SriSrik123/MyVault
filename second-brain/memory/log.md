@@ -93,3 +93,8 @@ Quick parse: `grep "^## \[" log.md | tail -10`
 ## [2026-06-12] update | Vault Heart — clumped/dense muscle
 
 - Tightened scale (HS 13→10.5), bigger overlapping cells, denser tissue (7.4k pts), fatter apex → cells clump into a solid heart mass instead of a sparse cloud
+
+## [2026-06-12] fix | Vault Heart — click-to-zoom + darker theme
+
+- Bug: canvas clicks opened the reader but never flew the camera in (the click handler set selection but skipped focusNote). Fixed: clicks now route through focusNote → zoom-in + trace connections.
+- Toned down the neon: lower exposure (0.92), much weaker bloom (0.32/threshold 0.48), dimmer emissive/lights/tissue/flow, near-black background. Darker, moodier heart.
