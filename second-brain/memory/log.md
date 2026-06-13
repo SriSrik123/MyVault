@@ -89,3 +89,7 @@ Quick parse: `grep "^## \[" log.md | tail -10`
 ## [2026-06-12] update | Vault Heart → anatomical shape
 
 - Replaced valentine-symbol sampler with a metaball anatomical heart (ventricles/atria/apex blobs, tapered pointed apex, flattened, leaning) + great vessels (aorta/pulmonary/vena cava tubes)
+
+## [2026-06-12] update | Vault Heart — clumped/dense muscle
+
+- Tightened scale (HS 13→10.5), bigger overlapping cells, denser tissue (7.4k pts), fatter apex → cells clump into a solid heart mass instead of a sparse cloud
