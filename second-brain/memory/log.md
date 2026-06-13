@@ -98,3 +98,7 @@ Quick parse: `grep "^## \[" log.md | tail -10`
 
 - Bug: canvas clicks opened the reader but never flew the camera in (the click handler set selection but skipped focusNote). Fixed: clicks now route through focusNote → zoom-in + trace connections.
 - Toned down the neon: lower exposure (0.92), much weaker bloom (0.32/threshold 0.48), dimmer emissive/lights/tissue/flow, near-black background. Darker, moodier heart.
+
+## [2026-06-12] change | Vault Heart — circular popup over the cell
+
+- Replaced the side reader panel with a circular popup centered over the zoomed cell (clipped circle, rim colored by the cell's region hue, content fades at the edges, connections as chips). Click flies head-on into the sphere; the note pops up in the circle.
