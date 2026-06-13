@@ -80,3 +80,8 @@ Quick parse: `grep "^## \[" log.md | tail -10`
 
 - Rebuilt the renderer in Three.js: navigable 3D city, WASD + Google-Maps controls, cinematic fly-in zoom, neon bloom graphics
 - Fixed layout bug: duplicate `sports-fitness` folders (root + second-brain) dropped 18 notes; recursive mergeNode → 233/233 buildings
+
+## [2026-06-12] update | Vault City → Vault Heart (beating-heart graph)
+
+- Moved app to Coding/vault-city-app/; deleted old 2D vault-city.html + scripts
+- New Three.js HeartEngine: notes as cells in a beating heart-shaped volume, links as vessels, click a cell → fly in + trace its connections (neighbors lit, rest dimmed)

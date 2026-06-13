@@ -115,6 +115,7 @@ Security: Google Authenticator, Keeper, Experian monitoring, Hotspot Shield VPN
 | 2026-06-10 | Claude Code | Built Vault City: interactive HTML city map of the vault with clickable note-buildings and link-roads |
 | 2026-06-12 | Claude Code | Rebuilt Vault City as Electron + React + Vite desktop app with live IPC vault scanning and cyberpunk UI |
 | 2026-06-12 | Claude Code | Upgraded Vault City to a navigable 3D Three.js city (WASD + fly-in zoom, neon bloom); fixed layout bug dropping 18 notes from duplicate sports-fitness folders |
+| 2026-06-12 | Claude Code | Reshaped Vault City into "Vault Heart": a beating 3D heart of note-cells + vessels (Three.js); click a cell to fly in and trace its connections. Moved app to Coding/. |
 
 ---
 

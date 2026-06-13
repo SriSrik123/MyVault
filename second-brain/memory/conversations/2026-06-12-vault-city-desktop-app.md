@@ -40,6 +40,14 @@ Sri then asked to make it "like a video game… a real city with streets like Go
 - Verified in Electron: WebGL2 context live, 233 buildings, 11 districts, live IPC scan, no renderer errors.
 - Added dep: `three@^0.171`. Enabled `preserveDrawingBuffer` so the city is screenshot/exportable.
 
+## Update — same session: moved to Coding/ then reshaped into a BEATING HEART
+- Moved the app to `~/Documents/MyVault/Coding/vault-city-app/` (same-volume `mv`, node_modules intact, all paths relative/home-absolute so nothing broke). Deleted the old 2D `vault-city.html` + its `scripts/` template/generator (superseded). Run with `cd ~/Documents/MyVault/Coding/vault-city-app && npm run app`.
+- Sri then asked to make it "a beating heart… click something → zoom into that part and show the connections… good graphics." New engine `src/city/heart.js` (`HeartEngine`, OrbitControls), reusing `layout.js` for the model; React shell/reader/search unchanged again. Re-themed UI city→heart: "Vault Heart", cells/vessels/regions, blood-flow toggle, FLATLINE error screen.
+- **How the heart is built:** notes = glowing cells rejection-sampled into a 3D puffy heart volume (implicit `(x²+y²−1)³ < x²y³`, z-puffed), clustered by folder via farthest-point seeds + size-ordered nearest-slot assignment (one slot per note so the union FILLS the heart). A 2,600-pt dim-crimson "tissue" particle cloud gives the silhouette its mass. Vessels = link edges; blood-flow = particles travelling each edge; pulsing red core light. Lub-dub beat = group scale envelope (two gaussian bumps/cycle) + emissive throb; reduced-motion disables it.
+- **Click a cell → fly in + trace connections:** raycast select flies the camera to the node, lights the node (1.5× emissive, 1.7× scale) + its neighbors + their vessels, and dims every other cell to 16% opacity. Verified on TODO (19 connections). Region labels are clickable to fly to a folder cluster.
+- **Tuning that mattered:** first pass was blown out (bloom 0.85 + big emissive cells = white blobs, no heart shape) and farthest-point seeds left gaps. Fixed by filling the heart (slots == note count), adding the tissue body, shrinking cells, and dropping bloom to 0.5/threshold 0.34. Then it read clearly as a valentine heart.
+- Verified in Electron: WebGL2 live, 234 cells, 11 regions, no errors. `engine3d.js` (the 3D city) is left on disk unused; `heart.js` is the active engine.
+
 ---
 
 ## Related Notes
