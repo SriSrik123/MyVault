@@ -85,3 +85,7 @@ Quick parse: `grep "^## \[" log.md | tail -10`
 
 - Moved app to Coding/vault-city-app/; deleted old 2D vault-city.html + scripts
 - New Three.js HeartEngine: notes as cells in a beating heart-shaped volume, links as vessels, click a cell → fly in + trace its connections (neighbors lit, rest dimmed)
+
+## [2026-06-12] update | Vault Heart → anatomical shape
+
+- Replaced valentine-symbol sampler with a metaball anatomical heart (ventricles/atria/apex blobs, tapered pointed apex, flattened, leaning) + great vessels (aorta/pulmonary/vena cava tubes)
