@@ -1,5 +1,5 @@
 ---
-title: Vault City rebuilt as Electron desktop app
+title: Vault City — Electron + React + Three.js 3D desktop app
 last_updated: 2026-06-12
 type: conversation
 source: claude-code
@@ -32,6 +32,13 @@ None — no new personal context surfaced.
 ## Follow-Up Questions / Gaps
 - Could auto-rescan on file-watch instead of the manual ⟳ button; not built yet.
 - Packaging to a distributable .app/.dmg not done (heavy electron-builder download); only the runnable dev/IPC path is verified.
+
+## Update — same session: rebuilt in 3D (Three.js)
+Sri then asked to make it "like a video game… a real city with streets like Google Maps live view… control it… zoom into a building when clicked… good graphics." Swapped the 2D canvas renderer for a **Three.js WebGL** engine (`src/city/engine3d.js`), reusing the proven model/treemap (extracted to `src/city/layout.js`); the React shell/reader/search were untouched. Result: extruded 3D buildings (height = note size) with neon wireframes, district ground-plates, Tron grid floor, fog, **UnrealBloom** glow, patrolling cars; **MapControls + WASD** navigation; **raycast click → cinematic fly-in/zoom** into the building; CSS2D floating district labels.
+- **Three bugs found & fixed during QA:** (1) `EffectComposer` pixel-ratio not synced → scene rendered into a sub-rectangle; (2) click raycast used the last `pointermove` NDC, so programmatic/touch clicks missed → now derives the ray from the click's own coords; (3) **layout dropped 18 notes** — the vault has two `sports-fitness` folders (root + `second-brain/`), and promoting the dominant `second-brain` *overwrote* the root one in the tree; fixed with a recursive `mergeNode` so same-named folders merge (sports-fitness district went 31 → 49 = all notes accounted for, 233/233 buildings).
+- **Gotcha learned:** the preview MCP can't reliably screenshot a hi-DPI WebGL canvas — it cornered/clipped the capture. Verified the true render via `gl.readPixels` (98% canvas fill) and exercised all interactions through `preview_eval` instead of trusting screenshots.
+- Verified in Electron: WebGL2 context live, 233 buildings, 11 districts, live IPC scan, no renderer errors.
+- Added dep: `three@^0.171`. Enabled `preserveDrawingBuffer` so the city is screenshot/exportable.
 
 ---
 

@@ -114,6 +114,7 @@ Security: Google Authenticator, Keeper, Experian monitoring, Hotspot Shield VPN
 | 2026-04-08 | Cowork | Vault link audit: fixed 2 broken Portfolio-Note links, created Coding/portfolio/Portfolio-Note.md, added daily logs (Apr 7 & Apr 8) to memory index with back-links, removed duplicate conversation file, updated SCHEMA.md with daily briefing workflow. |
 | 2026-06-10 | Claude Code | Built Vault City: interactive HTML city map of the vault with clickable note-buildings and link-roads |
 | 2026-06-12 | Claude Code | Rebuilt Vault City as Electron + React + Vite desktop app with live IPC vault scanning and cyberpunk UI |
+| 2026-06-12 | Claude Code | Upgraded Vault City to a navigable 3D Three.js city (WASD + fly-in zoom, neon bloom); fixed layout bug dropping 18 notes from duplicate sports-fitness folders |
 
 ---
 

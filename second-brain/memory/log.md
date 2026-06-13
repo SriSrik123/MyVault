@@ -75,3 +75,8 @@ Quick parse: `grep "^## \[" log.md | tail -10`
 
 - Filed: `conversations/2026-06-12-vault-city-desktop-app.md`
 - Rebuilt Vault City as an Electron + React + Vite desktop app (vault-city-app/) with live IPC vault scanning and a cyberpunk UI
+
+## [2026-06-12] update | Vault City → 3D (Three.js)
+
+- Rebuilt the renderer in Three.js: navigable 3D city, WASD + Google-Maps controls, cinematic fly-in zoom, neon bloom graphics
+- Fixed layout bug: duplicate `sports-fitness` folders (root + second-brain) dropped 18 notes; recursive mergeNode → 233/233 buildings
