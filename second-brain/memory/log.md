@@ -70,3 +70,8 @@ Quick parse: `grep "^## \[" log.md | tail -10`
 
 - Filed: `conversations/2026-06-10-vault-city-app.md`
 - Built vault-city.html (city map of the vault) + scripts/build-vault-city.py generator
+
+## [2026-06-12] conversation | Vault City Desktop App (Electron + React)
+
+- Filed: `conversations/2026-06-12-vault-city-desktop-app.md`
+- Rebuilt Vault City as an Electron + React + Vite desktop app (vault-city-app/) with live IPC vault scanning and a cyberpunk UI
