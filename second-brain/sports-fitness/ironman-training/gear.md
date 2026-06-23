@@ -25,13 +25,13 @@
 
 ## 🔧 Still Needed / Upcoming
 
-| Item | Notes | Timeline |
-|------|-------|----------|
-| Bike fit | Schedule soon | ASAP |
-| Clipless pedal practice | Starting now | Ongoing |
-| Aero bar hydration system | Still needed | Before race |
-| Aero tri helmet | After bike fit | Post-fit |
-| Smart trainer | For indoor riding | September (new apartment) |
+| Item                      | Notes             | Timeline                  |
+| ------------------------- | ----------------- | ------------------------- |
+| Bike fit                  | Schedule soon     | ASAP                      |
+| Clipless pedal practice   | Starting now      | Ongoing                   |
+| Aero bar hydration system | Still needed      | Before race               |
+| Aero tri helmet           | After bike fit    | Post-fit                  |
+| Smart trainer             | For indoor riding | September (new apartment) |
 
 ---
 
@@ -51,6 +51,8 @@
 | - [ ] Spare tubes (2x)          | 700c, confirm tire width on Speed Concept                                              | 🔴 High  |
 | - [ ] Tire levers               | Lightweight plastic, 2–3 pack                                                          | 🟡 Med   |
 | - [ ] Rear bottle cage          | If not already on frame — standard cage is fine                                        | 🟡 Med   |
+| - [ ] Rear seat bottle holder   | Saddle-mounted dual-bottle holder (e.g. XLAB) — behind seat for extra hydration         | 🟡 Med   |
+| - [ ] Bike water bottles (x2-3) | Insulated, fits cages/holders                                                          | 🟡 Med   |
 | - [ x] Cycling sunglasses       | Aero frame, UV400 (Oakley Jawbreaker, Rudy Project)                                    | 🟡 Med   |
 
 ### 🏊 Swim
@@ -95,6 +97,7 @@
 ### 📱 Tech
 | Item | Notes | Priority |
 |------|-------|----------|
+| - [x] ~~Bike computer~~ | Garmin Edge 540 | ✅ Done |
 | - [x] ~~GPS multisport watch~~ | Galaxy smartwatch (tracking) + WHOOP (recovery/HRV) — already covered | ✅ Done |
 | - [ ] Smart trainer | Wahoo KICKR Core or Tacx Flux S — planned for September in new apartment | 🟢 Low |
 

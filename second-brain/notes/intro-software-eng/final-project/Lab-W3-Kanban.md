@@ -6,8 +6,8 @@ kanban-plugin: board
 
 ## 🎯 To Do
 
-- [ ] [BANK-051] Add test: APR of 10 is valid for checking account #create
-- [ ] [BANK-052] Add test: omitting "create" keyword entirely is invalid (e.g. "checking 12345678 0.6") #create
+- [x] [BANK-051] Add test: APR of 10 is valid for checking account #create
+- [x] [BANK-052] Add test: omitting "create" keyword entirely is invalid (e.g. "checking 12345678 0.6") #create
 - [x] [BANK-037] Output each open account's state: type, ID, balance, APR #output
 - [x] [BANK-038] List accounts in the order they were created #output
 - [x] [BANK-039] Output each account's full transaction history in order #output
@@ -15,8 +15,8 @@ kanban-plugin: board
 - [x] [BANK-041] Floor-truncate APR to 2 decimal places with trailing zeros (e.g. 3.00) #output
 - [x] [BANK-042] Capitalize account type correctly (e.g. Savings, Checking, Cd) #output
 - [x] [BANK-043] Append all invalid commands at the end of output in order received #output
-- [ ] [BANK-046] Reject commands with leading or mid-string extra spaces #validation
-- [ ] [BANK-047] Reject scientific or exponential notation in any numeric field #validation
+- [x] [BANK-046] Reject commands with leading or mid-string extra spaces #validation
+- [x] [BANK-047] Reject scientific or exponential notation in any numeric field #validation
 
 
 ## 🔧 In Progress
