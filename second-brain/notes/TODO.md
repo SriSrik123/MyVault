@@ -7,7 +7,7 @@ kanban-plugin: board
 ## 📚 Academics
 
 **— Week 1 (Jun 22–28) —**
-- [ ] **CS-260 PA1** — already posted, start early! · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
+- [ ] **CS-260 PA1** — array-based list in C · due **Check Blackboard** · [[second-brain/notes/summer-2026/data-structures/assignments/PA1-array-list.pdf|PA1 PDF]]
 - [ ] **CS-260 Lecture Notes** — handwrite + photo to Gradescope after each class (Mon & Thu) · [[second-brain/notes/summer-2026/data-structures/lectures|lectures]]
 - [ ] **INFO-102 Reading** — Ch. 1: Intro to Information Systems · [[second-brain/notes/summer-2026/info-102-intro-info-systems/lectures|lectures]]
 

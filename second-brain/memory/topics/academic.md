@@ -1,6 +1,6 @@
 ---
-title: Academic Profile — Spring 2026
-last_updated: 2026-04-15
+title: Academic Profile — Spring/Summer 2026
+last_updated: 2026-07-22
 sources: [context/education-career, context/semester-spring-2026, context/goals, context/study-profile]
 ---
 
@@ -20,7 +20,15 @@ Quarter system; currently Spring 2026 (Week ~5)
 | MATH-201 | Linear Algebra | Fully async; no class meetings |
 | COM-270 | Business Communication | Async; weekly discussion posts |
 
-## Critical Deadlines
+## Summer 2026 (CCP)
+| Course | Name | Key Notes |
+|--------|------|-----------|
+| MATH 163 | Discrete Mathematics I (CCP, 901 ONLAS 7N) | Online async; exams 1A–2C; strict format regime (Rules.md + styleguide.md in `notes/summer-2026/discrete-math-ccp/`); solved exams = format reference only, math unreliable |
+
+- **Exam 1C due 2026-07-27 23:59** — mechanical pencil, single document, work sheets foliated n0/n1/…, no partial credit for format departures
+- "You may discuss with anyone" printed on every exam page; top-sheet (page 0) upload earns bonus points (see course emails)
+
+## Critical Deadlines (Spring — semester closed)
 - CS-270 Midterm: May 7
 - SE-201 Final Project: Jun 6 (revealed Week 8, no extensions)
 - MATH-201 Final Exam: Jun 8–13 (Blackboard)

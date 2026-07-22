@@ -31,6 +31,7 @@ Quick parse: `grep "^\|" index.md`
 
 | Page | Summary | Date |
 |------|---------|------|
+| [[memory/conversations/2026-07-20-exam-pdf-latex-replica]] | 163Exm1B.pdf rebuilt as pixel-faithful LaTeX (embedded fonts, coordinate placement, 7 review cycles); tools + PDF in assignments/163Exm1B-latex/ | 2026-07-20 |
 | [[memory/conversations/2026-04-08-obsidian-llm-wiki-setup]] | Full setup session — moved context/, created memory wiki, sorted Raw notes | 2026-04-08 |
 | [[memory/conversations/2026-04-08-vault-link-audit]] | Vault link audit + Portfolio-Note created; daily logs linked into memory wiki | 2026-04-08 |
 | [[memory/conversations/2026-04-15-save-conversation-skill]] | Built save-conversation skill for auto-filing sessions; discovered .skill packaging constraint | 2026-04-15 |
@@ -39,6 +40,8 @@ Quick parse: `grep "^\|" index.md`
 | [[memory/conversations/2026-04-21-workout-file-move-conversation-saving]] | Moved THIS-WEEK.md to notes/; set up conversation saving and memory context loading in Claude Code | 2026-04-21 |
 | [[memory/conversations/2026-06-10-vault-city-app]] | Built Vault City — interactive city-map app of the whole vault (districts=folders, buildings=notes, roads=links) | 2026-06-10 |
 | [[memory/conversations/2026-06-12-vault-city-desktop-app]] | Rebuilt Vault City as a 3D (Three.js) Electron + React desktop app — navigable cyberpunk city, fly-in zoom, live IPC scan | 2026-06-12 |
+| [[memory/conversations/2026-07-20-exam-pdf-latex-replica]] | Converted 163Exm1B.pdf to a pixel-faithful XeLaTeX replica (fonts extracted, TikZ overlays, ink-measured delimiters) | 2026-07-20 |
+| [[memory/conversations/2026-07-22-exam1c-styleguide-rules]] | Built styleguide.md from 2020/2024 solved Exam 1C + tightened Rules.md; 2026 Exam 1C due 7/27 | 2026-07-22 |
 
 ## Daily Logs
 

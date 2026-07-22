@@ -102,3 +102,14 @@ Quick parse: `grep "^## \[" log.md | tail -10`
 ## [2026-06-12] change | Vault Heart — circular popup over the cell
 
 - Replaced the side reader panel with a circular popup centered over the zoomed cell (clipped circle, rim colored by the cell's region hue, content fades at the edges, connections as chips). Click flies head-on into the sphere; the note pops up in the circle.
+
+## [2026-07-20] conversation | 163Exm1B PDF to LaTeX pixel replica
+
+- Filed: `conversations/2026-07-20-exam-pdf-latex-replica.md`
+- Delivered `notes/summer-2026/discrete-math-ccp/assignments/163Exm1B-latex/` (main.tex + fonts + tools + compiled PDF)
+
+## [2026-07-22] conversation | Exam 1C style sheet + Rules.md tightening
+
+- Filed: `conversations/2026-07-22-exam1c-styleguide-rules.md`
+- Wrote `notes/summer-2026/discrete-math-ccp/styleguide.md` (format authority from 2020/2024 solved Exam 1C); copied both solved PDFs into `exams/`; tightened `~/Downloads/Rules.md`
+- Updated topics/academic.md — added Summer 2026 MATH 163 CCP section + Exam 1C deadline (2026-07-27)

@@ -121,3 +121,5 @@ Security: Google Authenticator, Keeper, Experian monitoring, Hotspot Shield VPN
 
 *Full memory wiki lives at: `~/Documents/MyVault/second-brain/memory/` (Obsidian vault)*
 *GitHub: SriSrik123/second-brain (syncs Saturdays 5pm)*
+| 2026-07-20 | Claude Code | Converted 163Exm1B.pdf (Math 163 exam) to a pixel-faithful XeLaTeX replica — embedded-font extraction, coordinate-anchored TikZ pages, ink-measured delimiters; source + tools in discrete-math-ccp/assignments/163Exm1B-latex/ |
+| 2026-07-22 | Cowork | Built discrete-math-ccp/styleguide.md from the 2020+2024 solved Exam 1C PDFs (answer anchors, work-sheet grammar, tree/table/coefficient templates) and tightened Rules.md; 2026 Exam 1C due 7/27 |
