@@ -1,0 +1,16 @@
+% 163 Exam 1C — full replica (printed pages + answers), 21 pp
+% Build: xelatex main.tex (x2). See preamble.tex for macros.
+\input{preamble}
+\begin{document}
+\makeatletter
+\newcommand\dopage[1]{\begin{pdfpage}\input{pages/page#1.tex}%
+\IfFileExists{pages/rules#1.tex}{\input{pages/rules#1.tex}}{}%
+\IfFileExists{pages/answers#1.tex}{\input{pages/answers#1.tex}}{}\end{pdfpage}}
+\makeatother
+\dopage{300}\dopage{301}\dopage{302}\dopage{303}\dopage{304}
+\worksheet{3040}\worksheet{3041}
+\dopage{305}\dopage{306}\worksheet{3060}\dopage{307}\dopage{308}\dopage{309}
+\dopage{310}\worksheet{3100}\dopage{311}\dopage{312}\worksheet{3120}\worksheet{3121}\dopage{313}\dopage{314}
+\dopage{315}\dopage{316}\worksheet{3160}\worksheet{3161}\worksheet{3162}\dopage{317}\worksheet{3170}\worksheet{3171}\dopage{318}\dopage{319}
+\dopage{320}
+\end{document}

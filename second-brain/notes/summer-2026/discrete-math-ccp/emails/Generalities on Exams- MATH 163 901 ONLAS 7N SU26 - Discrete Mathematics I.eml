@@ -1,0 +1,459 @@
+Received: from SN7PR05MB9694.namprd05.prod.outlook.com (2603:10b6:806:344::12)
+ by DS3PR05MB998833.namprd05.prod.outlook.com with HTTPS; Tue, 7 Jul 2026
+ 06:37:33 +0000
+Received: from SJ0PR13CA0153.namprd13.prod.outlook.com (2603:10b6:a03:2c7::8)
+ by SN7PR05MB9694.namprd05.prod.outlook.com (2603:10b6:806:344::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.10; Tue, 7 Jul
+ 2026 06:37:29 +0000
+Received: from SJ1PEPF000026C3.namprd04.prod.outlook.com
+ (2603:10b6:a03:2c7:cafe::2f) by SJ0PR13CA0153.outlook.office365.com
+ (2603:10b6:a03:2c7::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.6 via Frontend Transport; Tue, 7
+ Jul 2026 06:37:29 +0000
+Authentication-Results: spf=pass (sender IP is 54.240.127.63)
+ smtp.mailfrom=mail-us-east-1.instructure.com; dkim=pass (signature was
+ verified) header.d=instructure.com;dkim=pass (signature was verified)
+ header.d=amazonses.com;dmarc=pass action=none
+ header.from=instructure.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ mail-us-east-1.instructure.com designates 54.240.127.63 as permitted sender)
+ receiver=protection.outlook.com; client-ip=54.240.127.63;
+ helo=a127-63.smtp-out.amazonses.com; pr=C
+Received: from outbound-ip182a.ess.barracuda.com (209.222.82.49) by
+ SJ1PEPF000026C3.mail.protection.outlook.com (10.167.244.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Tue, 7 Jul 2026 06:37:28 +0000
+Received: from a127-63.smtp-out.amazonses.com (a127-63.smtp-out.amazonses.com [54.240.127.63]) by mx-inbound40-102.us-east-2c.ess.aws.cudaops.com (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO); Tue, 07 Jul 2026 06:37:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6s5mwthdy2mujaxi3xuxuckrikhn6her; d=instructure.com;
+	t=1783406245;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=qpifByY6tkOOIJG0aGIWJ8wshlIRnSQXa1wr+4fgGP4=;
+	b=k/hrmbtluuB0Bg4AaFEMt2W7AoEw+PCEL7qavhW4uHmKbByUFXEoMsUuLMU/COM7
+	I3Bukk6kE+zIJdfz8o7ogwxckPx2rKMX9ir7VXOu/nwRWc1OfCruUgO3f8thitOqqY6
+	7zG0R6MsKyuj+tUP5W5nVM2tcS9WqFsNqBRX/IEE=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1783406245;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=qpifByY6tkOOIJG0aGIWJ8wshlIRnSQXa1wr+4fgGP4=;
+	b=MsSREMtsnhSAz0ThpHIUelncU+DrGl697SzfbvIL/SaGg+zE2BusqSjnjB9uxwf/
+	5cUNQQRf3W8qVTjYwKdBd1Oxxr9cLVvNYWnfjKUeRFcoVqgTKOleNmPJ0va7Visbjt4
+	gdjDC7ll67knrA9vFxhhYjMOvCag2CR5o5uKTTS8=
+X-On-bounce-route-to: notification-service-failures-prod
+Date: Tue, 7 Jul 2026 06:37:25 +0000
+From: MATH 163 901 ONLAS 7N SU26 - Discrete Mathematics I <notifications@instructure.com>
+Reply-To: reply+26f21a339100a6b0-13~3497247217-1783406240@notifications.canvaslms.com
+To: ss1@student.ccp.edu
+Message-ID: <0100019f3b4bb5b2-5cc25824-a427-422d-b111-755ad9975286-000000@email.amazonses.com>
+Subject: Generalities on Exams: MATH 163 901 ONLAS 7N SU26 - Discrete
+ Mathematics I
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6a4c9ea5359c7_72899fc082199";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Auto-Submitted: auto-generated
+Feedback-ID: ::1.us-east-1.6bnAGrq+H33YQMZ/rl7AdPgJjS+jB1rbcCIER0hXfVM=:AmazonSES
+X-SES-Outgoing: 2026.07.07-54.240.127.63
+X-BESS-ID: 1783406245-110342-7723-50655-1
+X-BESS-VER: 2019.1_20260702.2137
+X-BESS-Apparent-Source-IP: 54.240.127.63
+X-BESS-Parts: H4sIAAAAAAACAzXMsQrDMAwE0H/RnKE6xVGcXykdZFkhS8kQD4WSf68D6XIcB+
+	+eX4pPo4Vaz4H2gxaZRHvb+phScc4VFaFzqUmnh6EIiplLHZnO4e+39r79nCC3B0YPhn
+	GoM2NVZIZLaF7tuqXz9QO5wf7ZgQAAAA==
+X-BESS-Spam-Status: SCORE=0.00 using account:ESS197780 scores of QUARANTINE_LEVEL=4.0 KILL_LEVEL=5.0 tests=HTML_MESSAGE
+Received-SPF: pass (mx-inbound40-102.us-east-2c.ess.aws.cudaops.com: domain of 0100019f3b4bb5b2-5cc25824-a427-422d-b111-755ad9975286-000000@mail-us-east-1.instructure.com designates 54.240.127.63 as permitted sender)
+X-BESS-Spam-Score: 0.00
+X-BESS-DMARC: no-action HeaderFrom:instructure.com Record:"v=DMARC1; p=quarantine; rua=mailto:fc92c7c69de4119@rep.dmarcanalyzer.com; ruf=mailto:fc92c7c69de4119@for.dmarcanalyzer.com; fo=1;" SPF:Pass(r) DKIM:instructure.com(s) PCT(no-pct)
+Authentication-Results-Original: mx-inbound40-102.us-east-2c.ess.aws.cudaops.com; spf=pass (sender IP is
+ 54.240.127.63)
+ smtp.mailfrom=0100019f3b4bb5b2-5cc25824-a427-422d-b111-755ad9975286-000000@mail-us-east-1.instructure.com;
+ dkim=pass header.d=instructure.com; dmarc=pass
+ header.from=notifications@instructure.com
+X-BESS-Spam-Report: Code version 3.2, rules version 3.2.2.274464 [from cloudscan8-
+	25.us-east-2a.ess.aws.cudaops.com]
+	Rule breakdown below
+	 pts rule name              description
+	---- ---------------------- --------------------------------
+	0.00 HTML_MESSAGE           BODY: HTML included in message 
+X-BESS-BRTS-Status: 1
+X-BESS-Info: H4sIAAAAAAACA6tWSslMUbIyNjY2MjTRUUrJU7JSKi4pTUnNK9FLTi7QS00pVao
+	FAMvwMgklAAAA
+Return-Path: 0100019f3b4bb5b2-5cc25824-a427-422d-b111-755ad9975286-000000@mail-us-east-1.instructure.com
+X-MS-Exchange-Organization-ExpirationStartTime: 07 Jul 2026 06:37:29.3829
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: a54d9ee8-1d4e-4d1a-4ab8-08dedbf2378e
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 10132e4b-bfd9-41b7-ac78-560943470a6a:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-SkipListedInternetSender: ip=[54.240.127.63];domain=a127-63.smtp-out.amazonses.com
+X-MS-Exchange-ExternalOriginalInternetSender: ip=[54.240.127.63];domain=a127-63.smtp-out.amazonses.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF000026C3:EE_|SN7PR05MB9694:EE_|DS3PR05MB998833:EE_
+X-MS-Exchange-Organization-AuthSource: SJ1PEPF000026C3.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: a54d9ee8-1d4e-4d1a-4ab8-08dedbf2378e
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: -1
+Canvas: True
+X-Microsoft-Antispam: BCL:2;ARA:13230040|69100299015|4092899012|5062899012|82310400026|2092899012|6062899009|5082899009|7049299003|5073199012|3092899012|7149299003|3072899012|3109299003|13012899012|32142699015|13102899012|12012899012|5063699009|5023799004|56012099006|18003699003|12063799003|4076899003|8096899003|4113699003|55112099003|19002099009|13003099007;
+X-Forefront-Antispam-Report: CIP:209.222.82.49;CTRY:US;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:NSPM;H:a127-63.smtp-out.amazonses.com;PTR:a127-63.smtp-out.amazonses.com;CAT:NONE;SFS:(13230040)(69100299015)(4092899012)(5062899012)(82310400026)(2092899012)(6062899009)(5082899009)(7049299003)(5073199012)(3092899012)(7149299003)(3072899012)(3109299003)(13012899012)(32142699015)(13102899012)(12012899012)(5063699009)(5023799004)(56012099006)(18003699003)(12063799003)(4076899003)(8096899003)(4113699003)(55112099003)(19002099009)(13003099007);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 06:37:28.7356
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a54d9ee8-1d4e-4d1a-4ab8-08dedbf2378e
+X-MS-Exchange-CrossTenant-Id: 10132e4b-bfd9-41b7-ac78-560943470a6a
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000026C3.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR05MB9694
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.4951124
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.008
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944490095)(944506478)(944626604)(4710164)(4717077)(4999285)(920097)(930201)(20251009189)(140003)(1420198);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?dtlHsjIbc8G9tfVH7rqQ5WTVqBPSyOAJAZB+JRMIaQNwLdFv0+LfmVNs1VP3?=
+ =?us-ascii?Q?lVYiu7KZtRp0Y+GvNvA/tgJe6iJJqVCuq/BM/p37/ag6E9TIeIIVajPPUL68?=
+ =?us-ascii?Q?9HRbs7obpsYHJ8vu84QZb0xx23qB8fiU835bu88eyyNqmvQBBjbBHSmFOSmp?=
+ =?us-ascii?Q?/GG0YwHGXz07ff6yCBm2js7bl12Mqka7OjDT1W8AXKY0HwDG0oMX3hppN3Ik?=
+ =?us-ascii?Q?XohXZyvhrWQmq/buhHUs4Curi+OH2txa3dgfVmE0cOpYWYu7KakFWiKqAdvh?=
+ =?us-ascii?Q?Yq7tuOU7AzGZK1fpZUbOQ6G9h1EB/+Y+L8uxu6EW9Yw2qkT94aeFYWOK5J5s?=
+ =?us-ascii?Q?OYm29dclDh8HBTtUmcgT0Wg2ramUlrKtJL16dVHFzEuRkWJq4phhuKMEUqi+?=
+ =?us-ascii?Q?5fkS3YEiJAtVGCsA2TCvK3A1n1scN/2M/65GsW4vF1hfS3Xp2ba1EgPQ42Gb?=
+ =?us-ascii?Q?tnZbc6p7TY8m8buQDVqCPg6VzLc+Hzldv/pFTxHJ+XrY/pBc+dOg9vD8YeIf?=
+ =?us-ascii?Q?Syyg3EARDjLm8v2p/XiYkJr4v9wE8VbAGzl0jpgPF9AxSl1R4+XozXiVDj6J?=
+ =?us-ascii?Q?9Nhd/wiGLDoqaedXETkDvIyzSp8IPxho/DTGeBeu6j0BF4F8Fq4C2psCGdEM?=
+ =?us-ascii?Q?vR4CFMGhcbnPVjcHTuh0SJg9HEki9fFqwgFHJtoPFDxkUeIklB68i9aSibSf?=
+ =?us-ascii?Q?TJebAyinvZvaMRSm8oRoUM0A0Ym7iMetpVwYmU4souqLJyt4UNfhv+IfGDz5?=
+ =?us-ascii?Q?vU7RhMYu/Od/bS+wALHoRhHzSfsR5qgoz/77FcmFFFUCP8MqFczqS8UbPnRr?=
+ =?us-ascii?Q?uNObpWNLK1o5HoAuKCWYRGnlY5Ye/pOnnu2g3Q5E9UtT4D273IU+1S+AfjEO?=
+ =?us-ascii?Q?Siwsl6dOodhR25ANN3VkFo8T/ReZo/l2kv2Y/IZ2iwkyRDtJx+gUdhgenRey?=
+ =?us-ascii?Q?/EggjLXXlR6ussg1np6Eum40VQMa2NV8y2az7EM/vbP3WoPhGeIlvcGtIFXX?=
+ =?us-ascii?Q?u73d/aIyRuXhaRyxQMFa0YDfWlWfl//BVNZVt1YhjL0Vp/XD0qBX/jRcDmv2?=
+ =?us-ascii?Q?LQatkXY72m8xCdgaHckZjpMJwEPC0u9VLrXbN9UFct4w4H9TMmKMoWSK2PFG?=
+ =?us-ascii?Q?PPXDyFbGErO5GJXa5UVHTqaoO0SgcM1fVktwaEuHJzyaeB0fyu6X3S+GrcCl?=
+ =?us-ascii?Q?psboLDkXln/yU5FQkXCfZpf7pKNl3QJWP3b3ILqnfTOX7M8EeeNoM0mz++G2?=
+ =?us-ascii?Q?BTPuqW12/dyoqGijGMj9ZOPcj8WxKrclR705iKdHe0EN5MWaULd/gh808ROm?=
+ =?us-ascii?Q?T6ZFKtLCoRXkmGn/3TdNqGTNNXjX272VFgnEZgP69mQ5dzLUOWoX2AwLfrwJ?=
+ =?us-ascii?Q?E8fDDygRQTaYFnKQ+uek6Or698xK3Z2FItgGqyLhx2Qg5qPv+ZXDlC5k40y5?=
+ =?us-ascii?Q?6Rowz+9RV/ZcIqMwvtt8RMrnTxeqS9ZlMH0MN7rGbFJMvYDlCH0XBiSCqB/M?=
+ =?us-ascii?Q?b0PrszUkSCPz2nRTOSXicFCUwtdWLWovc7KEzwETtlpjPT2Z+6weUzKb8UqE?=
+ =?us-ascii?Q?fVTE9d89YlFUC3d/4Wee2sR/wE/WrUkPRCfXSXtvWrA9RFsqDrY4VJa9GthQ?=
+ =?us-ascii?Q?cikvHT3oR1+qENRiCyPDXR2iY1WF5QUZPj91VFp2k25sFJBdfqmfHLIyZUd+?=
+ =?us-ascii?Q?e3Dp9cqvFU4QbpgBCslBijOg6KJky6Kgy/wVTQIkE8nzqf1EXGE5Qc/SK4lm?=
+ =?us-ascii?Q?5Pyk9I4Kvts85XboPb3SDUO3OPJmMejndbVi0tQJrEbBzaO5NeL0efxiEMYb?=
+ =?us-ascii?Q?ieyK8/2PpwMzgh12kxZWpctJvs/G8V+gOytZKzV4hNd8nRk0bJnOq+oMFTq/?=
+ =?us-ascii?Q?ax5YkiRjXE2+vQhvEqG/ki1St8mqFtfClwe32+6qlHnGDBoHwmZ66Q0MZiDz?=
+ =?us-ascii?Q?gVizZrTiF7eaVADTTlhtdgBeZZsR2IrQBFwlb4HPqylUoCzHNiAAyjPI2p4g?=
+ =?us-ascii?Q?luumCiFbOZBjvB2Ml3abR47nQRe9m+P8S5suFTp/g8xiQSSmpIJQ8CFHlsQY?=
+ =?us-ascii?Q?vWRuMwcdAAoDgebZWhAdrsi+1ft3eLwNMBKWmVEDoIX1T+cdOHDgAhDmamwm?=
+ =?us-ascii?Q?ez+JqybWSuPmSHj0HRdaWTmvyI+GImcCsrGZnIiAKIizUgOJYYcFRQpOBtyB?=
+ =?us-ascii?Q?rqofVWzj0xyQS5kg9y+fQpaINikEQalb9e8Jg/YvIphAf2R4312x9xP8Y6Hl?=
+ =?us-ascii?Q?sV/Ev6dYB+hVywHzJGJ7VnViIpuJc3GagYXFD9+ivINhLuhfD5OyMFGHaruh?=
+ =?us-ascii?Q?MTqvZ5x68NnJMDnjCkEflRMyCVYPc5MycbX0JFtNfUV0Sw1phmD/m2DwQvF5?=
+ =?us-ascii?Q?XAgf+wQSy7k+iPoQlVaTDRYLx66KUEtJ41p5z5cFa4ZYF2TXJqlEZRnf3UPO?=
+ =?us-ascii?Q?z0Z0MhkEf0BwWd6rqDGe8y89GnDosABIGPG1agy0w4mvIrnkhjLV1cXnLMTd?=
+ =?us-ascii?Q?k9Fr+005SGpfSVpcmA5gRjHcKWDCNyXDW+MNK3fS53l3mHDXMVQBaALO7aPY?=
+ =?us-ascii?Q?4ZQZMRB9WOu2LUmTbJ26EY5aa/cSr6N2eLgzS13rhzwrgUsiUKpU//ygy+Ok?=
+ =?us-ascii?Q?Ru0wJpg7ECA1LBMEkNJhDBtyzrxQLsO3+C7dQmInpiBYHIS7nGai6dGzzyzE?=
+ =?us-ascii?Q?1m8CQQTugecrko89MRNwgrKQjK6WHKEMALcmntQxRHXUtjEpSZHgLHEqA9pV?=
+ =?us-ascii?Q?CnRrZMoNpqwIDF9D4A/m1OMvE0wkBRPMofPRJLKXXYQXC8xyy3fLz2uBhtC4?=
+ =?us-ascii?Q?so0lXqLDPX+hXUIam1RbK2xTKwbM218HkKyzJAiYfOebll0hamwS70AmXM+q?=
+ =?us-ascii?Q?9cewOhkuPPMs+mYclWuGmu8YRvG3MRDDXv5JwkHB95kK/1uF0N40pfJvWLTY?=
+ =?us-ascii?Q?NsbAJzU//f50pv02hU/IVx1kSQevTOIHhPDArQEO6S/NATDpbVvEHMl+E+hi?=
+ =?us-ascii?Q?1bAFEYdEb+s0yWILTOFA3jTIc3ByaAYckK0Xgc66UWlj3XcgGB0CazVdRKEA?=
+ =?us-ascii?Q?r7CUgplSdWds1bGkmLbzu3/QLOQk/JoV3Y+pIUE+uB74Il/73QbNIpB4D9EI?=
+ =?us-ascii?Q?PVkN9GrzH5+h?=
+MIME-Version: 1.0
+
+----==_mimepart_6a4c9ea5359c7_72899fc082199
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+(0) One is responsible for doing the work by hand in pencil of appropriate =
+type on a printed version of the document (except if one uses appropriate t=
+echnology or has software that allows one to write and also to draw straigh=
+t line segments (that are visibly straight) on the pdf document directly wi=
+th a stylus) and for uploading a legible copy on CANVAS as directed in the =
+page How to Submit Assignments.
+
+ONE IS REQUIRED TO SUBMIT A SINGLE PDF DOCUMENT WITH PROPER TITLE: YourName=
+CourseNumberExamNX (as in AtishBagchi253Exam4P) exactly as shown. OTHERWISE=
+ POINTS WILL BE DEDUCTED.
+
+Computer labs at CCP campuses are open and students may print exams and sca=
+n them there provided that they meet the critiera for visiting the campus.
+
+(1) Read the General Information Document under Files which contains a long=
+ section on exams, strategies for getting good grades, and what to concentr=
+ate upon. It is one's responsibility to read all the material provided.
+
+(2) Please print out a copy of the exam to use as rough copy or use a noteb=
+ook to do work in rough. When one is ready to make a fair copy of the work,=
+ one should print out a fresh copy and copy onto it. This should be picture=
+ perfect. If there is any departure whatsoever from required format one wil=
+l get a 0. If one submits incomplete or unchecked work one will get double =
+the points (that a problem is worth) deducted. One needs to submit only wha=
+t one has proved to be correct. One may not engage in guesswork or gambles =
+unless obe wishes to be severely penalized.
+
+(3) All work is done in the notes with many remarks to show how work is to =
+be done. Under files one will find a folder entitled Solved Exams. It conta=
+ins copies of previous exams with all the a and b problems worked out by a =
+student. The format in these documents is absolutely correct. I will NOT in=
+dicate if the solutions are correct because that is likely to lead to blind=
+ copying, a habit that I do not wish to encourage. The J numbers are fictit=
+ious. One's exams incidentally may be completely different from the solved =
+ones.
+
+(4) One must use rulers to draw ALL straight-line segments other than the o=
+nes explicitly exempted on the top sheet of the exam. One has neither any f=
+reedom not any choice regarding the matter. All signs of equality must be l=
+ined up on the left as in the notes. All symbols must be used in precisely =
+the intended senses and in no other. Please look at the document marked Sym=
+bols under Files.
+
+(5) Each time one finishes a problem completely, one must copy it onto the =
+fair copy. It should not be left until the last minute. If one does all the=
+ a problems completely correctly, one will have a decent chance of getting =
+a C in the course. If one does all the a's and b's correctly, one will have=
+ a good chance of getting an A in the course.
+
+(6) Work should be shown on unruled sheets and the sheets should be numbere=
+d as indicated on the exam. One may use the additional sheets that come wit=
+h the exams if you change the page numbers to conform to the directions.
+
+(7) The exams are available at all times. Note, however, that an exam can c=
+ontinue to change to within two weeks of when it is due. Therefore, if one =
+downloads an exam earlier than two weeks from when it is due, one needs to =
+download it again two weeks before it is due.
+
+[https://du11hjcvx0uqb.cloudfront.net/dist/images/email_signature-d2c588061=
+2.png]
+View announcement <https://ccp.instructure.com/courses/2105108/announcement=
+s/13959082>  |  Update your notification settings<https://ccp.instructure.c=
+om/profile/communication>
+NOTICE: The information contained in this e-mail may contain confidential a=
+nd/or proprietary information intended only for the use of the Individual(s=
+) or Entity(ies) named above. If you are not the intended recipient of this=
+ e-mail, or the employee or agent responsible for delivering this e-mail to=
+ the intended recipient, you are hereby notified that any unauthorized use,=
+ dissemination or copying of this e-mail is strictly prohibited. If you hav=
+e received this e-mail in error, notify the sender by replying to this mess=
+age and delete the e-mail from your system. When responding to this communi=
+cation, remember that it could be lost in transit and viewed by a party oth=
+er than the addressee.
+
+----==_mimepart_6a4c9ea5359c7_72899fc082199
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html dir=3D"ltr" lang=3D"en"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"viewport" content=3D"width=3Ddevice-width">
+<style type=3D"text/css">
+/*
+Changes to font size (14->16) for smaller screens
+table[class=3Dbody] is the only selector that works for all vendors
+*/
+@media only screen and (max-width: 620px) {
+  table[class=3Dbody] p,
+  table[class=3Dbody] ul,
+  table[class=3Dbody] ol,
+  table[class=3Dbody] td,
+  table[class=3Dbody] span,
+  table[class=3Dbody] a {
+    font-size: 16px !important;
+  }
+  /* remove padding for mobile so no gray shows */
+  table[class=3Dbody] .bodycell {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  /* reduce padding from 20->10 for mobile */
+  table[class=3Dbody] .maincell {
+    padding: 10px !important;
+  }
+}
+/*
+ExternalClass fixes Outlook.com / Hotmail emails
+*/
+@media all {
+  .ExternalClass {
+    width: 100%;
+  }
+  .ExternalClass,
+  .ExternalClass p,
+  .ExternalClass span,
+  .ExternalClass font,
+  .ExternalClass td,
+  .ExternalClass div {
+    line-height: 100%;
+  }
+}
+  </style><!--
+background: white (could be gray)
+default sans serif fonts, 14px, 1.3, #444444
+vendor prefixes for Outlook (-ms) and iOS (-webkit)
+Margin is capitalized to fix Outlook.com
+-->
+</head>
+<body class=3D"" style=3D"background-color:#ffffff; font-family:'Open Sans'=
+, 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahom=
+a, 'Sans Serif'; font-size:14px; color: #444444; line-height:1.3; Margin:0;=
+ padding:0; -ms-text-size-adjust:100%; -webkit-font-smoothing:antialiased; =
+-webkit-text-size-adjust:100%;">
+<!-- body: background table (if body has a color, this should match) -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"body" styl=
+e=3D"border-collapse:separate; background-color:#ffffff; width:100%; box-si=
+zing:border-box; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+<tbody>
+<tr>
+<!-- width and max-width so it can scale for mobile -->
+<td class=3D"bodycell" style=3D"max-width:600px; width:100%; font-family:'O=
+pen Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicod=
+e', Tahoma, 'Sans Serif'; font-size:14px; vertical-align:top; display:block=
+; box-sizing:border-box; padding:10px; Margin:0 auto !important;">
+<!-- for older versions of Outlook that don't support max-width --><!--[if =
+(gte mso 9)|(IE)]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0"><tr><td>
+<![endif]--><!-- main: white box for content -->
+<table class=3D"main" style=3D"background:#fff; width:100%; border-collapse=
+:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"maincell" style=3D"font-family:sans-serif; font-size:14px; ver=
+tical-align:top; box-sizing:border-box; padding:20px;">
+<p>(0) One is responsible for doing the work by hand in pencil of appropria=
+te type on a printed version of the document (except if one uses appropriat=
+e technology or has software that allows one to write and also to draw stra=
+ight line segments (that are visibly
+ straight) on the pdf document directly with a stylus) and for uploading a =
+legible copy on CANVAS as directed in the page<span>&nbsp;</span><strong>Ho=
+w to Submit Assignments</strong>.<span>&nbsp;</span></p>
+<p><span><strong>ONE IS&nbsp;REQUIRED TO SUBMIT A SINGLE PDF DOCUMENT WITH =
+PROPER TITLE: YourNameCourseNumberExamNX (as in AtishBagchi253Exam4P) exact=
+ly as shown.&nbsp;OTHERWISE POINTS WILL BE DEDUCTED.&nbsp;</strong></span><=
+/p>
+<p>Computer labs at CCP campuses are open and students<span>&nbsp;</span><s=
+trong>may print exams and scan them there provided that they meet the criti=
+era for visiting the campus.</strong></p>
+<p>(1) Read the&nbsp;<strong>General Information Document</strong>&nbsp;und=
+er Files&nbsp;which contains a&nbsp;<strong>long section on exams, strategi=
+es for getting good grades, and what to concentrate upo</strong>n.&nbsp;<st=
+rong>It is one's responsibility to read all the material
+ provided.</strong>&nbsp;</p>
+<p>(2) Please print out a copy of the exam to use as rough copy or use a no=
+tebook to do work in rough. When one is ready to make a fair copy of the wo=
+rk, one should print out a fresh copy and copy onto it. This should be pict=
+ure perfect. If there is any departure
+ whatsoever from required format one will get a 0.<span>&nbsp;</span><stron=
+g>If one submits incomplete or unchecked w</strong><strong>ork one will get=
+ double the points (that a problem is worth) deducted</strong>. One needs t=
+o submit only what one has proved to
+ be correct. One may not engage in<span>&nbsp;</span><strong>guesswork or g=
+ambles unless obe wishes to be severely penalized</strong>.</p>
+<p>(3) All work is done in the notes with many remarks to show how work is =
+to be done. Under files one will find a folder entitled<span>&nbsp;</span><=
+strong>Solved Exams</strong>. It contains<span>&nbsp;</span><strong><span>c=
+opies of previous exams with all the a and
+ b problems worked out by a student</span>.<span>&nbsp;</span><span>The for=
+mat in these documents is absolutely correct</span></strong>.<strong><span>=
+&nbsp;</span>I will NOT indicate if the solutions are correct because that =
+is likely to lead to blind copying, a habit
+ that I do not wish to encourage</strong>. The J numbers are fictitious.<sp=
+an>&nbsp;<strong>One's</strong></span><strong><span>&nbsp;</span>exams inci=
+dentally may be completely different from the solved ones.</strong></p>
+<p>(4)&nbsp;<strong>One must use rulers to draw ALL straight-line segments =
+other than the ones explicitly exempted on the top sheet of the exam. One h=
+as neither any freedom not any choice regarding the matter</strong>.&nbsp;<=
+strong>All signs of equality must be lined
+ up on the left as in the notes. All symbols must be used in precisely the =
+intended senses and in no other</strong>.<span>&nbsp;</span><strong>Please =
+look at the document marked Symbols under Files</strong>.</p>
+<p>(5)&nbsp;<strong>Each time one finishes a problem completely, one must c=
+opy it onto the f</strong><strong>air copy</strong>. It should not be left =
+until the last minute. If one does all the a problems completely correctly,=
+ one will have a decent chance of getting
+ a C in the course. If one does all the a's and b's correctly, one will hav=
+e a good chance of getting an A in the course.</p>
+<p>(6)<span>&nbsp;</span><strong>Work should be shown on unruled sheets</st=
+rong><span>&nbsp;</span>and the sheets should be numbered as indicated on t=
+he exam. One may use the additional sheets that come with the exams if you =
+change the page numbers to conform to the
+ directions.</p>
+<p>(7)<span>&nbsp;</span><strong>The exams are available at all times. Note=
+, however, that an exam can continue to change to within two weeks of when =
+it is due. Therefore, if one downloads an exam earlier than two weeks from =
+when it is due, one needs to download
+ it again two weeks before it is due</strong>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /.main --><!-- logo: branding -->
+<table class=3D"logo" style=3D"width:100%; box-sizing:border-box; border-co=
+llapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"logocell" style=3D"text-align:center; vertical-align:top; box-=
+sizing:border-box; padding:10px;">
+<img src=3D"https://du11hjcvx0uqb.cloudfront.net/dist/images/email_signatur=
+e-d2c5880612.png" alt=3D"">
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /.logo --><!-- footer: gray text below main -->
+<table class=3D"footer" style=3D"width:100%; box-sizing:border-box; border-=
+collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"footercell" style=3D"font-family:sans-serif; font-size:14px; v=
+ertical-align:top; color:#a8b9c6; font-size:12px; text-align:center; paddin=
+g:10px; box-sizing:border-box; ">
+<a href=3D"https://nam11.safelinks.protection.outlook.com/?url=3Dhttps%3A%2=
+F%2Fccp.instructure.com%2Fcourses%2F2105108%2Fannouncements%2F13959082&amp;=
+data=3D05%7C02%7Css1%40student.ccp.edu%7Ca54d9ee81d4e4d1a4ab808dedbf2378e%7=
+C10132e4bbfd941b7ac78560943470a6a%7C1%7C0%7C639190030533501671%7CUnknown%7C=
+TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkF=
+OIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3D%2FDvb4tkSnjznYQFpzf=
+KnWZjqp%2F4vBU8yZDyo9CI77mo%3D&amp;reserved=3D0" originalsrc=3D"https://ccp=
+.instructure.com/courses/2105108/announcements/13959082">View announcement
+</a>&nbsp;|&nbsp; <a href=3D"https://nam11.safelinks.protection.outlook.com=
+/?url=3Dhttps%3A%2F%2Fccp.instructure.com%2Fprofile%2Fcommunication&amp;dat=
+a=3D05%7C02%7Css1%40student.ccp.edu%7Ca54d9ee81d4e4d1a4ab808dedbf2378e%7C10=
+132e4bbfd941b7ac78560943470a6a%7C1%7C0%7C639190030533516436%7CUnknown%7CTWF=
+pbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIj=
+oiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DBRHaIHdADrK05NidgotQbtH=
+QOszw%2FVqqlAwNbtw6Xto%3D&amp;reserved=3D0" originalsrc=3D"https://ccp.inst=
+ructure.com/profile/communication" style=3D"white-space: nowrap;">
+Update your notification settings</a> </td>
+</tr>
+</tbody>
+</table>
+<!-- /.footer --><!--[if (gte mso 9)|(IE)]>
+</td></tr></table>
+<![endif]--></td>
+</tr>
+</tbody>
+</table>
+<!-- /.body -->NOTICE: The information contained in this e-mail may contain=
+ confidential and/or proprietary information intended only for the use of t=
+he Individual(s) or Entity(ies) named above. If you are not the intended re=
+cipient of this e-mail, or the employee
+ or agent responsible for delivering this e-mail to the intended recipient,=
+ you are hereby notified that any unauthorized use, dissemination or copyin=
+g of this e-mail is strictly prohibited. If you have received this e-mail i=
+n error, notify the sender by replying
+ to this message and delete the e-mail from your system. When responding to=
+ this communication, remember that it could be lost in transit and viewed b=
+y a party other than the addressee.
+</body>
+</html>
+
+----==_mimepart_6a4c9ea5359c7_72899fc082199--

@@ -390,24 +390,62 @@ anchoring.
 
 ## 8. Flagged decisions (owner sign‑off)
 
-1. **`∵` on work sheets.** SOL‑2024 uses `∵` once (piece `1a.i.3`). Rules.md
-   prohibits `∵`/`∴`. Default here: the two‑premise bar of §5.3. Change only
-   by editing Rules.md first.
-2. **`My {s,b}` fill order.** SOL‑2024 writes `{ 7, 0 }` positionally
-   (s‑slot, b‑slot) even though the increasing‑order R‑rule would give
-   `{0, 7}`. Default: follow the sample (positional) for A5 template fills;
-   all *other* set listings stay increasing. If Sri prefers the conservative
-   reading, sort — and accept divergence from the sample.
-3. **General‑formula names.** SOL‑2020 appears to write `BnmlCfnt`/
-   `MltnmlCfnt` (trailing *t*) for the general formulas; SOL‑2024 writes
-   `BnmlCfn`/`MltnmlCfn` for both general and applied forms. Verify the exact
-   names printed in Binomial Theorem Notes before use; default to SOL‑2024.
-4. **Proof layouts for 1c/2c/3c** have no solved exhibit — must be matched
-   to Induction and Recursion Notes pages before the final PDF (§6.3).
-5. **2026 data edge cases** to anticipate at solve time: `s := mxm{k∈1..8|Jk=0}`
-   and `b := mnm{Jk∈0..9|Evn(Jk)}` are undefined for some J‑numbers ("does
-   not make sense" answers, §5.3, ripple into 2a/3a); if `s = b`, the p310
-   alphabet `{s,b}` collapses to one letter and the trees narrow accordingly.
+1. **`∵` on work sheets — RESOLVED.** SOL‑2024 uses `∵` once (piece
+   `1a.i.3`). Rules.md prohibits `∵`/`∴` outright (owner rule outranks the
+   sample per Source Precedence). Used: the two‑premise single‑bar of §5.3
+   (`∀n∈ℕ∀k∈0..n (n choose k)` and `(8!)∉0..1` side by side over one bar,
+   `∉` drawn as `∈` with a manual slash — the font subset lacks a single
+   `∉` glyph, see `tools/atoms.py: notin()`).
+2. **`My {s,b}` fill order — CONFIRMED by Sri (2026‑07‑25): positional.**
+   Follow the sample (`{s‑value, b‑value}`, not re‑sorted) for the one A5
+   template slot on p310; all *other* set/list answers stay increasing.
+3. **General‑formula names — RESOLVED, both guesses were wrong.** Binomial
+   Theorem Notes (p.1) and Multinomial Theorem Notes (p.5) name the
+   coefficient‑extraction function `𝐶𝑓𝑐𝑛𝑡` (**Cfcnt**) for *both* the
+   binomial and multinomial case — neither `BnmlCfn`, `BnmlCfnt`,
+   `MltnmlCfn`, nor `MltnmlCfnt` appears anywhere in the notes. However,
+   **EXM‑2026 p316 itself already prints `BnmlCfn(...)` / `MltnmlCfn(...)`
+   literally** in the problem statement (Rules.md: an exam‑supplied name
+   "may be repeated and instantiated" for that question). Net effect: fill
+   the blanks *inside* the already‑printed `BnmlCfn`/`MltnmlCfn(...)` calls
+   on p316/317 and their work sheets — do not touch the printed function
+   name, and do not introduce `Cfcnt` anywhere on this exam (it is not
+   printed on EXM‑2026, so citing it would import an unauthorized synonym).
+4. **`C(n,k)` / `P(n,k)` for `k>n` — RESOLVED via exam page, not notes.**
+   Counting Notes (pp.9‑10) explicitly declines to pick a convention ("We
+   shall not discuss the choice of 0 at this stage"). `EXM‑2026` p301
+   itself prints "Remember that 'does not make sense' is a possible
+   answer" — a literal page‑301 instruction outranks the notes (Source
+   Precedence #2 > #3), so "does not make sense" is licensed independent of
+   SOL‑2024 happening to use it too (confirmed independently correct, not
+   copied).
+5. **OM/RA strikethrough — CONFIRMED visually (SOL‑2024 sheet 3100,
+   pieces `2a.i.1`/`2a.ii.1`).** The Counting Notes' `Wrd(n,Alphabet,OM,RA)`
+   summary table prints literal duplicate labels ("OM"/"OM", "RA"/"RA")
+   for the four order/repetition cases — the notes distinguish them only by
+   a hand‑drawn strikethrough through the negated flag. SOL‑2024 confirms
+   this on the exam itself: 2a(i) "order matters" shows plain `OM`; 2a(ii)
+   "order does not matter" shows `OM` struck through. Reproduce with a
+   `\DLINE` stroke through the glyph (pattern already in `tools/atoms.py`,
+   used the same way `strike()` handles cancellation).
+6. **Proof layouts for 1c/2c/3c** have no solved exhibit. Induction and
+   Recursion Notes supply a confirmed general template (recursive
+   definition: bare `BC`/`RcS` labels, §6.3; induction proof: `SPf`/`BC`
+   bar, then `RcS` with hypotheses `P(0) P(1) ⋯ P(n)` over a bar, inline
+   parenthetical justifications, closing `EPf`) — but **no worked example
+   of a divisibility statement (`∀n(d∣f(n))`) exists anywhere in the
+   searched notes**, by direct or induction proof. Bridging "n is even"
+   (exam‑defined only in English prose, p303) to the formal divisibility
+   witness (`a∣b:⟺∃c∈ℕ(b=ca)`, Relations Notes p.24) requires treating
+   `Evn(n)` as licensing `∃c∈ℕ(n=2c)` — a standard reading, but not
+   literally spelled out in either source. Flagged to Sri 2026‑07‑25 for
+   sign‑off before finalizing 1c/3c.
+7. **2026 data (J=00499317): confirmed, no edge case hit.** `s=2`, `b=0`,
+   `b+s=2` — both well‑defined (`s≠b`, no p310 alphabet collapse). `ν(St(J))
+   =6`, `ν(MltSt(J))=8` (this second value is a mathematical invariant —
+   always 8 for every student, since it counts all 8 J‑digits — not
+   personal data, so matching SOL‑2024's own `ν(MltSt(J))=8` is expected,
+   not a copying concern).
 
 ## 9. Format‑gate checklist (run before shipping any page)
 

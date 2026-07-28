@@ -1,61 +1,19 @@
 ---
 
 kanban-plugin: board
+last-updated: 2026-07-26
 
 ---
 
 ## 📚 Academics
 
-**— Week 1 (Jun 22–28) —**
-- [ ] **CS-260 PA1** — array-based list in C · due **Check Blackboard** · [[second-brain/notes/summer-2026/data-structures/assignments/PA1-array-list.pdf|PA1 PDF]]
-- [ ] **CS-260 Lecture Notes** — handwrite + photo to Gradescope after each class (Mon & Thu) · [[second-brain/notes/summer-2026/data-structures/lectures|lectures]]
-- [ ] **INFO-102 Reading** — Ch. 1: Intro to Information Systems · [[second-brain/notes/summer-2026/info-102-intro-info-systems/lectures|lectures]]
+- [ ] **MATH-163 Assignment** — due every **Mon night** (recurring) · due **Mon Jul 27** · [[second-brain/notes/summer-2026/discrete-math-ccp/assignments|assignments]]
+- [ ] **CS-260 Midterm** — Estimated, unconfirmed exact date/format · ~**Mon Jul 27** · [[second-brain/notes/summer-2026/data-structures/exams|exams]]
+- [ ] **INFO-102 DB3 Part 1** — due **Thu Jul 30 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [ ] **INFO-102 DB3 Part 2** — due **Sun Aug 2 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [ ] **INFO-102 Term Project Proposal** — due **Sun Aug 2 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [ ] **ACCT-115 Yellowdig Cutoff #3** — due **Sun Aug 2** · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
 
-**— Week 2 (Jun 29–Jul 5) —**
-- [ ] **INFO-102 DB1 Part 1** — post on discussion board · due **Thu Jul 2 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **INFO-102 DB1 Part 2** — respond to classmates · due **Sun Jul 5 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-
-**— Week 3 (Jul 6–12) —**
-- [ ] **INFO-102 HW1** · due **Sun Jul 12 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-
-**— Week 4 (Jul 13–19) —**
-- [ ] **INFO-102 DB2 Part 1** · due **Thu Jul 16 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **INFO-102 DB2 Part 2** · due **Sun Jul 19 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-
-**— Week 5 (Jul 20–26) —**
-- [ ] **INFO-102 Midterm** — open book, covers Weeks 1–4 · ~Week 5 · [[second-brain/notes/summer-2026/info-102-intro-info-systems/exams|exams]]
-
-**— Week 6 (Jul 27–Aug 2) —**
-- [ ] **CS-260 Midterm** — in-class · Week 6 · [[second-brain/notes/summer-2026/data-structures/exams|exams]]
-- [ ] **INFO-102 DB3 Part 1** · due **Thu Jul 30 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **INFO-102 DB3 Part 2** · due **Sun Aug 2 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **INFO-102 Term Project Proposal** · due **Sun Aug 2 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-
-**— Week 7 (Aug 3–9) —**
-- [ ] **INFO-102 HW2** · due **Sun Aug 9 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **CS-260 Coding Interview** — 1hr in-person mock, scheduled Weeks 7–10 · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
-
-**— Week 8 (Aug 10–16) —**
-- [ ] **INFO-102 DB4 Part 1** · due **Thu Aug 13 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **INFO-102 DB4 Part 2** · due **Sun Aug 16 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **INFO-102 Term Project Slides** — slideshow presentation due Week 8 · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-
-**— Weeks 9–10 (Aug 17–30) —**
-- [ ] **INFO-102 Term Project Presentation** — live in class Weeks 9 & 10 · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **INFO-102 Final Exam** — open book, covers Weeks 6–9 · Week 10 · [[second-brain/notes/summer-2026/info-102-intro-info-systems/exams|exams]]
-
-**— Week 11 / Finals (Aug 31+) —**
-- [ ] **CS-260 Final** — cumulative · Week 12 · [[second-brain/notes/summer-2026/data-structures/exams|exams]]
-- [ ] **INFO-102 Term Project Final Report** — 1200 words · due **~Aug 31 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-
-**— CS-283 Systems Programming (dates TBD) —**
-- [ ] **CS-283 PA1** — submit files individually via Blackboard, no zip · [[second-brain/notes/summer-2026/systems-programming/assignments|assignments]]
-- [ ] **CS-283 Exam 1** — ~65% of grade total across 3 exams · [[second-brain/notes/summer-2026/systems-programming/exams|exams]]
-
-**— Syllabuses still needed —**
-- [ ] Get syllabus: Techniques of Speaking
-- [ ] Get syllabus: ACCT-115 Financial Accounting
-- [ ] Get syllabus: Discrete Math (CCP)
 
 ## Done not submitted
 
@@ -63,11 +21,37 @@ kanban-plugin: board
 
 ## ✅ Done
 
+- [ ] **CS-260 PA3** — Estimated, unconfirmed on Canvas/Gradescope · due **Fri Jul 31** · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
+- [ ] **ACCT-115 HW Ch. 8** — due **Sat Aug 1 @ 11:59pm** · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [ ] **ACCT-115 Quiz 6** — due **Sun Aug 2 @ 11:59pm** · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+
 
 ***
 
 ## Archive
 
+- [x] **ACCT-115 HW Ch. 7** — due **Sat Jul 25 @ 11:59pm** · *(2026-07-26)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 Quiz 5** — due **Sun Jul 26 @ 11:59pm** · *(2026-07-26)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **CS-260 Lecture Notes Wk 5 (Mon)** — handwrite + photo to Gradescope · due **Mon Jul 20 night** · *(2026-07-26)* · [[second-brain/notes/summer-2026/data-structures/lectures|lectures]]
+- [x] **ACCT-115 Yellowdig Cutoff #2** — due **Sun Jul 19** · *(2026-07-20)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **CS-260 PA2** — Estimated, unconfirmed on Canvas/Gradescope · due **Fri Jul 17** · *(2026-07-20)* · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
+- [x] **ACCT-115 Quiz 4** — due **Sun Jul 19 @ 11:59pm** · *(2026-07-20)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 HW Ch. 6** — due **Sat Jul 18 @ 11:59pm** · *(2026-07-20)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **MATH-163 Exam 1 Practice (A/B/C)** — open-resource, treat as practice/HW · *(2026-07-20)* · [[second-brain/notes/summer-2026/discrete-math-ccp/assignments|assignments]]
+- [x] **ACCT-115 Quiz 3** — due **Sun Jul 12 @ 11:59pm** · *(2026-07-20)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 HW Ch. 4** — due **Sat Jul 11 @ 11:59pm** · *(2026-07-20)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **CS-260 Reading 3 (Hash Tables & Bloom Filters)** — due date TBD, check Gradescope · *(2026-07-20)* · [[second-brain/notes/summer-2026/data-structures/assignments/reading-03/notes|Reading 3 notes]]
+- [x] **CS-260 Written Assignment 1 (WA1)** — Week 2 · due **Wed Jul 8** · *(2026-07-20)* · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
+- [x] **CS-260 Lecture Notes Wk 2** — handwrite + photo to Gradescope (Mon Jun 30 & Thu Jul 3 classes) · *(2026-07-20)* · [[second-brain/notes/summer-2026/data-structures/lectures|lectures]]
+- [x] **ACCT-115 HW Ch. 3** — due **Sat Jul 4 @ 11:59pm** · *(2026-07-20)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **CS-260 PA1** — Array-Based List · due **Fri Jul 3** · *(2026-07-20)* · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
+- [x] **ACCT-115 Quiz 2** — due **Sun Jul 5 @ 11:59pm** · *(2026-07-20)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 Yellowdig Cutoff #1** — due **Sun Jul 5** · *(2026-07-20)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **INFO-102 Reading** — Ch. 1: Intro to Information Systems · *(2026-06-28)* · [[second-brain/notes/summer-2026/info-102-intro-info-systems/lectures|lectures]]
+- [x] **ACCT-115 Quiz 1** — due **Sun Jun 28 @ 11:59pm** · *(2026-06-28)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 HW Ch. 2** — due **Sat Jun 27 @ 11:59pm** · *(2026-06-28)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 HW Ch. 1** — due **Sat Jun 27 @ 11:59pm** · *(2026-06-28)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **CS-260 Reading Wk 1** — submit handwritten answers to Gradescope *(extra credit)* · due **Wed Jun 25 @ 8:00 AM** · *(2026-06-28)* · [[second-brain/notes/summer-2026/data-structures/assignments/reading-01.pdf|Reading 1 PDF]]
 - [x] **PHYS-102 Conceptual Exercises Wk 4** · [[second-brain/notes/fundamentals-of-physics-ii/assignments|assignments]] · *(2026-04-20)*
 - [x] **SE-201 A3** — Test Cases · *(~2026-04-25)*
 - [x] **SE-201 Lab W4** — GitLab Setup · *(~2026-04-25)*
@@ -113,6 +97,8 @@ kanban-plugin: board
 - [x] **CS-265 Activity 10** · due ~**Thu Jun 4** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]] · *(2026-06-08)*
 - [x] **CS-265 Lab 10** · due **Mon Jun 8** · [[second-brain/notes/advanced-prog-tools/assignments|assignments]] · *(2026-06-08)*
 - [x] **SE-201 Final Project** · due **Sat Jun 6, 5:00 AM** · [[second-brain/notes/intro-software-eng/assignments|assignments]] · *(2026-06-08)*
+- [x] **MATH-163 Agreement Form** — proof of attendance, 5 free points · *(2026-07-08)* · [[second-brain/notes/summer-2026/discrete-math-ccp/announcements-summary|announcements summary]]
+- [x] **MATH-163 Top-sheets (all 6 exams + Problem Set)** — 7 bonus points · *(2026-07-08)* · [[second-brain/notes/summer-2026/discrete-math-ccp/announcements-summary|announcements summary]]
 
 %% kanban:settings
 ```

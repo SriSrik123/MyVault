@@ -1,0 +1,14 @@
+insertToHead Alice Smith 5.5 25
+insertToTail Bob Jones 6.1 30
+insertToPosition 1 Carol White 5.8 22
+printList
+printListInfo
+findPosition Alice
+deleteFromHead
+printList
+printListInfo
+deleteFromTail
+printList
+deleteFromPosition 0
+printList
+deleteList

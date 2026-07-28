@@ -1,0 +1,104 @@
+% 163 Exam 1C — LaTeX replica of 163Exm1C.pdf
+% Compile with: xelatex main.tex  (two passes; fonts embedded from ./fonts/)
+% Page geometry replicates the source PDF exactly (A4, coordinates in bp
+% measured from the top-left corner of each page).
+\documentclass{article}
+\usepackage[paperwidth=595.32bp,paperheight=841.92bp,margin=0bp]{geometry}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% ---- fonts (embedded subsets extracted from the original PDF) ----
+\setmainfont[Path=./fonts/, BoldFont=BookAntiqua-Bold_11.ttf]{BookAntiqua_5.ttf}
+\newfontfamily\CalibriFont[Path=./fonts/]{Calibri_9.ttf}
+\newfontfamily\CambriaTextFont[Path=./fonts/]{CambriaM.ttf}
+% SymbolMT_15.ttf is kept in fonts/ for provenance but never loaded: the
+% subset has no cmap/space and its only glyphs (bullets) are drawn by \SymBullet
+\newfontfamily\HelveticaFont{Helvetica}
+\setmathfont[Path=./fonts/]{CambriaM_nokern.ttf}
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\frenchspacing
+\delimiterfactor=1000
+\delimitershortfall=0bp
+% no 1C font subset carries U+2022, so the bullet is drawn: filled circle,
+% diameter 0.349em, center 0.29em above baseline, 0.05em left bearing
+% (ink-measured from 163Exm1C.pdf at both 11.04 and 14.04 pt)
+\newcommand\SymBullet{\tikz[baseline=0pt]{\fill (0.224em,0.29em) circle[radius=0.174em];}}
+
+% ---- math helpers matching the source document's Word-equation quirks ----
+\newcommand\rng{.\,.}                    % the "0..9" integer-range dots
+\newcommand\tcolon{\text{\CambriaTextFont :}} % ASCII colon (unicode-math maps ':' to U+2236)
+\newcommand\cd{\tcolon\ {=}}             % ": =" as typed in the source
+\newcommand\iw[1]{\mathit{#1}}           % italic words inside math
+% script sizes as used by the source (base -> script)
+\DeclareMathSizes{14.04}{14.04}{9.96}{7}
+\DeclareMathSizes{12.96}{12.96}{9}{6.5}
+\DeclareMathSizes{12}{12}{9}{6.5}
+\DeclareMathSizes{11.04}{11.04}{8.04}{6}
+% invisible strut: \strutbp{height}{depth} forces delimiter sizes
+\newcommand\strutbp[2]{\vrule width 0bp height #1bp depth #2bp}
+% \CT{x}{y}{size}{text}: Cambria run set in TEXT mode (GPOS kerning like Word)
+\newcommand\CT[4]{\TL{#1}{#2}{{\CambriaTextFont\fsz{#3}#4}}}
+% \TDEL{x}{y-baseline}{size}{strut-h}{strut-d}{delim}: forced tall delimiter
+\newcommand\TDEL[6]{\MT{#1}{#2}{#3}{\left#6\strutbp{#4}{#5}\right.}}
+% \GD{x}{y-baseline}{size}{glyphid}: exact Cambria glyph (variant/assembly
+% piece) at the original PDF's pen position — same subset font, same id,
+% so the painted ink replicates the source exactly (see tools/fixglyph.py)
+\newcommand\GD[4]{\TL{#1}{#2}{{\CambriaTextFont\fsz{#3}\XeTeXglyph #4\relax}}}
+
+% ---- size-switch helpers: \BA{13.02} -> Book Antiqua at 13.02bp ----
+\newcommand\fsz[1]{\fontsize{#1bp}{#1bp}\selectfont}
+\newcommand\BA[1]{\normalfont\fsz{#1}}
+\newcommand\BAB[1]{\normalfont\bfseries\fsz{#1}}
+\newcommand\CAL[1]{\CalibriFont\fsz{#1}}
+\newcommand\CMT[1]{\CambriaTextFont\fsz{#1}}
+\newcommand\SYM[1]{\normalfont\fsz{#1}}% size-only: SymbolMT runs are drawn bullets
+\newcommand\HEL[1]{\HelveticaFont\fsz{#1}}
+
+% ---- placement macros (coordinates in bp from page top-left) ----
+% \TL{x}{y-baseline}{content}          left-anchored line
+\newcommand\TL[3]{\node[anchor=base west,inner sep=0pt,outer sep=0pt]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {#3};}
+% \JL{x}{y}{width}{content}            justified (stretched) line
+\newcommand\JL[4]{\node[anchor=base west,inner sep=0pt,outer sep=0pt]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {\makebox[#3bp][s]{#4}};}
+% \RECT{x0}{y0}{x1}{y1}                filled rule rectangle
+\newcommand\RECT[4]{\fill ($(current page.north west)+(#1bp,-#2bp)$)
+  rectangle ($(current page.north west)+(#3bp,-#4bp)$);}
+% \MM{x}{y}{size}{math}                inline math anchored at baseline
+\newcommand\MM[4]{\TL{#1}{#2}{\fsz{#3}$\displaystyle #4$}}
+\newcommand\MT[4]{\TL{#1}{#2}{\fsz{#3}$#4$}} % textstyle math
+
+% header/footer chrome for every page (runs measured from 163Exm1C.pdf)
+\newcommand\ChromePage[1]{%
+  \TL{72.02}{45.6}{\BA{9.96}Due by 2359 hours on 20260727}%
+  \TL{466.18}{45.6}{\BA{9.96}163 Exam 1C}%
+  \TL{72.02}{789.46}{\BA{11.04}You may discuss with anyone}%
+  \TL{506.86}{789.46}{\BA{11.04}#1}}
+
+\newenvironment{pdfpage}{\mbox{}\begin{tikzpicture}[remember picture,overlay]}%
+{\end{tikzpicture}\clearpage}
+
+
+% ======== answer layer ========
+% work-sheet folio box, lower right (styleguide: ~3-4mm tall, flush corner)
+\newcommand\FOLIO[1]{\node[anchor=south east, draw, line width=0.5bp,
+  inner xsep=3bp, inner ysep=2bp]
+  at ($(current page.south east)+(-36bp,36bp)$) {\CMT{9.96}#1};}
+% piece label box: top-left corner at (x, y)
+\newcommand\PLBL[3]{\node[anchor=north west, draw, line width=0.5bp,
+  inner xsep=2.5bp, inner ysep=2bp]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {\BA{9.5}#3};}
+% ellipse: center (x,y), radii rx, ry
+\newcommand\CIRC[4]{\draw[line width=0.7bp]
+  ($(current page.north west)+(#1bp,-#2bp)$) ellipse [x radius=#3bp, y radius=#4bp];}
+% straight drawn line (x0,y0)-(x1,y1), width w
+\newcommand\DLINE[5]{\draw[line width=#5bp]
+  ($(current page.north west)+(#1bp,-#2bp)$) --
+  ($(current page.north west)+(#3bp,-#4bp)$);}
+% a work sheet: blank page + folio box + content file
+\newcommand\worksheet[1]{\begin{pdfpage}\input{sheets/ws#1.tex}\FOLIO{#1}\end{pdfpage}}

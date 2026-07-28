@@ -1,0 +1,409 @@
+Received: from BLAPR05MB7281.namprd05.prod.outlook.com (2603:10b6:208:29f::8)
+ by DS3PR05MB998833.namprd05.prod.outlook.com with HTTPS; Tue, 7 Jul 2026
+ 06:30:41 +0000
+Received: from CH0PR03CA0285.namprd03.prod.outlook.com (2603:10b6:610:e6::20)
+ by BLAPR05MB7281.namprd05.prod.outlook.com (2603:10b6:208:29f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.12; Tue, 7 Jul
+ 2026 06:30:37 +0000
+Received: from DM2PEPF00003FC7.namprd04.prod.outlook.com
+ (2603:10b6:610:e6:cafe::36) by CH0PR03CA0285.outlook.office365.com
+ (2603:10b6:610:e6::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.13 via Frontend Transport; Tue, 7
+ Jul 2026 06:30:37 +0000
+Authentication-Results: spf=pass (sender IP is 54.240.127.65)
+ smtp.mailfrom=mail-us-east-1.instructure.com; dkim=pass (signature was
+ verified) header.d=instructure.com;dkim=pass (signature was verified)
+ header.d=amazonses.com;dmarc=pass action=none
+ header.from=instructure.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ mail-us-east-1.instructure.com designates 54.240.127.65 as permitted sender)
+ receiver=protection.outlook.com; client-ip=54.240.127.65;
+ helo=a127-65.smtp-out.amazonses.com; pr=C
+Received: from outbound-ip62a.ess.barracuda.com (209.222.82.237) by
+ DM2PEPF00003FC7.mail.protection.outlook.com (10.167.23.24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Tue, 7 Jul 2026 06:30:37 +0000
+Received: from a127-65.smtp-out.amazonses.com (a127-65.smtp-out.amazonses.com [54.240.127.65]) by mx-inbound10-10.us-east-2a.ess.aws.cudaops.com (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO); Tue, 07 Jul 2026 06:30:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6s5mwthdy2mujaxi3xuxuckrikhn6her; d=instructure.com;
+	t=1783405835;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=EbfjoBOZ9NZgiJsElN5C95JfLKy5UF/6Q6yVf2XhPrA=;
+	b=EB80Rh0S+PslO9aUUOSwnA0JbNE105dfLjmoPGyldkeCuN5M+S7x5Kq7jAwO6XPN
+	QtVinPyVOmkK7AOr7U7Jqxh9OJ54lDJai5SMYukDXrgHFr0c7Xyd/RJYpXb7JI8uoTI
+	o6sJW1QT7l3ASIsc1WqrvcrJqS0xbB4EJiyGrMoY=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1783405835;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=EbfjoBOZ9NZgiJsElN5C95JfLKy5UF/6Q6yVf2XhPrA=;
+	b=i82qmVYMMk+SOgNLE0yO4LurLaBtXP6oUIqjoJHWPOswOVqgPerRGwouuLmvSj1b
+	mUCmv0ug7gX+1P+bP50ELNDeuSk3yvredbBEIqw7LKwK6WBjltUZBCLsGAGt2O2C8RQ
+	FqeCwRYQFlIFIBkwQf45NGKegFCpOPsTvVqTPdco=
+X-On-bounce-route-to: notification-service-failures-prod
+Date: Tue, 7 Jul 2026 06:30:35 +0000
+From: MATH 163 901 ONLAS 7N SU26 - Discrete Mathematics I <notifications@instructure.com>
+Reply-To: reply+994b681e9cf6cc5a-13~3497246305-1783405833@notifications.canvaslms.com
+To: ss1@student.ccp.edu
+Message-ID: <0100019f3b4575c4-07141399-0b7e-4196-898d-ec24eb1a3f11-000000@email.amazonses.com>
+Subject: Algorithm for Submitting Top Sheets (Page 0) of Exams (7 Free
+ POINTS): MATH 163 901 ONLAS 7N SU26 - Discrete Mathematics I
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6a4c9d0ba2158_61252fc04522f";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Auto-Submitted: auto-generated
+Feedback-ID: ::1.us-east-1.6bnAGrq+H33YQMZ/rl7AdPgJjS+jB1rbcCIER0hXfVM=:AmazonSES
+X-SES-Outgoing: 2026.07.07-54.240.127.65
+X-BESS-ID: 1783405835-102570-7698-50861-1
+X-BESS-VER: 2019.1_20260702.2137
+X-BESS-Apparent-Source-IP: 54.240.127.65
+X-BESS-Parts: H4sIAAAAAAACAzXLOwrDMBCE4bts7WIfo0XyVUIKO7vCTUgRFYHgu0eF0ww/A9
+	/tS/kZtNKYu9DrTauw8axjns04snQVlzTnjTdXcK8mgHANOpe/P8bz8gWol4d2hbNLDw
+	Wi7GYt9kcVSckGpfP+AwL3+bmBAAAA
+X-BESS-Spam-Status: SCORE=0.60 using account:ESS197780 scores of QUARANTINE_LEVEL=4.0 KILL_LEVEL=5.0 tests=HTML_MESSAGE, MARKETING_SUBJECT
+Received-SPF: pass (mx-inbound10-10.us-east-2a.ess.aws.cudaops.com: domain of 0100019f3b4575c4-07141399-0b7e-4196-898d-ec24eb1a3f11-000000@mail-us-east-1.instructure.com designates 54.240.127.65 as permitted sender)
+X-BESS-Spam-Score: 0.60
+X-BESS-DMARC: no-action HeaderFrom:instructure.com Record:"v=DMARC1; p=quarantine; rua=mailto:fc92c7c69de4119@rep.dmarcanalyzer.com; ruf=mailto:fc92c7c69de4119@for.dmarcanalyzer.com; fo=1;" SPF:Pass(r) DKIM:instructure.com(s) PCT(no-pct)
+Authentication-Results-Original: mx-inbound10-10.us-east-2a.ess.aws.cudaops.com; spf=pass (sender IP is
+ 54.240.127.65)
+ smtp.mailfrom=0100019f3b4575c4-07141399-0b7e-4196-898d-ec24eb1a3f11-000000@mail-us-east-1.instructure.com;
+ dkim=pass header.d=instructure.com; dmarc=pass
+ header.from=notifications@instructure.com
+X-BESS-Spam-Report: Code version 3.2, rules version 3.2.2.274464 [from cloudscan8-
+	104.us-east-2a.ess.aws.cudaops.com]
+	Rule breakdown below
+	 pts rule name              description
+	---- ---------------------- --------------------------------
+	0.00 HTML_MESSAGE           BODY: HTML included in message 
+	0.60 MARKETING_SUBJECT      META: Subject contains popular marketing words 
+X-BESS-BRTS-Status: 1
+X-BESS-Info: H4sIAAAAAAACA6tWSslMUbIyNjY2MjTRUUrJU7JSKi4pTUnNK9FLTi7QS00pVao
+	FAMvwMgklAAAA
+Return-Path: 0100019f3b4575c4-07141399-0b7e-4196-898d-ec24eb1a3f11-000000@mail-us-east-1.instructure.com
+X-MS-Exchange-Organization-ExpirationStartTime: 07 Jul 2026 06:30:37.6485
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: fadc24de-f4c2-4dd5-9c1e-08dedbf14224
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 10132e4b-bfd9-41b7-ac78-560943470a6a:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-SkipListedInternetSender: ip=[54.240.127.65];domain=a127-65.smtp-out.amazonses.com
+X-MS-Exchange-ExternalOriginalInternetSender: ip=[54.240.127.65];domain=a127-65.smtp-out.amazonses.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM2PEPF00003FC7:EE_|BLAPR05MB7281:EE_|DS3PR05MB998833:EE_
+X-MS-Exchange-Organization-AuthSource: DM2PEPF00003FC7.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: fadc24de-f4c2-4dd5-9c1e-08dedbf14224
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: -1
+Canvas: True
+X-Microsoft-Antispam: BCL:2;ARA:13230040|5082899009|5073199012|69100299015|6062899009|32142699015|5062899012|3092899012|13102899012|3072899012|13012899012|12012899012|4092899012|2092899012|7149299003|3109299003|82310400026|7049299003|19002099009|5063699009|56012099006|12063799003|18003699003|3023799007|55112099003|4076899003|8096899003|4113699003|13003099007;
+X-Forefront-Antispam-Report: CIP:209.222.82.237;CTRY:US;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:NSPM;H:a127-65.smtp-out.amazonses.com;PTR:a127-65.smtp-out.amazonses.com;CAT:NONE;SFS:(13230040)(5082899009)(5073199012)(69100299015)(6062899009)(32142699015)(5062899012)(3092899012)(13102899012)(3072899012)(13012899012)(12012899012)(4092899012)(2092899012)(7149299003)(3109299003)(82310400026)(7049299003)(19002099009)(5063699009)(56012099006)(12063799003)(18003699003)(3023799007)(55112099003)(4076899003)(8096899003)(4113699003)(13003099007);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 06:30:37.5399
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fadc24de-f4c2-4dd5-9c1e-08dedbf14224
+X-MS-Exchange-CrossTenant-Id: 10132e4b-bfd9-41b7-ac78-560943470a6a
+X-MS-Exchange-CrossTenant-AuthSource: DM2PEPF00003FC7.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BLAPR05MB7281
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.0961016
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.008
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944490095)(944506478)(944626604)(4710164)(4717077)(4999285)(920097)(930201)(20251009189)(140003)(1420198);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?A2qi+Por+OCgmrXbnUJXzsZxxk3gJk/hJj/KnehbyryVO4lZ50zOfSjTOnbm?=
+ =?us-ascii?Q?zxxmvy5baq+PZnvCHVN6hPanbrXY+0aqaQzX7iGvivzc1VGvEazK8WK00SxP?=
+ =?us-ascii?Q?5vvGndP+I7P62wN7k1kUYtoXhaigfZuZ8WApR9vIQo++hoGIXkXbXHfURyv+?=
+ =?us-ascii?Q?MuKzQI3pOaO6rHxyhFCKKkkhR7zZM01t6q3ycjMznbhKvf0yBICSypPqoyDA?=
+ =?us-ascii?Q?fpGnJbaaoeSOJW95iUQdca86pJooDLXNnDZopFT8T1ouAdPoFP0lHRFtzQzM?=
+ =?us-ascii?Q?KYJrJCPmmSk0qCUUS1tnEaAMfM3U06wIFFGIGte+nuWfFSM8QdyA9NbAba/R?=
+ =?us-ascii?Q?y1ur+89fWugVNFOTRyG+YlwrN9fUDHT4Q6Ap9pXCgtXFvymwz9CRCYXpA8qS?=
+ =?us-ascii?Q?utf0IldYOnecbm6oEbHnUCvCPwhpHcZ6dfW8AAx15BqVuAzhgS+dEj64nMBC?=
+ =?us-ascii?Q?acUGF5r4rDbX0oKf0gaI0K3z7Ar4+Zv1V/isuR5QMUDUe3eipPmks3/j87iC?=
+ =?us-ascii?Q?TpoSiFij26Tk3LnBgVNfHJqJCCO6EX6/sHjySMDSr6sD/AGMz4S8ZrWXEBlO?=
+ =?us-ascii?Q?FU0+CifK0HwaYPlOwUC6aOhkArlXce8i0XL3KCbGeZ/OOeE+3TjlZPYlnp8t?=
+ =?us-ascii?Q?L/vGt/yHdFw1JyWd2Oy3YIcphZJDa1/nvx/Oh0kFvnIkdkIMy5gl7eajEGx8?=
+ =?us-ascii?Q?7uvGGUdxLicVJMJ4PDDrMt7IMqi24ibj/GPCUYpFf/FzevicKT7cmiJTxMrc?=
+ =?us-ascii?Q?EZ6YORnK4TPSpl/Y9xkZH+dt5cJ5/X4IRtWm9ASwNIdIQuBc2PF4xEn0tTCE?=
+ =?us-ascii?Q?29/ZgchbB3hWaS1UQPTJ1FFqyj01jmuuIn8OEl2K3pkOihmlwE16yeYKiDsb?=
+ =?us-ascii?Q?Vy3YXIfUrB9Ea4g5aNH2Q2HgHFC7hJkU82w9sRTZS5WtRRCIo4k4/uwJXSGI?=
+ =?us-ascii?Q?3gMSXsB8ZZD2z88RzecZP7QJqi5tnbtwN/CikIau4K+/rU+Xz9ss+JnvEy2W?=
+ =?us-ascii?Q?rul5YQxUy0akPiXsmgfXhHhOXuI/PbnODZNMBeOIUWAYykX8YGF88IPv4Ng+?=
+ =?us-ascii?Q?ADbQFZjRb2TuTvfRs8zxKQHjObVbBFXRI1c969EjXGh/urDSI9FINSp2GRft?=
+ =?us-ascii?Q?LiNFmD8zG+6OgNIq6Mea7DvflIYCrYJIEbsPHZojnL83AgRESY0uFAL/XOcp?=
+ =?us-ascii?Q?O+BgnYJ5DwHoNeVWbSc1xZsX5wYwqrvXP+lqOBY4bjUQ8FJtGBVYFbu+fiu+?=
+ =?us-ascii?Q?d/jW5vZZ3IJtdUmjhuCaSAvLZ3fMgZi9qNrE/+k85M2Ao/JIfsT6pcqCpWDv?=
+ =?us-ascii?Q?RiuP6vFowQ9Pi497/1kY4U75fcuOawaGfDKeHEjenBBxsWUkGJ1q0xQInieQ?=
+ =?us-ascii?Q?kmfA1nqhojc14tC0Cr6uoGaW+X00JwMugmZ3rY/EVRlBcu/sy+ORcn/CNqtL?=
+ =?us-ascii?Q?oS4mYBTN6Akao2N1aPRWygu7E/oGBILKGBVECnOM4oAs4+nbDFn+kecuD3fH?=
+ =?us-ascii?Q?7h7XnOQ2RdGtBRpDyOIfUg9d3nPxvz3F2dhRbIlUA9tFpc5P5yuYNdLx5p3f?=
+ =?us-ascii?Q?LjUtvapMpATgtDceywl7VBDh19BJuiZ1L+kPpZC2VG1LzHlUOAdBJcv5Zd6Q?=
+ =?us-ascii?Q?5/1OXtrdjMSya/SScSuf6ywtialx+pwoPS2L8tMoehEAp6+Hp5pBqrkDm+sJ?=
+ =?us-ascii?Q?feVqd+NJ+vLIaaUCBluzjjB44vUjIGv3iV1wcavjKpqQ3qWHppta5X0bpV03?=
+ =?us-ascii?Q?E6ekomcPTJAADDzQuEAly3dSH8HnvkyEpwBlN+Ku8Nkpz3E0zntl77l/CqXB?=
+ =?us-ascii?Q?a3RjL72PwIy5aqAVPyFv02UgiZmiuJGu6ogmipaqP+ML7KuAFgqQvd87fkoS?=
+ =?us-ascii?Q?O2ORNQbF8lZ7uG+hxPGGA1prgQasavK7yDgFurCNelTLVu2xf3UrCcFMcVrn?=
+ =?us-ascii?Q?YNGhGcVMNFaRwzRdGZH4tgk901dOXJK34jjaxaUvbWfPDBLlJQRWLHp+t29Z?=
+ =?us-ascii?Q?7E+cxocGGehyqfKBBTMX/xx/5IWHy7SDz+PV+sw0cr1L7PDwl/AeeP4jcfEl?=
+ =?us-ascii?Q?LvUbypBQm7lXEIJ2nHTSxoyQlD3uQ86cE1vS4e7WmsMgRWGdvuhL4hNexBme?=
+ =?us-ascii?Q?1kv/CuiMfhuUtQbk+TSgmCPZTbbPjspOZsSP/ktzn/dvJbdvxqlSWjMumgm9?=
+ =?us-ascii?Q?x0CznBVkNKL/k5acLOoImIm0k0G7yW28lsQMhT7Wl1+uCxWXAJyQ1SMU/a3H?=
+ =?us-ascii?Q?eEHkdx1G8zCv8Xi9Kn64cPrYsSoeLrluxfbEaLYI6eTxP+ezfWbcmMR57suc?=
+ =?us-ascii?Q?YFuGxaXNAAgY97Q+4BjipkYopJSUquNhPH1Dq3ksZkkDdTz+zXAxFsn94fFh?=
+ =?us-ascii?Q?dW9gccv8mvMQHVGbZxs1sXecEI+GP7+ruW9SGtEoH2/hwzKWRier8PXGKu7R?=
+ =?us-ascii?Q?Bz+H4qxBZgPpQyzX74Eamj69odt+ayins9rPrEGWAKedRyISXdIa3q8waC7H?=
+ =?us-ascii?Q?1SU4/K2kbgW7beTnnDEZDsaMzKZOVorPY1AgDPDGzYM6gU+gPn0Wk02ngIwG?=
+ =?us-ascii?Q?58wrjyAjcNUBDNhbh8j3O+XynzHK7r/EQkb3ot3GDRYxH0gBj2Mhyt8JEcwF?=
+ =?us-ascii?Q?PRJWrlaDC4Mcwn0uzQs3d13e97idmYWMACpWnbwHcCZe7zM1L5pzmfL12oa6?=
+ =?us-ascii?Q?kjirAjkje4WHtf7vzfjYuA3nPu3dp+Y8ADvvyenrEmyIEDicacal6VKfSBgx?=
+ =?us-ascii?Q?nF+lpz1suHUWib87oEGrtXke4dVo9qT/LsBAcoBckk/LzFtUQE64Hx/iuZX6?=
+ =?us-ascii?Q?+dfxeCzPhYm3F00y7Zd2Iti2FYtSQYO5uwnQE7Hq4qidCBdS0r/M0bQd2dqo?=
+ =?us-ascii?Q?Ta1sMzjkN9IlKnWWecWqGrXM/MD5gOvp9j8iAfWLMv7mJMpYDCG4ASTk00tm?=
+ =?us-ascii?Q?Ciw81HeOqWGLjxruKTFJsmBZkTlvkvnIEpC2QgEMFKrjk6eQ/bYdezXbfv6z?=
+ =?us-ascii?Q?TFvo9OxsDWXdj5u7mGpy9UP6TXEtSXB+prP5b8HIw58kNlifFsTrbo9vkxo0?=
+ =?us-ascii?Q?V89C6c0gfwgF5KKDFDHlj0xm6oSzOACNIYZda4i+ht4MVWoqTgs=3D?=
+MIME-Version: 1.0
+
+----==_mimepart_6a4c9d0ba2158_61252fc04522f
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+(0) Go to Assignments
+
+
+
+(1) DO NOT GO TO ASSIGNMENT ENTITLED TOP SHEET SUBMISSION.
+
+
+
+(2) Go to Assignment entitled Exam 1A.
+
+(20) Download Exam 1A.
+
+(21) Write your name on page 0.
+
+(22) Write 0 for expected grade.
+
+(23) Upload ONLY Page 0.
+
+
+
+(3) Repeat (2) for EVERY EXAM SEQUENTIALLY until you have submitted Exam 2C=
+.
+
+
+
+(4) Repeat (2) also for Problem Set by going to Problem Set.
+
+
+
+(5) It is extraordinarily foolish to miss 12 free points.
+
+
+
+(6) Max Zabigaliuk has sent a set of instructions to DISCORD.
+
+
+
+(7) To get full benefit of the resources provided, ONE MUST JOIN DISCORD, I=
+NTRODUCE ONESELF, AND PARTICIPATE.
+
+
+
+(8) All queries should be first posted on DISCORD for quick answers.
+
+[https://du11hjcvx0uqb.cloudfront.net/dist/images/email_signature-d2c588061=
+2.png]
+View announcement <https://ccp.instructure.com/courses/2105108/announcement=
+s/13959062>  |  Update your notification settings<https://ccp.instructure.c=
+om/profile/communication>
+NOTICE: The information contained in this e-mail may contain confidential a=
+nd/or proprietary information intended only for the use of the Individual(s=
+) or Entity(ies) named above. If you are not the intended recipient of this=
+ e-mail, or the employee or agent responsible for delivering this e-mail to=
+ the intended recipient, you are hereby notified that any unauthorized use,=
+ dissemination or copying of this e-mail is strictly prohibited. If you hav=
+e received this e-mail in error, notify the sender by replying to this mess=
+age and delete the e-mail from your system. When responding to this communi=
+cation, remember that it could be lost in transit and viewed by a party oth=
+er than the addressee.
+
+----==_mimepart_6a4c9d0ba2158_61252fc04522f
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html dir=3D"ltr" lang=3D"en"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"viewport" content=3D"width=3Ddevice-width">
+<style type=3D"text/css">
+/*
+Changes to font size (14->16) for smaller screens
+table[class=3Dbody] is the only selector that works for all vendors
+*/
+@media only screen and (max-width: 620px) {
+  table[class=3Dbody] p,
+  table[class=3Dbody] ul,
+  table[class=3Dbody] ol,
+  table[class=3Dbody] td,
+  table[class=3Dbody] span,
+  table[class=3Dbody] a {
+    font-size: 16px !important;
+  }
+  /* remove padding for mobile so no gray shows */
+  table[class=3Dbody] .bodycell {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  /* reduce padding from 20->10 for mobile */
+  table[class=3Dbody] .maincell {
+    padding: 10px !important;
+  }
+}
+/*
+ExternalClass fixes Outlook.com / Hotmail emails
+*/
+@media all {
+  .ExternalClass {
+    width: 100%;
+  }
+  .ExternalClass,
+  .ExternalClass p,
+  .ExternalClass span,
+  .ExternalClass font,
+  .ExternalClass td,
+  .ExternalClass div {
+    line-height: 100%;
+  }
+}
+  </style><!--
+background: white (could be gray)
+default sans serif fonts, 14px, 1.3, #444444
+vendor prefixes for Outlook (-ms) and iOS (-webkit)
+Margin is capitalized to fix Outlook.com
+-->
+</head>
+<body class=3D"" style=3D"background-color:#ffffff; font-family:'Open Sans'=
+, 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahom=
+a, 'Sans Serif'; font-size:14px; color: #444444; line-height:1.3; Margin:0;=
+ padding:0; -ms-text-size-adjust:100%; -webkit-font-smoothing:antialiased; =
+-webkit-text-size-adjust:100%;">
+<!-- body: background table (if body has a color, this should match) -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"body" styl=
+e=3D"border-collapse:separate; background-color:#ffffff; width:100%; box-si=
+zing:border-box; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+<tbody>
+<tr>
+<!-- width and max-width so it can scale for mobile -->
+<td class=3D"bodycell" style=3D"max-width:600px; width:100%; font-family:'O=
+pen Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicod=
+e', Tahoma, 'Sans Serif'; font-size:14px; vertical-align:top; display:block=
+; box-sizing:border-box; padding:10px; Margin:0 auto !important;">
+<!-- for older versions of Outlook that don't support max-width --><!--[if =
+(gte mso 9)|(IE)]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0"><tr><td>
+<![endif]--><!-- main: white box for content -->
+<table class=3D"main" style=3D"background:#fff; width:100%; border-collapse=
+:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"maincell" style=3D"font-family:sans-serif; font-size:14px; ver=
+tical-align:top; box-sizing:border-box; padding:20px;">
+<p>(0) Go to <strong>Assignments&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p>(1) <span><strong>DO <span>NOT</span> GO TO ASSIGNMENT ENTITLED <span>TO=
+P SHEET SUBMISSION</span></strong></span>.</p>
+<p>&nbsp;</p>
+<p>(2) Go to Assignment entitled Exam 1A.</p>
+<p>(20) Download Exam 1A.</p>
+<p>(21) Write your name on page 0.</p>
+<p>(22) Write 0 for expected grade.</p>
+<p>(23) Upload ONLY Page 0.</p>
+<p>&nbsp;</p>
+<p>(3) <strong>Repeat (2) for EVERY EXAM SEQUENTIALLY until you have submit=
+ted Exam 2C</strong>.</p>
+<p>&nbsp;</p>
+<p>(4) <strong>Repeat (2) also for Problem Set by going to Problem Set</str=
+ong>.</p>
+<p>&nbsp;</p>
+<p>(5) It is extraordinarily foolish to miss 12 free points.&nbsp;</p>
+<p>&nbsp;</p>
+<p>(6) <strong>Max Zabigaliuk has sent a set of instructions to DISCORD</st=
+rong>.</p>
+<p>&nbsp;</p>
+<p>(7) <strong>To get full benefit of the resources provided, ONE MUST JOIN=
+ DISCORD, INTRODUCE ONESELF, AND PARTICIPATE</strong>.</p>
+<p>&nbsp;</p>
+<p>(8) <strong>All queries should be first posted on DISCORD for quick answ=
+ers</strong>.&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /.main --><!-- logo: branding -->
+<table class=3D"logo" style=3D"width:100%; box-sizing:border-box; border-co=
+llapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"logocell" style=3D"text-align:center; vertical-align:top; box-=
+sizing:border-box; padding:10px;">
+<img src=3D"https://du11hjcvx0uqb.cloudfront.net/dist/images/email_signatur=
+e-d2c5880612.png" alt=3D"">
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /.logo --><!-- footer: gray text below main -->
+<table class=3D"footer" style=3D"width:100%; box-sizing:border-box; border-=
+collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"footercell" style=3D"font-family:sans-serif; font-size:14px; v=
+ertical-align:top; color:#a8b9c6; font-size:12px; text-align:center; paddin=
+g:10px; box-sizing:border-box; ">
+<a href=3D"https://nam11.safelinks.protection.outlook.com/?url=3Dhttps%3A%2=
+F%2Fccp.instructure.com%2Fcourses%2F2105108%2Fannouncements%2F13959062&amp;=
+data=3D05%7C02%7Css1%40student.ccp.edu%7Cfadc24def4c24dd59c1e08dedbf14224%7=
+C10132e4bbfd941b7ac78560943470a6a%7C1%7C0%7C639190026417529017%7CUnknown%7C=
+TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkF=
+OIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DgDzKQRg%2FSmmHKri6J0=
+PnK2I4T363qvzDlqy8BVQNLp8%3D&amp;reserved=3D0" originalsrc=3D"https://ccp.i=
+nstructure.com/courses/2105108/announcements/13959062">View announcement
+</a>&nbsp;|&nbsp; <a href=3D"https://nam11.safelinks.protection.outlook.com=
+/?url=3Dhttps%3A%2F%2Fccp.instructure.com%2Fprofile%2Fcommunication&amp;dat=
+a=3D05%7C02%7Css1%40student.ccp.edu%7Cfadc24def4c24dd59c1e08dedbf14224%7C10=
+132e4bbfd941b7ac78560943470a6a%7C1%7C0%7C639190026417547184%7CUnknown%7CTWF=
+pbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIj=
+oiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DJs0CI%2FAZD41cUfASXBy0z=
+A%2F7fkdO9d4GHBjgpxKp0i4%3D&amp;reserved=3D0" originalsrc=3D"https://ccp.in=
+structure.com/profile/communication" style=3D"white-space: nowrap;">
+Update your notification settings</a> </td>
+</tr>
+</tbody>
+</table>
+<!-- /.footer --><!--[if (gte mso 9)|(IE)]>
+</td></tr></table>
+<![endif]--></td>
+</tr>
+</tbody>
+</table>
+<!-- /.body -->NOTICE: The information contained in this e-mail may contain=
+ confidential and/or proprietary information intended only for the use of t=
+he Individual(s) or Entity(ies) named above. If you are not the intended re=
+cipient of this e-mail, or the employee
+ or agent responsible for delivering this e-mail to the intended recipient,=
+ you are hereby notified that any unauthorized use, dissemination or copyin=
+g of this e-mail is strictly prohibited. If you have received this e-mail i=
+n error, notify the sender by replying
+ to this message and delete the e-mail from your system. When responding to=
+ this communication, remember that it could be lost in transit and viewed b=
+y a party other than the addressee.
+</body>
+</html>
+
+----==_mimepart_6a4c9d0ba2158_61252fc04522f--

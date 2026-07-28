@@ -1,0 +1,21 @@
+% 163 Exam 1C — SUBMISSION build (answered pages + work sheets only)
+% Page order mirrors SOL-2024 inclusion rules: printed blanks and the
+% untouched instructions page are excluded. Build: xelatex submission.tex (x2)
+\input{preamble}
+\begin{document}
+\makeatletter
+\newcommand\dopage[1]{\begin{pdfpage}\input{pages/page#1.tex}%
+\IfFileExists{pages/rules#1.tex}{\input{pages/rules#1.tex}}{}%
+\IfFileExists{pages/answers#1.tex}{\input{pages/answers#1.tex}}{}\end{pdfpage}}
+\makeatother
+\dopage{300}\dopage{302}\dopage{303}
+\dopage{304}\worksheet{3040}\worksheet{3041}
+\dopage{306}\worksheet{3060}
+\dopage{308}\worksheet{3080}
+\dopage{310}\worksheet{3100}
+\dopage{312}\worksheet{3120}
+\dopage{314}\worksheet{3140}
+\dopage{316}\worksheet{3160}
+\dopage{317}\worksheet{3170}
+\dopage{319}\worksheet{3190}
+\end{document}

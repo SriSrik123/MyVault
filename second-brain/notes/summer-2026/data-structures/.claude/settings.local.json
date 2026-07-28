@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gcc main.c -o myauto)",
+      "Bash(./myauto simpsons_rand.txt queries_1.txt)",
+      "Bash(pdftotext /Users/sri/Documents/MyVault/second-brain/notes/summer-2026/data-structures/assignments/PA2/PA2.pdf -)",
+      "Bash(pdflatex -interaction=nonstopmode w2_submission.tex)"
+    ]
+  }
+}

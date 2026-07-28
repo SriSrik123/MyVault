@@ -1,0 +1,8 @@
+(a) How many hours did you spend on this assignment?
+I spent around 3-4 hours on this assignment.
+
+(b) What did you struggle with the most?
+The algorithms themselves were fairly straightforward, but coming from Python and Java, I struggled most with implementing things in C. Things like manual memory management and pointer syntax required more thought than I was used to. I was able to figure it out, but I found myself mentally translating from Python to C, which slowed me down.
+
+(c) What did you learn from this assignment?
+I am slowly getting more comfortable with C. Each assignment I feel like I understand it a bit more, even if I am still not fully thinking in C yet. This assignment helped reinforce the mechanics of dynamic memory allocation and how to manage it properly.

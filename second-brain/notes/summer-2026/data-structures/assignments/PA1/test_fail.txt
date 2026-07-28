@@ -1,0 +1,11 @@
+insertToHead rjmrd gywwy 1.77 69
+insertToHead yioqs tkfgf 1.64 65
+insertToPosition 1 khmaz vwjuj 1.45 79
+insertToPosition 3 cgmpi fedoi 1.35 49
+insertToTail sizha xppbz 1.14 67
+printList
+printListInfo
+deleteFromHead
+deleteFromTail
+printList
+printListInfo

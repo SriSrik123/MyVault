@@ -1,0 +1,8 @@
+(a) How many hours did you spend on this assignment?
+I spent around 4 hours on this assignment.
+
+(b) What did you struggle with the most?
+I am still getting used to writing in C. I watched several of the provided videos, but I still find myself translating my logic from Python into C rather than thinking in C natively. Things like pointer arithmetic, manual memory management, and how to structure the binary search cleanly took extra mental effort because my instinct is still to reach for Python patterns first.
+
+(c) What did you learn from this assignment?
+I am gradually getting more comfortable with C. Implementing merge sort and binary search from scratch helped reinforce how these algorithms work at a low level, especially managing memory manually for the temporary arrays in merge sort. Each assignment I feel like I understand C a little more, and I am slowly closing the gap between how I think about a problem and how I express it in C.

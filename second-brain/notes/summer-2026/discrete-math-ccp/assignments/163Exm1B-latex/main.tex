@@ -1,0 +1,94 @@
+% 163 Exam 1B — LaTeX replica of 163Exm1B.pdf
+% Compile with: xelatex main.tex  (two passes; fonts embedded from ./fonts/)
+% Page geometry replicates the source PDF exactly (A4, coordinates in bp
+% measured from the top-left corner of each page).
+\documentclass{article}
+\usepackage[paperwidth=595.32bp,paperheight=841.92bp,margin=0bp]{geometry}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% ---- fonts (embedded subsets extracted from the original PDF) ----
+\setmainfont[Path=./fonts/, BoldFont=BookAntiqua-Bold_11.ttf]{BookAntiqua_5.ttf}
+\newfontfamily\CalibriFont[Path=./fonts/]{Calibri_9.ttf}
+\newfontfamily\CambriaTextFont[Path=./fonts/]{CambriaMath_22.ttf}
+\newfontfamily\SymbolFont[Path=./fonts/]{SymbolMT_15.ttf}
+\newfontfamily\HelveticaFont{Helvetica}
+\setmathfont[Path=./fonts/]{CambriaMath_nokern.ttf}
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\frenchspacing
+\delimiterfactor=1000
+\delimitershortfall=0bp
+% the SymbolMT subset has no usable cmap; Book Antiqua's bullet matches it
+\newcommand\SymBullet{{\normalfont\symbol{"2022}}}
+
+% ---- math helpers matching the source document's Word-equation quirks ----
+\newcommand\rng{.\,.}                    % the "0..9" integer-range dots
+\newcommand\tcolon{\text{\CambriaTextFont :}} % ASCII colon (unicode-math maps ':' to U+2236)
+\newcommand\cd{\tcolon\ {=}}             % ": =" as typed in the source
+\newcommand\iw[1]{\mathit{#1}}           % italic words inside math
+% script sizes as used by the source (base -> script)
+\DeclareMathSizes{14.04}{14.04}{9.96}{7}
+\DeclareMathSizes{12.96}{12.96}{9}{6.5}
+\DeclareMathSizes{12}{12}{9}{6.5}
+\DeclareMathSizes{11.04}{11.04}{8.04}{6}
+% Y N Pf W answer row at the standard tab stops
+\newcommand\YNPW[2]{%
+  \MT{396.07}{#1}{#2}{Y}\MT{432.07}{#1}{#2}{N}%
+  \MT{468.10}{#1}{#2}{P\mkern-2.9mu f}\MT{504.10}{#1}{#2}{W}}
+% invisible strut: \strutbp{height}{depth} forces delimiter sizes
+\newcommand\strutbp[2]{\vrule width 0bp height #1bp depth #2bp}
+% \CT{x}{y}{size}{text}: Cambria run set in TEXT mode (GPOS kerning like Word)
+\newcommand\CT[4]{\TL{#1}{#2}{{\CambriaTextFont\fsz{#3}#4}}}
+% \TDEL{x}{y-baseline}{size}{strut-h}{strut-d}{delim}: forced tall delimiter
+\newcommand\TDEL[6]{\MT{#1}{#2}{#3}{\left#6\strutbp{#4}{#5}\right.}}
+
+% ---- size-switch helpers: \BA{13.02} -> Book Antiqua at 13.02bp ----
+\newcommand\fsz[1]{\fontsize{#1bp}{#1bp}\selectfont}
+\newcommand\BA[1]{\normalfont\fsz{#1}}
+\newcommand\BAB[1]{\normalfont\bfseries\fsz{#1}}
+\newcommand\CAL[1]{\CalibriFont\fsz{#1}}
+\newcommand\CMT[1]{\CambriaTextFont\fsz{#1}}
+\newcommand\SYM[1]{\SymbolFont\fsz{#1}}
+\newcommand\HEL[1]{\HelveticaFont\fsz{#1}}
+
+% ---- placement macros (coordinates in bp from page top-left) ----
+% \TL{x}{y-baseline}{content}          left-anchored line
+\newcommand\TL[3]{\node[anchor=base west,inner sep=0pt,outer sep=0pt]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {#3};}
+% \JL{x}{y}{width}{content}            justified (stretched) line
+\newcommand\JL[4]{\node[anchor=base west,inner sep=0pt,outer sep=0pt]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {\makebox[#3bp][s]{#4}};}
+% \RECT{x0}{y0}{x1}{y1}                filled rule rectangle
+\newcommand\RECT[4]{\fill ($(current page.north west)+(#1bp,-#2bp)$)
+  rectangle ($(current page.north west)+(#3bp,-#4bp)$);}
+% \MM{x}{y}{size}{math}                inline math anchored at baseline
+\newcommand\MM[4]{\TL{#1}{#2}{\fsz{#3}$\displaystyle #4$}}
+\newcommand\MT[4]{\TL{#1}{#2}{\fsz{#3}$#4$}} % textstyle math
+
+% header/footer chrome for every page
+\newcommand\ChromePage[1]{%
+  \TL{72}{45.6}{\BA{9.96}Due by2359 hours on 20260720}%
+  \TL{467.06}{45.6}{\BA{9.96}163 Exam 1B}%
+  \TL{72}{789.5}{\BA{11.04}You may talk to anyone}%
+  \TL{506.74}{789.5}{\CAL{11.04}#1}}
+
+\newenvironment{pdfpage}{\mbox{}\begin{tikzpicture}[remember picture,overlay]}%
+{\end{tikzpicture}\clearpage}
+
+\begin{document}
+\makeatletter
+\newcommand\dopage[1]{\begin{pdfpage}\input{pages/page#1.tex}%
+\IfFileExists{pages/rules#1.tex}{\input{pages/rules#1.tex}}{}\end{pdfpage}}
+\makeatother
+\dopage{200}\dopage{201}\dopage{202}\dopage{203}\dopage{204}
+\dopage{205}\dopage{206}\dopage{207}\dopage{208}\dopage{209}
+\dopage{210}\dopage{211}\dopage{212}\dopage{213}\dopage{214}
+\dopage{215}\dopage{216}\dopage{217}\dopage{218}\dopage{219}
+\dopage{220}\dopage{221}\dopage{222}\dopage{223}\dopage{224}
+\dopage{225}\dopage{226}\dopage{227}\dopage{228}\dopage{229}
+\end{document}

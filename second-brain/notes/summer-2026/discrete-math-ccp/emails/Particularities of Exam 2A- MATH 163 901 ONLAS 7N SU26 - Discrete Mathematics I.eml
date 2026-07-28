@@ -1,0 +1,410 @@
+Received: from SJ0PR05MB7644.namprd05.prod.outlook.com (2603:10b6:a03:2eb::11)
+ by DS3PR05MB998833.namprd05.prod.outlook.com with HTTPS; Wed, 8 Jul 2026
+ 02:22:49 +0000
+Received: from CH0PR03CA0445.namprd03.prod.outlook.com (2603:10b6:610:10e::31)
+ by SJ0PR05MB7644.namprd05.prod.outlook.com (2603:10b6:a03:2eb::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.14; Wed, 8 Jul
+ 2026 02:22:46 +0000
+Received: from DS2PEPF00003443.namprd04.prod.outlook.com
+ (2603:10b6:610:10e:cafe::6c) by CH0PR03CA0445.outlook.office365.com
+ (2603:10b6:610:10e::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Wed, 8
+ Jul 2026 02:22:44 +0000
+Authentication-Results: spf=pass (sender IP is 54.240.127.63)
+ smtp.mailfrom=mail-us-east-1.instructure.com; dkim=pass (signature was
+ verified) header.d=instructure.com;dkim=pass (signature was verified)
+ header.d=amazonses.com;dmarc=pass action=none
+ header.from=instructure.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ mail-us-east-1.instructure.com designates 54.240.127.63 as permitted sender)
+ receiver=protection.outlook.com; client-ip=54.240.127.63;
+ helo=a127-63.smtp-out.amazonses.com; pr=C
+Received: from outbound-ip76a.ess.barracuda.com (209.222.82.240) by
+ DS2PEPF00003443.mail.protection.outlook.com (10.167.17.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Wed, 8 Jul 2026 02:22:44 +0000
+Received: from a127-63.smtp-out.amazonses.com (a127-63.smtp-out.amazonses.com [54.240.127.63]) by mx-inbound40-230.us-east-2c.ess.aws.cudaops.com (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO); Wed, 08 Jul 2026 02:22:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6s5mwthdy2mujaxi3xuxuckrikhn6her; d=instructure.com;
+	t=1783477363;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=imGJ/s7kSeZxiM2KbSiLkAcsHnTNx0ZDvlLe8fcZfBE=;
+	b=ENYfQ3zWZJk8A3hkD3K94Ohjvc7ym/nXQLRygiVP9kuOvVgDMUabSS9/avVdQgwf
+	L+qNpCF9aKtDnHN6ESfKUbyaXDLbohDS2HUBisc6H7eYrRRIk+yZeJKbqQ5495cIlqW
+	ORobzGfgbdJ/YylEOx6eLwz2BXOUBgRCCTo4s1+0=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1783477363;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=imGJ/s7kSeZxiM2KbSiLkAcsHnTNx0ZDvlLe8fcZfBE=;
+	b=bL7xde15KzLu5Z6RIHMPlbXrRqzCoEviRQxHvugaSwxoSZrlwgeSwuMx7fiG+WZQ
+	CjL6ZFsIfVBDDyDoNuctwG4z7GOhCJZOLeZ3LDCBBVuFMuke9lGvCFE6dOnHI6djGtE
+	bKChXQ5SgQBXgIfYTZ/g8Q3F+xnP4UMVFHfSslmc=
+X-On-bounce-route-to: notification-service-failures-prod
+Date: Wed, 8 Jul 2026 02:22:42 +0000
+From: MATH 163 901 ONLAS 7N SU26 - Discrete Mathematics I <notifications@instructure.com>
+Reply-To: reply+d1ad8165485e962c-13~3497696313-1783477352@notifications.canvaslms.com
+To: ss1@student.ccp.edu
+Message-ID: <0100019f3f88e114-02462555-468f-4b03-a2ca-2b2ba5fb42dc-000000@email.amazonses.com>
+Subject: Particularities of Exam 2A: MATH 163 901 ONLAS 7N SU26 - Discrete
+ Mathematics I
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6a4db472dcf25_aa3a8fc0372bd";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Auto-Submitted: auto-generated
+Feedback-ID: ::1.us-east-1.6bnAGrq+H33YQMZ/rl7AdPgJjS+jB1rbcCIER0hXfVM=:AmazonSES
+X-SES-Outgoing: 2026.07.08-54.240.127.63
+X-BESS-ID: 1783477363-110470-7690-31347-1
+X-BESS-VER: 2019.1_20260702.2137
+X-BESS-Apparent-Source-IP: 54.240.127.63
+X-BESS-Parts: H4sIAAAAAAACAzXLuwrDMAyF4XfRnEHWJZbzKqWDjWSyhAz1UCh593pIlsPhh+
+	/1g/gO2GDMXeD8wEac83z7jH0VS85mPZIWMqvdMbi5CKlqhWt5/D6O269qdHvkYBQL8S
+	AvLaJiFiopY5uFOlzvP0lXikKBAAAA
+X-BESS-Spam-Status: SCORE=0.00 using account:ESS197780 scores of QUARANTINE_LEVEL=4.0 KILL_LEVEL=5.0 tests=HTML_MESSAGE
+Received-SPF: pass (mx-inbound40-230.us-east-2c.ess.aws.cudaops.com: domain of 0100019f3f88e114-02462555-468f-4b03-a2ca-2b2ba5fb42dc-000000@mail-us-east-1.instructure.com designates 54.240.127.63 as permitted sender)
+X-BESS-Spam-Score: 0.00
+X-BESS-DMARC: no-action HeaderFrom:instructure.com Record:"v=DMARC1; p=quarantine; rua=mailto:fc92c7c69de4119@rep.dmarcanalyzer.com; ruf=mailto:fc92c7c69de4119@for.dmarcanalyzer.com; fo=1;" SPF:Pass(r) DKIM:instructure.com(s) PCT(no-pct)
+Authentication-Results-Original: mx-inbound40-230.us-east-2c.ess.aws.cudaops.com; spf=pass (sender IP is
+ 54.240.127.63)
+ smtp.mailfrom=0100019f3f88e114-02462555-468f-4b03-a2ca-2b2ba5fb42dc-000000@mail-us-east-1.instructure.com;
+ dkim=pass header.d=instructure.com; dmarc=pass
+ header.from=notifications@instructure.com
+X-BESS-Spam-Report: Code version 3.2, rules version 3.2.2.274482 [from cloudscan15-
+	121.us-east-2a.ess.aws.cudaops.com]
+	Rule breakdown below
+	 pts rule name              description
+	---- ---------------------- --------------------------------
+	0.00 HTML_MESSAGE           BODY: HTML included in message 
+X-BESS-BRTS-Status: 1
+X-BESS-Info: H4sIAAAAAAACA6tWSslMUbIyNjY2MjTRUUrJU7JSKi4pTUnNK9FLTi7QS00pVao
+	FAMvwMgklAAAA
+Return-Path: 0100019f3f88e114-02462555-468f-4b03-a2ca-2b2ba5fb42dc-000000@mail-us-east-1.instructure.com
+X-MS-Exchange-Organization-ExpirationStartTime: 08 Jul 2026 02:22:44.6697
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 0320f8f6-f4e8-46b1-e38c-08dedc97cb91
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 10132e4b-bfd9-41b7-ac78-560943470a6a:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-SkipListedInternetSender: ip=[54.240.127.63];domain=a127-63.smtp-out.amazonses.com
+X-MS-Exchange-ExternalOriginalInternetSender: ip=[54.240.127.63];domain=a127-63.smtp-out.amazonses.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF00003443:EE_|SJ0PR05MB7644:EE_|DS3PR05MB998833:EE_
+X-MS-Exchange-Organization-AuthSource: DS2PEPF00003443.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 0320f8f6-f4e8-46b1-e38c-08dedc97cb91
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: -1
+Canvas: True
+X-Microsoft-Antispam: BCL:2;ARA:13230040|4092899012|5062899012|3072899012|3092899012|5082899009|6062899009|5073199012|7049299003|2092899012|3109299003|82310400026|12012899012|69100299015|13012899012|13102899012|7149299003|32142699015|13003099007|55112099003|4113699003|12063799003|3023799007|18003699003|56012099006|5063699009|19002099009|8096899003|4076899003;
+X-Forefront-Antispam-Report: CIP:209.222.82.240;CTRY:US;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:NSPM;H:a127-63.smtp-out.amazonses.com;PTR:a127-63.smtp-out.amazonses.com;CAT:NONE;SFS:(13230040)(4092899012)(5062899012)(3072899012)(3092899012)(5082899009)(6062899009)(5073199012)(7049299003)(2092899012)(3109299003)(82310400026)(12012899012)(69100299015)(13012899012)(13102899012)(7149299003)(32142699015)(13003099007)(55112099003)(4113699003)(12063799003)(3023799007)(18003699003)(56012099006)(5063699009)(19002099009)(8096899003)(4076899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Jul 2026 02:22:44.5537
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0320f8f6-f4e8-46b1-e38c-08dedc97cb91
+X-MS-Exchange-CrossTenant-Id: 10132e4b-bfd9-41b7-ac78-560943470a6a
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF00003443.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR05MB7644
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:05.2640035
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.008
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944490095)(944506478)(944626604)(4710164)(4717077)(4999285)(920097)(930201)(20251009189)(140003)(1420198);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?SUNxJPxPhjFOTIeXyj9MSvrOlBV8Iq94n+8tOwCGGh2ziK7v91LCNA3SA3Kp?=
+ =?us-ascii?Q?RyBMTqeJJ6mcq5CgKfu2C4RIlvMRAy1oTXlpqcgk0afgD9fr3T095Vyac9hu?=
+ =?us-ascii?Q?MiEUj0JL4kAYu029ilxgI3AkYaS9viwvdK+Sg+ax4TaEQiT8JBSeT3VLFDig?=
+ =?us-ascii?Q?xWWfoZvyVRZqaK4/5L3eyrx9ZPTP6k1cc+A5gBRqHkpuuJlpoDUQr56C0rgH?=
+ =?us-ascii?Q?hVCS4oEQp0JjcUNJvO03P4djeEcdq6v8iDEmYmD5Nq7sMLssZj6nGxml25tE?=
+ =?us-ascii?Q?sMcrAgVkmC8T0P02VIhfzwAWwXxwkC8va55FncUh9B81eSdh6/fiEGPxdeLR?=
+ =?us-ascii?Q?BTBM+BodHX+eOyCXXC0s38CRGRjBD/6MOMhTeFOc1nMKZ1SMBFCdXzwBMFu9?=
+ =?us-ascii?Q?T2tXKbhebBvMRo7wITx/YoP2jW0WXK3fSRkeOwc0BiNVLAAQ3QlOBxS00Gn1?=
+ =?us-ascii?Q?wE7/7TJK9JyqQE+f3vNzXUAvdCLwMbeL0sB+Maykrt4NiOtof0EXbCHw3EYD?=
+ =?us-ascii?Q?Ud5ySsXcSUrQDBS5xHyn0vgVoa3/JXMU0Gwk42jOaAgr1+5lz6tRIxgjfUKr?=
+ =?us-ascii?Q?gpgv77+QrHt9Wcp/114vvU6l2CjlcNitLGZECjwhyGmDeYOssucJRtnnffcu?=
+ =?us-ascii?Q?Er4QZIxFKr+UbAPMsiJlw5qnRi9enIY2DDWGhwPBz2KdOmXUgVlIYADIpZLy?=
+ =?us-ascii?Q?NqlkH8UDDRInhVIsVjYX594nh6WaCZ8siU0AEJqcKhKR8Ha+oDaoUe6w6h/Z?=
+ =?us-ascii?Q?ywzR/z6PZK9AzTVFFxwuFHf7NVp1n74IPlT9qJW6N05l0/CVLY5efyBVPdVd?=
+ =?us-ascii?Q?IXo0xcLM0V5oEmK8FUMnUYBjKfHglOweE8YOVC75wWDitlrkEwEyIq1vqT8M?=
+ =?us-ascii?Q?PAQbfver111+zMZxYigPFu24UDcG2J+Vf3QsM/Y/xpWmPFvI3IbHa0kqYlja?=
+ =?us-ascii?Q?/+sSnWP8294lnLbvhcboqaWNUXVpVxtqPBWL+ScLM75YV3T9rNyU/nsdcj53?=
+ =?us-ascii?Q?1aVeLOi/5JvK2YLOVmC16BWPaBioUka9LXXWhKTQncrIUu6inqVXOWSIVFR+?=
+ =?us-ascii?Q?FnCRkccK6mNl2sc85bVHgZ86VcytIKV7n6mTnhwaTycT8GhbF43JSSqd2H7D?=
+ =?us-ascii?Q?+guLpTLyGTXU2b22yAOYb0/qtrIBTnvNJccaqA1REYrGPBeSIwpiOxoml8/w?=
+ =?us-ascii?Q?5m3HuBPchX3dhl7np1oVqu2YTlk8ReN3ntzLy3lJ7DMBlGC+Z7qABJZSYfx9?=
+ =?us-ascii?Q?p9uJieawvUkOvq+O5+JfcmVNuX+M3Tf1sdHfcCKFWh4sYPnNYgmqX/lS1mUR?=
+ =?us-ascii?Q?98AqP4VwQ5hqv20D7yKlno7cxEXLAfods9RkgqzamGLDJUbK0ieziVqxRApd?=
+ =?us-ascii?Q?n4VnJyDCYT/iyJvbw9ETErrFmXbwQz+aEgr1q1OjGVbPbJAxH0tocPmZG+zK?=
+ =?us-ascii?Q?LkD8u8qoX7nCxxKQY0/BT0iarDgu/IG1T0H19wvnIyDyjg6LOwzmmIVBE6Np?=
+ =?us-ascii?Q?KfFIpLPbuBKXflOg4a+wxKEIxVy21T0t+aw6dTPuM2PILJasdbm8et81fSRn?=
+ =?us-ascii?Q?1UA3pQVpFxxiF8LEiOixUlygvTzsnmn/DdBKa3a1LQawS/J+u6cN5tUAV0ZG?=
+ =?us-ascii?Q?EgNaO9sr9iVV6PWh+VKPSr2W003GZfPNgSezZ/suI550oeDnuhcBQj9igphA?=
+ =?us-ascii?Q?XFAwUpg+WDjd/bnXiy+ALMVAZPFT6IxbxO1Pfby4JkkHmrzuU0vJfJqFfbCt?=
+ =?us-ascii?Q?Nbh+KZg4907CPr9cAO+HuO2RncP7DSfxEISq8uaVy3rkBJ1KPQIvqqJWyFcO?=
+ =?us-ascii?Q?X68rH1IZv7FdXFKcRhkGvGLH8MZh9827i5bo2kQaP7Frsrpl0Ycg983r8WZZ?=
+ =?us-ascii?Q?hBtGBfvpPDUi2nzIoJkyEVzKN7VPssppGumw6U0C5Gewq0kdtzXD4zMQCMHA?=
+ =?us-ascii?Q?lLHdQEJpb7/V02pBJA8PLcBwu0P4euAjMnyYQhn4qkvOT49LjUUI3umkD90Z?=
+ =?us-ascii?Q?uF3zizvMgODopgG6jjxoH9Fyace+UjH/RCULE4OpnikvMy1SeSETj4ViNpof?=
+ =?us-ascii?Q?vbVKb4zZDiu5KKRZeTi3uKRhD//WpY1fB4zIHCjVnn1kwdax0jVKB4DSLP3y?=
+ =?us-ascii?Q?UK78/OzCayZRt0SsHwHHinFlZ2rn1y23tQrTC4mzzAqpeugxUE3koRr5Jvbb?=
+ =?us-ascii?Q?bp3rQVxnYvMIEuuZjE5GF2XwdD0qYlgnAI/vSOEjHJ4Ls0xZG525u4mFowGc?=
+ =?us-ascii?Q?8ZIPjvkMWWyrrz/n815Z6Dwdp0X6T9lagaAEcMPEhtNQ356v3w0rUW6VqCiR?=
+ =?us-ascii?Q?KLIyQwGRAHnQy14Kb5SyQiOVFt9GR+WLln8/B5d37P93M/DiRU0jQX/xnYGA?=
+ =?us-ascii?Q?M3yFcXAwMrAcZNIux8fT+ZG7E/A42D0dFpA/vqRkJc9tblmHBRqJwllJ2IKU?=
+ =?us-ascii?Q?duXfeeQArtLY1MkaRlU8DEpsaN1fir6EIXU4D1zCTE0pk994yThdreh/QpUF?=
+ =?us-ascii?Q?ykA+g6IJ7xvOBnXv5Z7Z4zG5OVUGJA99q3ACzXGdWq6CjDNE3DQTZoaWdiOM?=
+ =?us-ascii?Q?y0JIvM/zK6+L8zyaesVb/tZETRCvUQOY1TBpkBIAgLi9SE5oxhhBgD/tIXzK?=
+ =?us-ascii?Q?MD3gteZ6+DC3TbtFG22H5rE9L1DnXh5lS3y4P+2MghEcYPA4H96zshG+hwd1?=
+ =?us-ascii?Q?iJUwOQAsVl8EidoVOTVSitMP5kTFeuF4HK2ojwIfBMijnn4OJfC68yXcr7DJ?=
+ =?us-ascii?Q?2Pe4y/D8HiBuptnvg6xbGhaCNl1VGGJViyTCsc/fAd3TZS2LOcXrcVtMfYlT?=
+ =?us-ascii?Q?m9S0ywdkBeBkR7WTknoYVARSyxbBYbC3M3yUr3ahGsY0tgR9dG0wIXGuvEYr?=
+ =?us-ascii?Q?+KQHAWECj/Nj+7Pa/xguvjLKxjbj3z+lJUQsCQ1QZN6l6PmT1wWSKW8k2kOv?=
+ =?us-ascii?Q?dAv8dtBrSWiCHFaqKmTjF+GAbnx0kH8UCe1FF8hv9rMC/nHu6//rMHAXEcHK?=
+ =?us-ascii?Q?Da3NvrFoFZO+Svvna508PdeGwQFaj4gbFxybA5y4SSzbMcr/NCkBK+zE6KIx?=
+ =?us-ascii?Q?ZRe1Jg2LK+xp2xaViOglkUlL9vTAZQH1xUq8g5QQae6CuEG3uGE=3D?=
+MIME-Version: 1.0
+
+----==_mimepart_6a4db472dcf25_aa3a8fc0372bd
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+(0) (1a) and (1b) are completely trivial problems. The + sign and the - sig=
+n are NOT mistakes. If one does not know enough algebra to fill in the blan=
+ks CORRECTLY with the actual signs on the exam AND respecting equality, one=
+ should NOT pass Math 163. This is a modest attempt on my part to 'brain-dr=
+y' you from the harmful brain-washing that you have received in the form of=
+ multiple-choice tests which, along with excessive doses of television and =
+now 'social media' practically from birth, are responsible for the observed=
+ stupor in c problems where very many students submit identical nonsense wi=
+th no rhyme or reason.
+
+(1) (2a) is easy. (2b) is not entirely easy. But one MUST follow the format=
+ting in the Solved Exam exactly. (2c) requires one to prove one's conjectur=
+e inductively. Induction has a very specific meaning in this class that inc=
+ludes a particular implementation and formatting. The format is exhibited i=
+n the Solved Exam in other parts. The format also exists in the Notes on Re=
+cursion and Induction, for instance, on pages 11 to 14 and also later. If o=
+ne engages in any form of change, variation, or omission from what is done =
+in the Notes, one is almost certain to get 0 as many did on Exam 1C.
+
+(2) (3a) requires one to understand recursion and induction as defined in t=
+he notes thoroughly. One must follow the formatting of the Solved Exam exac=
+tly.
+
+(3) (3b) requires one to understand and adapt the proof in the Notes or in =
+the Solved Exam (which does exactly that). One must make certain that one f=
+ollows the exact logic, uses the correct numbers and correct properties. If=
+ one does not understand this proof completely, one should not study mathem=
+atics at all.
+
+(4) (1c) requires one to think very hard and come up with proper interpreta=
+tions from fragments from one's own experience. PLEASE DO NOT WRITE TOTAL N=
+ONSENSE.
+
+(5) (3c) requires one to produce a recursive scheme for digits in particula=
+r locations, NOT truncated decimals. Read the instructions VERY CAREFULLY. =
+Otherwise one may lose more points than a problem is worth.
+
+[https://du11hjcvx0uqb.cloudfront.net/dist/images/email_signature-d2c588061=
+2.png]
+View announcement <https://ccp.instructure.com/courses/2105108/announcement=
+s/13962424>  |  Update your notification settings<https://ccp.instructure.c=
+om/profile/communication>
+NOTICE: The information contained in this e-mail may contain confidential a=
+nd/or proprietary information intended only for the use of the Individual(s=
+) or Entity(ies) named above. If you are not the intended recipient of this=
+ e-mail, or the employee or agent responsible for delivering this e-mail to=
+ the intended recipient, you are hereby notified that any unauthorized use,=
+ dissemination or copying of this e-mail is strictly prohibited. If you hav=
+e received this e-mail in error, notify the sender by replying to this mess=
+age and delete the e-mail from your system. When responding to this communi=
+cation, remember that it could be lost in transit and viewed by a party oth=
+er than the addressee.
+
+----==_mimepart_6a4db472dcf25_aa3a8fc0372bd
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html dir=3D"ltr" lang=3D"en"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"viewport" content=3D"width=3Ddevice-width">
+<style type=3D"text/css">
+/*
+Changes to font size (14->16) for smaller screens
+table[class=3Dbody] is the only selector that works for all vendors
+*/
+@media only screen and (max-width: 620px) {
+  table[class=3Dbody] p,
+  table[class=3Dbody] ul,
+  table[class=3Dbody] ol,
+  table[class=3Dbody] td,
+  table[class=3Dbody] span,
+  table[class=3Dbody] a {
+    font-size: 16px !important;
+  }
+  /* remove padding for mobile so no gray shows */
+  table[class=3Dbody] .bodycell {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  /* reduce padding from 20->10 for mobile */
+  table[class=3Dbody] .maincell {
+    padding: 10px !important;
+  }
+}
+/*
+ExternalClass fixes Outlook.com / Hotmail emails
+*/
+@media all {
+  .ExternalClass {
+    width: 100%;
+  }
+  .ExternalClass,
+  .ExternalClass p,
+  .ExternalClass span,
+  .ExternalClass font,
+  .ExternalClass td,
+  .ExternalClass div {
+    line-height: 100%;
+  }
+}
+  </style><!--
+background: white (could be gray)
+default sans serif fonts, 14px, 1.3, #444444
+vendor prefixes for Outlook (-ms) and iOS (-webkit)
+Margin is capitalized to fix Outlook.com
+-->
+</head>
+<body class=3D"" style=3D"background-color:#ffffff; font-family:'Open Sans'=
+, 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahom=
+a, 'Sans Serif'; font-size:14px; color: #444444; line-height:1.3; Margin:0;=
+ padding:0; -ms-text-size-adjust:100%; -webkit-font-smoothing:antialiased; =
+-webkit-text-size-adjust:100%;">
+<!-- body: background table (if body has a color, this should match) -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"body" styl=
+e=3D"border-collapse:separate; background-color:#ffffff; width:100%; box-si=
+zing:border-box; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+<tbody>
+<tr>
+<!-- width and max-width so it can scale for mobile -->
+<td class=3D"bodycell" style=3D"max-width:600px; width:100%; font-family:'O=
+pen Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicod=
+e', Tahoma, 'Sans Serif'; font-size:14px; vertical-align:top; display:block=
+; box-sizing:border-box; padding:10px; Margin:0 auto !important;">
+<!-- for older versions of Outlook that don't support max-width --><!--[if =
+(gte mso 9)|(IE)]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0"><tr><td>
+<![endif]--><!-- main: white box for content -->
+<table class=3D"main" style=3D"background:#fff; width:100%; border-collapse=
+:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"maincell" style=3D"font-family:sans-serif; font-size:14px; ver=
+tical-align:top; box-sizing:border-box; padding:20px;">
+<p>(0) (1a) and (1b) are completely trivial problems. The + sign and the - =
+sign are NOT mistakes. If one does not know enough algebra to fill in the b=
+lanks CORRECTLY with the actual signs on the exam AND respecting equality, =
+one should NOT pass Math 163. This
+ is a modest attempt on my part to 'brain-dry' you from the harmful brain-w=
+ashing that you have received in the form of multiple-choice tests which, a=
+long with excessive doses of television and now 'social media' practically =
+from birth, are responsible for
+ the observed stupor in c problems where very many students submit identica=
+l nonsense with no rhyme or reason.</p>
+<p>(1) (2a) is easy. (2b) is not entirely easy. But one MUST follow the for=
+matting in the Solved Exam exactly. (2c) requires one to prove one's conjec=
+ture inductively. Induction has a very specific meaning in this class that =
+includes a particular implementation
+ and formatting. The format is exhibited in the Solved Exam in other parts.=
+ The format also exists in the Notes on Recursion and Induction, for instan=
+ce, on pages 11 to 14 and also later. If one engages in any form of change,=
+ variation, or omission from what
+ is done in the Notes, one is almost certain to get 0 as many did on Exam 1=
+C.&nbsp;</p>
+<p>(2) (3a) requires one to understand recursion and induction as defined i=
+n the notes thoroughly. One must follow the formatting of the Solved Exam e=
+xactly.&nbsp;</p>
+<p>(3) (3b) requires one to understand and adapt the proof in the Notes or =
+in the Solved Exam (which does exactly that). One must make certain that on=
+e follows the exact logic, uses the correct numbers and correct properties.=
+ If one does not understand this
+ proof completely, one should not study mathematics at all.&nbsp;</p>
+<p>(4) (1c) requires one to think very hard and come up with proper interpr=
+etations from fragments from one's own experience. PLEASE DO NOT WRITE TOTA=
+L NONSENSE.</p>
+<p>(5)<span>&nbsp;</span><strong>(3c) requires one to produce a recursive s=
+cheme for digits in particular locations, NOT truncated decimals. Read the =
+instructions VERY CAREFULLY</strong>. Otherwise one may lose more points th=
+an a problem is worth.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /.main --><!-- logo: branding -->
+<table class=3D"logo" style=3D"width:100%; box-sizing:border-box; border-co=
+llapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"logocell" style=3D"text-align:center; vertical-align:top; box-=
+sizing:border-box; padding:10px;">
+<img src=3D"https://du11hjcvx0uqb.cloudfront.net/dist/images/email_signatur=
+e-d2c5880612.png" alt=3D"">
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /.logo --><!-- footer: gray text below main -->
+<table class=3D"footer" style=3D"width:100%; box-sizing:border-box; border-=
+collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"footercell" style=3D"font-family:sans-serif; font-size:14px; v=
+ertical-align:top; color:#a8b9c6; font-size:12px; text-align:center; paddin=
+g:10px; box-sizing:border-box; ">
+<a href=3D"https://nam11.safelinks.protection.outlook.com/?url=3Dhttps%3A%2=
+F%2Fccp.instructure.com%2Fcourses%2F2105108%2Fannouncements%2F13962424&amp;=
+data=3D05%7C02%7Css1%40student.ccp.edu%7C0320f8f6f4e846b1e38c08dedc97cb91%7=
+C10132e4bbfd941b7ac78560943470a6a%7C1%7C0%7C639190741699462543%7CUnknown%7C=
+TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkF=
+OIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3D%2B3P10f6%2B2%2FBSzs=
+vQSfJ3fDX65qWb4hoQ%2BfzBTY7e%2BDM%3D&amp;reserved=3D0" originalsrc=3D"https=
+://ccp.instructure.com/courses/2105108/announcements/13962424">View announc=
+ement
+</a>&nbsp;|&nbsp; <a href=3D"https://nam11.safelinks.protection.outlook.com=
+/?url=3Dhttps%3A%2F%2Fccp.instructure.com%2Fprofile%2Fcommunication&amp;dat=
+a=3D05%7C02%7Css1%40student.ccp.edu%7C0320f8f6f4e846b1e38c08dedc97cb91%7C10=
+132e4bbfd941b7ac78560943470a6a%7C1%7C0%7C639190741699483241%7CUnknown%7CTWF=
+pbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIj=
+oiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3Do3r32Cmc5QG0qt2Sq%2FDyY=
+wR4%2BDX0j6Ku1OGRsMltjeo%3D&amp;reserved=3D0" originalsrc=3D"https://ccp.in=
+structure.com/profile/communication" style=3D"white-space: nowrap;">
+Update your notification settings</a> </td>
+</tr>
+</tbody>
+</table>
+<!-- /.footer --><!--[if (gte mso 9)|(IE)]>
+</td></tr></table>
+<![endif]--></td>
+</tr>
+</tbody>
+</table>
+<!-- /.body -->NOTICE: The information contained in this e-mail may contain=
+ confidential and/or proprietary information intended only for the use of t=
+he Individual(s) or Entity(ies) named above. If you are not the intended re=
+cipient of this e-mail, or the employee
+ or agent responsible for delivering this e-mail to the intended recipient,=
+ you are hereby notified that any unauthorized use, dissemination or copyin=
+g of this e-mail is strictly prohibited. If you have received this e-mail i=
+n error, notify the sender by replying
+ to this message and delete the e-mail from your system. When responding to=
+ this communication, remember that it could be lost in transit and viewed b=
+y a party other than the addressee.
+</body>
+</html>
+
+----==_mimepart_6a4db472dcf25_aa3a8fc0372bd--

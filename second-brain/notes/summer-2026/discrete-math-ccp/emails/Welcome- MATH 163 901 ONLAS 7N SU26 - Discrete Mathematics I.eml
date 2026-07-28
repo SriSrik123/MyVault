@@ -1,0 +1,552 @@
+Received: from LVWPR05MB998873.namprd05.prod.outlook.com
+ (2603:10b6:408:3c1::20) by DS3PR05MB998833.namprd05.prod.outlook.com with
+ HTTPS; Tue, 7 Jul 2026 06:22:49 +0000
+Received: from SA9PR03CA0019.namprd03.prod.outlook.com (2603:10b6:806:20::24)
+ by LVWPR05MB998873.namprd05.prod.outlook.com (2603:10b6:408:3c1::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.9; Tue, 7 Jul 2026
+ 06:22:47 +0000
+Received: from SN1PEPF000397AE.namprd05.prod.outlook.com
+ (2603:10b6:806:20:cafe::88) by SA9PR03CA0019.outlook.office365.com
+ (2603:10b6:806:20::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.13 via Frontend Transport; Tue, 7
+ Jul 2026 06:22:46 +0000
+Authentication-Results: spf=pass (sender IP is 54.240.14.154)
+ smtp.mailfrom=mail-us-east-1.instructure.com; dkim=pass (signature was
+ verified) header.d=instructure.com;dkim=pass (signature was verified)
+ header.d=amazonses.com;dmarc=pass action=none
+ header.from=instructure.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ mail-us-east-1.instructure.com designates 54.240.14.154 as permitted sender)
+ receiver=protection.outlook.com; client-ip=54.240.14.154;
+ helo=a14-154.smtp-out.amazonses.com; pr=C
+Received: from outbound-ip76b.ess.barracuda.com (209.222.82.242) by
+ SN1PEPF000397AE.mail.protection.outlook.com (10.167.248.52) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Tue, 7 Jul 2026 06:22:46 +0000
+Received: from a14-154.smtp-out.amazonses.com (a14-154.smtp-out.amazonses.com [54.240.14.154]) by mx-inbound20-102.us-east-2b.ess.aws.cudaops.com (version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO); Tue, 07 Jul 2026 06:22:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6s5mwthdy2mujaxi3xuxuckrikhn6her; d=instructure.com;
+	t=1783405364;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=sTnIN+06Tl3k6F52CMTfoS1FWGCNNE4rZlibe4X1kWE=;
+	b=Letcwzbh//TTjYjD6aAjrODjBWlX5nbAjAB3lln+/HPUX2wUnGd+QWSQzqOvZesm
+	RqFxe0vdu18h5uRA7u0Zjsa5XGEgg9Izqr9ZZXx2xG8UzZG617bZMBaWlmceBYeoNzC
+	BuFfmzAEdjZVWWj5cEAEhvGm8GTxt46nVtFrigYo=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1783405364;
+	h=Date:From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Feedback-ID;
+	bh=sTnIN+06Tl3k6F52CMTfoS1FWGCNNE4rZlibe4X1kWE=;
+	b=CofHvc2Pu98g6E6uqr2p8UlH6lPNIqWpvF0eImDh/vgd0d8XYD2VoO67AZ18ph7n
+	bZiIKwDHamL/BQ+YusDAWxBehA+BEq/5bIStuA/dJIUqI+SHLe9hdzFBlL5ScP9vZ7E
+	H9H1+6c82drV0cXNVBa2B/0doLRcC3TkyFX86/YE=
+X-On-bounce-route-to: notification-service-failures-prod
+Date: Tue, 7 Jul 2026 06:22:44 +0000
+From: MATH 163 901 ONLAS 7N SU26 - Discrete Mathematics I <notifications@instructure.com>
+Reply-To: reply+a76b8ebba0ee7942-13~3497245015-1783405361@notifications.canvaslms.com
+To: ss1@student.ccp.edu
+Message-ID: <0100019f3b3e45ed-5e8882f7-7f4e-4951-a614-435327336dcd-000000@email.amazonses.com>
+Subject: Welcome: MATH 163 901 ONLAS 7N SU26 - Discrete Mathematics I
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_6a4c9b34a2897_11ee13fc089289";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+Auto-Submitted: auto-generated
+Feedback-ID: ::1.us-east-1.6bnAGrq+H33YQMZ/rl7AdPgJjS+jB1rbcCIER0hXfVM=:AmazonSES
+X-SES-Outgoing: 2026.07.07-54.240.14.154
+X-BESS-ID: 1783405364-105222-3317-11565-1
+X-BESS-VER: 2019.1_20260702.2137
+X-BESS-Apparent-Source-IP: 54.240.14.154
+X-BESS-Parts: H4sIAAAAAAACAzWMOwrDQAwF76Lahb72rq8SUkjOCjfGRbYIBN89WzjNYxiY9/
+	hC+3RYoY+d4HzDalJ10D4ktjmpZNUQxfCNN6fQRbKxF2OHa/r3ez/untBE7oNYWAm1cf
+	OsL5s5PLkapSFzIYHr+QNxcpkCggAAAA==
+X-BESS-Spam-Status: SCORE=0.00 using account:ESS197780 scores of QUARANTINE_LEVEL=4.0 KILL_LEVEL=5.0 tests=HTML_MESSAGE
+Received-SPF: pass (mx-inbound20-102.us-east-2b.ess.aws.cudaops.com: domain of 0100019f3b3e45ed-5e8882f7-7f4e-4951-a614-435327336dcd-000000@mail-us-east-1.instructure.com designates 54.240.14.154 as permitted sender)
+X-BESS-Spam-Score: 0.00
+X-BESS-DMARC: no-action HeaderFrom:instructure.com Record:"v=DMARC1; p=quarantine; rua=mailto:fc92c7c69de4119@rep.dmarcanalyzer.com; ruf=mailto:fc92c7c69de4119@for.dmarcanalyzer.com; fo=1;" SPF:Pass(r) DKIM:instructure.com(s) PCT(no-pct)
+Authentication-Results-Original: mx-inbound20-102.us-east-2b.ess.aws.cudaops.com; spf=pass (sender IP is
+ 54.240.14.154)
+ smtp.mailfrom=0100019f3b3e45ed-5e8882f7-7f4e-4951-a614-435327336dcd-000000@mail-us-east-1.instructure.com;
+ dkim=pass header.d=instructure.com; dmarc=pass
+ header.from=notifications@instructure.com
+X-BESS-Spam-Report: Code version 3.2, rules version 3.2.2.274464 [from cloudscan12-
+	76.us-east-2a.ess.aws.cudaops.com]
+	Rule breakdown below
+	 pts rule name              description
+	---- ---------------------- --------------------------------
+	0.00 HTML_MESSAGE           BODY: HTML included in message 
+X-BESS-BRTS-Status: 1
+X-BESS-Info: H4sIAAAAAAACA6tWSslMUbIyNjY2MjTRUUrJU7JSKi4pTUnNK9FLTi7QS00pVao
+	FAMvwMgklAAAA
+Return-Path: 0100019f3b3e45ed-5e8882f7-7f4e-4951-a614-435327336dcd-000000@mail-us-east-1.instructure.com
+X-MS-Exchange-Organization-ExpirationStartTime: 07 Jul 2026 06:22:46.8497
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: ee219aeb-4928-4e5a-6843-08dedbf02986
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 10132e4b-bfd9-41b7-ac78-560943470a6a:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-SkipListedInternetSender: ip=[54.240.14.154];domain=a14-154.smtp-out.amazonses.com
+X-MS-Exchange-ExternalOriginalInternetSender: ip=[54.240.14.154];domain=a14-154.smtp-out.amazonses.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000397AE:EE_|LVWPR05MB998873:EE_|DS3PR05MB998833:EE_
+X-MS-Exchange-Organization-AuthSource: SN1PEPF000397AE.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: ee219aeb-4928-4e5a-6843-08dedbf02986
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: -1
+Canvas: True
+X-Microsoft-Antispam: BCL:2;ARA:13230040|3092899012|2092899012|3072899012|5062899012|82310400026|7049299003|3109299003|4092899012|13102899012|13012899012|5082899009|6062899009|12012899012|5073199012|7149299003|32142699015|69100299015|13003099007|18003699003|55112099003|56012099006|5023799004|5063699009|12063799003|4113699003|19002099009|4076899003|8096899003;
+X-Forefront-Antispam-Report: CIP:209.222.82.242;CTRY:US;LANG:en;SCL:-1;SRV:;IPV:NLI;SFV:NSPM;H:a14-154.smtp-out.amazonses.com;PTR:a14-154.smtp-out.amazonses.com;CAT:NONE;SFS:(13230040)(3092899012)(2092899012)(3072899012)(5062899012)(82310400026)(7049299003)(3109299003)(4092899012)(13102899012)(13012899012)(5082899009)(6062899009)(12012899012)(5073199012)(7149299003)(32142699015)(69100299015)(13003099007)(18003699003)(55112099003)(56012099006)(5023799004)(5063699009)(12063799003)(4113699003)(19002099009)(4076899003)(8096899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Jul 2026 06:22:46.7108
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ee219aeb-4928-4e5a-6843-08dedbf02986
+X-MS-Exchange-CrossTenant-Id: 10132e4b-bfd9-41b7-ac78-560943470a6a
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000397AE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LVWPR05MB998873
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.6824749
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.008
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944490095)(944506478)(944626604)(4710164)(4717077)(4999285)(920097)(930201)(20251009189)(140003)(1420198);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?vllyRixY0/FkZ+Mb9OF8y4BkvUfPKAF2cG3DWXsMgL/ICwSyiQ//tsRezZj1?=
+ =?us-ascii?Q?/CRK1LyGlKNb8wai7kWC3kYZCtROeegD+oPX+Fy7aqc+gqtetVvermQMgENB?=
+ =?us-ascii?Q?TIRMy/urQEDaspIHxF+fvCFnIW5IRcjGyT74TbVW6MEgVgwwv6CxAM4tk12j?=
+ =?us-ascii?Q?K479Pj/WQ0BBn9XLQBc70MaETCgXLZqaSci68Rm1oCbLIVZoicGuc8mGWG3j?=
+ =?us-ascii?Q?y0CaXVEYN9rsMIgiRAZQyMmrHIo1zveXapo87DbpvOqhktRPFnaoK9gTLEtp?=
+ =?us-ascii?Q?Aepp6dnaMcTpiEKi+YrxG1aYpXxUOhLm0UXsJLtd2t3IRJnX5OmEW84JMIBh?=
+ =?us-ascii?Q?oaAE3B4TLHGkQgyi8PKnJnAm94zDpZT6l+d32Vokyu1l4FIZUE0D5wypEiF6?=
+ =?us-ascii?Q?Kl12OSY2+aPK4gn0Ib0NNsMX3truyxHFGSPgV9cs7h9y24LEqAZsaCnHcZKm?=
+ =?us-ascii?Q?qyeoXn1Udvrk/M2rGg+B+LsziV2dBKC70o0XLxFF3AjnFa8Y4vn0Rb7ppdkN?=
+ =?us-ascii?Q?NJjHTolODY4YZVu3SEhXdhW+ewO5DOzJVPYqOl3x063T+JYmojOQWWQdEkNz?=
+ =?us-ascii?Q?/LT5yRiIwR+K+6jrXqXqXvVy+dcad44eay12ilBv9U+vwS/AzTxqQV/4GlQ3?=
+ =?us-ascii?Q?nfAdjxwH1E1wpDKJC9p2hbGZy9kB9XyTv8j9zNuRLG6cInWWPpQIam+I6BUJ?=
+ =?us-ascii?Q?TkEW09RyQENhcGOWjzOWS7uOncC5l9qPOp0n+GoQyoyKtyyHXQBDkS5G5x3b?=
+ =?us-ascii?Q?EozRbyQvX0zkTZGFghe4ZT5DOJiWs8D9FBrfBwPb8rYltzkXK3B++MfDoIr7?=
+ =?us-ascii?Q?VE7Yoo1kE0MNahujQxKgh+MNdCKrzcmXDg54pCyCLjy7lMcPCZwrsjoAG9C5?=
+ =?us-ascii?Q?bd38TeIIPhzgyrMxZp4OVz67jSvT0U7w6GkgjbFotr61Bslasr4kHVx4Y8Bi?=
+ =?us-ascii?Q?bYbqMHB+prAm4CGBztiy/WrUW53snf1mqN+yG8nTXHsM15rvO+WHtC7Petq2?=
+ =?us-ascii?Q?7I9dWVLzMxsjceuy/odIVk1PHfqWw2+W5H9XKmbRz/9Sq4YV6SHmBFmhYdCQ?=
+ =?us-ascii?Q?oWNKR486Fx/tlLSpFgAAfWOHuXBwVOZjzI3iwXR30qm9hqz4sMff1R6D1fdz?=
+ =?us-ascii?Q?9PrtAwrwOZph5p2nWKidB5OkehfJJLgqFj/QNuBFyjafA+roPaqDZGWwX7wy?=
+ =?us-ascii?Q?ZMUVjGE2WfQrpRndUrZNThN72AvYxhxA/CmuOGmc3IksJ9EM/VTbgMu6sL6S?=
+ =?us-ascii?Q?r1C6QlB7cvF4VDkhAnD9R4cAz0C6JdOOsSQOZWgAdJAMQAhORhreEb8idEVD?=
+ =?us-ascii?Q?vwz0DiOYMH0f1i3A+Cvka1AC+Fk67DVp0PYBrUTK27R4T9UE1+UVbZW4wsMR?=
+ =?us-ascii?Q?ia9bAxo01FDtD0j/ktjSryq8Wab9VAi1sBgcrDhawMBNRfahYPrYvqO5sEm3?=
+ =?us-ascii?Q?xuuFUxXqcKGnZkSO/ptvoQSq4C63Hlq6jBf3Y03RmOaEEUfet4R4G1W/+CMq?=
+ =?us-ascii?Q?cPNP1+0aXG6k6xGe5LuhhsZnPYb6uxqNphGowgSSAfPEpn13K5IaFOgSbnXp?=
+ =?us-ascii?Q?YzBRvtxfbdwZ9FhTC9LU150D3qGn39Q9YSZ4jo1ChkDJ1I3eLlL2H8f4rXJe?=
+ =?us-ascii?Q?K1yKVp50KUocJAoPGp3aUkazRglHYASyQiwv5R9lcbp60JhhBNK/OjSeinLB?=
+ =?us-ascii?Q?yEZZyX+kjf+jhBydlGolWHhY7MxxzyFYa3Fb5QPLvLixhlFuPTaMTNtBa0Zi?=
+ =?us-ascii?Q?cIEY+bKSdXIdqVKSd0c3MlKYhlbF/pul/iBfv9AUiZuPCwBgXlJeNPyhnqVw?=
+ =?us-ascii?Q?t0XB9z2mnDKEaqejnFtvtq2JJtQqNZ2tSTr2tY5nR6/FWeB7PTwio81+fQFe?=
+ =?us-ascii?Q?590yYJDExf+TUxXy+q+U/otzJoXzIqlzQFgLzyETX4VSh8OtVnmuh5A+e6dQ?=
+ =?us-ascii?Q?zTk4NBaiyjm0uUDmsn/qjjL4InDTipWRziXLHHFys+n4+kyV080DLyTL1KZW?=
+ =?us-ascii?Q?39CUidbK3eWcUl5XT4fFd3NTtRv5b3D08SyPnCxB9taP7NTyOISHg+YiOPJg?=
+ =?us-ascii?Q?DNN7MUGpQFhu6GLl6XupXTpqiesH0oYqaaEGVUKpBbAQMEvicOJhk2wNRgoR?=
+ =?us-ascii?Q?j54xPI1n/2ODKqQ49cny2ie2Sz5k+618rSzJnp3zlgen4x9m6P1jOvU+2RAC?=
+ =?us-ascii?Q?OwdugjLsVogsmpUzoYBh5Fmz6oMd1mXykMbKgaLJkTizv7eDNIOvrIGod1aO?=
+ =?us-ascii?Q?WX2J4snZeplqu+4SvYg6YtQAfTWjsaU4BnhoLbrCmh4uuXFCTAVDJPJO35+1?=
+ =?us-ascii?Q?MRmUEU2tQInbgxYKlx9OHN6vpo94862y9gst8AHMkD5eICSV8uZ86mYM+ZR+?=
+ =?us-ascii?Q?CzhO8L636OJ2NJ4Yh2KmpwtDFgugD86qJyLzWOFJH0CZ7Ii4xzxRf0fVqJEX?=
+ =?us-ascii?Q?4gTq6wOSwG3wzjtr69Gzwe6zWYfoCsdUCnvjoqEjCQhzZvMiuLxBwPt7Y4q7?=
+ =?us-ascii?Q?FI3C6Cn22GdhAqO/bz6IYLi5JAU0I2LYDcFWd7Um/gfr9cqlpwWWgnKm1twm?=
+ =?us-ascii?Q?kOhNM2xzJZHStxfa+sse9bQs6HuNcv3azwhE1c/VB5kQkqr9HkVLzQTMlqFA?=
+ =?us-ascii?Q?/r5GjH8LiuxRJftD/5iRSEuUZFNtk+Onj8TFhRbmSAINaQa9CaR7vPcu3HOn?=
+ =?us-ascii?Q?sN1wl8kHv2KQKJeRD7snIszkEIaWnxIEn+dgZvMG/v//04aBHZJjAn1pc/VK?=
+ =?us-ascii?Q?p9PUq8FJKvN+ml0uxoaFWuWRYvLA8v0Eqkpdz+YJv79hmI5WeOxm3mB81o0k?=
+ =?us-ascii?Q?ae3uNyE1y4vcKSYJi7s8Y+ARu3Xhl1uVFOIEKDWsX3kGlYMI2TVX2t5IngKO?=
+ =?us-ascii?Q?FQ5jQ7syaSGXKFGn3INIB9UWqgtexEjym8cajcx4jVO/LLj00Ph95ZpGkUKd?=
+ =?us-ascii?Q?5cLI1Ph9GOg2/ju4DuInokfUc4dGonnIywzLsRPnc0jfTyn1OZPg5Y1OMfCu?=
+ =?us-ascii?Q?KCUAumgk1BGu+ptso8Tg7q58pnWDwmkeCJg9mSEG1T+RXNEB+l1yiRH/YOvv?=
+ =?us-ascii?Q?rVkjggWRh2WoAdAklohzWWslLmaaUSfut/MgXjpN7EdQEknZnezGDJzEOATT?=
+ =?us-ascii?Q?72DoSwl8FqVkF41kpgWOZBCNNedZWxXY+b5LqcdWykngY201zY7LxArSM1ZT?=
+ =?us-ascii?Q?jJWgJ6hJxLtYiEf4?=
+MIME-Version: 1.0
+
+----==_mimepart_6a4c9b34a2897_11ee13fc089289
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Dear students,
+
+Welcome to Math 163.
+
+This is an ASYNCHRONOUS course. Therefore, there are NO LECTURES via zoom. =
+It is best thought of as a new incarnation of what used to be called a 'Cor=
+respondence Course'. Rather than receiving material by mail, one has access=
+ to an online platform that houses the material. There will, however, be tu=
+toring by dedicated tutors. At the moment I do not know who will tutor what=
+ at what times. I will make an announcement once these decisions are made. =
+I shall communicate with students SOLELY within CANVAS using EMAIL and ANNO=
+UNCEMENTS. One must always read the announcements very carefully. Otherwise=
+, you may miss various things.
+
+VERY IMPORTANT
+
+This is a SUMMER class. It is an ACCELERATED, 7-WEEK COURSE. It is running =
+at DOUBLE THE NORMAL PACE. It is a mistake to think that one can assimilate=
+ the material at double one's normal rate. Nevertheless, there are very cap=
+able, dedicated, and well-prepared students who have secured a grade of A i=
+n a summer class in the past. The time one needs to devote to this class is=
+ at the very least 25 HOURS PER WEEK. I should estimate the time per week t=
+o be between 25 HOURS and 40 HOURS.  Unless one can commit this amount of t=
+ime, one should NOT take this class. In fact, if one has the choice, one sh=
+ould take the class during a regular 14-week session. My students tell me t=
+hat if one takes this class during the summer, one must understand that one=
+ will have no life at all during these seven weeks.
+
+VERY IMPORTANT
+
+There is an exam every week and a problem-set due at the end of the term. O=
+ne must immediately download the exams and start reading the notes slowly a=
+nd carefully. One's goal is to finish at least the a and b problems and sub=
+mit them by the due date. There is no textbook for this class. The material=
+ that one needs to read appears under Files. All work MUST be done exactly =
+as in the Notes with no changes, no variations, and no omissions. In case t=
+here are any changes, variations, or omissions, points will be deducted. No=
+ homework will be collected or graded. The course grade will be based entir=
+ely on the performance on six take-home exams, and a Problem Set. Please re=
+fer to the General Information Package under Files.
+
+COLLABORATION
+
+One is free to talk to anyone. But one must present one's answers in the ma=
+nner in which they are presented in the Notes or Solved Exams with no excep=
+tions whatsoever. Some tutors have very kindly made their old exams availab=
+le to students. Some students copied blindly from these exams in the past a=
+nd got ZEROES because they could not even copy faithfully and did not under=
+stand what they needed to change. They also adopted conventions that the cu=
+rrent notes do not have and that are, therefore, not allowed. These exams a=
+re NEW and often differ from previous exams very slightly but such slight c=
+hanges may make profound differences in the answers. Students have individu=
+al exams that are made up from their J-numbers. Tutors will be able to read=
+ the questions in English but may not be familiar with the conventions adop=
+ted in the notes because the notes did not exist in this form when they too=
+k the course. Every problem that one will be asked to solve has an analogue=
+ in relevant notes. One must immediately start reading these documents as t=
+hey contain exactly what I would have said in class and they proceed at a l=
+eisurely pace. ONE MUST READ THE NOTES. Math 163 gets easier as the course =
+progresses.
+
+TUTORS
+
+Dedicated tutors will be added as observers to this course. They have all t=
+aken many of my classes and have been tutors for a long time for my classes=
+. Their presence and participation are crucial to the life of this course a=
+nd they will all help the current students.
+
+DISCORD GROUPS
+
+A group will be set up for each section on DISCORD and one should use these=
+ groups as one's discussion forum as the current structure of CANVAS does n=
+ot allow tutors to have the required access. Currently they can observe but=
+ they cannot participate. But one may contact them within CANVAS. It may be=
+ easier to contact them on DISCORD.
+
+
+
+To make individual appointments or to join study groups, please visit Tutor=
+ing and Study Groups under Files.  These will be updated once new arrangeme=
+nts are announced. You may go to only these tutors and no one else.
+
+For questions regarding tutoring, please write to Professor John Politis at=
+ jpolitis@ccp.edu.
+
+
+
+EVERY student needs to learn the language of sets and mappings because all =
+discourse will be carried out in this language. This knowledge is required,=
+ expected, and assumed for all courses. This material is taught in many cou=
+rses including Discrete Mathematics (Math 163). Therefore, even if it is no=
+t required, it is a very good idea to take Discrete Mathematics. Notes on t=
+hese topics have been uploaded.
+
+Please find out how to register for study groups or make individual appoint=
+ments by sending an email to tutors within CANVAS or by writing to Professo=
+r Politis.
+
+
+
+Good luck.
+
+
+
+Sincerely,
+
+Atish Bagchi
+
+[https://du11hjcvx0uqb.cloudfront.net/dist/images/email_signature-d2c588061=
+2.png]
+View announcement <https://ccp.instructure.com/courses/2105108/announcement=
+s/13959038>  |  Update your notification settings<https://ccp.instructure.c=
+om/profile/communication>
+NOTICE: The information contained in this e-mail may contain confidential a=
+nd/or proprietary information intended only for the use of the Individual(s=
+) or Entity(ies) named above. If you are not the intended recipient of this=
+ e-mail, or the employee or agent responsible for delivering this e-mail to=
+ the intended recipient, you are hereby notified that any unauthorized use,=
+ dissemination or copying of this e-mail is strictly prohibited. If you hav=
+e received this e-mail in error, notify the sender by replying to this mess=
+age and delete the e-mail from your system. When responding to this communi=
+cation, remember that it could be lost in transit and viewed by a party oth=
+er than the addressee.
+
+----==_mimepart_6a4c9b34a2897_11ee13fc089289
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html dir=3D"ltr" lang=3D"en"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"viewport" content=3D"width=3Ddevice-width">
+<style type=3D"text/css">
+/*
+Changes to font size (14->16) for smaller screens
+table[class=3Dbody] is the only selector that works for all vendors
+*/
+@media only screen and (max-width: 620px) {
+  table[class=3Dbody] p,
+  table[class=3Dbody] ul,
+  table[class=3Dbody] ol,
+  table[class=3Dbody] td,
+  table[class=3Dbody] span,
+  table[class=3Dbody] a {
+    font-size: 16px !important;
+  }
+  /* remove padding for mobile so no gray shows */
+  table[class=3Dbody] .bodycell {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  /* reduce padding from 20->10 for mobile */
+  table[class=3Dbody] .maincell {
+    padding: 10px !important;
+  }
+}
+/*
+ExternalClass fixes Outlook.com / Hotmail emails
+*/
+@media all {
+  .ExternalClass {
+    width: 100%;
+  }
+  .ExternalClass,
+  .ExternalClass p,
+  .ExternalClass span,
+  .ExternalClass font,
+  .ExternalClass td,
+  .ExternalClass div {
+    line-height: 100%;
+  }
+}
+  </style><!--
+background: white (could be gray)
+default sans serif fonts, 14px, 1.3, #444444
+vendor prefixes for Outlook (-ms) and iOS (-webkit)
+Margin is capitalized to fix Outlook.com
+-->
+</head>
+<body class=3D"" style=3D"background-color:#ffffff; font-family:'Open Sans'=
+, 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicode', Tahom=
+a, 'Sans Serif'; font-size:14px; color: #444444; line-height:1.3; Margin:0;=
+ padding:0; -ms-text-size-adjust:100%; -webkit-font-smoothing:antialiased; =
+-webkit-text-size-adjust:100%;">
+<!-- body: background table (if body has a color, this should match) -->
+<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" class=3D"body" styl=
+e=3D"border-collapse:separate; background-color:#ffffff; width:100%; box-si=
+zing:border-box; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+<tbody>
+<tr>
+<!-- width and max-width so it can scale for mobile -->
+<td class=3D"bodycell" style=3D"max-width:600px; width:100%; font-family:'O=
+pen Sans', 'Lucida Grande', 'Segoe UI', Arial, Verdana, 'Lucida Sans Unicod=
+e', Tahoma, 'Sans Serif'; font-size:14px; vertical-align:top; display:block=
+; box-sizing:border-box; padding:10px; Margin:0 auto !important;">
+<!-- for older versions of Outlook that don't support max-width --><!--[if =
+(gte mso 9)|(IE)]>
+<table width=3D"600" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" b=
+order=3D"0"><tr><td>
+<![endif]--><!-- main: white box for content -->
+<table class=3D"main" style=3D"background:#fff; width:100%; border-collapse=
+:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"maincell" style=3D"font-family:sans-serif; font-size:14px; ver=
+tical-align:top; box-sizing:border-box; padding:20px;">
+<p>Dear students,</p>
+<p>Welcome to Math 163.</p>
+<p>This is an&nbsp;<strong>ASYNCHRONOUS</strong>&nbsp;course.&nbsp;<strong>=
+Therefore, there are NO LECTURES via zoom</strong>. It is best thought of a=
+s a new incarnation of what used to be called a 'Correspondence Course'. Ra=
+ther than receiving material by mail, one has access
+ to an online platform that houses the material. There will, however, be tu=
+toring by dedicated tutors. At the moment I do not know who will tutor what=
+ at what times. I will make an announcement once these decisions are made.<=
+span>&nbsp;</span><strong>I shall communicate
+ with students SOLELY within CANVAS using EMAIL and ANNOUNCEMENTS. One must=
+ always read the announcements very carefully. Otherwise, you may miss vari=
+ous things</strong>.&nbsp;</p>
+<p><strong><span>VERY IMPORTANT</span>&nbsp;&nbsp;</strong></p>
+<p>This is a&nbsp;<strong>SUMMER&nbsp;</strong>class<strong>.&nbsp;</strong=
+>It is an<strong>&nbsp;ACCELERATED, 7-WEEK COURSE. It is running at DOUBLE =
+THE NORMAL PACE.&nbsp;</strong>It is a mistake to think that<strong>&nbsp;o=
+ne can assimilate the material at double one's normal rate.&nbsp;</strong>N=
+evertheless,
+ there are very capable, dedicated, and well-prepared students who have sec=
+ured a grade of A in a summer class in the past. The time one needs to devo=
+te to this class is at the very least<span>&nbsp;</span><strong>25 HOURS PE=
+R WEEK</strong>. I should estimate the
+ time per week to be between&nbsp;<strong>25 HOURS and 40 HOURS.&nbsp;</str=
+ong>&nbsp;<strong><u>Unless one can commit this amount of time, one should =
+NOT take this class</u></strong>.&nbsp;<strong>In fact, if one has the choi=
+ce, one should take the class during a regular 14-week
+ session</strong>. My students tell me that if one takes this class during =
+the summer, one must understand that one will have no life at all during th=
+ese seven weeks.&nbsp;</p>
+<p><span><strong>VERY IMPORTANT</strong></span>&nbsp;</p>
+<p>There is an exam every week and a problem-set due at the end of the term=
+. One<strong>&nbsp;must immediately download the exams and start reading th=
+e notes slowly and carefully</strong>. One's goal is to finish at least the=
+ a and b problems and submit them by
+ the due date.<span>&nbsp;</span><strong>There is no textbook for this clas=
+s</strong>. The material that one needs to read appears under Files.<span>&=
+nbsp;</span><strong>All work MUST be done exactly as in the Notes with no c=
+hanges, no variations, and no omissions. In
+ case there are any changes, variations, or omissions, points will be deduc=
+ted</strong>.&nbsp;<strong>No homework will be collected or graded. The cou=
+rse grade will be based entirely on the performance on six take-home exams,=
+ and a Problem Set</strong>. Please refer
+ to the&nbsp;<strong>General Information Package</strong>&nbsp;under Files.=
+</p>
+<p><span><strong>COLLABORATION</strong></span></p>
+<p><span>One</span><span>&nbsp;</span>is free to talk to anyone. But one mu=
+st present one's answers in the manner in which they are presented in the N=
+otes or Solved Exams with no exceptions whatsoever. Some tutors have very k=
+indly made their old exams available
+ to students. Some students<span>&nbsp;</span><strong>copied blindly</stron=
+g><span>&nbsp;</span>from these exams in the past and got<span>&nbsp;</span=
+><strong>ZEROES</strong><span>&nbsp;</span>because they could not even copy=
+ faithfully and did not understand what they needed
+ to change. They also adopted conventions that the current notes do not hav=
+e and that are, therefore, not allowed.<span>&nbsp;</span><strong>These exa=
+ms are NEW and often differ from previous exams very slightly but such slig=
+ht changes may make profound differences
+ in the answers</strong>. Students have individual exams that are made up f=
+rom their J-numbers. Tutors will be able to read the questions in English b=
+ut may not be familiar with the conventions adopted in the notes because th=
+e notes did not exist in this form
+ when they took the course. Every problem that one will be asked to solve h=
+as an analogue in relevant notes. One must immediately start reading these =
+documents as they contain exactly what I would have said in class and they =
+proceed at a leisurely pace.<span>&nbsp;</span><strong>ONE
+ MUST READ THE NOTES</strong>.&nbsp;<strong>Math 163 gets easier as the cou=
+rse progresses</strong>.&nbsp;</p>
+<p><span><strong>TUTORS</strong></span></p>
+<p>Dedicated tutors will be added as observers to this course. They have al=
+l taken many of my classes and have been tutors for a long time for my clas=
+ses. Their presence and participation are crucial to the life of this cours=
+e and they will all help the current
+ students.&nbsp;</p>
+<p><span><strong>DISCORD GROUPS</strong></span></p>
+<p>A group will be set up for each section on DISCORD and one should use th=
+ese groups as one's discussion forum as the current structure of CANVAS doe=
+s not allow tutors to have the required access. Currently they can observe =
+but they cannot participate. But
+ one may contact them within CANVAS. It may be easier to contact them on DI=
+SCORD.</p>
+<p>&nbsp;</p>
+<p><strong>To make individual appointments or to join study groups, please =
+visit Tutoring and Study Groups under Files.</strong>&nbsp;&nbsp;These will=
+ be updated once new arrangements are announced. You may go to only these t=
+utors and no one else.</p>
+<p>For questions regarding tutoring, please write to Professor John Politis=
+ at<span>&nbsp;</span><strong>jpolitis@ccp.edu</strong>.&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>EVERY student needs to learn the language of sets and mappings</=
+strong>&nbsp;because all discourse will be carried out in this language.&nb=
+sp;<strong>This knowledge is required, expected, and assumed for all course=
+s</strong>. This material is taught in many
+ courses including Discrete Mathematics (Math 163). Therefore, even if it i=
+s not required, it is a very good idea to take Discrete Mathematics. Notes =
+on these topics have been uploaded.</p>
+<p><strong>Please find out how to register for study groups or make individ=
+ual appointments by sending an email to tutors within CANVAS or by writing =
+to Professor Politis.&nbsp;</strong></p>
+<p>&nbsp;</p>
+<p><strong>Good luck.</strong></p>
+<p>&nbsp;</p>
+<p>Sincerely,&nbsp;<br>
+<br>
+Atish Bagchi</p>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /.main --><!-- logo: branding -->
+<table class=3D"logo" style=3D"width:100%; box-sizing:border-box; border-co=
+llapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"logocell" style=3D"text-align:center; vertical-align:top; box-=
+sizing:border-box; padding:10px;">
+<img src=3D"https://du11hjcvx0uqb.cloudfront.net/dist/images/email_signatur=
+e-d2c5880612.png" alt=3D"">
+</td>
+</tr>
+</tbody>
+</table>
+<!-- /.logo --><!-- footer: gray text below main -->
+<table class=3D"footer" style=3D"width:100%; box-sizing:border-box; border-=
+collapse:separate; mso-table-lspace:0pt; mso-table-rspace:0pt; ">
+<tbody>
+<tr>
+<td class=3D"footercell" style=3D"font-family:sans-serif; font-size:14px; v=
+ertical-align:top; color:#a8b9c6; font-size:12px; text-align:center; paddin=
+g:10px; box-sizing:border-box; ">
+<a href=3D"https://nam11.safelinks.protection.outlook.com/?url=3Dhttps%3A%2=
+F%2Fccp.instructure.com%2Fcourses%2F2105108%2Fannouncements%2F13959038&amp;=
+data=3D05%7C02%7Css1%40student.ccp.edu%7Cee219aeb49284e5a684308dedbf02986%7=
+C10132e4bbfd941b7ac78560943470a6a%7C1%7C0%7C639190021696908816%7CUnknown%7C=
+TWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkF=
+OIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DcOgSrovI684TlkZJ%2Bo=
+D6Klm3LjjN%2Bmm%2FzeLxqqYrVm4%3D&amp;reserved=3D0" originalsrc=3D"https://c=
+cp.instructure.com/courses/2105108/announcements/13959038">View announcemen=
+t
+</a>&nbsp;|&nbsp; <a href=3D"https://nam11.safelinks.protection.outlook.com=
+/?url=3Dhttps%3A%2F%2Fccp.instructure.com%2Fprofile%2Fcommunication&amp;dat=
+a=3D05%7C02%7Css1%40student.ccp.edu%7Cee219aeb49284e5a684308dedbf02986%7C10=
+132e4bbfd941b7ac78560943470a6a%7C1%7C0%7C639190021696920293%7CUnknown%7CTWF=
+pbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIj=
+oiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3D%2Fw8Wh8v6NvL8kevTFjjHg=
+mxfmIBXbR2moZYtwN0VibY%3D&amp;reserved=3D0" originalsrc=3D"https://ccp.inst=
+ructure.com/profile/communication" style=3D"white-space: nowrap;">
+Update your notification settings</a> </td>
+</tr>
+</tbody>
+</table>
+<!-- /.footer --><!--[if (gte mso 9)|(IE)]>
+</td></tr></table>
+<![endif]--></td>
+</tr>
+</tbody>
+</table>
+<!-- /.body -->NOTICE: The information contained in this e-mail may contain=
+ confidential and/or proprietary information intended only for the use of t=
+he Individual(s) or Entity(ies) named above. If you are not the intended re=
+cipient of this e-mail, or the employee
+ or agent responsible for delivering this e-mail to the intended recipient,=
+ you are hereby notified that any unauthorized use, dissemination or copyin=
+g of this e-mail is strictly prohibited. If you have received this e-mail i=
+n error, notify the sender by replying
+ to this message and delete the e-mail from your system. When responding to=
+ this communication, remember that it could be lost in transit and viewed b=
+y a party other than the addressee.
+</body>
+</html>
+
+----==_mimepart_6a4c9b34a2897_11ee13fc089289--

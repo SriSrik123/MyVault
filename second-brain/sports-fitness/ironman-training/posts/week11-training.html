@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 11 — Ironman 70.3 Training</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #111;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'DM Mono', monospace;
+}
+
+/* ─── Carousel ─── */
+.carousel { position: relative; width: 1080px; }
+
+/* ─── Slide ─── */
+.slide {
+  display: none;
+  width: 1080px;
+  height: 1080px;
+  background: #0d0d0d;
+  position: relative;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+/* ─── Corner Brackets ─── */
+.corner {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border: 3px solid #00f5d4;
+  z-index: 10;
+}
+.corner.tl { top: 46px; left: 46px; border-right: none; border-bottom: none; }
+.corner.br { bottom: 46px; right: 46px; border-left: none; border-top: none; }
+
+/* ─── Slide Header ─── */
+.slide-header {
+  padding: 54px 72px 0;
+  position: relative;
+  flex-shrink: 0;
+}
+.tag {
+  font-size: 17px;
+  color: #00f5d4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.day-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 100px;
+  color: #fff;
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+}
+.slide-meta {
+  position: absolute;
+  right: 72px;
+  top: 54px;
+  text-align: right;
+}
+.slide-meta .wk-lbl {
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.slide-meta .slide-date {
+  font-size: 20px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.06em;
+  margin-top: 6px;
+}
+.slide-meta .slide-num {
+  font-size: 14px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 6px;
+  letter-spacing: 0.08em;
+}
+
+/* ─── Activities ─── */
+.activities {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 72px;
+}
+
+.act-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.09);
+}
+.act-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.09); }
+.act-row.p1 { padding: 86px 0; }
+.act-row.p2 { padding: 46px 0; }
+.act-row.p3 { padding: 24px 0; }
+.act-row.p4 { padding: 16px 0; }
+
+.act-left { display: flex; align-items: center; gap: 22px; }
+.act-icon { font-size: 36px; width: 50px; text-align: center; flex-shrink: 0; }
+
+.act-info .act-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  color: #fff;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.act-info .act-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.act-stats { text-align: right; flex-shrink: 0; }
+.stat-primary {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 62px;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.stat-accent {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  color: #00f5d4;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.stat-secondary {
+  font-size: 18px;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.5;
+  margin-top: 5px;
+}
+
+/* ─── WHOOP Strip ─── */
+.whoop-strip {
+  flex-shrink: 0;
+  background: rgba(0,245,212,0.035);
+  border-top: 1px solid rgba(0,245,212,0.15);
+  padding: 20px 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wi { text-align: center; }
+.wi-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  color: #00f5d4;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.wi-lbl {
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ─── Footer ─── */
+.slide-footer {
+  flex-shrink: 0;
+  padding: 14px 72px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.caption {
+  font-size: 13px;
+  color: rgba(255,255,255,0.38);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+  max-width: 430px;
+}
+.hashtags {
+  font-size: 11px;
+  color: rgba(0,245,212,0.45);
+  letter-spacing: 0.04em;
+  text-align: right;
+  line-height: 1.9;
+}
+
+/* ─── Summary Slide ─── */
+.summary-header {
+  padding: 50px 72px 0;
+  flex-shrink: 0;
+}
+.summary-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 120px;
+  color: #fff;
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  margin-top: 4px;
+}
+.countdown-row {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-top: 16px;
+}
+.countdown-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 88px;
+  color: #00f5d4;
+  line-height: 1;
+}
+.countdown-lbl {
+  font-size: 15px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.badge-pill {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 9px 20px;
+  border: 1px solid rgba(0,245,212,0.4);
+  background: rgba(0,245,212,0.06);
+  border-radius: 999px;
+  color: #00f5d4;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.summary-stats {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 72px;
+}
+.sum-row {
+  display: flex;
+  justify-content: space-around;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255,255,255,0.09);
+}
+.sum-row:last-child { border-bottom: 1px solid rgba(255,255,255,0.09); }
+.sum-stat { text-align: center; flex: 1; }
+.sum-val {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 68px;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.sum-val.teal { color: #00f5d4; }
+.sum-lbl {
+  font-size: 12px;
+  color: rgba(255,255,255,0.32);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+/* ─── Rest / Status Display ─── */
+.rest-display {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 148px;
+  color: rgba(255,255,255,0.17);
+  line-height: 1.05;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+.rest-note {
+  font-size: 15px;
+  color: rgba(255,255,255,0.32);
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 18px;
+}
+
+/* ─── Navigation ─── */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 22px 0 32px;
+}
+.nav-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-family: 'DM Mono', monospace;
+}
+.nav-btn:hover { border-color: #00f5d4; color: #00f5d4; }
+.dots { display: flex; gap: 8px; align-items: center; }
+.dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.dot.active { background: #00f5d4; }
+</style>
+</head>
+<body>
+
+<div class="carousel" id="carousel">
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 1 — SUNDAY JULY 12
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="s1">
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <div class="slide-header">
+    <div class="tag">Ironman Training — Week 11</div>
+    <div class="day-title">SUNDAY</div>
+    <div class="slide-meta">
+      <div class="wk-lbl">Week 11 · Day 1</div>
+      <div class="slide-date">JULY 12, 2026</div>
+      <div class="slide-num">02 / 08</div>
+    </div>
+  </div>
+  <div class="activities">
+    <div class="act-row p1">
+      <div class="act-left">
+        <div class="act-icon">🏊</div>
+        <div class="act-info">
+          <div class="act-name">AEROBIC SWIM</div>
+          <div class="act-sub">POOL · 3,300 YD · AEROBIC · 1:19:00</div>
+        </div>
+      </div>
+      <div class="act-stats">
+        <div class="stat-primary">3,300 YD</div>
+        <div class="stat-secondary">⚡14.1 Strain</div>
+      </div>
+    </div>
+  </div>
+  <div class="whoop-strip">
+    <div class="wi"><div class="wi-val">10.7</div><div class="wi-lbl">Day Strain</div></div>
+    <div class="wi"><div class="wi-val">62</div><div class="wi-lbl">VO₂ Max</div></div>
+    <div class="wi"><div class="wi-val">5.8h</div><div class="wi-lbl">Sleep</div></div>
+  </div>
+  <div class="slide-footer">
+    <div class="caption">Opened the week with a long aerobic swim — 3,300 yards easy. Sleep was short, so kept the effort conservative.</div>
+    <div class="hashtags">#IronmanNY<br>#SwimTraining<br>#IronmanTraining</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 2 — MONDAY JULY 13
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <div class="slide-header">
+    <div class="tag">Ironman Training — Week 11</div>
+    <div class="day-title">MONDAY</div>
+    <div class="slide-meta">
+      <div class="wk-lbl">Week 11 · Day 2</div>
+      <div class="slide-date">JULY 13, 2026</div>
+      <div class="slide-num">03 / 08</div>
+    </div>
+  </div>
+  <div class="activities">
+    <div class="act-row p2">
+      <div class="act-left">
+        <div class="act-icon">🏊</div>
+        <div class="act-info">
+          <div class="act-name">SPRINT SET</div>
+          <div class="act-sub">POOL · 2,300 YD · SPRINT · 1:10:59</div>
+        </div>
+      </div>
+      <div class="act-stats">
+        <div class="stat-primary">2,300 YD</div>
+        <div class="stat-secondary">⚡12.7 Strain</div>
+      </div>
+    </div>
+    <div class="act-row p2">
+      <div class="act-left">
+        <div class="act-icon">🏃</div>
+        <div class="act-info">
+          <div class="act-name">EASY RUN</div>
+          <div class="act-sub">Z2 EASY · 46:46 · 10:52 /MI</div>
+        </div>
+      </div>
+      <div class="act-stats">
+        <div class="stat-primary">4.30 MI</div>
+        <div class="stat-secondary">⚡7.3 Strain</div>
+      </div>
+    </div>
+  </div>
+  <div class="whoop-strip">
+    <div class="wi"><div class="wi-val">20.0</div><div class="wi-lbl">Day Strain</div></div>
+    <div class="wi"><div class="wi-val">62</div><div class="wi-lbl">VO₂ Max</div></div>
+    <div class="wi"><div class="wi-val">8.9h</div><div class="wi-lbl">Sleep</div></div>
+  </div>
+  <div class="slide-footer">
+    <div class="caption">Two-a-day: a sprint set in the pool this morning, then an easy 4-mile shakeout run in the evening. Highest strain day of the week.</div>
+    <div class="hashtags">#IronmanNY<br>#SwimTraining<br>#RunTraining</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 3 — TUESDAY JULY 14
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <div class="slide-header">
+    <div class="tag">Ironman Training — Week 11</div>
+    <div class="day-title">TUESDAY</div>
+    <div class="slide-meta">
+      <div class="wk-lbl">Week 11 · Day 3</div>
+      <div class="slide-date">JULY 14, 2026</div>
+      <div class="slide-num">04 / 08</div>
+    </div>
+  </div>
+  <div class="activities">
+    <div class="act-row p1">
+      <div class="act-left">
+        <div class="act-icon">🏊</div>
+        <div class="act-info">
+          <div class="act-name">THRESHOLD SET</div>
+          <div class="act-sub">POOL · 3,100 YD · THRESHOLD · 1:44:59</div>
+        </div>
+      </div>
+      <div class="act-stats">
+        <div class="stat-primary">3,100 YD</div>
+        <div class="stat-secondary">⚡14.5 Strain</div>
+      </div>
+    </div>
+  </div>
+  <div class="whoop-strip">
+    <div class="wi"><div class="wi-val">16.3</div><div class="wi-lbl">Day Strain</div></div>
+    <div class="wi"><div class="wi-val">62</div><div class="wi-lbl">VO₂ Max</div></div>
+    <div class="wi"><div class="wi-val">8.3h</div><div class="wi-lbl">Sleep</div></div>
+  </div>
+  <div class="slide-footer">
+    <div class="caption">Threshold set in the pool — 3,100 yards at strenuous effort. WHOOP called this one the toughest of the day, and it felt like it.</div>
+    <div class="hashtags">#IronmanNY<br>#SwimTraining<br>#ThresholdWork</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 4 — WEDNESDAY JULY 15
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <div class="slide-header">
+    <div class="tag">Ironman Training — Week 11</div>
+    <div class="day-title">WEDNESDAY</div>
+    <div class="slide-meta">
+      <div class="wk-lbl">Week 11 · Day 4</div>
+      <div class="slide-date">JULY 15, 2026</div>
+      <div class="slide-num">05 / 08</div>
+    </div>
+  </div>
+  <div class="activities">
+    <div class="act-row p1">
+      <div class="act-left">
+        <div class="act-icon">🏊</div>
+        <div class="act-info">
+          <div class="act-name">BACKSTROKE SWIM</div>
+          <div class="act-sub">POOL · 2,100 YD · BACKSTROKE · 1:14:59</div>
+        </div>
+      </div>
+      <div class="act-stats">
+        <div class="stat-primary">2,100 YD</div>
+        <div class="stat-secondary">⚡12.8 Strain</div>
+      </div>
+    </div>
+  </div>
+  <div class="whoop-strip">
+    <div class="wi"><div class="wi-val">14.5</div><div class="wi-lbl">Day Strain</div></div>
+    <div class="wi"><div class="wi-val">62</div><div class="wi-lbl">VO₂ Max</div></div>
+    <div class="wi"><div class="wi-val">9.4h</div><div class="wi-lbl">Sleep</div></div>
+  </div>
+  <div class="slide-footer">
+    <div class="caption">Backstroke day — mixed up the stroke work with 2,100 yards to keep things fresh and hit different muscles.</div>
+    <div class="hashtags">#IronmanNY<br>#SwimTraining<br>#StrokeWork</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 5 — THURSDAY JULY 16
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <div class="slide-header">
+    <div class="tag">Ironman Training — Week 11</div>
+    <div class="day-title">THURSDAY</div>
+    <div class="slide-meta">
+      <div class="wk-lbl">Week 11 · Day 5</div>
+      <div class="slide-date">JULY 16, 2026</div>
+      <div class="slide-num">06 / 08</div>
+    </div>
+  </div>
+  <div class="activities">
+    <div class="act-row p1">
+      <div class="act-left">
+        <div class="act-icon">🎾</div>
+        <div class="act-info">
+          <div class="act-name">SQUASH</div>
+          <div class="act-sub">COURT · 1:01:11</div>
+        </div>
+      </div>
+      <div class="act-stats">
+        <div class="stat-primary">1:01:11</div>
+        <div class="stat-secondary">⚡8.9 Strain</div>
+      </div>
+    </div>
+  </div>
+  <div class="whoop-strip">
+    <div class="wi"><div class="wi-val">10.3</div><div class="wi-lbl">Day Strain</div></div>
+    <div class="wi"><div class="wi-val">62</div><div class="wi-lbl">VO₂ Max</div></div>
+    <div class="wi"><div class="wi-val">9.9h</div><div class="wi-lbl">Sleep</div></div>
+  </div>
+  <div class="slide-footer">
+    <div class="caption">Off the pool schedule today — an hour of squash instead. Light strain, good way to cross-train and keep it fun.</div>
+    <div class="hashtags">#IronmanNY<br>#CrossTraining<br>#ActiveRecovery</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 6 — FRIDAY JULY 17
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <div class="slide-header">
+    <div class="tag">Ironman Training — Week 11</div>
+    <div class="day-title">FRIDAY</div>
+    <div class="slide-meta">
+      <div class="wk-lbl">Week 11 · Day 6</div>
+      <div class="slide-date">JULY 17, 2026</div>
+      <div class="slide-num">07 / 08</div>
+    </div>
+  </div>
+  <div class="activities">
+    <div class="act-row p1">
+      <div class="act-left">
+        <div class="act-icon">🏊</div>
+        <div class="act-info">
+          <div class="act-name">DISTANCE SET</div>
+          <div class="act-sub">POOL · 4,200 YD · AEROBIC · 1:16:59</div>
+        </div>
+      </div>
+      <div class="act-stats">
+        <div class="stat-primary">4,200 YD</div>
+        <div class="stat-secondary">⚡13.6 Strain</div>
+      </div>
+    </div>
+  </div>
+  <div class="whoop-strip">
+    <div class="wi"><div class="wi-val">16.7</div><div class="wi-lbl">Day Strain</div></div>
+    <div class="wi"><div class="wi-val">62</div><div class="wi-lbl">VO₂ Max</div></div>
+    <div class="wi"><div class="wi-val">8.3h</div><div class="wi-lbl">Sleep</div></div>
+  </div>
+  <div class="slide-footer">
+    <div class="caption">Longest swim of the week — 4,200 yards of aerobic volume, and the fastest pace per 100 of any set this week.</div>
+    <div class="hashtags">#IronmanNY<br>#SwimTraining<br>#AerobicBase</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 7 — SATURDAY JULY 18
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <div class="slide-header">
+    <div class="tag">Ironman Training — Week 11</div>
+    <div class="day-title">SATURDAY</div>
+    <div class="slide-meta">
+      <div class="wk-lbl">Week 11 · Day 7</div>
+      <div class="slide-date">JULY 18, 2026</div>
+      <div class="slide-num">08 / 08</div>
+    </div>
+  </div>
+  <div class="activities">
+    <div class="act-row p1">
+      <div class="act-left">
+        <div class="act-icon">🏊</div>
+        <div class="act-info">
+          <div class="act-name">LACTATE SET</div>
+          <div class="act-sub">POOL · 3,400 YD · ANAEROBIC · 1:45:28</div>
+        </div>
+      </div>
+      <div class="act-stats">
+        <div class="stat-primary">3,400 YD</div>
+        <div class="stat-secondary">⚡14.2 Strain</div>
+      </div>
+    </div>
+  </div>
+  <div class="whoop-strip">
+    <div class="wi"><div class="wi-val">16.8</div><div class="wi-lbl">Day Strain</div></div>
+    <div class="wi"><div class="wi-val">62</div><div class="wi-lbl">VO₂ Max</div></div>
+    <div class="wi"><div class="wi-val">8.6h</div><div class="wi-lbl">Sleep</div></div>
+  </div>
+  <div class="slide-footer">
+    <div class="caption">Closed the week with an anaerobic lactate set — "probably the hardest workout I've had in a while." Week 11 in the books. ✅</div>
+    <div class="hashtags">#IronmanNY<br>#SwimTraining<br>#LactateSet</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SLIDE 8 — SUMMARY (shown first, JS current = 8)
+════════════════════════════════════════════════════════════ -->
+<div class="slide" id="s8">
+  <div class="corner tl"></div>
+  <div class="corner br"></div>
+  <div class="summary-header">
+    <div class="tag">Ironman Training — Week 11</div>
+    <div class="summary-title">SWIM WEEK</div>
+    <div class="countdown-row">
+      <span class="countdown-num" id="weeks-left">--</span>
+      <div class="countdown-lbl">Weeks to<br>Ironman 70.3 NY · Sept 26</div>
+    </div>
+    <div class="badge-pill">↻ Easing Back In — swim-focus, building volume safely</div>
+  </div>
+  <div class="summary-stats">
+    <div class="sum-row">
+      <div class="sum-stat">
+        <div class="sum-val">4.30</div>
+        <div class="sum-lbl">Miles Run</div>
+      </div>
+      <div class="sum-stat">
+        <div class="sum-val teal">0.00</div>
+        <div class="sum-lbl">Miles Biked</div>
+      </div>
+      <div class="sum-stat">
+        <div class="sum-val">18,400</div>
+        <div class="sum-lbl">Yards Swum</div>
+      </div>
+    </div>
+    <div class="sum-row">
+      <div class="sum-stat">
+        <div class="sum-val teal">20.0</div>
+        <div class="sum-lbl">Peak Strain</div>
+      </div>
+      <div class="sum-stat">
+        <div class="sum-val">105.3</div>
+        <div class="sum-lbl">Total Strain</div>
+      </div>
+      <div class="sum-stat">
+        <div class="sum-val teal">153</div>
+        <div class="sum-lbl">Peak HRV ms</div>
+      </div>
+    </div>
+  </div>
+  <div class="whoop-strip">
+    <div class="wi"><div class="wi-val">15.0</div><div class="wi-lbl">Avg Strain</div></div>
+    <div class="wi"><div class="wi-val">62</div><div class="wi-lbl">VO₂ Max</div></div>
+    <div class="wi"><div class="wi-val">8.5h</div><div class="wi-lbl">Avg Sleep</div></div>
+  </div>
+  <div class="slide-footer">
+    <div class="caption">Getting back into it, safe rather than sorry — six swims, one easy run, and a squash session for fun. No bike this week, and that's fine. Volume is coming back on our terms. 🔒</div>
+    <div class="hashtags">#IronmanNY<br>#Ironman703<br>#IronmanTraining</div>
+  </div>
+</div>
+
+</div><!-- end .carousel -->
+
+<!-- Navigation -->
+<div class="nav">
+  <button class="nav-btn" onclick="move(-1)">←</button>
+  <div class="dots" id="dots"></div>
+  <button class="nav-btn" onclick="move(1)">→</button>
+</div>
+
+<script>
+const TOTAL = 8;
+let current = 8; // start on summary
+
+function render() {
+  for (let i = 1; i <= TOTAL; i++) {
+    const s = document.getElementById('s' + i);
+    if (s) s.style.display = (i === current) ? 'flex' : 'none';
+  }
+  const dots = document.getElementById('dots');
+  dots.innerHTML = Array.from({length: TOTAL}, (_, i) =>
+    `<div class="dot${i + 1 === current ? ' active' : ''}" onclick="goTo(${i+1})"></div>`
+  ).join('');
+}
+
+function move(dir) {
+  if (dir === 1) current = current < TOTAL ? current + 1 : 1;
+  else current = current > 1 ? current - 1 : TOTAL;
+  render();
+}
+
+function goTo(n) {
+  current = n;
+  render();
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') move(1);
+  if (e.key === 'ArrowLeft') move(-1);
+});
+
+// Countdown
+const raceDate = new Date('2026-09-26');
+const weeksLeft = Math.ceil((raceDate - new Date()) / (7 * 24 * 60 * 60 * 1000));
+document.getElementById('weeks-left').textContent = weeksLeft;
+
+render();
+</script>
+</body>
+</html>
