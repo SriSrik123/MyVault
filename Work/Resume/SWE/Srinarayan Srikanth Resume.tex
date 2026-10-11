@@ -1,0 +1,176 @@
+\documentclass[letterpaper,10.8pt]{article} % slightly smaller font
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Tighter margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.25in}
+\addtolength{\topmargin}{-.8in}
+\addtolength{\textheight}{1.6in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+\pdfgentounicode=1
+
+% Custom commands with tighter spacing
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+% Tighter lists
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}, itemsep=1pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \scshape Srinarayan Srikanth} \\ \vspace{1pt}
+    Princeton, NJ | Philadelphia, PA \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ 609-721-4494 ~ 
+    \href{mailto:Srinarayan.Srikanth@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{Srinarayan.Srikanth@gmail.com}} ~ 
+    \href{https://www.linkedin.com/in/srinarayan-srikanth-bb2750259/}{\raisebox{-0.2\height}\faLinkedin\ \underline{LinkedIn}} ~
+    \href{https://srisrikanth.com/}{\raisebox{-0.2\height}\faGlobe\ \underline{Portfolio}} ~
+    \href{https://github.com/SriSrik123}{\raisebox{-0.2\height}\faGithub\ \underline{GitHub}} ~
+    \href{https://www.hackerrank.com/profile/hellosri2006}{\raisebox{-0.2\height}\faCode\ \underline{HackerRank}}
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Drexel University}{Estimated Graduation: June 2028}
+      {B.S. Computer Science, Minor in Finance}{Philadelphia, PA}
+      \resumeItemListStart
+        \resumeItem{A.J. Drexel Scholarship Recipient; Dean's List}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+  {Comcast Corporation}{Sept. 2025 -- Present}
+  {AI Strategy, Development \& Transformation Co-op}{Philadelphia, PA}
+  \resumeItemListStart
+  \resumeItem{Built a RAG-based multi-agent simulation platform that lets Comcast executives model and stress-test strategic business decisions, grounding agent reasoning in company data retrieved from Azure Cosmos DB via an internal LLM gateway.}
+  \resumeItem{Integrated Azure Cognitive Services sentiment analysis into the agent pipeline to enrich retrieved context and improve decision-support output quality.}
+  \resumeItem{Coordinated with multiple engineering teams to implement Azure AD (Entra ID) SSO via OAuth2/OIDC, securing the platform's access to sensitive enterprise data.}
+  \resumeItem{Built the TypeScript/React frontend and deployed the platform on Azure App Service; presented the system to executives and teams across all levels of technical background, leading demos, user group testing, and UAT ahead of rollout.}
+\resumeItemListEnd
+
+
+    \resumeSubheading
+      {NeuralMetrics}{July 2025 -- Aug. 2025}
+      {AI Product Intern}{Chennai, India}
+      \resumeItemListStart
+        \resumeItem{Developed AI-driven intelligent code verification system integrated with Bitbucket \& Jira, reducing manual review effort by 50\%.}
+        \resumeItem{Built scalable FastAPI backend and AI-powered PDF extraction tool using OpenCV, Tesseract, Regex, PyMuPDF, LayoutParser.}
+        \resumeItem{Streamlined CI/CD with Jenkins, Docker, and AWS (Bedrock, ECS, Lambda, EC2).}
+        \resumeItem{Implemented AI Ops logging framework for monitoring model performance and anomaly detection.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {Personal AI Agent Orchestration System}{2025 -- Present Passion Project}
+      {Tech Stack: Python, Claude Agent SDK, MCP, intfloat/E5, JSON Schema, Cron}{}
+      \resumeItemListStart
+        \resumeItem{Built a multi-agent system with a router agent that classifies tasks and dispatches to sub-agents (ETL, transcription, summarization, memory management) via a shared JSON-schema-validated data layer, deployed as unattended cron-scheduled jobs.}
+        \resumeItem{Implemented a RAG pipeline over a 294-document corpus using intfloat/E5 embeddings and cosine-similarity retrieval, improving context relevance \textasciitilde37\% over keyword lookup.}
+        \resumeItem{Wrote custom MCP servers in Python wrapping the WHOOP and Strava REST APIs into typed tool calls for any MCP-compatible agent.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {Quantitative Market-Making Backtester with Live Paper Trading}{2026 Passion Project}
+      {Tech Stack: C++, Python, pybind11, Alpaca API, pandas, scipy, SQLite, Black-Scholes}{}
+      \resumeItemListStart
+        \resumeItem{Backtests strategies against historical tick data using the C++ event loop — simulating order fills, modeling transaction costs and slippage, and enforcing strict no-lookahead rules so every decision uses only data available at that timestamp. Walk-forward cross-validation splits data into rolling train/test windows to confirm the strategy generalizes beyond the sample it was built on.}
+        \resumeItem{Built a system that acts as a market maker — continuously quoting bid and ask prices around a fair value estimate and earning the spread. The order book and event loop are written in C++ and exposed to Python via pybind11, running significantly faster per-tick than an equivalent pure-Python implementation.}
+        \resumeItem{Validated strategies deploy unchanged to Alpaca's paper trading API — same logic, real market data, simulated fills — reporting Sharpe ratio, max drawdown, and VaR; extended with Black-Scholes options pricing, Greeks, and a delta-hedging simulation.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \small{\item{
+     \textbf{Microsoft} – Azure AI Essentials Professional Certificate \\
+     \textbf{IIT (Mar 2024–Mar 2025)} – Full Stack Web Development \\
+     \textbf{LinkedIn Learning} – Prompt Engineering, JIRA, Agile Software Development, Foundations in AI \\
+     \textbf{DeepLearning.AI} – AI with Python \\
+     \textbf{HackerRank} – Java, Python, React.js, CSS, Frontend Developer, Software Engineer, Problem Solving
+    }}
+ \end{itemize}
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \small{\item{
+     \textbf{Languages \& Frameworks}{: Python, Java, C++, SQL, JavaScript/TypeScript, React, Angular, Flask, FastAPI, Supabase, Firebase, REST API} \\
+     \textbf{Cloud \& AI/ML}{: AWS (Bedrock, Lambda, ECS, EC2), Azure (AI Foundry, Cosmos DB), PyTorch, YOLOvX, OpenCV, NLP, Gemini, OpenAI, Llama} \\
+     \textbf{AI Agents}{: Claude Agent SDK, MCP, RAG, intfloat/E5 Embeddings, JSON Schema, Cron} \\
+     \textbf{Tools \& Other}{: VS Code, Jenkins, Docker, Final Cut Pro X, FAA-Certified Drone Pilot}
+    }}
+ \end{itemize}
+
+%-----------EXTRACURRICULAR-----------
+%-----------EXTRACURRICULAR-----------
+\section{American National Team Swimmer}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \small{\item{
+     Captain - PTAC Swim Club; won 20+ gold medals at state and regional meets. (2016–2024)
+    }}
+ \end{itemize}
+
+\end{document}

@@ -3,11 +3,15 @@
 ## 🚴 The Bike
 
 **Trek Speed Concept** — 54cm, carbon frame  
-- **Wheels:** Easton Easy disc rear · carbon front wheel  
-- **Groupset:** Shimano (mechanical shifting)  
-- **Cockpit:** Aero bars  
+- **Groupset:** Shimano 105 (mechanical shifting)  
+- **Cockpit:** Profile Design aerobars, 60mm risers  
+- **Wheels:** Aero 86 wheelset · rear disc wheel cover (EZ Gainz)  
+- **Tires:** 700c, 28mm (not tubeless)  
+- **Saddle:** Unknown / not yet identified  
+- **Hydration:** XLAB aero mount system with Garmin mount — installed ✅  
+- **Bike computer:** Garmin Edge 540  
 - **Mods:** Front derailleur / chainring guard removed  
-- **Power meter:** Built-in (comes with the bike ✅)  
+- **Power meter:** Stages, crank-arm mounted  
 - **Source:** Bought for $1,000 from Andy's friend, great condition  
 
 ---
@@ -29,7 +33,6 @@
 | ------------------------- | ----------------- | ------------------------- |
 | Bike fit                  | Schedule soon     | ASAP                      |
 | Clipless pedal practice   | Starting now      | Ongoing                   |
-| Aero bar hydration system | Still needed      | Before race               |
 | Aero tri helmet           | After bike fit    | Post-fit                  |
 | Smart trainer             | For indoor riding | September (new apartment) |
 
@@ -45,10 +48,10 @@
 ### 🚴 Bike & Cockpit
 | Item                            | Notes                                                                                  | Priority |
 | ------------------------------- | -------------------------------------------------------------------------------------- | -------- |
-| - [ ] Aero bar hydration system | Profile Design Aero HC or Torhans 30 — mounts between aero bars, holds bottle in front | 🔴 High  |
+| - [x] ~~Aero bar hydration system~~ | XLAB aero mount with Garmin mount — installed | ✅ Done |
 | - [ ] Bento box / top tube bag  | Holds gels/nutrition mid-ride (Revelate Designs, Apidura)                              | 🔴 High  |
 | - [ ] CO2 inflator + cartridges | 2–3 cartridges, Presta valve compatible                                                | 🔴 High  |
-| - [ ] Spare tubes (2x)          | 700c, confirm tire width on Speed Concept                                              | 🔴 High  |
+| - [ ] Spare tubes (2x)          | 700x28c                                                                                | 🔴 High  |
 | - [ ] Tire levers               | Lightweight plastic, 2–3 pack                                                          | 🟡 Med   |
 | - [ ] Rear bottle cage          | If not already on frame — standard cage is fine                                        | 🟡 Med   |
 | - [ ] Rear seat bottle holder   | Saddle-mounted dual-bottle holder (e.g. XLAB) — behind seat for extra hydration         | 🟡 Med   |

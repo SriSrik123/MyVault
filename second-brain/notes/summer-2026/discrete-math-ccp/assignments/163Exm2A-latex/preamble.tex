@@ -1,0 +1,104 @@
+% 163 Exam 2A — LaTeX replica of 163Exm2A.pdf
+% Compile with: xelatex main.tex  (two passes; fonts embedded from ./fonts/)
+% Page geometry replicates the source PDF exactly (US LETTER — NOT A4, unlike
+% Exam 1C — 612x792bp, coordinates in bp measured from the top-left corner).
+\documentclass{article}
+\usepackage[paperwidth=612bp,paperheight=792bp,margin=0bp]{geometry}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% ---- fonts (embedded subsets extracted from the original PDF) ----
+\setmainfont[Path=./fonts/, BoldFont=BookAntiqua-Bold_11.ttf]{BookAntiqua_5.ttf}
+\newfontfamily\CalibriFont[Path=./fonts/]{Calibri_9.ttf}
+\newfontfamily\CambriaTextFont[Path=./fonts/]{CambriaM.ttf}
+% SymbolMT_15.ttf / ArialMT_20.ttf / TimesNewRomanPSMT_34.ttf kept in fonts/
+% for provenance; loaded only if a page turns out to need them.
+\newfontfamily\ArialFont[Path=./fonts/]{ArialMT_20.ttf}
+\newfontfamily\TimesFont[Path=./fonts/]{TimesNewRomanPSMT_34.ttf}
+\newfontfamily\HelveticaFont{Helvetica}
+\setmathfont[Path=./fonts/]{CambriaM_nokern.ttf}
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+\frenchspacing
+\delimiterfactor=1000
+\delimitershortfall=0bp
+% bullet drawn manually (see 1C preamble note) — reused verbatim; re-measure
+% against 2A's own subset if a page turns out to need U+2022.
+\newcommand\SymBullet{\tikz[baseline=0pt]{\fill (0.224em,0.29em) circle[radius=0.174em];}}
+
+% ---- math helpers matching the source document's Word-equation quirks ----
+\newcommand\rng{.\,.}                    % the "0..9" integer-range dots
+\newcommand\tcolon{\text{\CambriaTextFont :}} % ASCII colon (unicode-math maps ':' to U+2236)
+\newcommand\cd{\tcolon\ {=}}             % ": =" as typed in the source
+\newcommand\iw[1]{\mathit{#1}}           % italic words inside math
+% script sizes as used by the source (base -> script)
+\DeclareMathSizes{14.04}{14.04}{9.96}{7}
+\DeclareMathSizes{12.96}{12.96}{9}{6.5}
+\DeclareMathSizes{12}{12}{9}{6.5}
+\DeclareMathSizes{11.04}{11.04}{8.04}{6}
+\DeclareMathSizes{9.96}{9.96}{7.2}{5.4}
+% invisible strut: \strutbp{height}{depth} forces delimiter sizes
+\newcommand\strutbp[2]{\vrule width 0bp height #1bp depth #2bp}
+% \CT{x}{y}{size}{text}: Cambria run set in TEXT mode (GPOS kerning like Word)
+\newcommand\CT[4]{\TL{#1}{#2}{{\CambriaTextFont\fsz{#3}#4}}}
+% \TDEL{x}{y-baseline}{size}{strut-h}{strut-d}{delim}: forced tall delimiter
+\newcommand\TDEL[6]{\MT{#1}{#2}{#3}{\left#6\strutbp{#4}{#5}\right.}}
+% \GD{x}{y-baseline}{size}{glyphid}: exact Cambria glyph (variant/assembly
+% piece) at the original PDF's pen position (see tools/fixglyph.py)
+\newcommand\GD[4]{\TL{#1}{#2}{{\CambriaTextFont\fsz{#3}\XeTeXglyph #4\relax}}}
+
+% ---- size-switch helpers: \BA{13.02} -> Book Antiqua at 13.02bp ----
+\newcommand\fsz[1]{\fontsize{#1bp}{#1bp}\selectfont}
+\newcommand\BA[1]{\normalfont\fsz{#1}}
+\newcommand\BAB[1]{\normalfont\bfseries\fsz{#1}}
+\newcommand\CAL[1]{\CalibriFont\fsz{#1}}
+\newcommand\CMT[1]{\CambriaTextFont\fsz{#1}}
+\newcommand\SYM[1]{\normalfont\fsz{#1}}% size-only: SymbolMT runs are drawn bullets
+\newcommand\HEL[1]{\HelveticaFont\fsz{#1}}
+\newcommand\ARL[1]{\ArialFont\fsz{#1}}
+\newcommand\TMS[1]{\TimesFont\fsz{#1}}
+
+% ---- placement macros (coordinates in bp from page top-left) ----
+% \TL{x}{y-baseline}{content}          left-anchored line
+\newcommand\TL[3]{\node[anchor=base west,inner sep=0pt,outer sep=0pt]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {#3};}
+% \JL{x}{y}{width}{content}            justified (stretched) line
+\newcommand\JL[4]{\node[anchor=base west,inner sep=0pt,outer sep=0pt]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {\makebox[#3bp][s]{#4}};}
+% \RECT{x0}{y0}{x1}{y1}                filled rule rectangle
+\newcommand\RECT[4]{\fill ($(current page.north west)+(#1bp,-#2bp)$)
+  rectangle ($(current page.north west)+(#3bp,-#4bp)$);}
+% \MM{x}{y}{size}{math}                inline math anchored at baseline
+\newcommand\MM[4]{\TL{#1}{#2}{\fsz{#3}$\displaystyle #4$}}
+\newcommand\MT[4]{\TL{#1}{#2}{\fsz{#3}$#4$}} % textstyle math
+
+% header/footer chrome for every page (measured directly from 163Exm2A.pdf —
+% NOTE: text differs from Exam 1C's chrome, reproduced verbatim including the
+% missing space in "by2359"):
+\newcommand\ChromePage[1]{%
+  \TL{72.02}{45.6}{\BA{9.96}Due by2359 hours on 20260803}%
+  \TL{482.14}{45.6}{\BA{9.96}163 Exam 2A}%
+  \TL{72.02}{714.46}{\BAB{11.04}You may discuss and work with anyone}%
+  \TL{523.42}{714.46}{\CAL{11.04}#1}}
+
+\newenvironment{pdfpage}{\mbox{}\begin{tikzpicture}[remember picture,overlay]}%
+{\end{tikzpicture}\clearpage}
+
+
+% ======== answer layer (not yet used — placeholders reused from 1C) ========
+\newcommand\FOLIO[1]{\node[anchor=south east, draw, line width=0.5bp,
+  inner xsep=3bp, inner ysep=2bp]
+  at ($(current page.south east)+(-36bp,36bp)$) {\CMT{9.96}#1};}
+\newcommand\PLBL[3]{\node[anchor=north west, draw, line width=0.5bp,
+  inner xsep=2.5bp, inner ysep=2bp]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {\BA{9.5}#3};}
+\newcommand\CIRC[4]{\draw[line width=0.7bp]
+  ($(current page.north west)+(#1bp,-#2bp)$) ellipse [x radius=#3bp, y radius=#4bp];}
+\newcommand\DLINE[5]{\draw[line width=#5bp]
+  ($(current page.north west)+(#1bp,-#2bp)$) --
+  ($(current page.north west)+(#3bp,-#4bp)$);}
+\newcommand\worksheet[1]{\begin{pdfpage}\input{sheets/ws#1.tex}\FOLIO{#1}\end{pdfpage}}

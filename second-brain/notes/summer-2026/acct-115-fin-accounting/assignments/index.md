@@ -26,7 +26,7 @@
 | Yellowdig Cutoff #4 | Sun Aug 16 | ⬜ |
 | HW Ch. 11 | Sat Aug 22 @ 11:59pm | ⬜ |
 | Quiz 9 | Sun Aug 23 @ 11:59pm | ⬜ |
-| Excel Project | Fri Aug 21 | ⬜ |
+| [Excel Project](excel-project.md) | Fri Aug 21 | 🟨 draft built |
 | HW Ch. 12 | Sat Aug 29 @ 11:59pm | ⬜ |
 | Quiz 10 | Sun Aug 30 @ 11:59pm | ⬜ |
 | Yellowdig Cutoff #5 | Sun Aug 30 | ⬜ |

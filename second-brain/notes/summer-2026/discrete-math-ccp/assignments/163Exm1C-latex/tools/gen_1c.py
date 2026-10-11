@@ -129,7 +129,10 @@ print(f"1c: {n_fit}/{len(blocks)} blocks fit on printed page 308 "
       f"(last bottom={y:.1f}, limit={PAGE_BOTTOM})")
 
 lines308 = []
-lines308 += R(f"2{N_}({N_}+1)", SZ).emit(372, 174.38)
+# "Fill in the blank" is an inline continuation of the printed sentence
+# (A2: matches page303's s:=/b:= precedent) -- must match the printed
+# line's own size (14.04), not the SZ=11.04 work-area size used below.
+lines308 += R(f"2{N_}({N_}+1)", 14.04).emit(372, 174.38)
 for item in placements:
     if item[0] == 'label':
         _, label, x, top = item

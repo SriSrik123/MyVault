@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+\begin{document}
+
+\section{BFS pseudocode}
+
+\begin{verbatim}
+function BFS(graph, sourceVertex) {
+  for (u in graph.vertices) {
+    u.color = WHITE
+    u.d = infinity
+    u.p = NIL
+  }
+  sourceVertex.color = GRAY
+  sourceVertex.d = 0
+  Q = empty queue
+  enqueue(Q, sourceVertex)
+
+  while (!isEmpty(Q)) {
+    u = dequeue(Q)
+    for (neighbor in graph.adjacencyList[u]) {
+      if (neighbor.color == WHITE) {
+        neighbor.color = GRAY
+        neighbor.d = u.d + 1
+        neighbor.p = u
+        enqueue(Q, neighbor)
+      }
+    }
+    u.color = BLACK
+  }
+}
+\end{verbatim}
+
+\section{DFS pseudocode}
+
+\begin{verbatim}
+function DFS(graph) {
+  global time = 0 // global variable
+
+  for (u in graph.vertices) {
+    u.color = WHITE
+    u.p = NIL
+  }
+
+  for (u in graph.vertices) {
+    if (u.color == WHITE) {
+      DFSVisit(G, u)
+    }
+  }
+}
+
+function DFSVisit(graph, u) {
+  time++
+  u.d = time
+  u.color = GRAY
+
+  for (v in graph.adjacencyList[u]) {
+    if (v.color == WHITE) {
+      v.p = u
+      DFSVisit(graph, v)
+    }
+  }
+
+  u.color = BLACK
+  time++
+  u.f = time
+}
+\end{verbatim}
+
+\end{document}

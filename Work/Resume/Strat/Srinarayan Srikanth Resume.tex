@@ -1,0 +1,178 @@
+\documentclass[letterpaper,10.8pt]{article} % slightly smaller font
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Tighter margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.6in}
+\addtolength{\textwidth}{1.25in}
+\addtolength{\topmargin}{-.8in}
+\addtolength{\textheight}{2.2in}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+\pdfgentounicode=1
+
+% Custom commands with tighter spacing
+\newcommand{\resumeItem}[1]{
+  \item\small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resumeProjectHeading}[4]{
+  \vspace{-3pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+% Tighter lists
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}, itemsep=1pt]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=1pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\begin{document}
+
+\begin{center}
+    {\Huge \scshape Srinarayan Srikanth} \\ \vspace{1pt}
+    Princeton, NJ | Philadelphia, PA \\ \vspace{1pt}
+    \small \raisebox{-0.1\height}\faPhone\ 609-721-4494 ~ 
+    \href{mailto:Srinarayan.Srikanth@gmail.com}{\raisebox{-0.2\height}\faEnvelope\ \underline{Srinarayan.Srikanth@gmail.com}} ~ 
+    \href{https://www.linkedin.com/in/srinarayan-srikanth-bb2750259/}{\raisebox{-0.2\height}\faLinkedin\ \underline{LinkedIn}} ~
+    \href{https://srisrikanth.com/}{\raisebox{-0.2\height}\faGlobe\ \underline{Portfolio}} ~
+    \href{https://github.com/SriSrik123}{\raisebox{-0.2\height}\faGithub\ \underline{GitHub}} ~
+    \href{https://www.hackerrank.com/profile/hellosri2006}{\raisebox{-0.2\height}\faCode\ \underline{HackerRank}}
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------SUMMARY-----------
+\section{Summary}
+Computer Science student (Finance minor) who translates AI capabilities into business impact — presenting a RAG-based multi-agent platform to Comcast's C-suite, running UAT across executive and cross-functional user groups, and evaluating AI startups and partnerships. Comfortable bridging technical and business teams across the U.S. and India.
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Drexel University}{Estimated Graduation: June 2028}
+      {B.S. Computer Science, Minor in Finance}{Philadelphia, PA}
+      \resumeItemListStart
+        \resumeItem{A.J. Drexel Scholarship Recipient; Dean's List}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+  {Comcast Corporation}{Sept. 2025 -- Present}
+  {AI Strategy, Development \& Transformation Co-op}{Philadelphia, PA}
+  \resumeItemListStart
+  \resumeItem{Engineered a RAG-based multi-agent AI simulation platform to accelerate strategic decision-making, presenting capabilities directly to C-suite executives to drive enterprise-wide innovation and explore new ideas.}
+  \resumeItem{Led user acceptance testing (UAT) with executives and cross-functional business units, presenting live demos to audiences ranging from C-suite leaders to engineering teams and tailoring technical depth to each group's background to streamline adoption.}
+  \resumeItem{Spearheaded research into agentic commerce and emerging enterprise AI trends, representing the AI Strategy Development and Implementation team at industry conferences to benchmark external innovations.}
+  \resumeItem{Evaluated AI startups and partnerships to support go-to-market strategies, prototyping and demoing new technologies for potential deployment within the company's broader ecosystem.}
+\resumeItemListEnd
+
+
+    \resumeSubheading
+      {NeuralMetrics}{July 2025 -- Aug. 2025}
+      {AI Product Intern}{Chennai, India}
+      \resumeItemListStart
+        \resumeItem{Developed AI-driven intelligent code verification system integrated with Bitbucket \& Jira, reducing manual review effort by 50\%.}
+        \resumeItem{Built scalable FastAPI backend and AI-powered PDF extraction tool using OpenCV, Tesseract, Regex, PyMuPDF, LayoutParser.}
+        \resumeItem{Streamlined CI/CD with Jenkins, Docker, and AWS (Bedrock, ECS, Lambda, EC2).}
+        \resumeItem{Implemented AI Ops logging framework for monitoring model performance and anomaly detection.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {Personal AI Agent Orchestration System}{2025 -- Present Passion Project}
+      {Tech Stack: Claude Agent SDK, MCP, Python, Obsidian}{}
+      \resumeItemListStart
+        \resumeItem{Built a multi-agent system where a router agent assigns tasks to sub-agents for ETL, transcription, summarization, and memory management, running fully automated on a set schedule with no manual input.}
+        \resumeItem{Built a RAG pipeline over a 294-document personal knowledge base, improving retrieval accuracy \textasciitilde37\% over keyword lookup for agent context.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {Quantitative Market-Making Backtester with Live Paper Trading}{2026 Passion Project}
+      {Tech Stack: Python, C++, Alpaca API, Black-Scholes}{}
+      \resumeItemListStart
+        \resumeItem{Designed a market-making engine quoting both sides of the order book — widening spreads under volatility and skewing quotes to revert inventory risk — validated on rolling out-of-sample windows; achieved positive risk-adjusted returns (Sharpe ratio, max drawdown, VaR).}
+        \resumeItem{Extended with Black-Scholes options pricing and a delta-hedging module, unifying equities and options under the same inventory risk framework; wired to Alpaca's live paper trading API for real-time simulated execution.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \small{\item{
+     \textbf{Microsoft} – Azure AI Essentials Professional Certificate \\
+     \textbf{IIT (Mar 2024–Mar 2025)} – Full Stack Web Development \\
+     \textbf{LinkedIn Learning} – Prompt Engineering, JIRA, Agile Software Development, Foundations in AI \\
+     \textbf{DeepLearning.AI} – AI with Python \\
+     \textbf{HackerRank} – Java, Python, React.js, CSS, Frontend Developer, Software Engineer, Problem Solving
+    }}
+ \end{itemize}
+
+%-----------SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \small{\item{
+     \textbf{Languages \& Frameworks}{: Python, Java, SQL, JavaScript/TypeScript, React, Flask, FastAPI, Supabase, Firebase} \\
+     \textbf{Cloud \& AI/ML}{: AWS (Bedrock, Lambda, ECS), Azure (AI Foundry), PyTorch, OpenCV, NLP, Gemini, OpenAI, Llama} \\
+     \textbf{AI Agents}{: Claude Agent SDK, MCP, RAG, intfloat/E5 Embeddings, JSON Schema, Cron} \\
+     \textbf{Other}{: Final Cut Pro X, FAA-Certified Drone Pilot}
+    }}
+ \end{itemize}
+
+%-----------EXTRACURRICULAR-----------
+%-----------EXTRACURRICULAR-----------
+\section{American National Team Swimmer}
+ \begin{itemize}[leftmargin=0.15in, label={}, itemsep=1pt]
+    \small{\item{
+     Captain - PTAC Swim Club; won 20+ gold medals at state and regional meets. (2016–2024)
+    }}
+ \end{itemize}
+
+\end{document}

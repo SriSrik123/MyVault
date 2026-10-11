@@ -1,88 +1,82 @@
 <claude-mem-context>
 # Memory Context
 
-# [MyVault] recent context, 2026-05-20 12:05am EDT
+# [MyVault] recent context, 2026-10-09 3:01pm EDT
 
 Legend: 🎯session 🔴bugfix 🟣feature 🔄refactor ✅change 🔵discovery ⚖️decision 🚨security_alert 🔐security_note
 Format: ID TIME TYPE TITLE
 Fetch details: get_observations([IDs]) | Search: mem-search skill
 
-Stats: 50 obs (16,135t read) | 650,062t work | 98% savings
+Stats: 50 obs (15,072t read) | 675,132t work | 98% savings
 
-### May 5, 2026
-50 8:02a 🟣 Morning Briefing Auto-Generated for May 5, 2026
-51 " 🟣 Morning Briefing Auto-Generated for May 5, 2026
-52 10:02a 🔵 Unsorted Notes Contain Unreadable UTF-16 Voice Transcription Files
-### May 6, 2026
-53 8:05a 🔵 TODO.md State — Week of May 4–10, 2026
-54 8:06a 🟣 Morning Briefing Auto-Generated for May 6, 2026
-### May 7, 2026
-55 12:20a 🔵 Unsorted Notes Folder Contains Two Voice Transcript Files
-56 8:01a 🟣 Morning Briefing Auto-Generated for May 7, 2026
-57 8:02a 🔵 Morning Briefing — May 7, 2026 Calendar Data
-58 " 🟣 Morning Briefing Written — May 7, 2026
-### May 8, 2026
-59 8:15a 🟣 Morning Briefing Auto-Generated for May 8, 2026
-60 " 🟣 Morning Briefing Auto-Generated for May 8, 2026
-61 " 🟣 Morning Briefing Auto-Generated for May 8, 2026
-### May 9, 2026
-94 12:22a ✅ Nightly Notes Sorter Scheduled Task Triggered
-95 8:14a 🟣 Morning Briefing Scheduled Task — Auto-Run for 2026-05-09
-96 8:30a ✅ Morning Briefing Scheduled Task Triggered — May 9, 2026
-### May 10, 2026
-97 8:11a 🔵 TODO.md Fully Cleared — All Tasks Complete as of May 10, 2026
-98 8:26a ✅ Morning Briefing Auto-Generated for May 10, 2026
-### May 11, 2026
-99 12:05a 🔵 Weekly TODO Refresh — Assignments Due May 12–17 Identified
-### May 12, 2026
-100 10:07a 🟣 Morning Briefing Generated — Tuesday May 12, 2026
-101 12:11p 🔵 Weekly TODO Refresh — Current State of TODO.md and Assignment Files (May 12)
-102 2:39p ✅ TODO.md Reorganized — CS-265 Tasks Moved to Active Academics
-### May 13, 2026
-103 8:05a ✅ Morning Briefing Scheduled Task Triggered — May 13, 2026
-104 8:06a 🔵 Sri's Academic TODO State — Week of May 13, 2026
-105 4:49p ✅ TODO.md Update Request — COM Presentation + Math Quiz + Truncated Item
-106 " 🔵 TODO.md Current State — Bug Found + Missing Tasks Confirmed
-### May 14, 2026
-111 8:11a 🟣 Morning Briefing Scheduled Task Triggered — May 14, 2026
-112 8:43a 🟣 Morning Briefing Auto-Generated for May 14, 2026
-S95 CS-270 Course Project UML Diagram — Task Initiated (May 14 at 8:43 AM)
-117 12:14p 🟣 CS-270 UML Diagram Request — Course Project
-118 " 🟣 CS-270 Course Project UML Diagram — Task Initiated
-S96 SE-201 BankSystem UML diagram updated to match actual source code — global variables and methods added per file (May 14 at 12:14 PM)
-119 12:21p 🔵 SE-201 BankSystem Java Project — Full Codebase Structure Mapped
-S97 SE-201 BankSystem UML Diagram — Major Expansion for Full Project Architecture (May 14 at 12:22 PM)
-120 12:41p ✅ SE-201 BankSystem UML Diagram — Major Expansion for Full Project Architecture
-S98 SE-201 BankSystem UML Class Diagram — Full Structure Mapped (May 14 at 12:41 PM)
-121 1:17p 🔵 SE-201 BankSystem UML Class Diagram — Full Structure Mapped
-S108 PHYS-102 Withdrawal Persisted to Claude Project Memory (May 14 at 1:17 PM)
-122 1:19p 🟣 UML Class Diagram Generated for Banking System (SE-201)
-### May 15, 2026
-150 8:03a 🟣 Morning Briefing Auto-Generated for May 15, 2026
-152 2:35p ✅ PHYS-102 Withdrawal — TODO.md and Vault Updated
-153 " ✅ PHYS-102 Active Todos Removed from TODO.md
-155 2:36p ✅ PHYS-102 Withdrawal Recorded in Semester Context and TODO Archive
-156 " ✅ PHYS-102 Weekly Schedule and Exam Dates Struck from semester-spring-2026.md
-157 " ✅ PHYS-102 Withdrawal Persisted to Claude Project Memory
-S110 PHYS-102 Withdrawal — Remove all physics todos and mark course as withdrawn across vault (May 15 at 2:36 PM)
-S112 Morning Briefing Scheduled Task — May 16, 2026 (Friday) (May 15 at 2:36 PM)
-### May 16, 2026
-158 8:11a 🟣 Morning Briefing Auto-Generated for May 16, 2026
-159 8:12a 🟣 Morning Briefing Auto-Generated for May 16, 2026
-160 " 🟣 Morning Briefing Scheduled Task — May 16, 2026 (Friday)
-S113 Morning Briefing Auto-Generated for May 18, 2026 (May 16 at 8:12 AM)
-### May 18, 2026
-161 12:59p 🔵 TODO.md State Audit — May 18, 2026 Morning Briefing
-162 " 🔵 Morning Briefing — May 18 Calendar Data Pulled
-163 1:00p 🟣 Morning Briefing Auto-Generated for May 18, 2026
-S114 Nightly Notes Sorter — Automated scheduled task run for 2026-05-19 (May 18 at 1:00 PM)
-### May 19, 2026
-164 8:08a 🟣 Morning Briefing Auto-Generated for May 19, 2026
-165 8:09a 🟣 Morning Briefing Auto-Generated for May 19, 2026
-S115 Morning Briefing Auto-Generated for May 19, 2026 (May 19 at 8:09 AM)
-204 10:33p 🔵 Git Submodule Error — whoop-mcp-server Not Checked Out
-205 10:52p 🟣 Git Sync Automation — Nightly Vault Push to GitHub
-206 " 🟣 Nightly Vault Git Sync Automation Requested
+### Aug 9, 2026
+768 2:30p ✅ Skills Docs Split Into Strat and SWE Variants
+769 2:31p 🔵 Strat Resume LaTeX Source — Full Content Mapped
+771 " ✅ Version Control Section Removed from Strat Resume
+772 " 🟣 SWE Resume File Created from Strat Base
+773 " 🟣 SWE Resume — AI Orchestration Project Bullets Expanded with Implementation Depth
+774 2:32p 🔵 SWE Resume Overflows to 2 Pages After Expanded Bullets
+776 2:34p ✅ Resume Updated — Finance Minor Added, Strategy Version Technical Skills Trimmed
+777 " ✅ Finance Minor Added to Both Resume Variants (LaTeX)
+779 2:35p ✅ Resume Updated: Added AI Agents Skills Row
+781 2:36p ✅ Strat Resume Updated: AI Agents Skills Row Added
+782 " 🔵 SWE Resume Overflows to 2 Pages After AI Agents Row Addition
+783 2:38p ✅ Resume SWE Experience Section Made More Technical
+786 2:45p ✅ Resume (Strat version) updated with RAG, UAT, and exec testing bullet points
+787 4:36p ✅ SWE resume updated with UAT, executive demos, and cross-functional user group testing
+S635 Add Drexel Dean's List to both resume variants — Strat and SWE LaTeX resumes updated and rebuilt (Aug 9 at 4:37 PM)
+789 4:59p ✅ Added Dean's List to Drexel Education Entry in LaTeX Resume
+790 " ✅ Dean's List Added to Both Resume Variants and PDFs Rebuilt
+792 5:00p ✅ Resume Summary Sections Differentiated by Target Role
+S636 Add Drexel Dean's List to both resumes — completed, then both Summary sections also rewritten to differentiate Strat vs SWE positioning (Aug 9 at 5:00 PM)
+S639 Documented Comcast RAG-based Multi-Agent Simulation Platform in SWE Resume (Aug 9 at 5:01 PM)
+S640 Identify the font being used in Sri's LaTeX resume (Aug 9 at 5:01 PM)
+S643 Nightly Notes Sorter — Automated Scheduled Run on August 10, 2026 (Aug 9 at 5:08 PM)
+### Aug 10, 2026
+S663 Nightly Notes Sorter — Automated Scheduled Run (Aug 13, 2026) (Aug 10 at 12:16 AM)
+### Aug 13, 2026
+S669 Nightly Notes Sorter — Automated scheduled task run on Aug 15, 2026 (Aug 13 at 12:16 AM)
+### Aug 14, 2026
+819 11:18a 🟣 Math 163 Exam 2C — LaTeX Completion Initiated from Solution PDFs
+820 " 🟣 Math 163 Exam 2C — Full Completion Initiated from Solution PDFs
+821 11:19a 🟣 Math 163 Exam 2C — LaTeX Completion Initiated from Solution PDFs
+822 " 🟣 Math 163 Exam 2C — LaTeX Completion Initiated from Solution PDFs
+823 11:20a 🟣 Math 163 Exam 2C — PDF-to-LaTeX Completion Task Initiated
+824 11:21a 🟣 Math 163 Exam 2C — LaTeX Typesetting Task Initiated
+825 " 🟣 Math 163 Exam 2C — Completion Task Initiated with Strict Formatting Requirements
+826 11:22a 🟣 Math 163 Exam 2C — LaTeX Typesetting Initiated from Solution PDFs
+827 11:23a 🟣 Math 163 Exam 2C — LaTeX Completion Initiated from Solution PDFs
+828 " 🟣 Math 163 Exam 2C — LaTeX Completion Initiated from Solution PDFs
+829 11:24a 🟣 Math 163 Exam 2C — LaTeX Typesetting Task Initiated from Solution PDFs
+### Aug 15, 2026
+S670 Nightly Notes Sorter — Automated scheduled run on Aug 16, 2026 (Aug 15 at 12:16 AM)
+### Aug 16, 2026
+S692 PDF Page Reordering — ilovepdf_merged.pdf Sorted by Printed Page Numbers (Aug 16 at 12:16 AM)
+### Aug 18, 2026
+838 1:49p 🟣 Math 163 Problem Set — PDF-to-LaTeX Generation Initiated
+839 1:52p 🟣 Math 163 Problem Set — PDF-to-LaTeX Completion Initiated
+840 " 🟣 Math 163 Problem Set — PDF-to-LaTeX Completion Initiated
+841 " 🟣 Math 163 Problem Set — PDF-Based Completion Initiated
+842 1:53p 🟣 Math 163 Problem Set — PDF-Based Completion Initiated
+843 " 🟣 Math 163 Problem Set — Initiated from PDF with Prior Exam Format
+844 " 🔵 Math 163 Sets Notes — Source Document Structure and Topic Coverage Confirmed
+845 1:54p 🔵 Math 163 Logic Notes PDF — Structure and Content Mapped (25 Pages, Three Parallel Algebras)
+846 " 🔵 Math 163 Exam Format Rules — Truth Table Method and Homework Problem Structure Confirmed
+847 " 🔵 Math 163 Logic Notes — DNF Algorithm and Reference Tables Fully Mapped
+848 1:55p 🔵 Math 163 Logic Notes — Full Content Scan Complete, All Proof Methods and Notation Documented
+849 " 🔵 Math 163 Induction Notes — 34-Page Document Scanned, Proof Structure and Arithmetic Progression Theorems Confirmed
+850 1:56p 🔵 Math 163 Induction Notes — Arithmetic Section Covers Recurrent Decimals and Rationality Proofs
+851 " 🔵 Math 163 Induction Notes — Conjecture Formulation Methods and Equational Logic Rules Documented
+852 " 🔵 Math 163 Induction Notes — Second-Order Recurrence Formulas and √2 Irrationality Proof Format Confirmed as Exam Material
+853 1:59p 🟣 Math 163 Problem Set — LaTeX Completion Task Initiated from PDF
+854 2:00p 🟣 Math 163 Problem Set — Solution Generation Phase Initiated
+855 2:02p 🟣 Math 163 Problem Set — LaTeX Completion Initiated from 163ProblemSet.pdf
+856 10:31p 🔵 ilovepdf_merged.pdf — 40 Pages Confirmed, Minor PDF Structural Warnings
+857 " 🟣 PDF Page Reordering — ilovepdf_merged.pdf Sorted by Printed Page Numbers
+### Sep 18, 2026
+923 12:08p ✅ Resume Both Variants — Executive Presentation Bullet Added to Comcast Experience
+924 " ✅ Resume Both Variants — Comcast Executive Presentation Bullet Added
+S750 Resume Both Variants — Comcast Executive Presentation Bullet Added (Sep 18 at 12:08 PM)
 
-Access 650k tokens of past work via get_observations([IDs]) or mem-search skill.
+Access 675k tokens of past work via get_observations([IDs]) or mem-search skill.
 </claude-mem-context>

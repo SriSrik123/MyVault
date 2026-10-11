@@ -1,0 +1,23 @@
+% 163 Exam 2A — blank pixel-faithful replica (printed pages only, 32 pp)
+% Build: xelatex main.tex (x2). See preamble.tex for macros.
+\input{preamble}
+\begin{document}
+\makeatletter
+\newcommand\dopage[1]{\begin{pdfpage}\input{pages/page#1.tex}%
+\IfFileExists{pages/rules#1.tex}{\input{pages/rules#1.tex}}{}%
+\IfFileExists{pages/answers#1.tex}{\input{pages/answers#1.tex}}{}\end{pdfpage}}
+\makeatother
+\dopage{400}\dopage{401}\dopage{402}\dopage{403}
+\dopage{404}\worksheet{4040}\worksheet{4041}\worksheet{4042}
+\dopage{405}\worksheet{4050}\worksheet{4051}
+\dopage{406}
+\dopage{407}\dopage{408}\dopage{409}\dopage{410}\worksheet{4100}\worksheet{4101}
+\dopage{411}
+\dopage{412}\dopage{413}\dopage{414}\dopage{415}\dopage{416}\dopage{417}
+\worksheet{4170}\worksheet{4171}
+\dopage{418}\dopage{419}\dopage{420}\worksheet{4180}\worksheet{4181}
+\dopage{421}\dopage{422}\dopage{423}
+\dopage{424}\dopage{425}\worksheet{4250}
+\dopage{426}\dopage{427}\worksheet{4260}\dopage{428}\dopage{429}
+\dopage{430}\dopage{431}
+\end{document}

@@ -1,35 +1,73 @@
 ---
 
 kanban-plugin: board
-last-updated: 2026-07-26
+last-updated: 2026-09-07
 
 ---
 
-## 📚 Academics
+## To Do
 
-- [ ] **MATH-163 Assignment** — due every **Mon night** (recurring) · due **Mon Jul 27** · [[second-brain/notes/summer-2026/discrete-math-ccp/assignments|assignments]]
-- [ ] **CS-260 Midterm** — Estimated, unconfirmed exact date/format · ~**Mon Jul 27** · [[second-brain/notes/summer-2026/data-structures/exams|exams]]
-- [ ] **INFO-102 DB3 Part 1** — due **Thu Jul 30 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **INFO-102 DB3 Part 2** — due **Sun Aug 2 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **INFO-102 Term Project Proposal** — due **Sun Aug 2 @ 11:59PM** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
-- [ ] **ACCT-115 Yellowdig Cutoff #3** — due **Sun Aug 2** · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+**— Week 12 (Sep 7–13) —**
+- [ ] **MATH-163 Assignment** — due every **Mon night** (recurring) · due **Mon Sep 7** · ⚠️ note: no assignments/index.md exists for MATH-163/INFO-102/Systems Programming/Techniques of Speaking to confirm this is still active — verify on Canvas/Blackboard. No other course files (CS-260, ACCT-115) list any items due Sep 7–13; ACCT-115's Exam 3/Final (Sep 4) was its last listed item, so that course may be finished. · [[second-brain/notes/summer-2026/discrete-math-ccp/assignments|assignments]]
 
+**— Week 8 (Aug 10–16) —**
+- [ ] **INFO-102 Term Project Slides** — draft deck built 2026-08-13 (Barriers to Health Information Data Exchange), review before submitting · due, exact date TBD (Week 8) · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments/term-project/INFO102_Presentation.pptx|slides]]
+
+**— Weeks 7–10 (Aug 3–30) —**
+- [ ] **CS-260 Coding Interview** — 1hr in-person mock · window **Weeks 7–10**, exact date TBD · [[second-brain/notes/summer-2026/data-structures/exams|exams]]
+
+**— Weeks 9–10 (Aug 17–30) —**
+- [ ] **INFO-102 Term Project Presentation** — live, window **Weeks 9–10** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [ ] **INFO-102 Final Exam** — open book, covers Weeks 6–9 · window **Weeks 9–10** · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [ ] **INFO-102 Policy Brief (final paper)** — draft written 2026-08-13, 1,200+ word body, review before submitting · due Week 10 (likely overdue, confirm status) · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments/term-project/INFO102_Policy_Brief.docx|policy brief]]
+
+**— Week 10 (Aug 24–30) —**
+- [ ] **MATH-163 Assignment** — due every **Mon night** (recurring) · ⚠️ overdue, was due **Mon Aug 24** · [[second-brain/notes/summer-2026/discrete-math-ccp/assignments|assignments]]
+- [ ] **CS-260 PA5** — Estimated, unconfirmed on Canvas/Gradescope · ⚠️ overdue, was due **Fri Aug 28** · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
+- [ ] **ACCT-115 HW Ch. 12** — ⚠️ overdue, was due **Sat Aug 29 @ 11:59pm** · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [ ] **ACCT-115 Quiz 10** — ⚠️ overdue, was due **Sun Aug 30 @ 11:59pm** · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [ ] **ACCT-115 Yellowdig Cutoff #5** — ⚠️ overdue, was due **Sun Aug 30** · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
 
 ## Done not submitted
 
 
 
-## ✅ Done
+## Done This Week
 
-- [ ] **CS-260 PA3** — Estimated, unconfirmed on Canvas/Gradescope · due **Fri Jul 31** · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
-- [ ] **ACCT-115 HW Ch. 8** — due **Sat Aug 1 @ 11:59pm** · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
-- [ ] **ACCT-115 Quiz 6** — due **Sun Aug 2 @ 11:59pm** · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+**Complete**
 
 
 ***
 
 ## Archive
 
+- [x] **ACCT-115 Excel Project** (100 pts / 40% of final grade) — draft deck built, swap in real partner names before submitting · was due **Fri Aug 21** · *(2026-08-31)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments/excel-project|excel-project]]
+- [x] **ACCT-115 Exam 3 / Final** (Ch. 9–12) — due **Fri Sep 4** · *(2026-08-31)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **INFO-102 Term Project Final Report** — due **Week 11/Finals (~Sun Aug 31 @ 11:59PM)** · *(2026-08-31)* · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments/term-project/INFO102_Policy_Brief.docx|term project]]
+- [x] **MATH-163 Assignment** — due every **Mon night** (recurring) · due **Mon Aug 31** · *(2026-08-31)* · [[second-brain/notes/summer-2026/discrete-math-ccp/assignments|assignments]]
+- [x] **ACCT-115 Quiz 8** — due **Sun Aug 16 @ 11:59pm** · *(2026-08-16)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **INFO-102 DB4 Part 2** — due **Sun Aug 16 @ 11:59PM** · *(2026-08-16)* · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [x] **INFO-102 DB4 Part 1** — due **Thu Aug 13 @ 11:59PM** · *(2026-08-16)* · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [x] **CS-260 PA4** — Estimated, unconfirmed on Canvas/Gradescope · due **Fri Aug 14** · *(2026-08-16)* · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
+- [x] **MATH-163 Assignment** — due every **Mon night** (recurring) · due **Mon Aug 10** · *(2026-08-16)* · [[second-brain/notes/summer-2026/discrete-math-ccp/assignments|assignments]]
+- [x] **CS-260 Lecture Notes Wk 8** — handwrite + photo to Gradescope (Mon Aug 10 & Thu Aug 13 classes) · *(2026-08-16)* · [[second-brain/notes/summer-2026/data-structures/lectures|lectures]]
+- [x] **ACCT-115 HW Ch. 10** — due **Sat Aug 15 @ 11:59pm** · *(2026-08-16)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 Yellowdig Cutoff #4** — due **Sun Aug 16** · *(2026-08-16)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 Quiz 7** — due **Sun Aug 9 @ 11:59pm** · *(2026-08-09)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **INFO-102 HW2** — due **Sun Aug 9 @ 11:59PM** · *(2026-08-09)* · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [x] **CS-260 Lecture Notes Wk 7** — handwrite + photo to Gradescope (Mon Aug 3 & Thu Aug 6 classes) · *(2026-08-09)* · [[second-brain/notes/summer-2026/data-structures/lectures|lectures]]
+- [x] **ACCT-115 Exam 2** (Ch. 6–8) — due **Fri Aug 7** · *(2026-08-09)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 HW Ch. 9** — due **Sat Aug 8 @ 11:59pm** · *(2026-08-09)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **MATH-163 Exam 2A** — individually-seeded, 32pp, 9 sub-problems (51 pts) · due **Mon Aug 3, 11:59 PM** · *(2026-08-07)* · [[second-brain/notes/summer-2026/discrete-math-ccp/assignments|assignments]]
+- [x] **INFO-102 DB3 Part 1** — due **Thu Jul 30 @ 11:59PM** · *(2026-08-03)* · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [x] **INFO-102 DB3 Part 2** — due **Sun Aug 2 @ 11:59PM** · *(2026-08-03)* · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [x] **INFO-102 Term Project Proposal** — due **Sun Aug 2 @ 11:59PM** · *(2026-08-03)* · [[second-brain/notes/summer-2026/info-102-intro-info-systems/assignments|assignments]]
+- [x] **ACCT-115 Yellowdig Cutoff #3** — due **Sun Aug 2** · *(2026-08-03)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 Excel Project** (100 pts / 40% of final grade) · draft deck built 2026-07-28, swap in real partner names before submitting · due **Fri Aug 21** · *(2026-08-03)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments/excel-project|excel-project]]
+- [x] **CS-260 Midterm** — Estimated, unconfirmed exact date/format · ~**Mon Jul 27** · *(2026-08-03)* · [[second-brain/notes/summer-2026/data-structures/exams|exams]]
+- [x] **CS-260 PA3** — Estimated, unconfirmed on Canvas/Gradescope · due **Fri Jul 31** · *(2026-08-03)* · [[second-brain/notes/summer-2026/data-structures/assignments|assignments]]
+- [x] **ACCT-115 HW Ch. 8** — due **Sat Aug 1 @ 11:59pm** · *(2026-08-03)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
+- [x] **ACCT-115 Quiz 6** — due **Sun Aug 2 @ 11:59pm** · *(2026-08-03)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
 - [x] **ACCT-115 HW Ch. 7** — due **Sat Jul 25 @ 11:59pm** · *(2026-07-26)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
 - [x] **ACCT-115 Quiz 5** — due **Sun Jul 26 @ 11:59pm** · *(2026-07-26)* · [[second-brain/notes/summer-2026/acct-115-fin-accounting/assignments|assignments]]
 - [x] **CS-260 Lecture Notes Wk 5 (Mon)** — handwrite + photo to Gradescope · due **Mon Jul 20 night** · *(2026-07-26)* · [[second-brain/notes/summer-2026/data-structures/lectures|lectures]]

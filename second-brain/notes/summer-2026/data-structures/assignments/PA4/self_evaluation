@@ -1,0 +1,5 @@
+(a) I spent approximately 5 hours on this assignment.
+
+(b) The hardest part for me was building the Huffman encoding correctly. Getting the priority queue, tree construction, and code table generation to all work together in C took careful attention — especially managing the bit manipulation for writing encoded output. C's lack of built-in data structures made it harder for me to do code it correctly.
+
+(c) After the assignment I got a better understanding of Huffman coding end-to-end — from frequency counting to tree traversal to binary encoding. I also feel like I am getting better at C syntax overall; it is starting to feel more natural.

@@ -1,5 +1,5 @@
 # 🏠 Housing Tracker — 3401 Hamilton St #2, Philadelphia
-**Last Updated:** 2026-05-08
+**Last Updated:** 2026-08-22
 
 ---
 
@@ -27,9 +27,9 @@
 | Neven Zurcher | nevzurcher@gmail.com |
 | Soham Deshmukh | sohamdeshmukh@gmail.com |
 | Abheek Shrestha | as6248@drexel.edu |
-| **6th Roommate** | TBD — will be added to lease before move-in |
+| **Pranav Arora** (6th) | pranav.arora2209@gmail.com |
 
-> ⚠️ **6th Roommate Note:** Lease allows up to 6 occupants. When adding the 6th person, Landlord needs written notice with their full name, email, and co-signer info. 6th person does NOT reduce total rent — all tenants remain jointly responsible.
+> ✅ **6th Roommate Note:** Pranav Arora is officially added — lease addendum completed, so his written notice/co-signer paperwork with the Landlord is done. 6th person does NOT reduce total rent — all tenants remain jointly responsible.
 
 ### Co-Signers / Guarantors
 | Co-Signer | Email |
@@ -82,9 +82,12 @@
 | # | Date | Amount | Paid By | Description | Status |
 |---|------|--------|---------|-------------|--------|
 | 1 | 2026-05-08 | $2,700 | Sri | Share of move-in costs ($13,500 ÷ 5 people) | ✅ Paid |
+| 2 | 2026-08-22 | $2,250 | Sri & Adi (split) | Covered Abheek's 3 months of rent at $750/month — Abheek owes this back | 🔴 Owed by Abheek |
+| 3 | 2026-08-22 | $2,250 total ($450 each) | Pranav Arora | Paid back $450 to each of the 5 (Sri, Aditya, Neven, Soham, Abheek) — the 5-way/6-way split difference | ✅ Paid |
 
 **Running total paid:** $2,700 / $2,700 (Sri's share of move-in)
-**6th person owes Sri:** $450 (difference between 5-way and 6-way split: $2,700 − $2,250)
+**6th person owed everyone:** ~~$450 each~~ ✅ Paid — Pranav paid $450 to each of the 5 original payers
+**Abheek owes Sri & Adi:** 3 months' rent at $750/month = $2,250 total (~$1,125 each) — the only thing still outstanding
 
 ---
 

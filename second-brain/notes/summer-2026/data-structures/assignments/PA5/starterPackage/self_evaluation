@@ -1,0 +1,5 @@
+(a) I spent approximately 6 hours on this assignment.
+
+(b) The most challenging aspect of this assignment was getting the solver to run within the time limit. My initial BFS implementation exceeded the runtime on   every test case, and I had to rethink the memory strategy — switching from per-node malloc calls to a flat pre-allocated array for board states. Tracking down why the runtime was blowing up took most of my debugging time.
+
+(c) Completing this assignment gave me a significantly deeper understanding of how memory allocation patterns affect performance in C. The difference between allocating memory once upfront versus inside a loop was the key insight that finally got my solution under the time limit.

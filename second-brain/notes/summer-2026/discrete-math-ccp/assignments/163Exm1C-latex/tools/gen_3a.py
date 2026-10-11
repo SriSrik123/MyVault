@@ -144,26 +144,31 @@ lines316 = []
 lines316 += R(str(s_val), SZ).emit(200, 135.38)
 lines316 += R(str(b_val), SZ).emit(273, 135.38)
 lines316 += R(str(n_val), SZ).emit(370, 135.38)
+# The symbolic "b+s"/"s+b" exponent fill is 3 glyphs, not 1 -- the default
+# inset=3.2 (tuned for single-numeral fills) starves it down to the sz>4.0
+# floor, rendering as an illegible speck. SOL-2024's own fill runs nearly
+# edge-to-edge in that bracket (verified by direct pixel comparison against
+# the solved sample); inset=0.2 lets the shrink-loop land near sz~7, matching.
 # (i): gaps at y=205.70, sz 9.96
-lines316 += centered(f"{B_}+{SS}", 9.96, 219.65, 232.85, 205.70)
+lines316 += centered(f"{B_}+{SS}", 9.96, 219.65, 232.85, 205.70, inset=0.2)
 lines316 += centered(str(b_val), 9.96, 341.35, 354.55, 205.70)
 lines316 += centered(str(s_val), 9.96, 367.87, 381.07, 205.70)
 lines316 += centered(str(n_val), 9.96, 435.43, 448.66, 205.70)
 lines316 += binom(str(n_val), str(s_val), sz=SZ).emit(490, 214)
 # (ii): gaps at y=296.93, sz 9.96
-lines316 += centered(f"{SS}+{B_}", 9.96, 219.65, 232.85, 296.93)
+lines316 += centered(f"{SS}+{B_}", 9.96, 219.65, 232.85, 296.93, inset=0.2)
 lines316 += centered(str(s_val), 9.96, 341.35, 354.55, 296.93)
 lines316 += centered(str(b_val), 9.96, 367.87, 381.07, 296.93)
 lines316 += centered(str(n_val), 9.96, 435.43, 448.66, 296.93)
 lines316 += binom(str(n_val), str(b_val), sz=SZ).emit(490, 305.5)
 # (iii): gaps at y=386.45, sz 9
-lines316 += centered(f"{B_}+{SS}", 9, 220.49, 232.49, 386.45)
+lines316 += centered(f"{B_}+{SS}", 9, 220.49, 232.49, 386.45, inset=0.2)
 lines316 += centered(str(b_val), 9, 344.71, 356.71, 386.45)
 lines316 += centered(str(s_val), 9, 368.95, 380.95, 386.45)
 lines316 += centered(str(n_val), 9, 431.11, 443.14, 386.45)
 lines316 += mltnom(str(n_val), [str(b_val), str(s_val)], sz=SZ).emit(470, 394)
 # (iv): gaps at y=473.71, sz 9
-lines316 += centered(f"{SS}+{B_}", 9, 220.49, 232.49, 473.71)
+lines316 += centered(f"{SS}+{B_}", 9, 220.49, 232.49, 473.71, inset=0.2)
 lines316 += centered(str(s_val), 9, 344.71, 356.71, 473.71)
 lines316 += centered(str(b_val), 9, 368.95, 380.95, 473.71)
 lines316 += centered(str(n_val), 9, 431.11, 443.14, 473.71)

@@ -1,0 +1,5 @@
+(a) I spent approximately 3 hours on this assignment.
+
+(b) The hardest part was working in C. The algorithms themselves were straightforward enough, but C's manual memory management, pointer arithmetic, and string handling always require more careful attention than higher-level languages. That said, I am getting more comfortable with it over time.
+
+(c) I came away with a more intuitive understanding of hash tables — how collisions are handled, how the table size affects performance, and how to think about the tradeoffs involved when designing one from scratch.

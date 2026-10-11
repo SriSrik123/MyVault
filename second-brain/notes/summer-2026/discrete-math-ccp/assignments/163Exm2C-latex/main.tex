@@ -1,0 +1,43 @@
+% 163 Exam 2C — pixel-faithful replica + answer layer (24 printed pp + worksheets)
+% Build: xelatex main.tex (x2). See preamble.tex for macros.
+% NOTE: \worksheet has no \IfFileExists guard -- only add a \worksheet{N} line
+% once sheets/wsN.tex actually exists, or the build hard-errors.
+\input{preamble}
+\begin{document}
+\makeatletter
+\newcommand\dopage[1]{\begin{pdfpage}\input{pages/page#1.tex}%
+\IfFileExists{pages/rules#1.tex}{\input{pages/rules#1.tex}}{}%
+\IfFileExists{pages/answers#1.tex}{\input{pages/answers#1.tex}}{}\end{pdfpage}}
+\makeatother
+\dopage{600}\dopage{601}\dopage{602}\dopage{603}\dopage{604}
+\dopage{605}\dopage{606}\dopage{607}
+\IfFileExists{sheets/ws6060.tex}{\worksheet{6060}}{}
+\dopage{608}
+\dopage{609}
+\IfFileExists{sheets/ws6080.tex}{\worksheet{6080}}{}
+\IfFileExists{sheets/ws6081.tex}{\worksheet{6081}}{}
+\dopage{610}
+\dopage{611}
+\IfFileExists{sheets/ws6100.tex}{\worksheet{6100}}{}
+\dopage{612}
+\IfFileExists{sheets/ws6120.tex}{\worksheet{6120}}{}
+\IfFileExists{sheets/ws6121.tex}{\worksheet{6121}}{}
+\dopage{613}
+\dopage{614}
+\IfFileExists{sheets/ws6140.tex}{\worksheet{6140}}{}
+\IfFileExists{sheets/ws6141.tex}{\worksheet{6141}}{}
+\dopage{615}
+\dopage{616}
+\IfFileExists{sheets/ws6160.tex}{\worksheet{6160}}{}
+\IfFileExists{sheets/ws6161.tex}{\worksheet{6161}}{}
+\IfFileExists{sheets/ws6162.tex}{\worksheet{6162}}{}
+\dopage{617}
+\dopage{618}
+\dopage{619}
+\IfFileExists{sheets/ws6180.tex}{\worksheet{6180}}{}
+\IfFileExists{sheets/ws6181.tex}{\worksheet{6181}}{}
+\dopage{620}
+\IfFileExists{sheets/ws6200.tex}{\worksheet{6200}}{}
+\dopage{621}
+\dopage{622}\dopage{623}
+\end{document}

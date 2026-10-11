@@ -1,0 +1,47 @@
+% Worksheet-layer preamble — 163 Problem Set (compiled with xelatex, 2 passes)
+% US Letter (matches 163ProblemSet.pdf source), coordinates in bp from top-left.
+\documentclass{article}
+\usepackage[paperwidth=612bp,paperheight=792bp,margin=0bp]{geometry}
+\usepackage{amsmath}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\newfontfamily\MathFont[Path=./fonts/]{STIXTwoMath-Regular.otf}
+\newfontfamily\TextFont[Path=./fonts/]{STIXTwoText-Regular.otf}
+\newfontfamily\TextBoldFont[Path=./fonts/]{STIXTwoText-Bold.otf}
+\setmathfont[Path=./fonts/]{STIXTwoMath-Regular.otf}
+
+\pagestyle{empty}
+\setlength\parindent{0pt}
+
+\newcommand\fsz[1]{\fontsize{#1bp}{#1bp}\selectfont}
+\newcommand\BA[1]{\TextFont\fsz{#1}}
+\newcommand\BAB[1]{\TextBoldFont\fsz{#1}}
+\newcommand\CMT[1]{\MathFont\fsz{#1}}
+
+% ---- placement macros (coordinates in bp from page top-left) ----
+\newcommand\TL[3]{\node[anchor=base west,inner sep=0pt,outer sep=0pt]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {#3};}
+\newcommand\RECT[4]{\fill ($(current page.north west)+(#1bp,-#2bp)$)
+  rectangle ($(current page.north west)+(#3bp,-#4bp)$);}
+\newcommand\MT[4]{\TL{#1}{#2}{\fsz{#3}$#4$}}
+
+\newcommand\TDEL[6]{\MT{#1}{#2}{#3}{\left#6\vrule width0bp height#4bp depth#5bp\right.}}
+
+\newcommand\FOLIO[1]{\node[anchor=south east, draw, line width=0.5bp,
+  inner xsep=3bp, inner ysep=2bp]
+  at ($(current page.south east)+(-36bp,36bp)$) {\CMT{9.96}#1};}
+\newcommand\PLBL[3]{\node[anchor=north west, draw, line width=0.5bp,
+  inner xsep=2.5bp, inner ysep=2bp]
+  at ($(current page.north west)+(#1bp,-#2bp)$) {\BA{9.5}#3};}
+\newcommand\CIRC[4]{\draw[line width=0.7bp]
+  ($(current page.north west)+(#1bp,-#2bp)$) ellipse [x radius=#3bp, y radius=#4bp];}
+\newcommand\DLINE[5]{\draw[line width=#5bp]
+  ($(current page.north west)+(#1bp,-#2bp)$) --
+  ($(current page.north west)+(#3bp,-#4bp)$);}
+
+\newenvironment{pdfpage}{\mbox{}\begin{tikzpicture}[remember picture,overlay]}%
+{\end{tikzpicture}\clearpage}
+\newcommand\worksheet[1]{\begin{pdfpage}\input{sheets/ws#1.tex}\FOLIO{#1}\end{pdfpage}}
