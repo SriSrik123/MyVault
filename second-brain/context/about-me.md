@@ -7,7 +7,7 @@
 - **Citizenship:** American with Indian OCI status
 - **Hometown:** West Windsor Township, New Jersey
 - **Current residence:** Philadelphia, Pennsylvania (since September 2024)
-- **University affiliation:** Drexel University, Class of 2029 (Computer Science)
+- **University affiliation:** Drexel University, Class of 2028, graduating June 2028 (Computer Science)
 
 ## Personal Snapshot
 - Computer Science student, national-level swimmer, and AI/ML-focused builder.

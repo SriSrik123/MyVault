@@ -17,7 +17,7 @@ Compiled 2026-10-01 from Sri's Claude memory plus his Obsidian vault (MyVault): 
 | Hometown | West Windsor Township / Princeton Junction, NJ |
 | Lives | Philadelphia, PA (since Sept 2024) |
 | School | Drexel University, B.S. Computer Science, minor in Finance, 5-year co-op track |
-| Class year | Resume says est. graduation June 2028. Vault context files and the Coinbase letter say Class of 2029. Memory says 2028. (See conflicts.) |
+| Class year | **June 2028** (confirmed by Sri 2026-10-12). Earlier "Class of 2029" references were wrong. |
 | High school | West Windsor-Plainsboro High School North |
 | Emails | hellosri2006@gmail.com (main account), Srinarayan.Srikanth@gmail.com (resume, housing, applications) |
 | Links | github.com/SriSrik123 , srisrikanth.com , hackerrank.com/profile/hellosri2006 , LinkedIn (two different URLs appear: /in/srinarayansrikanth and /in/srinarayan-srikanth-bb2750259) |
@@ -278,7 +278,7 @@ The soul note describes Sri as an optimizer, a builder, a competitor and a conne
 ## 15. Conflicts, gaps and housekeeping
 
 **Conflicts in the data**
-1. Class year: 2028 (resume, memory) versus 2029 (vault context, portfolio, Coinbase letter). The 5-year co-op track makes 2029 plausible for the degree and June 2028 plausible for "estimated graduation" on the resume. Worth deciding on one.
+1. Class year: RESOLVED 2026-10-12, Sri confirmed June 2028.
 2. Comcast role: resume and portfolio say AI Strategy; April 2026 notes say a switch to ML Engineering on May 1; the July offer letter says AI Strategy & Transformation again.
 3. Age: vault says 19 (written in April); he is 20 now.
 4. Ironman date: `athletic-goals.md` still says 70.3 in July 2027; everything else says Sept 26, 2026.

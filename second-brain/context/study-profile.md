@@ -1,7 +1,7 @@
 # Study Profile
 
 ## Who I Am (Academic)
-- **Name:** Sri Srikanth · Drexel University, CS (Class of 2029)
+- **Name:** Sri Srikanth · Drexel University, CS (Class of 2028, graduating June 2028)
 - **Year:** Sophomore (Spring 2026)
 - **Current workload:** 6 courses simultaneously — see [[semester-spring-2026]]
 

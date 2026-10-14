@@ -1,7 +1,7 @@
 # Education & Career
 
 ## Academic Path
-- **Drexel University** — B.S. in Computer Science (Class of 2029)
+- **Drexel University** — B.S. in Computer Science (Class of 2028, graduating June 2028)
   - Actively applying concepts from Allen Downey's *Think Python* (Ch. 1–9): list comprehensions, conditional logic, looping constructs, double-letter detection.
   - Interested in pairing technical depth with business acumen; previously considered Business as a second-choice major.
   - Adjusting to Philadelphia city life and a heavier academic workload while working remotely.
